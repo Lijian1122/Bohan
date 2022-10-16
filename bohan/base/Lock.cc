@@ -3,7 +3,7 @@
  * @Date: 2022-10-07 09:56:55
  * @FilePath: /Bohan/bohan/base/Lock.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-16 17:31:53
+ * @LastEditTime: 2022-10-16 21:51:35
  * @Description: srouce_code
  */
 #include "Lock.h"
@@ -55,7 +55,6 @@ AutoLock::AutoLock(CLock* pLock)
     m_pLock = pLock;
     if(!m_pLock)
         m_pLock->lock();
-
 }
 
 AutoLock::~AutoLock()
