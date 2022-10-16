@@ -1,9 +1,9 @@
 /*
  * @Author: bohan.lj
  * @Date: 2022-10-07 09:56:55
- * @FilePath: /Bohan/bohan/base/Loch.cc
+ * @FilePath: /Bohan/bohan/base/Lock.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-07 11:58:16
+ * @LastEditTime: 2022-10-16 17:31:53
  * @Description: srouce_code
  */
 #include "Lock.h"
@@ -44,45 +44,23 @@ void CLock::unlock()
 #endif
 }
 
-
-GuardLock::GuardLock()
+#ifndef _WIN32
+bool CLock::try_lock()
 {
+     return pthread_mutex_trylock(&m_lock) == 0;
+}
+#endif
+AutoLock::AutoLock(CLock* pLock)
+{
+    m_pLock = pLock;
+    if(!m_pLock)
+        m_pLock->lock();
 
 }
-GuardLock::~GuardLock()
-{
 
-}
-void GuardLock::lock()
+AutoLock::~AutoLock()
 {
-    std::lock_guard<std::mutex> lock(m_mutex);
+    if(!m_pLock)
+        m_pLock->unlock();
 }
-
-
-UniqueLock::UniqueLock()
-{
-    m_unique_lock = std::unique_lock<std::mutex>(mutex);
-}
-UniqueLock::~UniqueLock()
-{
-
-}
-void UniqueLock::lock()
-{
-    m_unique_lock.lock();
-}
-void UniqueLock::unlock()
-{
-    m_unique_lock.unlock();
-} 
-
-bool UniqueLock::haslock()
-{
-    return m_unique_lock.owns_lock();
-}
-
- std::unique_lock<std::mutex> &UniqueLock::getlock()
- {
-    return m_unique_lock;
- }
 }

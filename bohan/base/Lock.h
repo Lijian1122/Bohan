@@ -3,7 +3,7 @@
  * @Date: 2022-10-07 09:56:23
  * @FilePath: /Bohan/bohan/base/Lock.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-07 23:47:49
+ * @LastEditTime: 2022-10-16 17:45:56
  * @Description: lock
  */
 
@@ -24,6 +24,10 @@ class CLock{
         virtual ~CLock();
         void lock();
         void unlock();
+    #ifndef _WIN32
+        pthread_mutex_t& getMutex() { return m_lock;}
+        bool try_lock();
+    #endif
     private:
     #ifdef __WIN32
         CRITICAL_SECTION m_critical_section;
@@ -31,31 +35,16 @@ class CLock{
         pthread_mutex_t m_lock;
     #endif        
 };
-
-//C++11 fengzhuang
-
-//std::Gurad_lock
-class GuardLock{
-    public:
-        GuardLock();
-        virtual ~GuardLock();
-        void lock();
-    private:
-        std::mutex m_mutex;
+class AutoLock
+{
+public:
+    AutoLock(CLock* pLock);
+    virtual ~AutoLock();
+private:
+    CLock* m_pLock;
 };
 
-//std::unique_lock
-class UniqueLock{
-    public:
-        UniqueLock();
-        virtual ~UniqueLock();
-        void lock();
-        void unlock();
-        bool haslock();
-        std::unique_lock<std::mutex> &getlock();
-    private:
-        std::mutex mutex;
-        std::unique_lock<std::mutex> m_unique_lock;
-};
+
+
 }
 #endif

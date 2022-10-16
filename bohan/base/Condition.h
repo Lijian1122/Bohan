@@ -3,7 +3,7 @@
  * @Date: 2022-10-07 12:00:10
  * @FilePath: /Bohan/bohan/base/Condition.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-07 22:13:09
+ * @LastEditTime: 2022-10-16 17:44:41
  * @Description: condition
  */
 
@@ -22,14 +22,18 @@ namespace bohan
 class Condition
 {
 public:
-    Condition();
-    void wait(UniqueLock &lock);
+    Condition(CLock *lock);
+    void wait();
     void notify();
     void notifyAll();
-    void waitTime(UniqueLock &lock,uint64_t nWaitTime); //毫秒
+    bool waitTime(uint64_t nWaitTime); //毫秒
     ~Condition();
 private:
-    std::condition_variable m_condition;
+    CLock* m_pLock;
+    #ifdef _MSC_VER
+    #else
+    pthread_cond_t m_cond;
+    #endif 
 }; 
 }
 
