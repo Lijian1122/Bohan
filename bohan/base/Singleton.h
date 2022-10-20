@@ -3,7 +3,7 @@
  * @Date: 2022-10-16 21:52:04
  * @FilePath: /Bohan/bohan/base/Singleton.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-16 22:42:24
+ * @LastEditTime: 2022-10-20 22:28:58
  * @Description: 线程安全的单例模式设置
  */
 #include "os_type.h"
@@ -18,10 +18,8 @@ template<typename Class>
 class Singleton : Copyable
 {
 public:
-    //禁用拷贝构造函数
-    Singleton(const Singleton&) = delete;
-    //禁用赋值函数
-    Singleton& operator=(const Singleton&) = delete;
+   Singleton() = delete;
+   ~Singleton() = delete;
 
     static Class *Instance();
     static void  Destroy();
