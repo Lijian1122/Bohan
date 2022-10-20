@@ -3,7 +3,7 @@
  * @Date: 2022-10-16 22:55:31
  * @FilePath: /Bohan/bohan/base/Timer.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-17 00:08:07
+ * @LastEditTime: 2022-10-20 22:20:28
  * @Description: srouce_code
  */
 #include "Timer.h"
@@ -69,7 +69,7 @@ void Timer::StartLoop()
     });
 }
 
-void Timer::Cancel(int timerId)
+void Timer::Cancel(TimerId timerId)
 {
     if(m_state_map.haskey(timerId))
     {
@@ -78,7 +78,7 @@ void Timer::Cancel(int timerId)
 }
 
 template <typename F, typename... Args>
-int Timer::AddPeriodTimer(int ms_time, F&& f, Args&&... args)
+TimerId Timer::AddPeriodTimer(int ms_time, F&& f, Args&&... args)
 {       
     TimerEntity timer;
     timer.timer_id = m_tm_id.fetch_add(1);
@@ -94,7 +94,7 @@ int Timer::AddPeriodTimer(int ms_time, F&& f, Args&&... args)
 }
 
 template <typename F, typename... Args>
-int Timer::AddRepeatedTimer(int ms_time, int repeated_num, F&& f, Args&&... args)
+TimerId Timer::AddRepeatedTimer(int ms_time, int repeated_num, F&& f, Args&&... args)
 {
     TimerEntity timer;
     timer.timer_id = m_tm_id.fetch_add(1);

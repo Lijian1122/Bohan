@@ -3,7 +3,7 @@
  * @Date: 2022-10-07 09:56:23
  * @FilePath: /Bohan/bohan/base/Lock.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-20 08:18:07
+ * @LastEditTime: 2022-10-20 22:05:47
  * @Description: lock
  */
 
@@ -43,8 +43,5 @@ public:
 private:
     CLock* m_pLock;
 };
-
-
-
 }
 #endif

@@ -3,7 +3,7 @@
  * @Date: 2022-10-16 22:54:36
  * @FilePath: /Bohan/bohan/base/Timer.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-17 00:09:15
+ * @LastEditTime: 2022-10-20 22:19:36
  * @Description: srouce_code
  */
 #ifndef BOHAN_BASE_TIMER_H
@@ -23,6 +23,7 @@
 #include "HashMap.h"
 
 #define DEFAULT_TIMER_THREAD_POOL_SIZE 1
+typedef uint32_t TimerId;
 
 namespace bohan{
 typedef struct TimerEntity
@@ -30,7 +31,7 @@ typedef struct TimerEntity
     chrono::time_point<chrono::high_resolution_clock> tm_point;
     std::function<void()> callback;
     int repeated_id{0}; 
-    int timer_id{0};   //定时器ID
+    TimerId timer_id{0};   //定时器ID
     int repeated_num{0}; //重复次数
     bool is_period{false};
     bool is_repeated{false};
@@ -48,13 +49,13 @@ public:
     Timer(int threadnumn = DEFAULT_TIMER_THREAD_POOL_SIZE);
     ~Timer();
     void StartLoop();
-    void Cancel(int timerId);
+    void Cancel(TimerId timerId);
 
     template <typename F, typename... Args>
-    int AddPeriodTimer(int ms_time, F&& f, Args&&... args);
+    TimerId AddPeriodTimer(int ms_time, F&& f, Args&&... args);
 
     template <typename F, typename... Args>
-    int AddRepeatedTimer(int ms_time, int repeated_num, F&& f, Args&&... args);
+    TimerId AddRepeatedTimer(int ms_time, int repeated_num, F&& f, Args&&... args);
 
 private:
     std::priority_queue<TimerEntity> m_timer_queue;
@@ -64,8 +65,8 @@ private:
     std::thread m_timer_thread;
 
     ThreadPool *m_thread_pool;
-    std::atomic<int> m_tm_id;
-    Hash_Map<int, TimerState> m_state_map;
+    std::atomic<uint32_t> m_tm_id;
+    Hash_Map<TimerId, TimerState> m_state_map;
 };
 }
 
