@@ -3,7 +3,7 @@
  * @Date: 2022-10-20 22:35:00
  * @FilePath: /Bohan/bohan/base/ThreadPoolTaskSize.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-20 23:51:37
+ * @LastEditTime: 2022-10-21 08:34:00
  * @Description: srouce_code
  */
 #include "ThreadPoolTaskSize.h"
@@ -36,12 +36,9 @@ void ThreadPoolTaskSize::Start()
     m_threads.reserve(m_thread_num);
     for(int i  = 0; i < m_thread_num ; i++)
     {
-        char id[32];
-        snprintf(id, sizeof(id), "_%d", i+1);
-
-        //std::thread thread(std::bind(&ThreadPoolTaskSize::Run, this));
-
-        m_threads.emplace_back(std::thread(std::bind(&ThreadPoolTaskSize::Run, this)));
+        // char id[32];
+        // snprintf(id, sizeof(id), "_%d", i+1);
+        m_threads.emplace_back(std::thread(&ThreadPoolTaskSize::Run, this));
     }
 }
 void ThreadPoolTaskSize::Stop()
@@ -80,7 +77,7 @@ void ThreadPoolTaskSize::Push(Task task)
         }
         assert(!IsFull());
         m_tasks.push_back(std::move(task));
-        m_notFull_con.notify_one();
+        m_notEmpty_con.notify_one();
     }
 }
 void ThreadPoolTaskSize::Run()
