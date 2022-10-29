@@ -3,8 +3,8 @@
  * @Date: 2022-10-16 10:07:41
  * @FilePath: /Bohan/bohan/base/HashMap.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-16 10:48:38
- * @Description: 线程安全的hash_map 封装
+ * @LastEditTime: 2022-10-29 19:27:05
+ * @Description: 线程安全的hash_map封装
  */
 #ifndef BOHAN_BASE_HASHMAP_H
 #define BOHAN_BASE_HASHMAP_H
@@ -19,7 +19,7 @@ template<typename K,typename V>
 class Hash_Map
 {
 public:
-    Hash_Map(bool threadsafe = true);
+    Hash_Map(bool threadsafe = false);
     ~Hash_Map();
     void emplace(const K& key, const V& v);
     void emplace(const K& key, const V&& v);  //右值引用

@@ -3,7 +3,7 @@
  * @Date: 2022-10-07 11:07:34
  * @FilePath: /Bohan/bohan/base/os_type.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-07 21:51:30
+ * @LastEditTime: 2022-10-29 22:24:37
  * @Description: os dependant type definition
  */
 
@@ -23,6 +23,7 @@
         #include <sys/syscall.h>	// syscall(SYS_gettid)
     #else
         #include <sys/epoll.h>
+        #include <sys/time.h>
     #endif
     #include <pthread.h>
     #include <sys/types.h>
