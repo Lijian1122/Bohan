@@ -15,9 +15,19 @@ ${PROJECT_SOURCE_DIR}/../base
 #并将名称保存到 LIB_SRC 变量
 aux_source_directory(./ LIB_SRC)
 
-
 #三方库lib和头文件
 LINK_DIRECTORIES(${PROJECT_BINARY_DIR}/../libs)
+
+#三方库lib和头文件
+if(APPLE)
+    SET(SPD_LOG_DIR ${PROJECT_SOURCE_DIR}/../base/spdlog/lib/mac)
+elseif(UNIX)
+    SET(SPD_LOG_DIR ${PROJECT_SOURCE_DIR}/../base/spdlog/lib/linux)
+elseif(WIN32)
+    SET(SPD_LOG_DIR ${PROJECT_SOURCE_DIR}/../base/spdlog/lib/win32)
+endif()
+
+LINK_DIRECTORIES(${SPD_LOG_DIR})
 
 # 设置可执行文件生成路径
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../libs) 
@@ -29,6 +39,6 @@ SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -std=c++17 -fPIC  -Wno-write
 #其他系统库
 ADD_LIBRARY(net SHARED ${LIB_SRC})
 
-target_link_libraries(net  base)
+target_link_libraries(net base)
 
 

@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 20:11:36
  * @FilePath: /Bohan/bohan/net/EventDispatch.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-29 22:59:21
+ * @LastEditTime: 2022-10-30 10:23:24
  * @Description: socket event dispatch
  */
 
@@ -21,6 +21,7 @@ enum NetEvent{
 	NET_READ,
 	NET_WRITE,
 	NET_CLOSE,
+	NET_CONFIRM,
     NET_TIMER,
     NET_LOOP
 };
@@ -56,7 +57,7 @@ public:
 	void StartDispatch(uint32_t wait_timeout = 100);
     void StopDispatch();
     
-    bool isRunning() {return running;}
+    bool isRunning() {return is_running;}
     ~EventDispatch();
 private:
     EventDispatch();

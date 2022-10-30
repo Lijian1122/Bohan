@@ -3,12 +3,13 @@
  * @Date: 2022-10-29 18:25:22
  * @FilePath: /Bohan/bohan/net/BaseSocket.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-29 21:40:56
+ * @LastEditTime: 2022-10-30 10:22:56
  * @Description: srouce_code
  */
 #include "BaseSocket.h"
 #include "assert.h"
-#include "BEventDispatch.h"
+#include "EventDispatch.h"
+#include <memory.h>
 
 namespace bohan
 {
@@ -34,7 +35,6 @@ BaseSocket* FindBaseSocket(socket_handle sh)
     g_socket_map.getvalue(sh,socket);
     return socket;
 }
-
 
 //base socket
 BaseSocket::BaseSocket()
@@ -86,44 +86,134 @@ SocketError BaseSocket::Listen(const char*	server_ip, uint32_t port, callback_fu
 	m_state = SocketState::LISTENING;
 
 	AddBaseSocket(this);
-	//CEventDispatch::Instance()->AddEvent(m_socket, SOCKET_READ | SOCKET_EXCEP);
-    EventDispatchMgr->Instance()->AddEvent(m_socket, SOCKET_READ | SOCKET_EXCEP);
+    EventDispatchMgr::Instance()->AddEvent(m_socket, SocketEvent::SOCKET_READ | SocketEvent::SOCKET_EXCEP);
 	return SocketError::NO_ERROR;
 }
 socket_handle BaseSocket::Connect(const char *server_ip, uint32_t port,callback_fun	callback,void *callback_data)
 {
+    printf("CBaseSocket::Connect, server_ip=%s, port=%d", server_ip, port);
+	m_remote_ip = server_ip;
+	m_remote_port = port;
+	m_callback = callback;
+	m_callback_data = callback_data;
 
+	m_socket = socket(AF_INET, SOCK_STREAM, 0);
+	if (m_socket == INVALID_SOCKET)
+	{
+		printf("socket failed, err_code=%d", GetErrorCode());
+		return NETLIB_INVALID_HANDLE;
+	}
+
+	SetNonblock(m_socket);
+	SetNoDelay(m_socket);
+	sockaddr_in serv_addr;
+	SetAddr(server_ip, port, &serv_addr);
+	int ret = connect(m_socket, (sockaddr*)&serv_addr, sizeof(serv_addr));
+	if ((ret == SOCKET_ERROR) && (!IsBlock(GetErrorCode())))
+	{	
+		printf("connect failed, err_code=%d", GetErrorCode());
+		closesocket(m_socket);
+		return NETLIB_INVALID_HANDLE;
+	}
+	m_state = SocketState::CONNECTING;
+	AddBaseSocket(this);
+	EventDispatchMgr::Instance()->AddEvent(m_socket, SocketEvent::SOCKET_ALL);
+	return m_socket;
 }
 int BaseSocket::Send(void* buf, int len)
 {
+    if (m_state != SocketState::CONNECTED)
+		return SocketError::SEND_ERROR;
 
+	int ret = send(m_socket, (char*)buf, len, 0);
+	if (ret == SOCKET_ERROR)
+	{
+		int err_code = GetErrorCode();
+		if (IsBlock(err_code))
+		{
+#if ((defined _WIN32) || (defined __APPLE__))
+			EventDispatchMgr::Instance()->AddEvent(m_socket, SocketEvent::SOCKET_WRITE);
+#endif
+			ret = 0;
+		}
+		else
+		{
+			printf("!!!send failed, error code: %d", err_code);
+		}
+	}
+	return ret;
 }
 int BaseSocket::Recv(void* buf, int len)
 {
-
+    return recv(m_socket, (char*)buf, len, 0);
 }
+
 int BaseSocket::Close()
 {
-
+    EventDispatchMgr::Instance()->RemoveEvent(m_socket, SocketEvent::SOCKET_ALL);
+	RemoveBaseSocket(this);
+	closesocket(m_socket);
+	return 0;
 }
 
 void BaseSocket::OnRead()
 {
-
+    if (m_state == SocketState::LISTENING)
+	{
+        AcceptNewSocket();
+	}
+	else
+	{
+		u_long avail = 0;
+		if ((ioctlsocket(m_socket, FIONREAD, &avail) == SOCKET_ERROR) || (avail == 0) )
+		{
+			m_callback(m_callback_data, NetEvent::NET_CLOSE, m_socket, NULL);
+		}
+		else
+		{
+			m_callback(m_callback_data, NetEvent::NET_READ, m_socket, NULL);
+		}
+	}
 }
 void BaseSocket::OnWrite()
 {
+#if ((defined _MSC_VER) || (defined __APPLE__))
+	EventDispatchMgr::Instance()->RemoveEvent(m_socket, SOCKET_WRITE);
+#endif
+	if (m_state == SocketState::CONNECTING)
+	{
+		int error = 0;
+		socklen_t len = sizeof(error);
+#ifdef _MSC_VER
+		getsockopt(m_socket, SOL_SOCKET, SO_ERROR, (char*)&error, &len);
+#else
+		getsockopt(m_socket, SOL_SOCKET, SO_ERROR, (void*)&error, &len);
+#endif
+		if (error) 
+        {
+			m_callback(m_callback_data, NetEvent::NET_CLOSE, m_socket, NULL);
 
+		}else 
+        {
+			m_state = SocketState::CONNECTED;
+			m_callback(m_callback_data, NetEvent::NET_CONFIRM, m_socket, NULL);
+		}
+	}
+	else
+	{
+		m_callback(m_callback_data, NetEvent::NET_WRITE, m_socket, NULL);
+	}
 }
 
 void BaseSocket::OnClose()
 {
-
+    m_state = SocketState::CLOSING;
+	m_callback(m_callback_data, NetEvent::NET_CLOSE, m_socket, NULL);
 }
 
-bool BaseSocket::Shutdown(SOCKET_SHUTDOWN type)
+bool BaseSocket::Shutdown(SocketShutdown type)
 {
-    
+    return (0 == shutdown(m_socket, (int)type));
 }
 
 
@@ -194,6 +284,35 @@ void BaseSocket::SetAddr(const char* ip, const uint32_t port, sockaddr_in* pAddr
 }
 void BaseSocket::AcceptNewSocket()
 {
+    printf("BaseSocket::AcceptNewSocket: %s", "OnRead New");
+	socket_handle fd = 0;
+	sockaddr_in peer_addr;
+	socklen_t addr_len = sizeof(sockaddr_in);
+	char ip_str[64];
+    fd = accept(m_socket, (sockaddr*)&peer_addr, &addr_len);
+	while((fd = accept(m_socket, (sockaddr*)&peer_addr, &addr_len)) != INVALID_SOCKET)
+	{
+		BaseSocket* socket = new BaseSocket();
 
+		uint32_t ip = ntohl(peer_addr.sin_addr.s_addr);
+		uint32_t port = ntohs(peer_addr.sin_port);
+
+		snprintf(ip_str, sizeof(ip_str), "%d.%d.%d.%d", ip >> 24, (ip >> 16) & 0xFF, (ip >> 8) & 0xFF, ip & 0xFF);
+
+		printf("Accept fd=%d from %s:%d\n", fd, ip_str, port);
+
+		socket->SetSocketHandle(fd);
+		socket->SetCallback(m_callback);
+		socket->SetCallbackData(m_callback_data);
+		socket->SetState(SocketState::CONNECTED);
+		socket->SetRemoteIP(ip_str);
+		socket->SetRemotePort(port);
+
+		SetNoDelay(fd);
+		SetNonblock(fd);
+		AddBaseSocket(socket);
+		EventDispatchMgr::Instance()->AddEvent(fd, SocketEvent::SOCKET_READ | SocketEvent::SOCKET_EXCEP);
+		m_callback(m_callback_data, NetEvent::NET_CONNECT, fd, NULL);       
+	}
 }
 }

@@ -3,10 +3,10 @@
  * @Date: 2022-10-29 20:12:10
  * @FilePath: /Bohan/bohan/net/EventDispatch.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-29 22:58:58
+ * @LastEditTime: 2022-10-30 10:28:17
  * @Description: srouce_code
  */
-#include "BEventDispatch.h"
+#include "EventDispatch.h"
 
 #define TIMER_DURATION	100	// 100 miliseconds
 
@@ -167,7 +167,7 @@ void EventDispatch::RemoveTimer(callback_fun callback, void* user_data)
     {
         if(item->callback == callback && item->user_data == user_data)
         {
-            m_timer_list.erase(item);
+            m_timer_list.remove(item);
             break;
         }
     }
@@ -317,7 +317,7 @@ void EventDispatch::StartDispatch(uint32_t wait_timeout)
         return;
     is_running = true;
     
-	while (running)
+	while (is_running)
 	{
 		nfds = epoll_wait(m_epfd, events, 1024, wait_timeout);
 		for (int i = 0; i < nfds; i++)

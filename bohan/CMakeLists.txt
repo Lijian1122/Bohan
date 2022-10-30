@@ -15,6 +15,7 @@ ${PROJECT_SOURCE_DIR}/base
 #aux_source_directory(./ LIB_SRC)
 
 add_subdirectory(base)
+add_subdirectory(net)
 
 # 设置可执行文件生成路径
 #set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib) 

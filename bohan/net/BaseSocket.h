@@ -3,10 +3,9 @@
  * @Date: 2022-10-29 18:24:21
  * @FilePath: /Bohan/bohan/net/BaseSocket.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-29 19:54:54
+ * @LastEditTime: 2022-10-30 10:25:44
  * @Description: base socket
  */
-
 
 #ifndef BOHAN_NET_BASE_SOCKET_H
 #define BOHAN_NET_BASE_SOCKET_H
@@ -33,7 +32,8 @@ enum SocketError{
 	NO_ERROR		= 0,
 	CREAET_ERROR	= 1,
     BIND_ERROR	= 2,
-    LISTEN_ERROR = 3
+    LISTEN_ERROR = 3,
+    SEND_ERROR
 };
 
 typedef void (*callback_fun)(void* data, uint8_t msg, uint32_t handle, void* param);
@@ -95,5 +95,7 @@ private:
     socket_handle m_socket;
     SocketState m_state;
 };
+
+BaseSocket* FindBaseSocket(socket_handle sh);
 }
 #endif
