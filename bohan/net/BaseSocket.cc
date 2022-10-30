@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 18:25:22
  * @FilePath: /Bohan/bohan/net/BaseSocket.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-30 10:22:56
+ * @LastEditTime: 2022-10-30 22:15:27
  * @Description: srouce_code
  */
 #include "BaseSocket.h"
@@ -101,7 +101,7 @@ socket_handle BaseSocket::Connect(const char *server_ip, uint32_t port,callback_
 	if (m_socket == INVALID_SOCKET)
 	{
 		printf("socket failed, err_code=%d", GetErrorCode());
-		return NETLIB_INVALID_HANDLE;
+		return INVALID_SOCKET_HANDLE;
 	}
 
 	SetNonblock(m_socket);
@@ -113,7 +113,7 @@ socket_handle BaseSocket::Connect(const char *server_ip, uint32_t port,callback_
 	{	
 		printf("connect failed, err_code=%d", GetErrorCode());
 		closesocket(m_socket);
-		return NETLIB_INVALID_HANDLE;
+		return INVALID_SOCKET_HANDLE;
 	}
 	m_state = SocketState::CONNECTING;
 	AddBaseSocket(this);

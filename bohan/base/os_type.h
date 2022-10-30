@@ -81,5 +81,5 @@
     const int INVALID_SOCKET = -1;
 #endif
 
-#define NETLIB_INVALID_HANDLE	-1
+#define INVALID_SOCKET_HANDLE	-1
 #endif
