@@ -3,33 +3,12 @@
  * @Date: 2022-10-29 20:12:10
  * @FilePath: /Bohan/bohan/net/EventDispatch.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-30 10:28:17
+ * @LastEditTime: 2022-11-05 23:00:32
  * @Description: srouce_code
  */
 #include "EventDispatch.h"
 
 #define TIMER_DURATION	100	// 100 miliseconds
-
-uint64_t get_current_tick()
-{
-#ifdef _MSC_VER
-	LARGE_INTEGER liCounter; 
-	LARGE_INTEGER liCurrent;
-	if (!QueryPerformanceFrequency(&liCounter))
-		return GetTickCount();
-
-	QueryPerformanceCounter(&liCurrent);
-	return (uint64_t)(liCurrent.QuadPart * 1000 / liCounter.QuadPart);
-#else
-	struct timeval tval;
-	uint64_t current_tick;
-
-	gettimeofday(&tval, NULL);
-
-	current_tick = tval.tv_sec * 1000L + tval.tv_usec / 1000L;
-	return current_tick;
-#endif
-}
 
 namespace bohan{
 EventDispatch::EventDispatch()

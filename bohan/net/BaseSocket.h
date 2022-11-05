@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 18:24:21
  * @FilePath: /Bohan/bohan/net/BaseSocket.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-30 10:25:44
+ * @LastEditTime: 2022-11-05 22:48:32
  * @Description: base socket
  */
 
@@ -11,6 +11,8 @@
 #define BOHAN_NET_BASE_SOCKET_H
 #include "os_type.h"
 #include "HashMap.h"
+
+#define SOCKET_MAX_BUF_SIZE		(128 * 1024)
 
 typedef int socket_handle;
 

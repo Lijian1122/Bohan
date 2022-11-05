@@ -3,7 +3,7 @@
  * @Date: 2022-10-07 11:07:34
  * @FilePath: /Bohan/bohan/base/os_type.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-29 22:24:37
+ * @LastEditTime: 2022-11-05 21:13:56
  * @Description: os dependant type definition
  */
 
@@ -83,3 +83,4 @@
 
 #define INVALID_SOCKET_HANDLE	-1
 #endif
+typedef unsigned char uchar_t;
