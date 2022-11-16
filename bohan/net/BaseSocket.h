@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 18:24:21
  * @FilePath: /Bohan/bohan/net/BaseSocket.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-05 22:48:32
+ * @LastEditTime: 2022-11-10 09:12:06
  * @Description: base socket
  */
 
@@ -98,6 +98,7 @@ private:
     SocketState m_state;
 };
 
+//typedef  socket_map;
 BaseSocket* FindBaseSocket(socket_handle sh);
 }
 #endif

@@ -3,7 +3,7 @@
  * @Date: 2022-10-30 21:56:49
  * @FilePath: /Bohan/bohan/net/NetOperation.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-30 22:41:30
+ * @LastEditTime: 2022-11-10 08:53:01
  * @Description: net operation
  */
 
@@ -39,7 +39,7 @@ NetOptErrorCode net_init();
 
 NetOptErrorCode net_destroy();
 
-int net_listen(const char *server_ip, uint32_t	port, callback_fun	callback, void*	callback_data);
+NetOptErrorCode net_listen(const char *server_ip, uint32_t	port, callback_fun	callback, void*	callback_data);
 
 socket_handle net_connect(const char*	server_ip,uint16_t port,callback_fun callback,void *callback_data);
 

@@ -3,30 +3,34 @@
  * @Date: 2022-10-29 18:25:22
  * @FilePath: /Bohan/bohan/net/BaseSocket.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-30 22:15:27
+ * @LastEditTime: 2022-11-16 22:48:21
  * @Description: srouce_code
  */
 #include "BaseSocket.h"
 #include "assert.h"
 #include "EventDispatch.h"
 #include <memory.h>
+#include "HashMap.h"
 
 namespace bohan
 {
-
-typedef Hash_Map<socket_handle,BaseSocket*> socket_map;
-socket_map g_socket_map;
+	
+Hash_Map<socket_handle,BaseSocket*> g_socket_map;
 
 void AddBaseSocket(BaseSocket* socket)
 {
-    assert(!socket);
-	g_socket_map.emplace(socket->GetSocketHandle(),socket);
+	if(socket)
+	{
+		g_socket_map.emplace(socket->GetSocketHandle(),socket);
+	}
 }
 
 void RemoveBaseSocket(BaseSocket* socket)
 {
-    assert(!socket);
-	g_socket_map.erase(socket->GetSocketHandle());
+    if(socket)
+	{
+		g_socket_map.erase(socket->GetSocketHandle());
+	}	
 }
 
 BaseSocket* FindBaseSocket(socket_handle sh)
@@ -215,7 +219,30 @@ bool BaseSocket::Shutdown(SocketShutdown type)
 {
     return (0 == shutdown(m_socket, (int)type));
 }
-
+void BaseSocket::SetSendBufSize(uint32_t send_size)
+{
+    int ret = setsockopt(m_socket, SOL_SOCKET, SO_SNDBUF, &send_size, 4);
+	if (ret == SOCKET_ERROR) 
+    {
+		printf("set SO_SNDBUF failed for fd=%d", m_socket);
+	}
+	socklen_t len = 4;
+	int size = 0;
+	getsockopt(m_socket, SOL_SOCKET, SO_SNDBUF, &size, &len);
+	printf("socket=%d send_buf_size=%d", m_socket, size);
+}
+void BaseSocket::SetRecvBufSize(uint32_t recv_size)
+{
+    int ret = setsockopt(m_socket, SOL_SOCKET, SO_RCVBUF, &recv_size, 4);
+	if (ret == SOCKET_ERROR) 
+    {
+		printf("set SO_RCVBUF failed for fd=%d", m_socket);
+	}
+	socklen_t len = 4;
+	int size = 0;
+	getsockopt(m_socket, SOL_SOCKET, SO_RCVBUF, &size, &len);
+	printf("socket=%d recv_buf_size=%d", m_socket, size);
+}
 
 int  BaseSocket::GetErrorCode()
 {

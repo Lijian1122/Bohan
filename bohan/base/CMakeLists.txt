@@ -30,7 +30,7 @@ LINK_DIRECTORIES(${SPD_LOG_DIR})
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../libs) 
 
 #生成debug版本
-SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -std=c++17 -fPIC  -Wno-write-strings -g -ggdb")
+SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -std=c++17  -g -ggdb")
 
 
 #其他系统库

@@ -3,7 +3,7 @@
  * @Date: 2022-10-30 21:57:00
  * @FilePath: /Bohan/bohan/net/NetOperation.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-30 22:41:40
+ * @LastEditTime: 2022-11-10 08:51:23
  * @Description: srouce_code
  */
 #include "NetOperation.h"
@@ -35,19 +35,20 @@ NetOptErrorCode net_destroy()
 	return ret;
 }
 
-int net_listen(const char *server_ip, uint32_t	port, callback_fun callback, void*	callback_data)
+NetOptErrorCode net_listen(const char *server_ip, uint32_t	port, callback_fun callback, void*	callback_data)
 {
     BaseSocket* socket = new BaseSocket();
 	if (!socket)
-		return NetOptErrorCode::NET_OPT_OK;
+		return NetOptErrorCode::NET_OPT_ERROR;
 
-	int ret =  socket->Listen(server_ip, port, callback, callback_data);
+	SocketError ret =  socket->Listen(server_ip, port, callback, callback_data);
 	if (ret != SocketError::NO_ERROR)
     {
         delete socket;
         socket = nullptr;
+		return NetOptErrorCode::NET_OPT_ERROR;
     }
-	return ret;
+	return NetOptErrorCode::NET_OPT_OK;
 }
 
 socket_handle net_connect(const char*	server_ip,uint16_t port,callback_fun callback,void *callback_data)

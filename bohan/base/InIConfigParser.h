@@ -36,8 +36,6 @@ private:
     std::map<string, string> m_config_map;
     std::string m_config_file;
 };
-
-
 }
 
 #endif

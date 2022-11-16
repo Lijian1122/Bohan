@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 20:11:36
  * @FilePath: /Bohan/bohan/net/EventDispatch.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-05 22:57:26
+ * @LastEditTime: 2022-11-11 09:10:05
  * @Description: socket event dispatch
  */
 
@@ -61,7 +61,6 @@ public:
     bool IsRunning() {return is_running;}
 	void SetRunning() { is_running = true;}
     ~EventDispatch();
-private:
     EventDispatch();
     void CheckTimer();
     void CheckLoop();

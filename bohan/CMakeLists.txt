@@ -16,14 +16,16 @@ ${PROJECT_SOURCE_DIR}/base
 
 add_subdirectory(base)
 add_subdirectory(net)
+add_subdirectory(examples)
 
 # 设置可执行文件生成路径
 #set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib) 
 
 #生成debug版本
-#SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -std=c++17 -fPIC  -Wno-write-strings -g -ggdb")
+SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -std=c++17 -fPIC  -Wno-write-strings -g -ggdb")
 
 set(LIBRARY_OUTPUT_PATH ./libs)
+set(OUTPUT_PATH     ./out) 
 
 #其他系统库
 #ADD_LIBRARY(base SHARED ${LIB_SRC})
