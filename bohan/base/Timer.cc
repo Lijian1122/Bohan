@@ -3,7 +3,7 @@
  * @Date: 2022-10-16 22:55:31
  * @FilePath: /Bohan/bohan/base/Timer.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-11 09:15:28
+ * @LastEditTime: 2022-11-17 08:10:26
  * @Description: srouce_code
  */
 #include "Timer.h"
@@ -63,7 +63,7 @@ void Timer::StartLoop()
                     m_timer_queue.push(task);
                 }
                 lock.unlock();
-                //m_thread_pool->addTask(move(task.callback));
+                m_thread_pool->addTask(move(task.callback));
             }
         }
     });
