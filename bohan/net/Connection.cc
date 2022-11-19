@@ -3,7 +3,7 @@
  * @Date: 2022-11-05 20:32:00
  * @FilePath: /Bohan/bohan/net/Connection.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-05 23:05:42
+ * @LastEditTime: 2022-11-19 12:21:36
  * @Description: srouce_code
  */
 #include "Connection.h"
@@ -64,6 +64,12 @@ Connection::Connection()
     m_last_send_tick = m_last_recv_tick = get_current_tick();
 }
 
+
+socket_handle Connection::Connect(const char* server_ip, uint16_t server_port,callback_fun callback,void *callback_data)
+{
+	m_handle = net_connect(server_ip, server_port,callback,callback_data);
+	return m_handle;
+}
 
 int Connection::Send(void *data ,int size)
 {

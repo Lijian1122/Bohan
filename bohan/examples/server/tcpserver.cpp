@@ -1,9 +1,9 @@
 /*
  * @Author: bohan.lj
  * @Date: 2022-11-06 10:53:07
- * @FilePath: /Bohan/bohan/examples/tcpserver.cpp
+ * @FilePath: /Bohan/bohan/examples/server/tcpserver.cpp
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-16 22:35:01
+ * @LastEditTime: 2022-11-19 12:30:15
  * @Description: srouce_code
  */
 #include "net/Connection.h"
@@ -15,6 +15,7 @@ void serv_callback(void* callback_data, uint8_t msg, uint32_t handle, void* pPar
 {
 	if (msg == NetEvent::NET_CONNECT)
 	{
+		printf("new connection comming...\n");
 		Connection* pConn = new Connection();
 		pConn->OnConnect(handle);
 	}
@@ -26,10 +27,6 @@ void serv_callback(void* callback_data, uint8_t msg, uint32_t handle, void* pPar
 
 int main()
 {
-	// int a = 10;
-	// int b = 20;
-	// int c =  a+b;
-	// return c;
     NetOptErrorCode ret = net_init();
     if (ret == NetOptErrorCode::NET_OPT_ERROR)
 		return (int)ret;

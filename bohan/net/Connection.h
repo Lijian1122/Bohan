@@ -3,7 +3,7 @@
  * @Date: 2022-10-30 23:12:56
  * @FilePath: /Bohan/bohan/net/Connection.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-05 22:58:25
+ * @LastEditTime: 2022-11-19 12:21:07
  * @Description: srouce_code
  */
 
@@ -28,7 +28,7 @@ class Connection
 public:
     Connection();
     virtual ~Connection();
-
+    virtual socket_handle Connect(const char* server_ip, uint16_t server_port,callback_fun callback,void *callback_data); 
     virtual int Send(void *data ,int size);
     virtual void OnConnect(socket_handle handle){m_handle = handle;}
     virtual void OnRead();
