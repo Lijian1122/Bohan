@@ -3,7 +3,7 @@
  * @Date: 2022-11-05 20:32:00
  * @FilePath: /Bohan/bohan/net/Connection.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-19 12:21:36
+ * @LastEditTime: 2022-11-20 13:31:42
  * @Description: srouce_code
  */
 #include "Connection.h"
@@ -12,9 +12,11 @@
 namespace bohan
 {
 
-static ConnectionPtr FindImConn(ConnMap_t* imconn_map, socket_handle handle)
+static ConnMap_t g_conn_map;
+
+Connection *FindImConn(ConnMap_t* imconn_map, socket_handle handle)
 {
-	ConnectionPtr conn;
+	Connection *conn;
 	ConnMap_t::iterator iter = imconn_map->find(handle);
 	if (iter != imconn_map->end())
 	{
@@ -23,7 +25,8 @@ static ConnectionPtr FindImConn(ConnMap_t* imconn_map, socket_handle handle)
 	return conn;
 }
 
-
+bool send = true;
+bool is_server  =true;
 void conn_callback(void* callback_data, NetEvent event, socket_handle handle, void* pParam)
 {
     if (!callback_data)
@@ -31,25 +34,29 @@ void conn_callback(void* callback_data, NetEvent event, socket_handle handle, vo
         return;
     }
 	ConnMap_t* conn_map = (ConnMap_t*)callback_data;
-	ConnectionPtr conn = FindImConn(conn_map, handle);
-	if (!conn.get())
+	Connection *conn = FindImConn(conn_map, handle);
+
+	printf("msg=%d, handle=%d\n", event, handle);
+	std::string data;
+
+	if (!conn)
     {
         return;
     }
 	switch (event)
 	{
 	case NetEvent::NET_CONFIRM:
-		 //pConn->OnConfirm();
-		break;
+		 conn->OnConnected();
+		 break;
 	case NetEvent::NET_READ:
-		conn->OnRead();
-		break;
+		 conn->OnRead();
+		 break;
 	case NetEvent::NET_WRITE:
-		conn->OnWrite();
-		break;
+		 conn->OnWrite();
+		 break;
 	case NetEvent::NET_CLOSE:
-		conn->OnClose();
-		break;
+		 conn->OnClose();
+		 break;
 	default:
 		break;
 	}
@@ -65,10 +72,49 @@ Connection::Connection()
 }
 
 
-socket_handle Connection::Connect(const char* server_ip, uint16_t server_port,callback_fun callback,void *callback_data)
+socket_handle Connection::Connect(const char* server_ip, uint16_t server_port)
 {
-	m_handle = net_connect(server_ip, server_port,callback,callback_data);
+	is_server = false;
+	m_handle = net_connect(server_ip, server_port,conn_callback,(void*)&g_conn_map);
+	g_conn_map.insert(make_pair(m_handle, this));
+	net_option(m_handle, OPT_GET_REMOTE_IP, (void*)&m_remote_ip);
+	net_option(m_handle, OPT_GET_REMOTE_PORT, (void*)&m_remote_port);
 	return m_handle;
+}
+void Connection::OnNewConn(socket_handle handle)
+{
+	m_handle = handle;
+	g_conn_map.insert(make_pair(handle, this));
+    
+	net_option(handle, OPT_SET_CALLBACK_FUN, (void*)conn_callback);
+	net_option(handle, OPT_SET_CALLBACK_DATA, (void*)&g_conn_map);
+	net_option(handle, OPT_GET_REMOTE_IP, (void*)&m_remote_ip);
+	net_option(handle, OPT_GET_REMOTE_PORT, (void*)&m_remote_port);
+	printf("connect from %s:%d, handle=%d\n", m_remote_ip.c_str(), m_remote_port, m_handle);
+}
+
+void Connection::OnConnected()
+{
+    printf("connect to login server success handle=%d\n",  m_handle);
+	//test
+	if(IS_DEBUG_MODE)
+	{
+		if(send && !is_server)
+		{
+			std::string data = "Hello server, I m client!!!";
+		    Send((void*)data.c_str(),data.size());
+			send = false;
+		}
+	}
+}
+
+void Connection::Close()
+{
+	if (m_handle != INVALID_SOCKET) {
+		net_close(m_handle);
+		g_conn_map.erase(m_handle);
+		m_handle = INVALID_SOCKET;
+	}
 }
 
 int Connection::Send(void *data ,int size)
@@ -128,6 +174,19 @@ void Connection::OnRead()
 		m_reve_size += ret;
 		m_recv_buf.IncWriteOffset(ret);
 		m_last_recv_tick = get_current_tick();
+		std::string data((char*)m_recv_buf.GetBuffer());
+		printf("OnRead ReciveData=%s\n", data.c_str());
+
+        //test
+		if(IS_DEBUG_MODE)
+		{
+			if(send && is_server)
+			{
+				data = "Hello clent, I m server!!!";
+		    	Send((void*)data.c_str(),data.size());
+				send = false;
+			}
+		}	
 	}
 }
 void Connection::OnWrite()
@@ -160,7 +219,13 @@ void Connection::OnWrite()
 
 void Connection::OnClose()
 {
-
+	printf("close connction handle=%d\n",  m_handle);
+	if (m_handle != INVALID_SOCKET) {
+		net_close(m_handle);
+		g_conn_map.erase(m_handle);
+		m_handle = INVALID_SOCKET;
+		printf("close connction success\n");
+	}
 }
 void Connection::OnTimer(uint64_t curTime)
 {

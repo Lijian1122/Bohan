@@ -3,7 +3,7 @@
  * @Date: 2022-10-30 23:12:56
  * @FilePath: /Bohan/bohan/net/Connection.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-19 12:21:07
+ * @LastEditTime: 2022-11-20 13:07:03
  * @Description: srouce_code
  */
 
@@ -21,6 +21,8 @@
 
 #define READ_BUF_SIZE	2048
 
+#define IS_DEBUG_MODE  1
+
 namespace bohan{
 
 class Connection
@@ -28,9 +30,13 @@ class Connection
 public:
     Connection();
     virtual ~Connection();
-    virtual socket_handle Connect(const char* server_ip, uint16_t server_port,callback_fun callback,void *callback_data); 
+    virtual socket_handle Connect(const char* server_ip, uint16_t server_port); 
     virtual int Send(void *data ,int size);
-    virtual void OnConnect(socket_handle handle){m_handle = handle;}
+    virtual void Close();
+    //sever new client
+    virtual void OnNewConn(socket_handle handle);//server
+    //client connected
+    virtual void OnConnected(); 
     virtual void OnRead();
     virtual void OnWrite();
     virtual void OnClose();
@@ -38,6 +44,9 @@ public:
     virtual void OnRevice(void *data ,int size);
 private:
     socket_handle m_handle;
+
+    std::string m_remote_ip;
+    uint32_t m_remote_port;
 
     SimpleBuffer	m_recv_buf;
 	SimpleBuffer	m_send_buf;
@@ -49,8 +58,10 @@ private:
 };
 
 typedef std::shared_ptr<Connection> ConnectionPtr;
-typedef hash_map<socket_handle, ConnectionPtr> ConnMap_t;
+typedef hash_map<socket_handle, Connection*> ConnMap_t;
 
 void conn_callback(void* callback_data, NetEvent event, socket_handle handle, void* pParam);
+
+Connection *FindImConn(ConnMap_t* imconn_map, socket_handle handle);
 }
 #endif

@@ -3,7 +3,7 @@
  * @Date: 2022-11-05 21:10:35
  * @FilePath: /Bohan/bohan/base/SimpleBuffer.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-05 21:44:28
+ * @LastEditTime: 2022-11-19 23:18:51
  * @Description: srouce_code
  */
 #include "SimpleBuffer.h"
@@ -46,6 +46,8 @@ uint32_t SimpleBuffer::Write(void* buf, uint32_t len)
         memcpy(m_buffer + m_write_offset,buf, len);
     }
     m_write_offset += len;
+    std::string  sendBuffer((char*)m_buffer);
+    printf("send %s\n",sendBuffer.c_str());
     return len;
 }
 uint32_t SimpleBuffer::Read(void* buf, uint32_t len)
@@ -60,6 +62,8 @@ uint32_t SimpleBuffer::Read(void* buf, uint32_t len)
     }
     m_write_offset -= len;
     memmove(m_buffer, m_buffer + len, m_write_offset); //剩余的内存拷贝到m_buffer位置
+    std::string  recvBuffer((char*)m_buffer);
+    printf("Read %s\n",recvBuffer.c_str());
     return len;
 }
 }

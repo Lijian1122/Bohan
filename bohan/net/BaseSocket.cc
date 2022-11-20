@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 18:25:22
  * @FilePath: /Bohan/bohan/net/BaseSocket.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-16 22:48:21
+ * @LastEditTime: 2022-11-20 13:27:45
  * @Description: srouce_code
  */
 #include "BaseSocket.h"
@@ -95,7 +95,7 @@ SocketError BaseSocket::Listen(const char*	server_ip, uint32_t port, callback_fu
 }
 socket_handle BaseSocket::Connect(const char *server_ip, uint32_t port,callback_fun	callback,void *callback_data)
 {
-    printf("CBaseSocket::Connect, server_ip=%s, port=%d", server_ip, port);
+    printf("CBaseSocket::Connect, server_ip=%s, port=%d\n", server_ip, port);
 	m_remote_ip = server_ip;
 	m_remote_port = port;
 	m_callback = callback;
@@ -157,6 +157,7 @@ int BaseSocket::Close()
     EventDispatchMgr::Instance()->RemoveEvent(m_socket, SocketEvent::SOCKET_ALL);
 	RemoveBaseSocket(this);
 	closesocket(m_socket);
+	m_state = SocketState::CLOSING;
 	return 0;
 }
 
@@ -175,7 +176,10 @@ void BaseSocket::OnRead()
 		}
 		else
 		{
-			m_callback(m_callback_data, NetEvent::NET_READ, m_socket, NULL);
+			if(m_state != SocketState::CLOSING)
+			{
+				m_callback(m_callback_data, NetEvent::NET_READ, m_socket, NULL);
+			}
 		}
 	}
 }
@@ -205,14 +209,20 @@ void BaseSocket::OnWrite()
 	}
 	else
 	{
-		m_callback(m_callback_data, NetEvent::NET_WRITE, m_socket, NULL);
+		if(m_state != SocketState::CLOSING)
+		{
+			m_callback(m_callback_data, NetEvent::NET_WRITE, m_socket, NULL);
+		}
 	}
 }
 
 void BaseSocket::OnClose()
 {
-    m_state = SocketState::CLOSING;
-	m_callback(m_callback_data, NetEvent::NET_CLOSE, m_socket, NULL);
+	if(m_state != SocketState::CLOSING)
+	{
+	    m_state = SocketState::CLOSING;
+		m_callback(m_callback_data, NetEvent::NET_CLOSE, m_socket, NULL);
+	}  
 }
 
 bool BaseSocket::Shutdown(SocketShutdown type)
@@ -311,12 +321,11 @@ void BaseSocket::SetAddr(const char* ip, const uint32_t port, sockaddr_in* pAddr
 }
 void BaseSocket::AcceptNewSocket()
 {
-    printf("BaseSocket::AcceptNewSocket: %s", "OnRead New");
+    printf("BaseSocket::AcceptNewSocket: %s\n", "OnRead New Client");
 	socket_handle fd = 0;
 	sockaddr_in peer_addr;
 	socklen_t addr_len = sizeof(sockaddr_in);
 	char ip_str[64];
-    fd = accept(m_socket, (sockaddr*)&peer_addr, &addr_len);
 	while((fd = accept(m_socket, (sockaddr*)&peer_addr, &addr_len)) != INVALID_SOCKET)
 	{
 		BaseSocket* socket = new BaseSocket();

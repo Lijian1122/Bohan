@@ -51,7 +51,7 @@ NetOptErrorCode net_listen(const char *server_ip, uint32_t	port, callback_fun ca
 	return NetOptErrorCode::NET_OPT_OK;
 }
 
-socket_handle net_connect(const char*	server_ip,uint16_t port,callback_fun callback,void *callback_data)
+socket_handle net_connect(const char*server_ip,uint16_t port,callback_fun callback,void *callback_data)
 {
     BaseSocket* socket = new BaseSocket();
 	if (!socket)

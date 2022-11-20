@@ -3,25 +3,23 @@
  * @Date: 2022-11-06 10:53:07
  * @FilePath: /Bohan/bohan/examples/server/tcpserver.cpp
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-19 12:30:15
+ * @LastEditTime: 2022-11-20 13:34:08
  * @Description: srouce_code
  */
 #include "net/Connection.h"
 #include "net/NetOperation.h"
+#include <memory>
 
 using namespace bohan;
 
-void serv_callback(void* callback_data, uint8_t msg, uint32_t handle, void* pParam)
+void serv_callback(void* callback_data, NetEvent msg, socket_handle handle, void* pParam)
 {
+	printf("serv_callback msgType:%d\n",msg);
 	if (msg == NetEvent::NET_CONNECT)
 	{
 		printf("new connection comming...\n");
-		Connection* pConn = new Connection();
-		pConn->OnConnect(handle);
-	}
-	else
-	{
-		printf("!!!error msg: %d ", msg);
+		Connection *conn = new Connection();
+		conn->OnNewConn(handle);
 	}
 }
 
@@ -38,8 +36,6 @@ int main()
     }
 
 	printf("now enter the event loop...\n");
-    
-    //writePid();
 
 	net_eventloop();
 

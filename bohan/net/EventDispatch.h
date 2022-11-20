@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 20:11:36
  * @FilePath: /Bohan/bohan/net/EventDispatch.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-11 09:10:05
+ * @LastEditTime: 2022-11-20 10:53:32
  * @Description: socket event dispatch
  */
 
@@ -16,16 +16,6 @@
 #include <thread>
 #include "BaseSocket.h"
 #include "Util.h"
-
-enum NetEvent{
-	NET_CONNECT= 1,
-	NET_READ,
-	NET_WRITE,
-	NET_CLOSE,
-	NET_CONFIRM,
-    NET_TIMER,
-    NET_LOOP
-};
 
 enum SocketEvent{
 	SOCKET_READ		= 0x1,

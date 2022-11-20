@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 18:24:21
  * @FilePath: /Bohan/bohan/net/BaseSocket.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-10 09:12:06
+ * @LastEditTime: 2022-11-20 10:57:54
  * @Description: base socket
  */
 
@@ -38,7 +38,17 @@ enum SocketError{
     SEND_ERROR
 };
 
-typedef void (*callback_fun)(void* data, uint8_t msg, uint32_t handle, void* param);
+enum NetEvent{
+	NET_CONNECT= 1,
+	NET_READ,
+	NET_WRITE,
+	NET_CLOSE,
+	NET_CONFIRM,
+    NET_TIMER,
+    NET_LOOP
+};
+
+typedef void (*callback_fun)(void* data, NetEvent msg, socket_handle handle, void* param);
 
 namespace bohan
 {
