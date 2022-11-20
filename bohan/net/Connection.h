@@ -3,7 +3,7 @@
  * @Date: 2022-10-30 23:12:56
  * @FilePath: /Bohan/bohan/net/Connection.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-20 18:17:10
+ * @LastEditTime: 2022-11-20 19:21:08
  * @Description: srouce_code
  */
 
@@ -73,6 +73,8 @@ private:
 
 typedef std::shared_ptr<Connection> ConnectionPtr;
 typedef hash_map<socket_handle, Connection*> ConnMap_t;
+typedef hash_map<socket_handle, ConnectionPtr> ConnPtrMap_t;
+
 
 void conn_callback(void* callback_data, NetEvent event, socket_handle handle, void* pParam);
 
