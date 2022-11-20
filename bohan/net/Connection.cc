@@ -3,7 +3,7 @@
  * @Date: 2022-11-05 20:32:00
  * @FilePath: /Bohan/bohan/net/Connection.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-20 13:31:42
+ * @LastEditTime: 2022-11-20 18:32:38
  * @Description: srouce_code
  */
 #include "Connection.h"
@@ -62,13 +62,13 @@ void conn_callback(void* callback_data, NetEvent event, socket_handle handle, vo
 	}
 }
 
-
 Connection::Connection()
 {
     m_handle = INVALID_SOCKET;
     m_reve_size = 0;
     is_sending = false;
     m_last_send_tick = m_last_recv_tick = get_current_tick();
+	m_tcpcallback = nullptr;
 }
 
 
@@ -96,6 +96,10 @@ void Connection::OnNewConn(socket_handle handle)
 void Connection::OnConnected()
 {
     printf("connect to login server success handle=%d\n",  m_handle);
+	if(m_tcpcallback)
+	{
+		m_tcpcallback->onConnected();
+	}
 	//test
 	if(IS_DEBUG_MODE)
 	{
@@ -115,6 +119,8 @@ void Connection::Close()
 		g_conn_map.erase(m_handle);
 		m_handle = INVALID_SOCKET;
 	}
+	if (m_tcpcallback)
+		m_tcpcallback->onClose();
 }
 
 int Connection::Send(void *data ,int size)
@@ -152,10 +158,6 @@ int Connection::Send(void *data ,int size)
 		m_send_buf.Write((char*)data + offset, remain);
 		is_sending = true;
 	}
-    // else
-    // {
-    //     OnWriteCompelete();
-    // }
 	return size;
 }
 void Connection::OnRead()
@@ -171,11 +173,14 @@ void Connection::OnRead()
 		if (ret <= 0)
 			break;
 
-		m_reve_size += ret;
 		m_recv_buf.IncWriteOffset(ret);
 		m_last_recv_tick = get_current_tick();
 		std::string data((char*)m_recv_buf.GetBuffer());
 		printf("OnRead ReciveData=%s\n", data.c_str());
+		if(m_tcpcallback)
+			m_tcpcallback->onReceiveData((const char*)m_recv_buf.GetBuffer(),ret);
+
+		m_recv_buf.Read(NULL, ret);
 
         //test
 		if(IS_DEBUG_MODE)
@@ -227,6 +232,16 @@ void Connection::OnClose()
 		printf("close connction success\n");
 	}
 }
+
+void Connection::RegisterCallback(TcpSocketCallback* callback)
+{
+	m_tcpcallback = callback;
+}
+void Connection::UnRegisterCallback()
+{
+	m_tcpcallback = nullptr;
+}
+
 void Connection::OnTimer(uint64_t curTime)
 {
 
@@ -235,8 +250,8 @@ void Connection::OnRevice(void *data ,int size)
 {
 
 }
-
 Connection::~Connection()
 {
+
 }
 }

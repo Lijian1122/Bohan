@@ -3,7 +3,7 @@
  * @Date: 2022-10-30 23:12:56
  * @FilePath: /Bohan/bohan/net/Connection.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-20 13:07:03
+ * @LastEditTime: 2022-11-20 18:17:10
  * @Description: srouce_code
  */
 
@@ -25,6 +25,16 @@
 
 namespace bohan{
 
+
+class TcpSocketCallback
+{
+    public:
+      virtual void onConnected() = 0;
+      virtual void onClose()  =0;
+      virtual void onReceiveData(const char *data, int32_t size) = 0;
+      virtual void onReceiveError() = 0;
+};
+
 class Connection
 {
 public:
@@ -34,7 +44,7 @@ public:
     virtual int Send(void *data ,int size);
     virtual void Close();
     //sever new client
-    virtual void OnNewConn(socket_handle handle);//server
+    virtual void OnNewConn(socket_handle handle);
     //client connected
     virtual void OnConnected(); 
     virtual void OnRead();
@@ -42,6 +52,9 @@ public:
     virtual void OnClose();
     virtual void OnTimer(uint64_t curTime);
     virtual void OnRevice(void *data ,int size);
+
+    void RegisterCallback(TcpSocketCallback* callback);
+	void UnRegisterCallback();
 private:
     socket_handle m_handle;
 
@@ -55,6 +68,7 @@ private:
     uint64_t		m_last_send_tick;
 	uint64_t		m_last_recv_tick;
     bool            is_sending;
+    TcpSocketCallback *m_tcpcallback;
 };
 
 typedef std::shared_ptr<Connection> ConnectionPtr;
