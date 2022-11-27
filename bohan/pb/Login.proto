@@ -1,0 +1,80 @@
+syntax = "proto2";
+package Bohan.Login;
+import "BaseDefine.proto";
+option java_package = "com.bohan.protobuf";
+option optimize_for = LITE_RUNTIME;
+
+
+//service id:	0x0001
+
+message MsgServReq{
+	//cmd id:		0x0101
+}
+
+message MsgServRsp{
+	//cmd id:		0x0102
+	required BaseDefine.ResultType result_code = 1;
+	optional string prior_ip = 2;
+	optional string backip_ip = 3; 
+	optional uint32 port = 4;
+}
+
+message LoginReq{
+	//cmd id:		0x0103
+	required string user_name = 1;
+	required string password = 2;
+	required BaseDefine.UserStatType online_status = 3;
+	required BaseDefine.ClientType client_type = 4;
+	optional string client_version = 5;
+}
+
+message LoginRes{
+	//cmd id:		0x0104
+	required uint32 server_time = 1;
+	required BaseDefine.ResultType result_code = 2;
+	optional string result_string = 3;
+	optional BaseDefine.UserStatType online_status = 4;
+	optional BaseDefine.UserInfo user_info = 5;
+}
+
+message LogoutReq{
+	//cmd id:		0x0105
+}
+
+message LogoutRsp{
+	//cmd id:		0x0106
+	required uint32 result_code = 1;
+}
+
+message KickUser{
+	//cmd id:		0x0107
+	required uint32 user_id = 1;
+	required BaseDefine.KickReasonType kick_reason = 2;
+}
+
+message DeviceTokenReq{
+	//cmd id:		0x0108
+	required uint32 user_id = 1;
+	required string device_token = 2;
+	optional BaseDefine.ClientType client_type = 3;
+	optional bytes attach_data = 20;
+}
+
+message DeviceTokenRsp{
+	//cmd id: 		0x0109
+	required uint32 user_id = 1;
+	optional bytes attach_data = 20;
+}
+
+//只给移动端请求
+message KickPCClientReq{
+	//cmd id:		0x010a
+	required uint32 user_id = 1;
+}
+
+message KickPCClientRsp{
+	//cmd id: 		0x010b
+	required uint32 user_id = 1;
+	required uint32 result_code = 2;
+}
+ 

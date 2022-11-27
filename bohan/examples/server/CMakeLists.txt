@@ -40,8 +40,9 @@ SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -std=c++17  -g -ggdb")
 
 ADD_EXECUTABLE(tcp_server ${LIB_SRC})
 
-TARGET_LINK_LIBRARIES(tcp_server 
+TARGET_LINK_LIBRARIES(tcp_server
    base
+   protobuf-lite
    net
    pthread
 )

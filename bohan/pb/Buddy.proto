@@ -1,0 +1,129 @@
+syntax = "proto2";
+package Bohan.Buddy;
+import "BaseDefine.proto";
+option java_package = "com.bohan.protobuf";
+option optimize_for = LITE_RUNTIME;
+
+//service id   0x0002
+
+message RecentContactSessionReq{
+	//cmd id:		0x0201
+	required uint32 user_id = 1;
+	required uint32 latest_update_time = 2;
+	optional bytes attach_data = 20;
+}
+
+message RecentContactSessionRsp{
+	//cmd id:		0x0202
+	required uint32 user_id = 1;
+	repeated BaseDefine.ContactSessionInfo contact_session_list = 2;
+	optional bytes attach_data = 20;
+}
+
+message UserStatNotify{
+	//cmd id:		0x0203
+	required BaseDefine.UserStat user_stat = 1;
+}
+
+message UsersInfoReq{
+	//cmd id:		0x0204
+	required uint32 user_id = 1;
+	repeated uint32 user_id_list = 2;
+	optional bytes attach_data = 20;
+}
+
+message UsersInfoRsp{
+	//cmd id:		0x0205
+	required uint32 user_id = 1;
+	repeated BaseDefine.UserInfo user_info_list = 2;
+	optional bytes attach_data = 20;
+}
+
+message RemoveSessionReq{
+	//cmd id:		0x0206
+	required uint32 user_id = 1;
+	required BaseDefine.SessionType session_type = 2;
+	required uint32 session_id = 3;
+	optional bytes attach_data = 20;
+}
+
+message RemoveSessionRsp{
+	//cmd id:		0x0207
+	required uint32 user_id = 1;
+	required uint32 result_code = 2;
+	required BaseDefine.SessionType session_type = 3;
+	required uint32 session_id = 4;
+	optional bytes attach_data = 20;
+}
+
+message AllUserReq{
+	//cmd id:		0x0208
+	required uint32 user_id = 1;
+	required uint32 latest_update_time = 2;
+	optional bytes attach_data = 20;
+}
+
+message AllUserRsp{
+	//cmd id:		0x0209
+	required uint32 user_id = 1;
+	required uint32 latest_update_time = 2;
+	repeated BaseDefine.UserInfo user_list = 3;		
+	optional bytes attach_data = 20;
+}
+
+message UsersStatReq{
+	//cmd id:		0x020a
+	required uint32 user_id = 1;
+	repeated uint32 user_id_list = 2;
+	optional bytes attach_data = 20;
+}
+
+message UsersStatRsp{
+	//cmd id:		0x020b
+	required uint32 user_id = 1;
+	repeated BaseDefine.UserStat user_stat_list = 2;
+	optional bytes attach_data = 20;
+}
+
+message ChangeAvatarReq{
+	//cmd id:		0x020c
+	required uint32 user_id = 1;
+	required string avatar_url = 2;
+	optional bytes attach_data = 20;
+}
+
+message ChangeAvatarRsp{
+	//cmd id:		0x020d
+	required uint32 user_id = 1;
+	required uint32 result_code = 2;
+	optional bytes attach_data = 20;
+}
+
+//只给移动端通知
+message PCLoginStatusNotify{
+	//cmd id:		0x020e
+	required uint32 user_id = 1;
+	required BaseDefine.UserStatType login_stat = 2;
+}
+
+ message RemoveSessionNotify{
+ 	//cmd id:		0x020f
+ 	required uint32 user_id = 1;
+	required BaseDefine.SessionType session_type = 2;
+	required uint32 session_id = 3;
+ }
+
+message DepartmentReq{
+	//cmd id:		0x0210
+	required uint32 user_id = 1;
+	required uint32 latest_update_time = 2;
+	optional bytes attach_data = 20;
+}
+
+message DepartmentRsp{
+	//cmd id:		0x0211
+	required uint32 user_id = 1;
+	required uint32 latest_update_time = 2;
+	repeated BaseDefine.DepartInfo dept_list = 3;
+	optional bytes attach_data = 20;
+}

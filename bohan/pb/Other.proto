@@ -1,0 +1,11 @@
+syntax = "proto2";
+package Bohan.Other;
+option java_package = "com.bohan.protobuf";
+option optimize_for = LITE_RUNTIME;
+
+//service id: 0x0007
+
+message HeartBeat{
+	//cmd id:  		0x0701
+}
+

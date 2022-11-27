@@ -8,11 +8,14 @@ project(base)
 include_directories(
 ${PROJECT_SOURCE_DIR}
 ${PROJECT_SOURCE_DIR}/spdlog/include
+${PROJECT_SOURCE_DIR}/pb
+${PROJECT_SOURCE_DIR}/pb/protocol
 )
 
 # 查找当前目录下的所有源文件
 #并将名称保存到 LIB_SRC 变量
 aux_source_directory(./ LIB_SRC)
+aux_source_directory(./pb/protocol/ LIB_SRC_PB)
 
 
 #三方库lib和头文件
@@ -34,8 +37,8 @@ SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -std=c++17  -g -ggdb")
 
 
 #其他系统库
-ADD_LIBRARY(base SHARED ${LIB_SRC})
+ADD_LIBRARY(base SHARED ${LIB_SRC} ${LIB_SRC_PB})
 
-target_link_libraries(base  spdlog)
+target_link_libraries(base  protobuf-lite spdlog)
 
 
