@@ -3,7 +3,7 @@
  * @Date: 2022-11-05 20:32:00
  * @FilePath: /Bohan/bohan/net/Connection.cc
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-20 18:32:38
+ * @LastEditTime: 2022-12-04 22:42:59
  * @Description: srouce_code
  */
 #include "Connection.h"
@@ -163,36 +163,60 @@ int Connection::Send(void *data ,int size)
 void Connection::OnRead()
 {
     for (;;)
+    {
+          uint32_t free_buf_len = m_recv_buf.GetAllocSize() - m_recv_buf.GetWriteOffset();
+	if (free_buf_len < READ_BUF_SIZE)
+          {
+              m_recv_buf.ReSizeBuffer(READ_BUF_SIZE);
+          }
+	int ret = net_recv(m_handle, m_recv_buf.GetBuffer() + m_recv_buf.GetWriteOffset(), READ_BUF_SIZE);
+	if (ret <= 0)
+	    break;
+
+	m_recv_buf.IncWriteOffset(ret);
+	m_last_recv_tick = get_current_tick();
+	// std::string data((char*)m_recv_buf.GetBuffer());
+	// printf("OnRead ReciveData=%s\n", data.c_str());
+	// if(m_tcpcallback)
+	// 	m_tcpcallback->onReceiveData((const char*)m_recv_buf.GetBuffer(),ret);
+
+	// m_recv_buf.Read(NULL, ret);
+
+          //test
+	// if(IS_DEBUG_MODE)
+	// {
+	// 	if(send && is_server)
+	// 	{
+	// 	   data = "Hello clent, I m server!!!";
+	// 	   Send((void*)data.c_str(),data.size());
+	// 	   send = false;
+	// 	}
+	// }	
+   }
+   
+   PackageBase *package = nullptr;
+   try
+   {
+	while((package = PackageBase::ReadPackage(m_recv_buf.GetBuffer(), m_recv_buf.GetWriteOffset())))
 	{
-		uint32_t free_buf_len = m_recv_buf.GetAllocSize() - m_recv_buf.GetWriteOffset();
-		if (free_buf_len < READ_BUF_SIZE)
-        {
-            m_recv_buf.ReSizeBuffer(READ_BUF_SIZE);
-        }
-		int ret = net_recv(m_handle, m_recv_buf.GetBuffer() + m_recv_buf.GetWriteOffset(), READ_BUF_SIZE);
-		if (ret <= 0)
-			break;
-
-		m_recv_buf.IncWriteOffset(ret);
-		m_last_recv_tick = get_current_tick();
-		std::string data((char*)m_recv_buf.GetBuffer());
-		printf("OnRead ReciveData=%s\n", data.c_str());
-		if(m_tcpcallback)
-			m_tcpcallback->onReceiveData((const char*)m_recv_buf.GetBuffer(),ret);
-
-		m_recv_buf.Read(NULL, ret);
-
-        //test
-		if(IS_DEBUG_MODE)
-		{
-			if(send && is_server)
-			{
-				data = "Hello clent, I m server!!!";
-		    	Send((void*)data.c_str(),data.size());
-				send = false;
-			}
-		}	
+             uint32_t len = package->GetLength();
+	   //处理业务逻辑
+             HandlePackage(package);
+             m_recv_buf.Read(NULL, len);
+	   delete package;
+             package = nullptr;
 	}
+   }
+   catch(PackageException &ex)
+   {
+        printf("OnRead catch exception, sid=%u, cid=%u, err_code=%u, err_msg=%s, close the connection ", ex.GetServiceId(), ex.GetCommandId(), ex.GetErrorCode(), ex.GetErrorMsg());
+        if (package) 
+        {
+            delete package;
+            package = NULL;
+        }
+        OnClose();
+   }
 }
 void Connection::OnWrite()
 {

@@ -3,7 +3,7 @@
  * @Date: 2022-10-30 23:12:56
  * @FilePath: /Bohan/bohan/net/Connection.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-20 19:21:08
+ * @LastEditTime: 2022-12-04 22:49:05
  * @Description: srouce_code
  */
 
@@ -13,6 +13,7 @@
 #include "BaseSocket.h"
 #include "SimpleBuffer.h"
 #include "EventDispatch.h"
+#include "PackageBase.h"
 #include "Util.h"
 #include <memory>
 #include <iostream>
@@ -41,6 +42,7 @@ public:
     Connection();
     virtual ~Connection();
     virtual socket_handle Connect(const char* server_ip, uint16_t server_port); 
+    virtual int SendPackage(PackageBase *package){return Send((void*)package->GetBuffer(),(int)package->GetLength());}
     virtual int Send(void *data ,int size);
     virtual void Close();
     //sever new client
@@ -52,6 +54,8 @@ public:
     virtual void OnClose();
     virtual void OnTimer(uint64_t curTime);
     virtual void OnRevice(void *data ,int size);
+
+    virtual void HandlePackage(const PackageBase* package) {}
 
     void RegisterCallback(TcpSocketCallback* callback);
 	void UnRegisterCallback();
