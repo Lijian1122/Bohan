@@ -39,6 +39,4 @@ SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -std=c++17  -g -ggdb")
 #其他系统库
 ADD_LIBRARY(base SHARED ${LIB_SRC} ${LIB_SRC_PB})
 
-target_link_libraries(base  protobuf-lite spdlog)
-
-
+target_link_libraries(base protobuf-lite spdlog)
