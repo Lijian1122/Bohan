@@ -1,9 +1,9 @@
 /*
  * @Author: bohan.lj
  * @Date: 2022-11-20 18:36:34
- * @FilePath: /Bohan/bohan/net/NetCore.h
+ * @FilePath: /Bohan/bohan/net/NetCoreLib.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-20 19:54:27
+ * @LastEditTime: 2022-12-11 20:09:02
  * @Description: srouce_code
  */
 
@@ -17,7 +17,7 @@
 #include <memory>
 
 namespace bohan{
-    class NetCoreLib : public Copyable
+    class DLL_EXPORTS NetCoreLib : public Copyable
     {
     public:
        static NetCoreLib *Instance();

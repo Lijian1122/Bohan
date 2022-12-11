@@ -3,7 +3,7 @@
  * @Date: 2022-10-10 22:48:44
  * @FilePath: /Bohan/bohan/base/BlockQueue.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-10 22:55:01
+ * @LastEditTime: 2022-12-11 20:06:11
  * @Description: srouce_code
  */
 
@@ -23,7 +23,7 @@ using namespace std;
 namespace bohan{
 
 template<typename T>
-class BlockQueue : Copyable
+class DLL_EXPORTS BlockQueue : Copyable
 {
 public:
     BlockQueue();

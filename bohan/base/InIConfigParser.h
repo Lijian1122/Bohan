@@ -3,7 +3,7 @@
  * @Date: 2022-10-20 08:23:20
  * @FilePath: /Bohan/bohan/base/InIConfigParser.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-20 08:45:18
+ * @LastEditTime: 2022-12-11 20:04:17
  * @Description: ini config parser
  */
 
@@ -17,7 +17,7 @@ using namespace std;
 
 namespace bohan
 {
-class InIConfigParser
+class DLL_EXPORTS InIConfigParser
 {
 
 public:

@@ -3,7 +3,7 @@
  * @Date: 2022-10-30 23:12:56
  * @FilePath: /Bohan/bohan/net/Connection.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-12-04 22:49:05
+ * @LastEditTime: 2022-12-11 20:08:42
  * @Description: srouce_code
  */
 
@@ -36,7 +36,7 @@ class TcpSocketCallback
       virtual void onReceiveError() = 0;
 };
 
-class Connection
+class DLL_EXPORTS Connection
 {
 public:
     Connection();

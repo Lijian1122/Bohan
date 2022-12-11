@@ -3,7 +3,7 @@
  * @Date: 2022-10-16 10:07:41
  * @FilePath: /Bohan/bohan/base/HashMap.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-11 09:03:58
+ * @LastEditTime: 2022-12-11 20:07:28
  * @Description: 线程安全的hash_map封装
  */
 #ifndef BOHAN_BASE_HASHMAP_H
@@ -16,7 +16,7 @@ using namespace std;
 namespace bohan
 {
 template<typename K,typename V>
-class Hash_Map
+class DLL_EXPORTS Hash_Map
 {
 public:
     Hash_Map(bool threadsafe = false)

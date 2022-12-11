@@ -3,7 +3,7 @@
  * @Date: 2022-10-16 22:54:36
  * @FilePath: /Bohan/bohan/base/Timer.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-17 08:33:20
+ * @LastEditTime: 2022-12-11 20:03:47
  * @Description: srouce_code
  */
 #ifndef BOHAN_BASE_TIMER_H
@@ -44,7 +44,7 @@ enum TimerState{
     Running = 0 
 };
 
-class Timer
+class DLL_EXPORTS Timer
 {
 public:
     Timer(int threadnumn = DEFAULT_TIMER_THREAD_POOL_SIZE)

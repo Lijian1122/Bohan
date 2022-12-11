@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 20:11:36
  * @FilePath: /Bohan/bohan/net/EventDispatch.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-20 10:53:32
+ * @LastEditTime: 2022-12-11 20:08:52
  * @Description: socket event dispatch
  */
 
@@ -34,7 +34,7 @@ struct NetEventItem{
 
 namespace bohan{
 
-class EventDispatch : Copyable
+class DLL_EXPORTS EventDispatch : Copyable
 {
 public:
     void AddEvent(socket_handle fd, uint8_t socket_event);

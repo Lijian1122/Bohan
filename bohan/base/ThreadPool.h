@@ -3,7 +3,7 @@
  * @Date: 2022-10-07 22:16:16
  * @FilePath: /Bohan/bohan/base/ThreadPool.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-14 08:44:23
+ * @LastEditTime: 2022-12-11 20:05:27
  * @Description: 有关线程池实现
  */
 
@@ -28,7 +28,7 @@
 typedef std::function<void()>  ThreadTask;
 
 namespace bohan{
-class ThreadPool : Copyable
+class DLL_EXPORTS ThreadPool : Copyable
 {
 
 public:

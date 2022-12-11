@@ -3,7 +3,7 @@
  * @Date: 2022-12-11 11:19:36
  * @FilePath: /Bohan/bohan/base/BFile.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-12-11 11:50:46
+ * @LastEditTime: 2022-12-11 20:06:02
  * @Description: srouce_code
  */
 
@@ -15,7 +15,7 @@
 
 namespace bohan
 {
-class BFile
+class DLL_EXPORTS BFile
 {
 public:
     BFile():m_fp(nullptr){}

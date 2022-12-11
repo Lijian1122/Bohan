@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 18:24:21
  * @FilePath: /Bohan/bohan/net/BaseSocket.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-20 10:57:54
+ * @LastEditTime: 2022-12-11 20:08:27
  * @Description: base socket
  */
 
@@ -52,7 +52,7 @@ typedef void (*callback_fun)(void* data, NetEvent msg, socket_handle handle, voi
 
 namespace bohan
 {
-class BaseSocket
+class DLL_EXPORTS BaseSocket
 {
 public:
     BaseSocket();

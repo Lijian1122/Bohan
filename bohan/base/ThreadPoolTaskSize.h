@@ -3,7 +3,7 @@
  * @Date: 2022-10-20 22:34:54
  * @FilePath: /Bohan/bohan/base/ThreadPoolTaskSize.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-10-20 23:34:59
+ * @LastEditTime: 2022-12-11 20:05:46
  * @Description: 线程池设置最大任务数
  */
 
@@ -26,7 +26,7 @@ namespace bohan{
 
 typedef std::function<void()> Task;
 
-class ThreadPoolTaskSize
+class DLL_EXPORTS ThreadPoolTaskSize
 {
 
 public:
