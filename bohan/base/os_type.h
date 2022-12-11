@@ -3,7 +3,7 @@
  * @Date: 2022-10-07 11:07:34
  * @FilePath: /Bohan/bohan/base/os_type.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-11-05 21:13:56
+ * @LastEditTime: 2022-12-11 19:51:41
  * @Description: os dependant type definition
  */
 
@@ -16,7 +16,14 @@
     #include <WinBase.h>
     #include <Windows.h>
     #include <direct.h>
+    //EXPORT
+    #ifdef LIB_EXPORTS
+        #define DLL_EXPORTS  __declspec(dllexport)
+    #else
+        #define DLL_IMPORTS  __declspec(dllimport)
+    #endif
 #else
+    #define DLL_EXPORTS
     #ifdef __APPLE__
         #include <sys/event.h>
         #include <sys/time.h>
@@ -84,3 +91,4 @@
 #define INVALID_SOCKET_HANDLE	-1
 #endif
 typedef unsigned char uchar_t;
+
