@@ -3,7 +3,7 @@
  * @Date: 2022-11-06 10:53:07
  * @FilePath: /Bohan/bohan/examples/server/tcpserver.cpp
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-12-10 21:32:04
+ * @LastEditTime: 2022-12-11 20:56:04
  * @Description: srouce_code
  */
 #include "net/Connection.h"
@@ -14,13 +14,13 @@ using namespace bohan;
 
 void serv_callback(void* callback_data, NetEvent msg, socket_handle handle, void* pParam)
 {
-	printf("serv_callback msgType:%d\n",msg);
-	if (msg == NetEvent::NET_CONNECT)
-	{
-		printf("new connection comming...\n");
-		Connection *conn = new Connection();
-		conn->OnNewConn(handle);
-	}
+    printf("serv_callback msgType:%d\n",msg);
+    if (msg == NetEvent::NET_CONNECT)
+    {
+	printf("new connection comming...\n");
+	Connection *conn = new Connection();
+	conn->OnNewConn(handle);
+    }
 }
 
 int main()

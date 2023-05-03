@@ -3,7 +3,7 @@
  * @Date: 2022-10-29 18:24:21
  * @FilePath: /Bohan/bohan/net/BaseSocket.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2022-12-11 20:08:27
+ * @LastEditTime: 2023-05-03 16:23:09
  * @Description: base socket
  */
 
@@ -31,21 +31,21 @@ enum SocketShutdown{
 };
 
 enum SocketError{
-	NO_ERROR		= 0,
-	CREAET_ERROR	= 1,
-    BIND_ERROR	= 2,
+    NO_ERROR  = 0,
+    CREAET_ERROR = 1,
+    BIND_ERROR   = 2,
     LISTEN_ERROR = 3,
     SEND_ERROR
 };
 
 enum NetEvent{
-	NET_CONNECT= 1,
-	NET_READ,
-	NET_WRITE,
-	NET_CLOSE,
-	NET_CONFIRM,
-    NET_TIMER,
-    NET_LOOP
+   NET_CONNECT= 1,
+   NET_READ,
+   NET_WRITE,
+   NET_CLOSE,
+   NET_CONFIRM,
+   NET_TIMER,
+   NET_LOOP
 };
 
 typedef void (*callback_fun)(void* data, NetEvent msg, socket_handle handle, void* param);
@@ -59,20 +59,20 @@ public:
     virtual ~BaseSocket();
 
     socket_handle GetSocketHandle() { return m_socket; }
-	void SetSocketHandle(socket_handle hd) { m_socket = hd; }
-	void SetState(SocketState state) { m_state = state; }
+    void SetSocketHandle(socket_handle hd) { m_socket = hd; }
+    void SetState(SocketState state) { m_state = state; }
 
-	void SetCallback(callback_fun callback) { m_callback = callback; }
-	void SetCallbackData(void* data) { m_callback_data = data; }
-	void SetRemoteIP(const char* ip) { m_remote_ip = ip; }
-	void SetRemotePort(uint32_t port) { m_remote_port = port; }
-	void SetSendBufSize(uint32_t send_size);
-	void SetRecvBufSize(uint32_t recv_size);
+    void SetCallback(callback_fun callback) { m_callback = callback; }
+    void SetCallbackData(void* data) { m_callback_data = data; }
+    void SetRemoteIP(const char* ip) { m_remote_ip = ip; }
+    void SetRemotePort(uint32_t port) { m_remote_port = port; }
+    void SetSendBufSize(uint32_t send_size);
+    void SetRecvBufSize(uint32_t recv_size);
 
-	const char*	GetRemoteIP() { return m_remote_ip.c_str(); }
-	uint32_t	GetRemotePort() { return m_remote_port; }
-	const char*	GetLocalIP() { return m_local_ip.c_str(); }
-	uint32_t	GetLocalPort() { return m_local_port; }
+    const char* GetRemoteIP() { return m_remote_ip.c_str(); }
+    uint32_t    GetRemotePort() { return m_remote_port; }
+    const char* GetLocalIP() { return m_local_ip.c_str(); }
+    uint32_t  GetLocalPort() { return m_local_port; }
     
 public:
     SocketError Listen(const char*	server_ip, uint32_t port, callback_fun callback,void *callback_data);
