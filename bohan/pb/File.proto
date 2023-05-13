@@ -6,7 +6,7 @@ option optimize_for = LITE_RUNTIME;
 
 message FileLoginReq{
 	//cmd id:	0x0501
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required string task_id = 2;
 	required BaseDefine.ClientFileRole file_role= 3;
 }
@@ -21,13 +21,13 @@ message FileState{
 	//cmd id: 	0x0503
 	required BaseDefine.ClientFileState state = 1;
 	required string task_id = 2;
-	required uint32 user_id = 3;
+	required bytes user_id = 3;
 }
 
 message FilePullDataReq{
 	//cmd id:	0x0504
 	required string task_id = 1;
-	required uint32 user_id = 2;
+	required bytes user_id = 2;
 	required BaseDefine.FileType trans_mode = 3;
 	required uint32 offset = 4;
 	required uint32 data_size = 5;
@@ -37,15 +37,15 @@ message FilePullDataRsp{
 	//cmd id: 	0x0505
 	required uint32 result_code = 1;
 	required string task_id = 2;
-	required uint32 user_id = 3;
+	required bytes user_id = 3;
 	required uint32 offset = 4;
 	required bytes data = 5;
 }
 
 message FileReq{
 	//cmd id: 	0x0506
-	required uint32 from_user_id = 1;
-	required uint32 to_user_id = 2;
+	required bytes from_user_id = 1;
+	required bytes to_user_id = 2;
 	required string file_name = 3;
 	required uint32 file_size = 4;
 	required BaseDefine.FileType trans_mode = 5;
@@ -54,8 +54,8 @@ message FileReq{
 message FileRsp{
 	//cmd id: 	0x0507
 	required uint32	result_code = 1;			//1: 失败 0:成功
-	required uint32 from_user_id = 2;
-	required uint32 to_user_id = 3;
+	required bytes from_user_id = 2;
+	required bytes to_user_id = 3;
 	required string file_name = 4;
 	required string task_id = 5;
 	repeated BaseDefine.IpAddr ip_addr_list = 6;
@@ -64,8 +64,8 @@ message FileRsp{
 
 message FileNotify{
 	//cmd id: 	0x0508
-	required uint32 from_user_id = 1;
-	required uint32 to_user_id = 2;
+	required bytes from_user_id = 1;
+	required bytes to_user_id = 2;
 	required string file_name = 3;
 	required uint32 file_size = 4;
 	required string task_id = 5;
@@ -76,13 +76,13 @@ message FileNotify{
 
 message FileHasOfflineReq{
 	//cmd id: 	0x0509
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	optional bytes attach_data = 20;
 }
 
 message FileHasOfflineRsp{
 	//cmd id:	0x050a
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	repeated BaseDefine.OfflineFileInfo offline_file_list = 2;
 	repeated BaseDefine.IpAddr ip_addr_list = 3;
 	optional bytes attach_data = 20;
@@ -90,8 +90,8 @@ message FileHasOfflineRsp{
 
 message FileAddOfflineReq{
 	//cmd id:	0x050b
-	required uint32 from_user_id = 1;
-	required uint32 to_user_id = 2;
+	required bytes from_user_id = 1;
+	required bytes to_user_id = 2;
 	required string task_id = 3;
 	required string file_name = 4;
 	required uint32 file_size = 5;
@@ -99,7 +99,7 @@ message FileAddOfflineReq{
 
 message FileDelOfflineReq{
 	//cmd id:	0x050c
-	required uint32 from_user_id = 1;
-	required uint32 to_user_id = 2;
+	required bytes from_user_id = 1;
+	required bytes to_user_id = 2;
 	required string task_id = 3;
 }

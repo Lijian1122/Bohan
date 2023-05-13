@@ -1446,81 +1446,110 @@ public final class Login {
      *cmd id:		0x0103
      * </pre>
      *
-     * <code>required string user_name = 1;</code>
-     * @return Whether the userName field is set.
+     * <code>required bytes user_id = 1;</code>
+     * @return Whether the userId field is set.
      */
-    boolean hasUserName();
+    boolean hasUserId();
     /**
      * <pre>
      *cmd id:		0x0103
      * </pre>
      *
-     * <code>required string user_name = 1;</code>
-     * @return The userName.
+     * <code>required bytes user_id = 1;</code>
+     * @return The userId.
      */
-    java.lang.String getUserName();
-    /**
-     * <pre>
-     *cmd id:		0x0103
-     * </pre>
-     *
-     * <code>required string user_name = 1;</code>
-     * @return The bytes for userName.
-     */
-    com.google.protobuf.ByteString
-        getUserNameBytes();
+    com.google.protobuf.ByteString getUserId();
 
     /**
-     * <code>required string password = 2;</code>
+     * <code>required bytes password = 2;</code>
      * @return Whether the password field is set.
      */
     boolean hasPassword();
     /**
-     * <code>required string password = 2;</code>
+     * <code>required bytes password = 2;</code>
      * @return The password.
      */
-    java.lang.String getPassword();
-    /**
-     * <code>required string password = 2;</code>
-     * @return The bytes for password.
-     */
-    com.google.protobuf.ByteString
-        getPasswordBytes();
+    com.google.protobuf.ByteString getPassword();
 
     /**
-     * <code>required .Bohan.BaseDefine.UserStatType online_status = 3;</code>
+     * <code>required string nick_name = 3;</code>
+     * @return Whether the nickName field is set.
+     */
+    boolean hasNickName();
+    /**
+     * <code>required string nick_name = 3;</code>
+     * @return The nickName.
+     */
+    java.lang.String getNickName();
+    /**
+     * <code>required string nick_name = 3;</code>
+     * @return The bytes for nickName.
+     */
+    com.google.protobuf.ByteString
+        getNickNameBytes();
+
+    /**
+     * <code>required .Bohan.BaseDefine.RoleType role_type = 4;</code>
+     * @return Whether the roleType field is set.
+     */
+    boolean hasRoleType();
+    /**
+     * <code>required .Bohan.BaseDefine.RoleType role_type = 4;</code>
+     * @return The roleType.
+     */
+    com.bohan.protobuf.BaseDefine.RoleType getRoleType();
+
+    /**
+     * <code>required .Bohan.BaseDefine.UserStatType online_status = 5;</code>
      * @return Whether the onlineStatus field is set.
      */
     boolean hasOnlineStatus();
     /**
-     * <code>required .Bohan.BaseDefine.UserStatType online_status = 3;</code>
+     * <code>required .Bohan.BaseDefine.UserStatType online_status = 5;</code>
      * @return The onlineStatus.
      */
     com.bohan.protobuf.BaseDefine.UserStatType getOnlineStatus();
 
     /**
-     * <code>required .Bohan.BaseDefine.ClientType client_type = 4;</code>
+     * <code>required .Bohan.BaseDefine.ClientType client_type = 6;</code>
      * @return Whether the clientType field is set.
      */
     boolean hasClientType();
     /**
-     * <code>required .Bohan.BaseDefine.ClientType client_type = 4;</code>
+     * <code>required .Bohan.BaseDefine.ClientType client_type = 6;</code>
      * @return The clientType.
      */
     com.bohan.protobuf.BaseDefine.ClientType getClientType();
 
     /**
-     * <code>optional string client_version = 5;</code>
+     * <code>required string avatar = 7;</code>
+     * @return Whether the avatar field is set.
+     */
+    boolean hasAvatar();
+    /**
+     * <code>required string avatar = 7;</code>
+     * @return The avatar.
+     */
+    java.lang.String getAvatar();
+    /**
+     * <code>required string avatar = 7;</code>
+     * @return The bytes for avatar.
+     */
+    com.google.protobuf.ByteString
+        getAvatarBytes();
+
+    /**
+     * <code>optional string client_version = 8;</code>
      * @return Whether the clientVersion field is set.
      */
     boolean hasClientVersion();
     /**
-     * <code>optional string client_version = 5;</code>
+     * <code>optional string client_version = 8;</code>
      * @return The clientVersion.
      */
     java.lang.String getClientVersion();
     /**
-     * <code>optional string client_version = 5;</code>
+     * <code>optional string client_version = 8;</code>
      * @return The bytes for clientVersion.
      */
     com.google.protobuf.ByteString
@@ -1539,10 +1568,13 @@ public final class Login {
       super(builder);
     }
     private LoginReq() {
-      userName_ = "";
-      password_ = "";
+      userId_ = com.google.protobuf.ByteString.EMPTY;
+      password_ = com.google.protobuf.ByteString.EMPTY;
+      nickName_ = "";
+      roleType_ = 1;
       onlineStatus_ = 1;
       clientType_ = 1;
+      avatar_ = "";
       clientVersion_ = "";
     }
 
@@ -1572,18 +1604,18 @@ public final class Login {
     }
 
     private int bitField0_;
-    public static final int USER_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object userName_;
+    public static final int USER_ID_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0103
      * </pre>
      *
-     * <code>required string user_name = 1;</code>
-     * @return Whether the userName field is set.
+     * <code>required bytes user_id = 1;</code>
+     * @return Whether the userId field is set.
      */
     @java.lang.Override
-    public boolean hasUserName() {
+    public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
@@ -1591,51 +1623,18 @@ public final class Login {
      *cmd id:		0x0103
      * </pre>
      *
-     * <code>required string user_name = 1;</code>
-     * @return The userName.
+     * <code>required bytes user_id = 1;</code>
+     * @return The userId.
      */
     @java.lang.Override
-    public java.lang.String getUserName() {
-      java.lang.Object ref = userName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          userName_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *cmd id:		0x0103
-     * </pre>
-     *
-     * <code>required string user_name = 1;</code>
-     * @return The bytes for userName.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUserNameBytes() {
-      java.lang.Object ref = userName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.ByteString getUserId() {
+      return userId_;
     }
 
     public static final int PASSWORD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object password_;
+    private com.google.protobuf.ByteString password_;
     /**
-     * <code>required string password = 2;</code>
+     * <code>required bytes password = 2;</code>
      * @return Whether the password field is set.
      */
     @java.lang.Override
@@ -1643,12 +1642,31 @@ public final class Login {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required string password = 2;</code>
+     * <code>required bytes password = 2;</code>
      * @return The password.
      */
     @java.lang.Override
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
+    public com.google.protobuf.ByteString getPassword() {
+      return password_;
+    }
+
+    public static final int NICK_NAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object nickName_;
+    /**
+     * <code>required string nick_name = 3;</code>
+     * @return Whether the nickName field is set.
+     */
+    @java.lang.Override
+    public boolean hasNickName() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required string nick_name = 3;</code>
+     * @return The nickName.
+     */
+    @java.lang.Override
+    public java.lang.String getNickName() {
+      java.lang.Object ref = nickName_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -1656,41 +1674,60 @@ public final class Login {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          password_ = s;
+          nickName_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string password = 2;</code>
-     * @return The bytes for password.
+     * <code>required string nick_name = 3;</code>
+     * @return The bytes for nickName.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
+        getNickNameBytes() {
+      java.lang.Object ref = nickName_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        password_ = b;
+        nickName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int ONLINE_STATUS_FIELD_NUMBER = 3;
+    public static final int ROLE_TYPE_FIELD_NUMBER = 4;
+    private int roleType_;
+    /**
+     * <code>required .Bohan.BaseDefine.RoleType role_type = 4;</code>
+     * @return Whether the roleType field is set.
+     */
+    @java.lang.Override public boolean hasRoleType() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>required .Bohan.BaseDefine.RoleType role_type = 4;</code>
+     * @return The roleType.
+     */
+    @java.lang.Override public com.bohan.protobuf.BaseDefine.RoleType getRoleType() {
+      @SuppressWarnings("deprecation")
+      com.bohan.protobuf.BaseDefine.RoleType result = com.bohan.protobuf.BaseDefine.RoleType.valueOf(roleType_);
+      return result == null ? com.bohan.protobuf.BaseDefine.RoleType.ROLE_CREATER_TYPE : result;
+    }
+
+    public static final int ONLINE_STATUS_FIELD_NUMBER = 5;
     private int onlineStatus_;
     /**
-     * <code>required .Bohan.BaseDefine.UserStatType online_status = 3;</code>
+     * <code>required .Bohan.BaseDefine.UserStatType online_status = 5;</code>
      * @return Whether the onlineStatus field is set.
      */
     @java.lang.Override public boolean hasOnlineStatus() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>required .Bohan.BaseDefine.UserStatType online_status = 3;</code>
+     * <code>required .Bohan.BaseDefine.UserStatType online_status = 5;</code>
      * @return The onlineStatus.
      */
     @java.lang.Override public com.bohan.protobuf.BaseDefine.UserStatType getOnlineStatus() {
@@ -1699,17 +1736,17 @@ public final class Login {
       return result == null ? com.bohan.protobuf.BaseDefine.UserStatType.USER_STATUS_ONLINE : result;
     }
 
-    public static final int CLIENT_TYPE_FIELD_NUMBER = 4;
+    public static final int CLIENT_TYPE_FIELD_NUMBER = 6;
     private int clientType_;
     /**
-     * <code>required .Bohan.BaseDefine.ClientType client_type = 4;</code>
+     * <code>required .Bohan.BaseDefine.ClientType client_type = 6;</code>
      * @return Whether the clientType field is set.
      */
     @java.lang.Override public boolean hasClientType() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
-     * <code>required .Bohan.BaseDefine.ClientType client_type = 4;</code>
+     * <code>required .Bohan.BaseDefine.ClientType client_type = 6;</code>
      * @return The clientType.
      */
     @java.lang.Override public com.bohan.protobuf.BaseDefine.ClientType getClientType() {
@@ -1718,18 +1755,66 @@ public final class Login {
       return result == null ? com.bohan.protobuf.BaseDefine.ClientType.CLIENT_TYPE_WINDOWS : result;
     }
 
-    public static final int CLIENT_VERSION_FIELD_NUMBER = 5;
+    public static final int AVATAR_FIELD_NUMBER = 7;
+    private volatile java.lang.Object avatar_;
+    /**
+     * <code>required string avatar = 7;</code>
+     * @return Whether the avatar field is set.
+     */
+    @java.lang.Override
+    public boolean hasAvatar() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>required string avatar = 7;</code>
+     * @return The avatar.
+     */
+    @java.lang.Override
+    public java.lang.String getAvatar() {
+      java.lang.Object ref = avatar_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          avatar_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string avatar = 7;</code>
+     * @return The bytes for avatar.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAvatarBytes() {
+      java.lang.Object ref = avatar_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        avatar_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CLIENT_VERSION_FIELD_NUMBER = 8;
     private volatile java.lang.Object clientVersion_;
     /**
-     * <code>optional string client_version = 5;</code>
+     * <code>optional string client_version = 8;</code>
      * @return Whether the clientVersion field is set.
      */
     @java.lang.Override
     public boolean hasClientVersion() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
-     * <code>optional string client_version = 5;</code>
+     * <code>optional string client_version = 8;</code>
      * @return The clientVersion.
      */
     @java.lang.Override
@@ -1748,7 +1833,7 @@ public final class Login {
       }
     }
     /**
-     * <code>optional string client_version = 5;</code>
+     * <code>optional string client_version = 8;</code>
      * @return The bytes for clientVersion.
      */
     @java.lang.Override
@@ -1773,11 +1858,19 @@ public final class Login {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasUserName()) {
+      if (!hasUserId()) {
         memoizedIsInitialized = 0;
         return false;
       }
       if (!hasPassword()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasNickName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRoleType()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1789,6 +1882,10 @@ public final class Login {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasAvatar()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -1797,19 +1894,28 @@ public final class Login {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userName_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
+        output.writeBytes(2, password_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeEnum(3, onlineStatus_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, nickName_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeEnum(4, clientType_);
+        output.writeEnum(4, roleType_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, clientVersion_);
+        output.writeEnum(5, onlineStatus_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeEnum(6, clientType_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, avatar_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, clientVersion_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1821,21 +1927,33 @@ public final class Login {
 
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userName_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, password_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, onlineStatus_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, nickName_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, clientType_);
+          .computeEnumSize(4, roleType_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, clientVersion_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, onlineStatus_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, clientType_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, avatar_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, clientVersion_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1852,15 +1970,24 @@ public final class Login {
       }
       com.bohan.protobuf.Login.LoginReq other = (com.bohan.protobuf.Login.LoginReq) obj;
 
-      if (hasUserName() != other.hasUserName()) return false;
-      if (hasUserName()) {
-        if (!getUserName()
-            .equals(other.getUserName())) return false;
+      if (hasUserId() != other.hasUserId()) return false;
+      if (hasUserId()) {
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasPassword() != other.hasPassword()) return false;
       if (hasPassword()) {
         if (!getPassword()
             .equals(other.getPassword())) return false;
+      }
+      if (hasNickName() != other.hasNickName()) return false;
+      if (hasNickName()) {
+        if (!getNickName()
+            .equals(other.getNickName())) return false;
+      }
+      if (hasRoleType() != other.hasRoleType()) return false;
+      if (hasRoleType()) {
+        if (roleType_ != other.roleType_) return false;
       }
       if (hasOnlineStatus() != other.hasOnlineStatus()) return false;
       if (hasOnlineStatus()) {
@@ -1869,6 +1996,11 @@ public final class Login {
       if (hasClientType() != other.hasClientType()) return false;
       if (hasClientType()) {
         if (clientType_ != other.clientType_) return false;
+      }
+      if (hasAvatar() != other.hasAvatar()) return false;
+      if (hasAvatar()) {
+        if (!getAvatar()
+            .equals(other.getAvatar())) return false;
       }
       if (hasClientVersion() != other.hasClientVersion()) return false;
       if (hasClientVersion()) {
@@ -1886,13 +2018,21 @@ public final class Login {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasUserName()) {
-        hash = (37 * hash) + USER_NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getUserName().hashCode();
+      if (hasUserId()) {
+        hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasPassword()) {
         hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
         hash = (53 * hash) + getPassword().hashCode();
+      }
+      if (hasNickName()) {
+        hash = (37 * hash) + NICK_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getNickName().hashCode();
+      }
+      if (hasRoleType()) {
+        hash = (37 * hash) + ROLE_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + roleType_;
       }
       if (hasOnlineStatus()) {
         hash = (37 * hash) + ONLINE_STATUS_FIELD_NUMBER;
@@ -1901,6 +2041,10 @@ public final class Login {
       if (hasClientType()) {
         hash = (37 * hash) + CLIENT_TYPE_FIELD_NUMBER;
         hash = (53 * hash) + clientType_;
+      }
+      if (hasAvatar()) {
+        hash = (37 * hash) + AVATAR_FIELD_NUMBER;
+        hash = (53 * hash) + getAvatar().hashCode();
       }
       if (hasClientVersion()) {
         hash = (37 * hash) + CLIENT_VERSION_FIELD_NUMBER;
@@ -2034,16 +2178,22 @@ public final class Login {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userName_ = "";
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        password_ = "";
+        password_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        onlineStatus_ = 1;
+        nickName_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        clientType_ = 1;
+        roleType_ = 1;
         bitField0_ = (bitField0_ & ~0x00000008);
-        clientVersion_ = "";
+        onlineStatus_ = 1;
         bitField0_ = (bitField0_ & ~0x00000010);
+        clientType_ = 1;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        avatar_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        clientVersion_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -2075,7 +2225,7 @@ public final class Login {
         if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.userName_ = userName_;
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -2083,13 +2233,25 @@ public final class Login {
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.onlineStatus_ = onlineStatus_;
+        result.nickName_ = nickName_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.clientType_ = clientType_;
+        result.roleType_ = roleType_;
         if (((from_bitField0_ & 0x00000010) != 0)) {
           to_bitField0_ |= 0x00000010;
+        }
+        result.onlineStatus_ = onlineStatus_;
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.clientType_ = clientType_;
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.avatar_ = avatar_;
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          to_bitField0_ |= 0x00000080;
         }
         result.clientVersion_ = clientVersion_;
         result.bitField0_ = to_bitField0_;
@@ -2141,15 +2303,19 @@ public final class Login {
 
       public Builder mergeFrom(com.bohan.protobuf.Login.LoginReq other) {
         if (other == com.bohan.protobuf.Login.LoginReq.getDefaultInstance()) return this;
-        if (other.hasUserName()) {
-          bitField0_ |= 0x00000001;
-          userName_ = other.userName_;
-          onChanged();
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
         }
         if (other.hasPassword()) {
-          bitField0_ |= 0x00000002;
-          password_ = other.password_;
+          setPassword(other.getPassword());
+        }
+        if (other.hasNickName()) {
+          bitField0_ |= 0x00000004;
+          nickName_ = other.nickName_;
           onChanged();
+        }
+        if (other.hasRoleType()) {
+          setRoleType(other.getRoleType());
         }
         if (other.hasOnlineStatus()) {
           setOnlineStatus(other.getOnlineStatus());
@@ -2157,8 +2323,13 @@ public final class Login {
         if (other.hasClientType()) {
           setClientType(other.getClientType());
         }
+        if (other.hasAvatar()) {
+          bitField0_ |= 0x00000040;
+          avatar_ = other.avatar_;
+          onChanged();
+        }
         if (other.hasClientVersion()) {
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000080;
           clientVersion_ = other.clientVersion_;
           onChanged();
         }
@@ -2169,16 +2340,25 @@ public final class Login {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasUserName()) {
+        if (!hasUserId()) {
           return false;
         }
         if (!hasPassword()) {
+          return false;
+        }
+        if (!hasNickName()) {
+          return false;
+        }
+        if (!hasRoleType()) {
           return false;
         }
         if (!hasOnlineStatus()) {
           return false;
         }
         if (!hasClientType()) {
+          return false;
+        }
+        if (!hasAvatar()) {
           return false;
         }
         return true;
@@ -2201,7 +2381,7 @@ public final class Login {
                 done = true;
                 break;
               case 10: {
-                userName_ = input.readBytes();
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 10
@@ -2210,35 +2390,57 @@ public final class Login {
                 bitField0_ |= 0x00000002;
                 break;
               } // case 18
-              case 24: {
-                int tmpRaw = input.readEnum();
-                com.bohan.protobuf.BaseDefine.UserStatType tmpValue =
-                    com.bohan.protobuf.BaseDefine.UserStatType.forNumber(tmpRaw);
-                if (tmpValue == null) {
-                  mergeUnknownVarintField(3, tmpRaw);
-                } else {
-                  onlineStatus_ = tmpRaw;
-                  bitField0_ |= 0x00000004;
-                }
+              case 26: {
+                nickName_ = input.readBytes();
+                bitField0_ |= 0x00000004;
                 break;
-              } // case 24
+              } // case 26
               case 32: {
                 int tmpRaw = input.readEnum();
-                com.bohan.protobuf.BaseDefine.ClientType tmpValue =
-                    com.bohan.protobuf.BaseDefine.ClientType.forNumber(tmpRaw);
+                com.bohan.protobuf.BaseDefine.RoleType tmpValue =
+                    com.bohan.protobuf.BaseDefine.RoleType.forNumber(tmpRaw);
                 if (tmpValue == null) {
                   mergeUnknownVarintField(4, tmpRaw);
                 } else {
-                  clientType_ = tmpRaw;
+                  roleType_ = tmpRaw;
                   bitField0_ |= 0x00000008;
                 }
                 break;
               } // case 32
-              case 42: {
-                clientVersion_ = input.readBytes();
-                bitField0_ |= 0x00000010;
+              case 40: {
+                int tmpRaw = input.readEnum();
+                com.bohan.protobuf.BaseDefine.UserStatType tmpValue =
+                    com.bohan.protobuf.BaseDefine.UserStatType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(5, tmpRaw);
+                } else {
+                  onlineStatus_ = tmpRaw;
+                  bitField0_ |= 0x00000010;
+                }
                 break;
-              } // case 42
+              } // case 40
+              case 48: {
+                int tmpRaw = input.readEnum();
+                com.bohan.protobuf.BaseDefine.ClientType tmpValue =
+                    com.bohan.protobuf.BaseDefine.ClientType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(6, tmpRaw);
+                } else {
+                  clientType_ = tmpRaw;
+                  bitField0_ |= 0x00000020;
+                }
+                break;
+              } // case 48
+              case 58: {
+                avatar_ = input.readBytes();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                clientVersion_ = input.readBytes();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -2256,16 +2458,17 @@ public final class Login {
       }
       private int bitField0_;
 
-      private java.lang.Object userName_ = "";
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0103
        * </pre>
        *
-       * <code>required string user_name = 1;</code>
-       * @return Whether the userName field is set.
+       * <code>required bytes user_id = 1;</code>
+       * @return Whether the userId field is set.
        */
-      public boolean hasUserName() {
+      @java.lang.Override
+      public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
@@ -2273,60 +2476,28 @@ public final class Login {
        *cmd id:		0x0103
        * </pre>
        *
-       * <code>required string user_name = 1;</code>
-       * @return The userName.
+       * <code>required bytes user_id = 1;</code>
+       * @return The userId.
        */
-      public java.lang.String getUserName() {
-        java.lang.Object ref = userName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            userName_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public com.google.protobuf.ByteString getUserId() {
+        return userId_;
       }
       /**
        * <pre>
        *cmd id:		0x0103
        * </pre>
        *
-       * <code>required string user_name = 1;</code>
-       * @return The bytes for userName.
-       */
-      public com.google.protobuf.ByteString
-          getUserNameBytes() {
-        java.lang.Object ref = userName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          userName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *cmd id:		0x0103
-       * </pre>
-       *
-       * <code>required string user_name = 1;</code>
-       * @param value The userName to set.
+       * <code>required bytes user_id = 1;</code>
+       * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserName(
-          java.lang.String value) {
+      public Builder setUserId(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        userName_ = value;
+        userId_ = value;
         onChanged();
         return this;
       }
@@ -2335,85 +2506,39 @@ public final class Login {
        *cmd id:		0x0103
        * </pre>
        *
-       * <code>required string user_name = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUserName() {
+      public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userName_ = getDefaultInstance().getUserName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *cmd id:		0x0103
-       * </pre>
-       *
-       * <code>required string user_name = 1;</code>
-       * @param value The bytes for userName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        userName_ = value;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
 
-      private java.lang.Object password_ = "";
+      private com.google.protobuf.ByteString password_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required string password = 2;</code>
+       * <code>required bytes password = 2;</code>
        * @return Whether the password field is set.
        */
+      @java.lang.Override
       public boolean hasPassword() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required string password = 2;</code>
+       * <code>required bytes password = 2;</code>
        * @return The password.
        */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            password_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public com.google.protobuf.ByteString getPassword() {
+        return password_;
       }
       /**
-       * <code>required string password = 2;</code>
-       * @return The bytes for password.
-       */
-      public com.google.protobuf.ByteString
-          getPasswordBytes() {
-        java.lang.Object ref = password_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          password_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string password = 2;</code>
+       * <code>required bytes password = 2;</code>
        * @param value The password to set.
        * @return This builder for chaining.
        */
-      public Builder setPassword(
-          java.lang.String value) {
+      public Builder setPassword(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2423,7 +2548,7 @@ public final class Login {
         return this;
       }
       /**
-       * <code>required string password = 2;</code>
+       * <code>required bytes password = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearPassword() {
@@ -2432,32 +2557,144 @@ public final class Login {
         onChanged();
         return this;
       }
+
+      private java.lang.Object nickName_ = "";
       /**
-       * <code>required string password = 2;</code>
-       * @param value The bytes for password to set.
+       * <code>required string nick_name = 3;</code>
+       * @return Whether the nickName field is set.
+       */
+      public boolean hasNickName() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required string nick_name = 3;</code>
+       * @return The nickName.
+       */
+      public java.lang.String getNickName() {
+        java.lang.Object ref = nickName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            nickName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string nick_name = 3;</code>
+       * @return The bytes for nickName.
+       */
+      public com.google.protobuf.ByteString
+          getNickNameBytes() {
+        java.lang.Object ref = nickName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          nickName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string nick_name = 3;</code>
+       * @param value The nickName to set.
        * @return This builder for chaining.
        */
-      public Builder setPasswordBytes(
+      public Builder setNickName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        nickName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string nick_name = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNickName() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        nickName_ = getDefaultInstance().getNickName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string nick_name = 3;</code>
+       * @param value The bytes for nickName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNickNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
-        password_ = value;
+  bitField0_ |= 0x00000004;
+        nickName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int roleType_ = 1;
+      /**
+       * <code>required .Bohan.BaseDefine.RoleType role_type = 4;</code>
+       * @return Whether the roleType field is set.
+       */
+      @java.lang.Override public boolean hasRoleType() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>required .Bohan.BaseDefine.RoleType role_type = 4;</code>
+       * @return The roleType.
+       */
+      @java.lang.Override
+      public com.bohan.protobuf.BaseDefine.RoleType getRoleType() {
+        @SuppressWarnings("deprecation")
+        com.bohan.protobuf.BaseDefine.RoleType result = com.bohan.protobuf.BaseDefine.RoleType.valueOf(roleType_);
+        return result == null ? com.bohan.protobuf.BaseDefine.RoleType.ROLE_CREATER_TYPE : result;
+      }
+      /**
+       * <code>required .Bohan.BaseDefine.RoleType role_type = 4;</code>
+       * @param value The roleType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoleType(com.bohan.protobuf.BaseDefine.RoleType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        roleType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .Bohan.BaseDefine.RoleType role_type = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRoleType() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        roleType_ = 1;
         onChanged();
         return this;
       }
 
       private int onlineStatus_ = 1;
       /**
-       * <code>required .Bohan.BaseDefine.UserStatType online_status = 3;</code>
+       * <code>required .Bohan.BaseDefine.UserStatType online_status = 5;</code>
        * @return Whether the onlineStatus field is set.
        */
       @java.lang.Override public boolean hasOnlineStatus() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>required .Bohan.BaseDefine.UserStatType online_status = 3;</code>
+       * <code>required .Bohan.BaseDefine.UserStatType online_status = 5;</code>
        * @return The onlineStatus.
        */
       @java.lang.Override
@@ -2467,7 +2704,7 @@ public final class Login {
         return result == null ? com.bohan.protobuf.BaseDefine.UserStatType.USER_STATUS_ONLINE : result;
       }
       /**
-       * <code>required .Bohan.BaseDefine.UserStatType online_status = 3;</code>
+       * <code>required .Bohan.BaseDefine.UserStatType online_status = 5;</code>
        * @param value The onlineStatus to set.
        * @return This builder for chaining.
        */
@@ -2475,17 +2712,17 @@ public final class Login {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
         onlineStatus_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>required .Bohan.BaseDefine.UserStatType online_status = 3;</code>
+       * <code>required .Bohan.BaseDefine.UserStatType online_status = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearOnlineStatus() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onlineStatus_ = 1;
         onChanged();
         return this;
@@ -2493,14 +2730,14 @@ public final class Login {
 
       private int clientType_ = 1;
       /**
-       * <code>required .Bohan.BaseDefine.ClientType client_type = 4;</code>
+       * <code>required .Bohan.BaseDefine.ClientType client_type = 6;</code>
        * @return Whether the clientType field is set.
        */
       @java.lang.Override public boolean hasClientType() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
-       * <code>required .Bohan.BaseDefine.ClientType client_type = 4;</code>
+       * <code>required .Bohan.BaseDefine.ClientType client_type = 6;</code>
        * @return The clientType.
        */
       @java.lang.Override
@@ -2510,7 +2747,7 @@ public final class Login {
         return result == null ? com.bohan.protobuf.BaseDefine.ClientType.CLIENT_TYPE_WINDOWS : result;
       }
       /**
-       * <code>required .Bohan.BaseDefine.ClientType client_type = 4;</code>
+       * <code>required .Bohan.BaseDefine.ClientType client_type = 6;</code>
        * @param value The clientType to set.
        * @return This builder for chaining.
        */
@@ -2518,32 +2755,116 @@ public final class Login {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
         clientType_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>required .Bohan.BaseDefine.ClientType client_type = 4;</code>
+       * <code>required .Bohan.BaseDefine.ClientType client_type = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearClientType() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
         clientType_ = 1;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object avatar_ = "";
+      /**
+       * <code>required string avatar = 7;</code>
+       * @return Whether the avatar field is set.
+       */
+      public boolean hasAvatar() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>required string avatar = 7;</code>
+       * @return The avatar.
+       */
+      public java.lang.String getAvatar() {
+        java.lang.Object ref = avatar_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            avatar_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string avatar = 7;</code>
+       * @return The bytes for avatar.
+       */
+      public com.google.protobuf.ByteString
+          getAvatarBytes() {
+        java.lang.Object ref = avatar_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          avatar_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string avatar = 7;</code>
+       * @param value The avatar to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAvatar(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        avatar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string avatar = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAvatar() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        avatar_ = getDefaultInstance().getAvatar();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string avatar = 7;</code>
+       * @param value The bytes for avatar to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAvatarBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        avatar_ = value;
         onChanged();
         return this;
       }
 
       private java.lang.Object clientVersion_ = "";
       /**
-       * <code>optional string client_version = 5;</code>
+       * <code>optional string client_version = 8;</code>
        * @return Whether the clientVersion field is set.
        */
       public boolean hasClientVersion() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
-       * <code>optional string client_version = 5;</code>
+       * <code>optional string client_version = 8;</code>
        * @return The clientVersion.
        */
       public java.lang.String getClientVersion() {
@@ -2561,7 +2882,7 @@ public final class Login {
         }
       }
       /**
-       * <code>optional string client_version = 5;</code>
+       * <code>optional string client_version = 8;</code>
        * @return The bytes for clientVersion.
        */
       public com.google.protobuf.ByteString
@@ -2578,7 +2899,7 @@ public final class Login {
         }
       }
       /**
-       * <code>optional string client_version = 5;</code>
+       * <code>optional string client_version = 8;</code>
        * @param value The clientVersion to set.
        * @return This builder for chaining.
        */
@@ -2587,23 +2908,23 @@ public final class Login {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000080;
         clientVersion_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string client_version = 5;</code>
+       * <code>optional string client_version = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearClientVersion() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000080);
         clientVersion_ = getDefaultInstance().getClientVersion();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string client_version = 5;</code>
+       * <code>optional string client_version = 8;</code>
        * @param value The bytes for clientVersion to set.
        * @return This builder for chaining.
        */
@@ -2612,7 +2933,7 @@ public final class Login {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000080;
         clientVersion_ = value;
         onChanged();
         return this;
@@ -4810,7 +5131,7 @@ public final class Login {
      *cmd id:		0x0107
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -4819,10 +5140,10 @@ public final class Login {
      *cmd id:		0x0107
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.KickReasonType kick_reason = 2;</code>
@@ -4848,6 +5169,7 @@ public final class Login {
       super(builder);
     }
     private KickUser() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       kickReason_ = 1;
     }
 
@@ -4878,13 +5200,13 @@ public final class Login {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0107
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -4896,11 +5218,11 @@ public final class Login {
      *cmd id:		0x0107
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -4946,7 +5268,7 @@ public final class Login {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, kickReason_);
@@ -4962,7 +5284,7 @@ public final class Login {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4985,8 +5307,8 @@ public final class Login {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasKickReason() != other.hasKickReason()) return false;
       if (hasKickReason()) {
@@ -5005,7 +5327,7 @@ public final class Login {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasKickReason()) {
         hash = (37 * hash) + KICK_REASON_FIELD_NUMBER;
@@ -5139,7 +5461,7 @@ public final class Login {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         kickReason_ = 1;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -5172,9 +5494,9 @@ public final class Login {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -5266,11 +5588,11 @@ public final class Login {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.KickReasonType tmpValue =
@@ -5300,13 +5622,13 @@ public final class Login {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0107
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -5318,11 +5640,11 @@ public final class Login {
        *cmd id:		0x0107
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -5330,12 +5652,15 @@ public final class Login {
        *cmd id:		0x0107
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -5345,12 +5670,12 @@ public final class Login {
        *cmd id:		0x0107
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -5470,7 +5795,7 @@ public final class Login {
      *cmd id:		0x0108
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -5479,10 +5804,10 @@ public final class Login {
      *cmd id:		0x0108
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required string device_token = 2;</code>
@@ -5536,6 +5861,7 @@ public final class Login {
       super(builder);
     }
     private DeviceTokenReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       deviceToken_ = "";
       clientType_ = 1;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
@@ -5568,13 +5894,13 @@ public final class Login {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0108
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -5586,11 +5912,11 @@ public final class Login {
      *cmd id:		0x0108
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -5703,7 +6029,7 @@ public final class Login {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deviceToken_);
@@ -5725,7 +6051,7 @@ public final class Login {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, deviceToken_);
@@ -5755,8 +6081,8 @@ public final class Login {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasDeviceToken() != other.hasDeviceToken()) return false;
       if (hasDeviceToken()) {
@@ -5785,7 +6111,7 @@ public final class Login {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasDeviceToken()) {
         hash = (37 * hash) + DEVICE_TOKEN_FIELD_NUMBER;
@@ -5927,7 +6253,7 @@ public final class Login {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         deviceToken_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -5964,9 +6290,9 @@ public final class Login {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -6074,11 +6400,11 @@ public final class Login {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 deviceToken_ = input.readBytes();
                 bitField0_ |= 0x00000002;
@@ -6118,13 +6444,13 @@ public final class Login {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0108
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -6136,11 +6462,11 @@ public final class Login {
        *cmd id:		0x0108
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -6148,12 +6474,15 @@ public final class Login {
        *cmd id:		0x0108
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -6163,12 +6492,12 @@ public final class Login {
        *cmd id:		0x0108
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -6414,7 +6743,7 @@ public final class Login {
      *cmd id: 		0x0109
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -6423,10 +6752,10 @@ public final class Login {
      *cmd id: 		0x0109
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>optional bytes attach_data = 20;</code>
@@ -6452,6 +6781,7 @@ public final class Login {
       super(builder);
     }
     private DeviceTokenRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -6482,13 +6812,13 @@ public final class Login {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id: 		0x0109
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -6500,11 +6830,11 @@ public final class Login {
      *cmd id: 		0x0109
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -6546,7 +6876,7 @@ public final class Login {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeBytes(20, attachData_);
@@ -6562,7 +6892,7 @@ public final class Login {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -6585,8 +6915,8 @@ public final class Login {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasAttachData() != other.hasAttachData()) return false;
       if (hasAttachData()) {
@@ -6606,7 +6936,7 @@ public final class Login {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasAttachData()) {
         hash = (37 * hash) + ATTACH_DATA_FIELD_NUMBER;
@@ -6740,7 +7070,7 @@ public final class Login {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         attachData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -6773,9 +7103,9 @@ public final class Login {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -6864,11 +7194,11 @@ public final class Login {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 162: {
                 attachData_ = input.readBytes();
                 bitField0_ |= 0x00000002;
@@ -6891,13 +7221,13 @@ public final class Login {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id: 		0x0109
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -6909,11 +7239,11 @@ public final class Login {
        *cmd id: 		0x0109
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -6921,12 +7251,15 @@ public final class Login {
        *cmd id: 		0x0109
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -6936,12 +7269,12 @@ public final class Login {
        *cmd id: 		0x0109
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -7060,7 +7393,7 @@ public final class Login {
      *cmd id:		0x010a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -7069,10 +7402,10 @@ public final class Login {
      *cmd id:		0x010a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
   }
   /**
    * <pre>
@@ -7091,6 +7424,7 @@ public final class Login {
       super(builder);
     }
     private KickPCClientReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -7120,13 +7454,13 @@ public final class Login {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x010a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -7138,11 +7472,11 @@ public final class Login {
      *cmd id:		0x010a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -7165,7 +7499,7 @@ public final class Login {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -7178,7 +7512,7 @@ public final class Login {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -7197,8 +7531,8 @@ public final class Login {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -7213,7 +7547,7 @@ public final class Login {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -7347,7 +7681,7 @@ public final class Login {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -7378,9 +7712,9 @@ public final class Login {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7462,11 +7796,11 @@ public final class Login {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -7484,13 +7818,13 @@ public final class Login {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x010a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -7502,11 +7836,11 @@ public final class Login {
        *cmd id:		0x010a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -7514,12 +7848,15 @@ public final class Login {
        *cmd id:		0x010a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -7529,12 +7866,12 @@ public final class Login {
        *cmd id:		0x010a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -7611,7 +7948,7 @@ public final class Login {
      *cmd id: 		0x010b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -7620,10 +7957,10 @@ public final class Login {
      *cmd id: 		0x010b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 result_code = 2;</code>
@@ -7649,6 +7986,7 @@ public final class Login {
       super(builder);
     }
     private KickPCClientRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -7678,13 +8016,13 @@ public final class Login {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id: 		0x010b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -7696,11 +8034,11 @@ public final class Login {
      *cmd id: 		0x010b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -7746,7 +8084,7 @@ public final class Login {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, resultCode_);
@@ -7762,7 +8100,7 @@ public final class Login {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -7785,8 +8123,8 @@ public final class Login {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasResultCode() != other.hasResultCode()) return false;
       if (hasResultCode()) {
@@ -7806,7 +8144,7 @@ public final class Login {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasResultCode()) {
         hash = (37 * hash) + RESULT_CODE_FIELD_NUMBER;
@@ -7940,7 +8278,7 @@ public final class Login {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         resultCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -7973,9 +8311,9 @@ public final class Login {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.resultCode_ = resultCode_;
           to_bitField0_ |= 0x00000002;
@@ -8067,11 +8405,11 @@ public final class Login {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 resultCode_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -8094,13 +8432,13 @@ public final class Login {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id: 		0x010b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -8112,11 +8450,11 @@ public final class Login {
        *cmd id: 		0x010b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -8124,12 +8462,15 @@ public final class Login {
        *cmd id: 		0x010b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -8139,12 +8480,12 @@ public final class Login {
        *cmd id: 		0x010b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -8319,26 +8660,28 @@ public final class Login {
       "roto\"\014\n\nMsgServReq\"r\n\nMsgServRsp\0221\n\013resu" +
       "lt_code\030\001 \002(\0162\034.Bohan.BaseDefine.ResultT" +
       "ype\022\020\n\010prior_ip\030\002 \001(\t\022\021\n\tbackip_ip\030\003 \001(\t" +
-      "\022\014\n\004port\030\004 \001(\r\"\261\001\n\010LoginReq\022\021\n\tuser_name" +
-      "\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\0225\n\ronline_statu" +
-      "s\030\003 \002(\0162\036.Bohan.BaseDefine.UserStatType\022" +
-      "1\n\013client_type\030\004 \002(\0162\034.Bohan.BaseDefine." +
-      "ClientType\022\026\n\016client_version\030\005 \001(\t\"\317\001\n\010L" +
+      "\022\014\n\004port\030\004 \001(\r\"\201\002\n\010LoginReq\022\017\n\007user_id\030\001" +
+      " \002(\014\022\020\n\010password\030\002 \002(\014\022\021\n\tnick_name\030\003 \002(" +
+      "\t\022-\n\trole_type\030\004 \002(\0162\032.Bohan.BaseDefine." +
+      "RoleType\0225\n\ronline_status\030\005 \002(\0162\036.Bohan." +
+      "BaseDefine.UserStatType\0221\n\013client_type\030\006" +
+      " \002(\0162\034.Bohan.BaseDefine.ClientType\022\016\n\006av" +
+      "atar\030\007 \002(\t\022\026\n\016client_version\030\010 \001(\t\"\317\001\n\010L" +
       "oginRes\022\023\n\013server_time\030\001 \002(\r\0221\n\013result_c" +
       "ode\030\002 \002(\0162\034.Bohan.BaseDefine.ResultType\022" +
       "\025\n\rresult_string\030\003 \001(\t\0225\n\ronline_status\030" +
       "\004 \001(\0162\036.Bohan.BaseDefine.UserStatType\022-\n" +
       "\tuser_info\030\005 \001(\0132\032.Bohan.BaseDefine.User" +
       "Info\"\013\n\tLogoutReq\" \n\tLogoutRsp\022\023\n\013result" +
-      "_code\030\001 \002(\r\"R\n\010KickUser\022\017\n\007user_id\030\001 \002(\r" +
+      "_code\030\001 \002(\r\"R\n\010KickUser\022\017\n\007user_id\030\001 \002(\014" +
       "\0225\n\013kick_reason\030\002 \002(\0162 .Bohan.BaseDefine" +
       ".KickReasonType\"\177\n\016DeviceTokenReq\022\017\n\007use" +
-      "r_id\030\001 \002(\r\022\024\n\014device_token\030\002 \002(\t\0221\n\013clie" +
+      "r_id\030\001 \002(\014\022\024\n\014device_token\030\002 \002(\t\0221\n\013clie" +
       "nt_type\030\003 \001(\0162\034.Bohan.BaseDefine.ClientT" +
       "ype\022\023\n\013attach_data\030\024 \001(\014\"6\n\016DeviceTokenR" +
-      "sp\022\017\n\007user_id\030\001 \002(\r\022\023\n\013attach_data\030\024 \001(\014" +
-      "\"\"\n\017KickPCClientReq\022\017\n\007user_id\030\001 \002(\r\"7\n\017" +
-      "KickPCClientRsp\022\017\n\007user_id\030\001 \002(\r\022\023\n\013resu" +
+      "sp\022\017\n\007user_id\030\001 \002(\014\022\023\n\013attach_data\030\024 \001(\014" +
+      "\"\"\n\017KickPCClientReq\022\017\n\007user_id\030\001 \002(\014\"7\n\017" +
+      "KickPCClientRsp\022\017\n\007user_id\030\001 \002(\014\022\023\n\013resu" +
       "lt_code\030\002 \002(\rB\026\n\022com.bohan.protobufH\003"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
@@ -8363,7 +8706,7 @@ public final class Login {
     internal_static_Bohan_Login_LoginReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Bohan_Login_LoginReq_descriptor,
-        new java.lang.String[] { "UserName", "Password", "OnlineStatus", "ClientType", "ClientVersion", });
+        new java.lang.String[] { "UserId", "Password", "NickName", "RoleType", "OnlineStatus", "ClientType", "Avatar", "ClientVersion", });
     internal_static_Bohan_Login_LoginRes_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_Bohan_Login_LoginRes_fieldAccessorTable = new

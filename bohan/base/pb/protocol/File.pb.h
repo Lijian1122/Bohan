@@ -211,10 +211,28 @@ class FileLoginReq final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTaskIdFieldNumber = 2,
     kUserIdFieldNumber = 1,
+    kTaskIdFieldNumber = 2,
     kFileRoleFieldNumber = 3,
   };
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // required string task_id = 2;
   bool has_task_id() const;
   private:
@@ -231,19 +249,6 @@ class FileLoginReq final :
   const std::string& _internal_task_id() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_task_id(const std::string& value);
   std::string* _internal_mutable_task_id();
-  public:
-
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
   public:
 
   // required .Bohan.BaseDefine.ClientFileRole file_role = 3;
@@ -272,8 +277,8 @@ class FileLoginReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_id_;
-    uint32_t user_id_;
     int file_role_;
   };
   union { Impl_ _impl_; };
@@ -557,8 +562,8 @@ class FileState final :
 
   enum : int {
     kTaskIdFieldNumber = 2,
-    kStateFieldNumber = 1,
     kUserIdFieldNumber = 3,
+    kStateFieldNumber = 1,
   };
   // required string task_id = 2;
   bool has_task_id() const;
@@ -578,6 +583,24 @@ class FileState final :
   std::string* _internal_mutable_task_id();
   public:
 
+  // required bytes user_id = 3;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // required .Bohan.BaseDefine.ClientFileState state = 1;
   bool has_state() const;
   private:
@@ -589,19 +612,6 @@ class FileState final :
   private:
   ::Bohan::BaseDefine::ClientFileState _internal_state() const;
   void _internal_set_state(::Bohan::BaseDefine::ClientFileState value);
-  public:
-
-  // required uint32 user_id = 3;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:Bohan.File.FileState)
@@ -618,8 +628,8 @@ class FileState final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     int state_;
-    uint32_t user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_File_2eproto;
@@ -760,17 +770,22 @@ class FilePullDataReq final :
   std::string* _internal_mutable_task_id();
   public:
 
-  // required uint32 user_id = 2;
+  // required bytes user_id = 2;
   bool has_user_id() const;
   private:
   bool _internal_has_user_id() const;
   public:
   void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
   private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
   public:
 
   // required .Bohan.BaseDefine.FileType trans_mode = 3;
@@ -826,7 +841,7 @@ class FilePullDataReq final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_id_;
-    uint32_t user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     int trans_mode_;
     uint32_t offset_;
     uint32_t data_size_;
@@ -947,9 +962,9 @@ class FilePullDataRsp final :
 
   enum : int {
     kTaskIdFieldNumber = 2,
+    kUserIdFieldNumber = 3,
     kDataFieldNumber = 5,
     kResultCodeFieldNumber = 1,
-    kUserIdFieldNumber = 3,
     kOffsetFieldNumber = 4,
   };
   // required string task_id = 2;
@@ -968,6 +983,24 @@ class FilePullDataRsp final :
   const std::string& _internal_task_id() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_task_id(const std::string& value);
   std::string* _internal_mutable_task_id();
+  public:
+
+  // required bytes user_id = 3;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
   public:
 
   // required bytes data = 5;
@@ -1001,19 +1034,6 @@ class FilePullDataRsp final :
   void _internal_set_result_code(uint32_t value);
   public:
 
-  // required uint32 user_id = 3;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // required uint32 offset = 4;
   bool has_offset() const;
   private:
@@ -1041,9 +1061,9 @@ class FilePullDataRsp final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
     uint32_t result_code_;
-    uint32_t user_id_;
     uint32_t offset_;
   };
   union { Impl_ _impl_; };
@@ -1161,12 +1181,48 @@ class FileReq final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFileNameFieldNumber = 3,
     kFromUserIdFieldNumber = 1,
     kToUserIdFieldNumber = 2,
+    kFileNameFieldNumber = 3,
     kFileSizeFieldNumber = 4,
     kTransModeFieldNumber = 5,
   };
+  // required bytes from_user_id = 1;
+  bool has_from_user_id() const;
+  private:
+  bool _internal_has_from_user_id() const;
+  public:
+  void clear_from_user_id();
+  const std::string& from_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_from_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_from_user_id();
+  PROTOBUF_NODISCARD std::string* release_from_user_id();
+  void set_allocated_from_user_id(std::string* from_user_id);
+  private:
+  const std::string& _internal_from_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_from_user_id(const std::string& value);
+  std::string* _internal_mutable_from_user_id();
+  public:
+
+  // required bytes to_user_id = 2;
+  bool has_to_user_id() const;
+  private:
+  bool _internal_has_to_user_id() const;
+  public:
+  void clear_to_user_id();
+  const std::string& to_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_to_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_to_user_id();
+  PROTOBUF_NODISCARD std::string* release_to_user_id();
+  void set_allocated_to_user_id(std::string* to_user_id);
+  private:
+  const std::string& _internal_to_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_to_user_id(const std::string& value);
+  std::string* _internal_mutable_to_user_id();
+  public:
+
   // required string file_name = 3;
   bool has_file_name() const;
   private:
@@ -1183,32 +1239,6 @@ class FileReq final :
   const std::string& _internal_file_name() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_file_name(const std::string& value);
   std::string* _internal_mutable_file_name();
-  public:
-
-  // required uint32 from_user_id = 1;
-  bool has_from_user_id() const;
-  private:
-  bool _internal_has_from_user_id() const;
-  public:
-  void clear_from_user_id();
-  uint32_t from_user_id() const;
-  void set_from_user_id(uint32_t value);
-  private:
-  uint32_t _internal_from_user_id() const;
-  void _internal_set_from_user_id(uint32_t value);
-  public:
-
-  // required uint32 to_user_id = 2;
-  bool has_to_user_id() const;
-  private:
-  bool _internal_has_to_user_id() const;
-  public:
-  void clear_to_user_id();
-  uint32_t to_user_id() const;
-  void set_to_user_id(uint32_t value);
-  private:
-  uint32_t _internal_to_user_id() const;
-  void _internal_set_to_user_id(uint32_t value);
   public:
 
   // required uint32 file_size = 4;
@@ -1250,9 +1280,9 @@ class FileReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr from_user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr to_user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr file_name_;
-    uint32_t from_user_id_;
-    uint32_t to_user_id_;
     uint32_t file_size_;
     int trans_mode_;
   };
@@ -1372,11 +1402,11 @@ class FileRsp final :
 
   enum : int {
     kIpAddrListFieldNumber = 6,
+    kFromUserIdFieldNumber = 2,
+    kToUserIdFieldNumber = 3,
     kFileNameFieldNumber = 4,
     kTaskIdFieldNumber = 5,
     kResultCodeFieldNumber = 1,
-    kFromUserIdFieldNumber = 2,
-    kToUserIdFieldNumber = 3,
     kTransModeFieldNumber = 7,
   };
   // repeated .Bohan.BaseDefine.IpAddr ip_addr_list = 6;
@@ -1396,6 +1426,42 @@ class FileRsp final :
   ::Bohan::BaseDefine::IpAddr* add_ip_addr_list();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::IpAddr >&
       ip_addr_list() const;
+
+  // required bytes from_user_id = 2;
+  bool has_from_user_id() const;
+  private:
+  bool _internal_has_from_user_id() const;
+  public:
+  void clear_from_user_id();
+  const std::string& from_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_from_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_from_user_id();
+  PROTOBUF_NODISCARD std::string* release_from_user_id();
+  void set_allocated_from_user_id(std::string* from_user_id);
+  private:
+  const std::string& _internal_from_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_from_user_id(const std::string& value);
+  std::string* _internal_mutable_from_user_id();
+  public:
+
+  // required bytes to_user_id = 3;
+  bool has_to_user_id() const;
+  private:
+  bool _internal_has_to_user_id() const;
+  public:
+  void clear_to_user_id();
+  const std::string& to_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_to_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_to_user_id();
+  PROTOBUF_NODISCARD std::string* release_to_user_id();
+  void set_allocated_to_user_id(std::string* to_user_id);
+  private:
+  const std::string& _internal_to_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_to_user_id(const std::string& value);
+  std::string* _internal_mutable_to_user_id();
+  public:
 
   // required string file_name = 4;
   bool has_file_name() const;
@@ -1446,32 +1512,6 @@ class FileRsp final :
   void _internal_set_result_code(uint32_t value);
   public:
 
-  // required uint32 from_user_id = 2;
-  bool has_from_user_id() const;
-  private:
-  bool _internal_has_from_user_id() const;
-  public:
-  void clear_from_user_id();
-  uint32_t from_user_id() const;
-  void set_from_user_id(uint32_t value);
-  private:
-  uint32_t _internal_from_user_id() const;
-  void _internal_set_from_user_id(uint32_t value);
-  public:
-
-  // required uint32 to_user_id = 3;
-  bool has_to_user_id() const;
-  private:
-  bool _internal_has_to_user_id() const;
-  public:
-  void clear_to_user_id();
-  uint32_t to_user_id() const;
-  void set_to_user_id(uint32_t value);
-  private:
-  uint32_t _internal_to_user_id() const;
-  void _internal_set_to_user_id(uint32_t value);
-  public:
-
   // required .Bohan.BaseDefine.FileType trans_mode = 7;
   bool has_trans_mode() const;
   private:
@@ -1499,11 +1539,11 @@ class FileRsp final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::IpAddr > ip_addr_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr from_user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr to_user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr file_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_id_;
     uint32_t result_code_;
-    uint32_t from_user_id_;
-    uint32_t to_user_id_;
     int trans_mode_;
   };
   union { Impl_ _impl_; };
@@ -1622,10 +1662,10 @@ class FileNotify final :
 
   enum : int {
     kIpAddrListFieldNumber = 6,
-    kFileNameFieldNumber = 3,
-    kTaskIdFieldNumber = 5,
     kFromUserIdFieldNumber = 1,
     kToUserIdFieldNumber = 2,
+    kFileNameFieldNumber = 3,
+    kTaskIdFieldNumber = 5,
     kFileSizeFieldNumber = 4,
     kTransModeFieldNumber = 7,
     kOfflineReadyFieldNumber = 8,
@@ -1647,6 +1687,42 @@ class FileNotify final :
   ::Bohan::BaseDefine::IpAddr* add_ip_addr_list();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::IpAddr >&
       ip_addr_list() const;
+
+  // required bytes from_user_id = 1;
+  bool has_from_user_id() const;
+  private:
+  bool _internal_has_from_user_id() const;
+  public:
+  void clear_from_user_id();
+  const std::string& from_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_from_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_from_user_id();
+  PROTOBUF_NODISCARD std::string* release_from_user_id();
+  void set_allocated_from_user_id(std::string* from_user_id);
+  private:
+  const std::string& _internal_from_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_from_user_id(const std::string& value);
+  std::string* _internal_mutable_from_user_id();
+  public:
+
+  // required bytes to_user_id = 2;
+  bool has_to_user_id() const;
+  private:
+  bool _internal_has_to_user_id() const;
+  public:
+  void clear_to_user_id();
+  const std::string& to_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_to_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_to_user_id();
+  PROTOBUF_NODISCARD std::string* release_to_user_id();
+  void set_allocated_to_user_id(std::string* to_user_id);
+  private:
+  const std::string& _internal_to_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_to_user_id(const std::string& value);
+  std::string* _internal_mutable_to_user_id();
+  public:
 
   // required string file_name = 3;
   bool has_file_name() const;
@@ -1682,32 +1758,6 @@ class FileNotify final :
   const std::string& _internal_task_id() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_task_id(const std::string& value);
   std::string* _internal_mutable_task_id();
-  public:
-
-  // required uint32 from_user_id = 1;
-  bool has_from_user_id() const;
-  private:
-  bool _internal_has_from_user_id() const;
-  public:
-  void clear_from_user_id();
-  uint32_t from_user_id() const;
-  void set_from_user_id(uint32_t value);
-  private:
-  uint32_t _internal_from_user_id() const;
-  void _internal_set_from_user_id(uint32_t value);
-  public:
-
-  // required uint32 to_user_id = 2;
-  bool has_to_user_id() const;
-  private:
-  bool _internal_has_to_user_id() const;
-  public:
-  void clear_to_user_id();
-  uint32_t to_user_id() const;
-  void set_to_user_id(uint32_t value);
-  private:
-  uint32_t _internal_to_user_id() const;
-  void _internal_set_to_user_id(uint32_t value);
   public:
 
   // required uint32 file_size = 4;
@@ -1763,10 +1813,10 @@ class FileNotify final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::IpAddr > ip_addr_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr from_user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr to_user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr file_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_id_;
-    uint32_t from_user_id_;
-    uint32_t to_user_id_;
     uint32_t file_size_;
     int trans_mode_;
     uint32_t offline_ready_;
@@ -1886,9 +1936,27 @@ class FileHasOfflineReq final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
   };
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -1907,19 +1975,6 @@ class FileHasOfflineReq final :
   std::string* _internal_mutable_attach_data();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:Bohan.File.FileHasOfflineReq)
  private:
   class _Internal;
@@ -1930,8 +1985,8 @@ class FileHasOfflineReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_File_2eproto;
@@ -2050,8 +2105,8 @@ class FileHasOfflineRsp final :
   enum : int {
     kOfflineFileListFieldNumber = 2,
     kIpAddrListFieldNumber = 3,
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
   };
   // repeated .Bohan.BaseDefine.OfflineFileInfo offline_file_list = 2;
   int offline_file_list_size() const;
@@ -2089,6 +2144,24 @@ class FileHasOfflineRsp final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::IpAddr >&
       ip_addr_list() const;
 
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -2107,19 +2180,6 @@ class FileHasOfflineRsp final :
   std::string* _internal_mutable_attach_data();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:Bohan.File.FileHasOfflineRsp)
  private:
   class _Internal;
@@ -2132,8 +2192,8 @@ class FileHasOfflineRsp final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::OfflineFileInfo > offline_file_list_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::IpAddr > ip_addr_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_File_2eproto;
@@ -2250,12 +2310,48 @@ class FileAddOfflineReq final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTaskIdFieldNumber = 3,
-    kFileNameFieldNumber = 4,
     kFromUserIdFieldNumber = 1,
     kToUserIdFieldNumber = 2,
+    kTaskIdFieldNumber = 3,
+    kFileNameFieldNumber = 4,
     kFileSizeFieldNumber = 5,
   };
+  // required bytes from_user_id = 1;
+  bool has_from_user_id() const;
+  private:
+  bool _internal_has_from_user_id() const;
+  public:
+  void clear_from_user_id();
+  const std::string& from_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_from_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_from_user_id();
+  PROTOBUF_NODISCARD std::string* release_from_user_id();
+  void set_allocated_from_user_id(std::string* from_user_id);
+  private:
+  const std::string& _internal_from_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_from_user_id(const std::string& value);
+  std::string* _internal_mutable_from_user_id();
+  public:
+
+  // required bytes to_user_id = 2;
+  bool has_to_user_id() const;
+  private:
+  bool _internal_has_to_user_id() const;
+  public:
+  void clear_to_user_id();
+  const std::string& to_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_to_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_to_user_id();
+  PROTOBUF_NODISCARD std::string* release_to_user_id();
+  void set_allocated_to_user_id(std::string* to_user_id);
+  private:
+  const std::string& _internal_to_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_to_user_id(const std::string& value);
+  std::string* _internal_mutable_to_user_id();
+  public:
+
   // required string task_id = 3;
   bool has_task_id() const;
   private:
@@ -2292,32 +2388,6 @@ class FileAddOfflineReq final :
   std::string* _internal_mutable_file_name();
   public:
 
-  // required uint32 from_user_id = 1;
-  bool has_from_user_id() const;
-  private:
-  bool _internal_has_from_user_id() const;
-  public:
-  void clear_from_user_id();
-  uint32_t from_user_id() const;
-  void set_from_user_id(uint32_t value);
-  private:
-  uint32_t _internal_from_user_id() const;
-  void _internal_set_from_user_id(uint32_t value);
-  public:
-
-  // required uint32 to_user_id = 2;
-  bool has_to_user_id() const;
-  private:
-  bool _internal_has_to_user_id() const;
-  public:
-  void clear_to_user_id();
-  uint32_t to_user_id() const;
-  void set_to_user_id(uint32_t value);
-  private:
-  uint32_t _internal_to_user_id() const;
-  void _internal_set_to_user_id(uint32_t value);
-  public:
-
   // required uint32 file_size = 5;
   bool has_file_size() const;
   private:
@@ -2344,10 +2414,10 @@ class FileAddOfflineReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr from_user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr to_user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr file_name_;
-    uint32_t from_user_id_;
-    uint32_t to_user_id_;
     uint32_t file_size_;
   };
   union { Impl_ _impl_; };
@@ -2465,10 +2535,46 @@ class FileDelOfflineReq final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTaskIdFieldNumber = 3,
     kFromUserIdFieldNumber = 1,
     kToUserIdFieldNumber = 2,
+    kTaskIdFieldNumber = 3,
   };
+  // required bytes from_user_id = 1;
+  bool has_from_user_id() const;
+  private:
+  bool _internal_has_from_user_id() const;
+  public:
+  void clear_from_user_id();
+  const std::string& from_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_from_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_from_user_id();
+  PROTOBUF_NODISCARD std::string* release_from_user_id();
+  void set_allocated_from_user_id(std::string* from_user_id);
+  private:
+  const std::string& _internal_from_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_from_user_id(const std::string& value);
+  std::string* _internal_mutable_from_user_id();
+  public:
+
+  // required bytes to_user_id = 2;
+  bool has_to_user_id() const;
+  private:
+  bool _internal_has_to_user_id() const;
+  public:
+  void clear_to_user_id();
+  const std::string& to_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_to_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_to_user_id();
+  PROTOBUF_NODISCARD std::string* release_to_user_id();
+  void set_allocated_to_user_id(std::string* to_user_id);
+  private:
+  const std::string& _internal_to_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_to_user_id(const std::string& value);
+  std::string* _internal_mutable_to_user_id();
+  public:
+
   // required string task_id = 3;
   bool has_task_id() const;
   private:
@@ -2487,32 +2593,6 @@ class FileDelOfflineReq final :
   std::string* _internal_mutable_task_id();
   public:
 
-  // required uint32 from_user_id = 1;
-  bool has_from_user_id() const;
-  private:
-  bool _internal_has_from_user_id() const;
-  public:
-  void clear_from_user_id();
-  uint32_t from_user_id() const;
-  void set_from_user_id(uint32_t value);
-  private:
-  uint32_t _internal_from_user_id() const;
-  void _internal_set_from_user_id(uint32_t value);
-  public:
-
-  // required uint32 to_user_id = 2;
-  bool has_to_user_id() const;
-  private:
-  bool _internal_has_to_user_id() const;
-  public:
-  void clear_to_user_id();
-  uint32_t to_user_id() const;
-  void set_to_user_id(uint32_t value);
-  private:
-  uint32_t _internal_to_user_id() const;
-  void _internal_set_to_user_id(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:Bohan.File.FileDelOfflineReq)
  private:
   class _Internal;
@@ -2526,9 +2606,9 @@ class FileDelOfflineReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr from_user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr to_user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_id_;
-    uint32_t from_user_id_;
-    uint32_t to_user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_File_2eproto;
@@ -2544,37 +2624,77 @@ class FileDelOfflineReq final :
 #endif  // __GNUC__
 // FileLoginReq
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool FileLoginReq::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool FileLoginReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void FileLoginReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t FileLoginReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t FileLoginReq::user_id() const {
+inline const std::string& FileLoginReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileLoginReq.user_id)
   return _internal_user_id();
 }
-inline void FileLoginReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void FileLoginReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileLoginReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileLoginReq.user_id)
+}
+inline std::string* FileLoginReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileLoginReq.user_id)
+  return _s;
+}
+inline const std::string& FileLoginReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void FileLoginReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileLoginReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileLoginReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileLoginReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileLoginReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileLoginReq.user_id)
 }
 
 // required string task_id = 2;
 inline bool FileLoginReq::_internal_has_task_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FileLoginReq::has_task_id() const {
@@ -2582,7 +2702,7 @@ inline bool FileLoginReq::has_task_id() const {
 }
 inline void FileLoginReq::clear_task_id() {
   _impl_.task_id_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& FileLoginReq::task_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileLoginReq.task_id)
@@ -2591,7 +2711,7 @@ inline const std::string& FileLoginReq::task_id() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileLoginReq::set_task_id(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.task_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileLoginReq.task_id)
 }
@@ -2604,11 +2724,11 @@ inline const std::string& FileLoginReq::_internal_task_id() const {
   return _impl_.task_id_.Get();
 }
 inline void FileLoginReq::_internal_set_task_id(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.task_id_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileLoginReq::_internal_mutable_task_id() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.task_id_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileLoginReq::release_task_id() {
@@ -2616,7 +2736,7 @@ inline std::string* FileLoginReq::release_task_id() {
   if (!_internal_has_task_id()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.task_id_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.task_id_.IsDefault()) {
@@ -2627,9 +2747,9 @@ inline std::string* FileLoginReq::release_task_id() {
 }
 inline void FileLoginReq::set_allocated_task_id(std::string* task_id) {
   if (task_id != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.task_id_.SetAllocated(task_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2775,7 +2895,7 @@ inline void FileLoginRsp::set_allocated_task_id(std::string* task_id) {
 
 // required .Bohan.BaseDefine.ClientFileState state = 1;
 inline bool FileState::_internal_has_state() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool FileState::has_state() const {
@@ -2783,7 +2903,7 @@ inline bool FileState::has_state() const {
 }
 inline void FileState::clear_state() {
   _impl_.state_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline ::Bohan::BaseDefine::ClientFileState FileState::_internal_state() const {
   return static_cast< ::Bohan::BaseDefine::ClientFileState >(_impl_.state_);
@@ -2794,7 +2914,7 @@ inline ::Bohan::BaseDefine::ClientFileState FileState::state() const {
 }
 inline void FileState::_internal_set_state(::Bohan::BaseDefine::ClientFileState value) {
   assert(::Bohan::BaseDefine::ClientFileState_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.state_ = value;
 }
 inline void FileState::set_state(::Bohan::BaseDefine::ClientFileState value) {
@@ -2870,32 +2990,72 @@ inline void FileState::set_allocated_task_id(std::string* task_id) {
   // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileState.task_id)
 }
 
-// required uint32 user_id = 3;
+// required bytes user_id = 3;
 inline bool FileState::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FileState::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void FileState::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t FileState::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t FileState::user_id() const {
+inline const std::string& FileState::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileState.user_id)
   return _internal_user_id();
 }
-inline void FileState::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.user_id_ = value;
-}
-inline void FileState::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileState::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileState.user_id)
+}
+inline std::string* FileState::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileState.user_id)
+  return _s;
+}
+inline const std::string& FileState::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void FileState::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileState::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileState::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileState.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileState::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileState.user_id)
 }
 
 // -------------------------------------------------------------------
@@ -2970,7 +3130,7 @@ inline void FilePullDataReq::set_allocated_task_id(std::string* task_id) {
   // @@protoc_insertion_point(field_set_allocated:Bohan.File.FilePullDataReq.task_id)
 }
 
-// required uint32 user_id = 2;
+// required bytes user_id = 2;
 inline bool FilePullDataReq::_internal_has_user_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -2979,23 +3139,63 @@ inline bool FilePullDataReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void FilePullDataReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
+  _impl_.user_id_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t FilePullDataReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t FilePullDataReq::user_id() const {
+inline const std::string& FilePullDataReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FilePullDataReq.user_id)
   return _internal_user_id();
 }
-inline void FilePullDataReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void FilePullDataReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FilePullDataReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FilePullDataReq.user_id)
+}
+inline std::string* FilePullDataReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FilePullDataReq.user_id)
+  return _s;
+}
+inline const std::string& FilePullDataReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void FilePullDataReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FilePullDataReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FilePullDataReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FilePullDataReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FilePullDataReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FilePullDataReq.user_id)
 }
 
 // required .Bohan.BaseDefine.FileType trans_mode = 3;
@@ -3089,7 +3289,7 @@ inline void FilePullDataReq::set_data_size(uint32_t value) {
 
 // required uint32 result_code = 1;
 inline bool FilePullDataRsp::_internal_has_result_code() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool FilePullDataRsp::has_result_code() const {
@@ -3097,7 +3297,7 @@ inline bool FilePullDataRsp::has_result_code() const {
 }
 inline void FilePullDataRsp::clear_result_code() {
   _impl_.result_code_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t FilePullDataRsp::_internal_result_code() const {
   return _impl_.result_code_;
@@ -3107,7 +3307,7 @@ inline uint32_t FilePullDataRsp::result_code() const {
   return _internal_result_code();
 }
 inline void FilePullDataRsp::_internal_set_result_code(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.result_code_ = value;
 }
 inline void FilePullDataRsp::set_result_code(uint32_t value) {
@@ -3183,32 +3383,72 @@ inline void FilePullDataRsp::set_allocated_task_id(std::string* task_id) {
   // @@protoc_insertion_point(field_set_allocated:Bohan.File.FilePullDataRsp.task_id)
 }
 
-// required uint32 user_id = 3;
+// required bytes user_id = 3;
 inline bool FilePullDataRsp::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FilePullDataRsp::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void FilePullDataRsp::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t FilePullDataRsp::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t FilePullDataRsp::user_id() const {
+inline const std::string& FilePullDataRsp::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FilePullDataRsp.user_id)
   return _internal_user_id();
 }
-inline void FilePullDataRsp::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.user_id_ = value;
-}
-inline void FilePullDataRsp::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FilePullDataRsp::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FilePullDataRsp.user_id)
+}
+inline std::string* FilePullDataRsp::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FilePullDataRsp.user_id)
+  return _s;
+}
+inline const std::string& FilePullDataRsp::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void FilePullDataRsp::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FilePullDataRsp::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FilePullDataRsp::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FilePullDataRsp.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FilePullDataRsp::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FilePullDataRsp.user_id)
 }
 
 // required uint32 offset = 4;
@@ -3241,7 +3481,7 @@ inline void FilePullDataRsp::set_offset(uint32_t value) {
 
 // required bytes data = 5;
 inline bool FilePullDataRsp::_internal_has_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool FilePullDataRsp::has_data() const {
@@ -3249,7 +3489,7 @@ inline bool FilePullDataRsp::has_data() const {
 }
 inline void FilePullDataRsp::clear_data() {
   _impl_.data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& FilePullDataRsp::data() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FilePullDataRsp.data)
@@ -3258,7 +3498,7 @@ inline const std::string& FilePullDataRsp::data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FilePullDataRsp::set_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FilePullDataRsp.data)
 }
@@ -3271,11 +3511,11 @@ inline const std::string& FilePullDataRsp::_internal_data() const {
   return _impl_.data_.Get();
 }
 inline void FilePullDataRsp::_internal_set_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FilePullDataRsp::_internal_mutable_data() {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FilePullDataRsp::release_data() {
@@ -3283,7 +3523,7 @@ inline std::string* FilePullDataRsp::release_data() {
   if (!_internal_has_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.data_.IsDefault()) {
@@ -3294,9 +3534,9 @@ inline std::string* FilePullDataRsp::release_data() {
 }
 inline void FilePullDataRsp::set_allocated_data(std::string* data) {
   if (data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.data_.SetAllocated(data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3311,65 +3551,145 @@ inline void FilePullDataRsp::set_allocated_data(std::string* data) {
 
 // FileReq
 
-// required uint32 from_user_id = 1;
+// required bytes from_user_id = 1;
 inline bool FileReq::_internal_has_from_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool FileReq::has_from_user_id() const {
   return _internal_has_from_user_id();
 }
 inline void FileReq::clear_from_user_id() {
-  _impl_.from_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.from_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t FileReq::_internal_from_user_id() const {
-  return _impl_.from_user_id_;
-}
-inline uint32_t FileReq::from_user_id() const {
+inline const std::string& FileReq::from_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileReq.from_user_id)
   return _internal_from_user_id();
 }
-inline void FileReq::_internal_set_from_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.from_user_id_ = value;
-}
-inline void FileReq::set_from_user_id(uint32_t value) {
-  _internal_set_from_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileReq::set_from_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.from_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileReq.from_user_id)
 }
+inline std::string* FileReq::mutable_from_user_id() {
+  std::string* _s = _internal_mutable_from_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileReq.from_user_id)
+  return _s;
+}
+inline const std::string& FileReq::_internal_from_user_id() const {
+  return _impl_.from_user_id_.Get();
+}
+inline void FileReq::_internal_set_from_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.from_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileReq::_internal_mutable_from_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.from_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileReq::release_from_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileReq.from_user_id)
+  if (!_internal_has_from_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.from_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileReq::set_allocated_from_user_id(std::string* from_user_id) {
+  if (from_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.from_user_id_.SetAllocated(from_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileReq.from_user_id)
+}
 
-// required uint32 to_user_id = 2;
+// required bytes to_user_id = 2;
 inline bool FileReq::_internal_has_to_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FileReq::has_to_user_id() const {
   return _internal_has_to_user_id();
 }
 inline void FileReq::clear_to_user_id() {
-  _impl_.to_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.to_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t FileReq::_internal_to_user_id() const {
-  return _impl_.to_user_id_;
-}
-inline uint32_t FileReq::to_user_id() const {
+inline const std::string& FileReq::to_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileReq.to_user_id)
   return _internal_to_user_id();
 }
-inline void FileReq::_internal_set_to_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.to_user_id_ = value;
-}
-inline void FileReq::set_to_user_id(uint32_t value) {
-  _internal_set_to_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileReq::set_to_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.to_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileReq.to_user_id)
+}
+inline std::string* FileReq::mutable_to_user_id() {
+  std::string* _s = _internal_mutable_to_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileReq.to_user_id)
+  return _s;
+}
+inline const std::string& FileReq::_internal_to_user_id() const {
+  return _impl_.to_user_id_.Get();
+}
+inline void FileReq::_internal_set_to_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.to_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileReq::_internal_mutable_to_user_id() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.to_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileReq::release_to_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileReq.to_user_id)
+  if (!_internal_has_to_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.to_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileReq::set_allocated_to_user_id(std::string* to_user_id) {
+  if (to_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.to_user_id_.SetAllocated(to_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileReq.to_user_id)
 }
 
 // required string file_name = 3;
 inline bool FileReq::_internal_has_file_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool FileReq::has_file_name() const {
@@ -3377,7 +3697,7 @@ inline bool FileReq::has_file_name() const {
 }
 inline void FileReq::clear_file_name() {
   _impl_.file_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& FileReq::file_name() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileReq.file_name)
@@ -3386,7 +3706,7 @@ inline const std::string& FileReq::file_name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileReq::set_file_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.file_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileReq.file_name)
 }
@@ -3399,11 +3719,11 @@ inline const std::string& FileReq::_internal_file_name() const {
   return _impl_.file_name_.Get();
 }
 inline void FileReq::_internal_set_file_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.file_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileReq::_internal_mutable_file_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.file_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileReq::release_file_name() {
@@ -3411,7 +3731,7 @@ inline std::string* FileReq::release_file_name() {
   if (!_internal_has_file_name()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.file_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.file_name_.IsDefault()) {
@@ -3422,9 +3742,9 @@ inline std::string* FileReq::release_file_name() {
 }
 inline void FileReq::set_allocated_file_name(std::string* file_name) {
   if (file_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.file_name_.SetAllocated(file_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3498,7 +3818,7 @@ inline void FileReq::set_trans_mode(::Bohan::BaseDefine::FileType value) {
 
 // required uint32 result_code = 1;
 inline bool FileRsp::_internal_has_result_code() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool FileRsp::has_result_code() const {
@@ -3506,7 +3826,7 @@ inline bool FileRsp::has_result_code() const {
 }
 inline void FileRsp::clear_result_code() {
   _impl_.result_code_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t FileRsp::_internal_result_code() const {
   return _impl_.result_code_;
@@ -3516,7 +3836,7 @@ inline uint32_t FileRsp::result_code() const {
   return _internal_result_code();
 }
 inline void FileRsp::_internal_set_result_code(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.result_code_ = value;
 }
 inline void FileRsp::set_result_code(uint32_t value) {
@@ -3524,65 +3844,145 @@ inline void FileRsp::set_result_code(uint32_t value) {
   // @@protoc_insertion_point(field_set:Bohan.File.FileRsp.result_code)
 }
 
-// required uint32 from_user_id = 2;
+// required bytes from_user_id = 2;
 inline bool FileRsp::_internal_has_from_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool FileRsp::has_from_user_id() const {
   return _internal_has_from_user_id();
 }
 inline void FileRsp::clear_from_user_id() {
-  _impl_.from_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.from_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t FileRsp::_internal_from_user_id() const {
-  return _impl_.from_user_id_;
-}
-inline uint32_t FileRsp::from_user_id() const {
+inline const std::string& FileRsp::from_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileRsp.from_user_id)
   return _internal_from_user_id();
 }
-inline void FileRsp::_internal_set_from_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.from_user_id_ = value;
-}
-inline void FileRsp::set_from_user_id(uint32_t value) {
-  _internal_set_from_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileRsp::set_from_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.from_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileRsp.from_user_id)
 }
+inline std::string* FileRsp::mutable_from_user_id() {
+  std::string* _s = _internal_mutable_from_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileRsp.from_user_id)
+  return _s;
+}
+inline const std::string& FileRsp::_internal_from_user_id() const {
+  return _impl_.from_user_id_.Get();
+}
+inline void FileRsp::_internal_set_from_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.from_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileRsp::_internal_mutable_from_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.from_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileRsp::release_from_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileRsp.from_user_id)
+  if (!_internal_has_from_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.from_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileRsp::set_allocated_from_user_id(std::string* from_user_id) {
+  if (from_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.from_user_id_.SetAllocated(from_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileRsp.from_user_id)
+}
 
-// required uint32 to_user_id = 3;
+// required bytes to_user_id = 3;
 inline bool FileRsp::_internal_has_to_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FileRsp::has_to_user_id() const {
   return _internal_has_to_user_id();
 }
 inline void FileRsp::clear_to_user_id() {
-  _impl_.to_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_.to_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t FileRsp::_internal_to_user_id() const {
-  return _impl_.to_user_id_;
-}
-inline uint32_t FileRsp::to_user_id() const {
+inline const std::string& FileRsp::to_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileRsp.to_user_id)
   return _internal_to_user_id();
 }
-inline void FileRsp::_internal_set_to_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.to_user_id_ = value;
-}
-inline void FileRsp::set_to_user_id(uint32_t value) {
-  _internal_set_to_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileRsp::set_to_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.to_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileRsp.to_user_id)
+}
+inline std::string* FileRsp::mutable_to_user_id() {
+  std::string* _s = _internal_mutable_to_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileRsp.to_user_id)
+  return _s;
+}
+inline const std::string& FileRsp::_internal_to_user_id() const {
+  return _impl_.to_user_id_.Get();
+}
+inline void FileRsp::_internal_set_to_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.to_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileRsp::_internal_mutable_to_user_id() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.to_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileRsp::release_to_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileRsp.to_user_id)
+  if (!_internal_has_to_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.to_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileRsp::set_allocated_to_user_id(std::string* to_user_id) {
+  if (to_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.to_user_id_.SetAllocated(to_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileRsp.to_user_id)
 }
 
 // required string file_name = 4;
 inline bool FileRsp::_internal_has_file_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool FileRsp::has_file_name() const {
@@ -3590,7 +3990,7 @@ inline bool FileRsp::has_file_name() const {
 }
 inline void FileRsp::clear_file_name() {
   _impl_.file_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& FileRsp::file_name() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileRsp.file_name)
@@ -3599,7 +3999,7 @@ inline const std::string& FileRsp::file_name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileRsp::set_file_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.file_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileRsp.file_name)
 }
@@ -3612,11 +4012,11 @@ inline const std::string& FileRsp::_internal_file_name() const {
   return _impl_.file_name_.Get();
 }
 inline void FileRsp::_internal_set_file_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.file_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileRsp::_internal_mutable_file_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.file_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileRsp::release_file_name() {
@@ -3624,7 +4024,7 @@ inline std::string* FileRsp::release_file_name() {
   if (!_internal_has_file_name()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.file_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.file_name_.IsDefault()) {
@@ -3635,9 +4035,9 @@ inline std::string* FileRsp::release_file_name() {
 }
 inline void FileRsp::set_allocated_file_name(std::string* file_name) {
   if (file_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.file_name_.SetAllocated(file_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3650,7 +4050,7 @@ inline void FileRsp::set_allocated_file_name(std::string* file_name) {
 
 // required string task_id = 5;
 inline bool FileRsp::_internal_has_task_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool FileRsp::has_task_id() const {
@@ -3658,7 +4058,7 @@ inline bool FileRsp::has_task_id() const {
 }
 inline void FileRsp::clear_task_id() {
   _impl_.task_id_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline const std::string& FileRsp::task_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileRsp.task_id)
@@ -3667,7 +4067,7 @@ inline const std::string& FileRsp::task_id() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileRsp::set_task_id(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_._has_bits_[0] |= 0x00000008u;
  _impl_.task_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileRsp.task_id)
 }
@@ -3680,11 +4080,11 @@ inline const std::string& FileRsp::_internal_task_id() const {
   return _impl_.task_id_.Get();
 }
 inline void FileRsp::_internal_set_task_id(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.task_id_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileRsp::_internal_mutable_task_id() {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   return _impl_.task_id_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileRsp::release_task_id() {
@@ -3692,7 +4092,7 @@ inline std::string* FileRsp::release_task_id() {
   if (!_internal_has_task_id()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
   auto* p = _impl_.task_id_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.task_id_.IsDefault()) {
@@ -3703,9 +4103,9 @@ inline std::string* FileRsp::release_task_id() {
 }
 inline void FileRsp::set_allocated_task_id(std::string* task_id) {
   if (task_id != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000008u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000008u;
   }
   _impl_.task_id_.SetAllocated(task_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3786,65 +4186,145 @@ inline void FileRsp::set_trans_mode(::Bohan::BaseDefine::FileType value) {
 
 // FileNotify
 
-// required uint32 from_user_id = 1;
+// required bytes from_user_id = 1;
 inline bool FileNotify::_internal_has_from_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool FileNotify::has_from_user_id() const {
   return _internal_has_from_user_id();
 }
 inline void FileNotify::clear_from_user_id() {
-  _impl_.from_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.from_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t FileNotify::_internal_from_user_id() const {
-  return _impl_.from_user_id_;
-}
-inline uint32_t FileNotify::from_user_id() const {
+inline const std::string& FileNotify::from_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileNotify.from_user_id)
   return _internal_from_user_id();
 }
-inline void FileNotify::_internal_set_from_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.from_user_id_ = value;
-}
-inline void FileNotify::set_from_user_id(uint32_t value) {
-  _internal_set_from_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileNotify::set_from_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.from_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileNotify.from_user_id)
 }
+inline std::string* FileNotify::mutable_from_user_id() {
+  std::string* _s = _internal_mutable_from_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileNotify.from_user_id)
+  return _s;
+}
+inline const std::string& FileNotify::_internal_from_user_id() const {
+  return _impl_.from_user_id_.Get();
+}
+inline void FileNotify::_internal_set_from_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.from_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileNotify::_internal_mutable_from_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.from_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileNotify::release_from_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileNotify.from_user_id)
+  if (!_internal_has_from_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.from_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileNotify::set_allocated_from_user_id(std::string* from_user_id) {
+  if (from_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.from_user_id_.SetAllocated(from_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileNotify.from_user_id)
+}
 
-// required uint32 to_user_id = 2;
+// required bytes to_user_id = 2;
 inline bool FileNotify::_internal_has_to_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FileNotify::has_to_user_id() const {
   return _internal_has_to_user_id();
 }
 inline void FileNotify::clear_to_user_id() {
-  _impl_.to_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.to_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t FileNotify::_internal_to_user_id() const {
-  return _impl_.to_user_id_;
-}
-inline uint32_t FileNotify::to_user_id() const {
+inline const std::string& FileNotify::to_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileNotify.to_user_id)
   return _internal_to_user_id();
 }
-inline void FileNotify::_internal_set_to_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.to_user_id_ = value;
-}
-inline void FileNotify::set_to_user_id(uint32_t value) {
-  _internal_set_to_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileNotify::set_to_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.to_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileNotify.to_user_id)
+}
+inline std::string* FileNotify::mutable_to_user_id() {
+  std::string* _s = _internal_mutable_to_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileNotify.to_user_id)
+  return _s;
+}
+inline const std::string& FileNotify::_internal_to_user_id() const {
+  return _impl_.to_user_id_.Get();
+}
+inline void FileNotify::_internal_set_to_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.to_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileNotify::_internal_mutable_to_user_id() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.to_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileNotify::release_to_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileNotify.to_user_id)
+  if (!_internal_has_to_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.to_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileNotify::set_allocated_to_user_id(std::string* to_user_id) {
+  if (to_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.to_user_id_.SetAllocated(to_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileNotify.to_user_id)
 }
 
 // required string file_name = 3;
 inline bool FileNotify::_internal_has_file_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool FileNotify::has_file_name() const {
@@ -3852,7 +4332,7 @@ inline bool FileNotify::has_file_name() const {
 }
 inline void FileNotify::clear_file_name() {
   _impl_.file_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& FileNotify::file_name() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileNotify.file_name)
@@ -3861,7 +4341,7 @@ inline const std::string& FileNotify::file_name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileNotify::set_file_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.file_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileNotify.file_name)
 }
@@ -3874,11 +4354,11 @@ inline const std::string& FileNotify::_internal_file_name() const {
   return _impl_.file_name_.Get();
 }
 inline void FileNotify::_internal_set_file_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.file_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileNotify::_internal_mutable_file_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.file_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileNotify::release_file_name() {
@@ -3886,7 +4366,7 @@ inline std::string* FileNotify::release_file_name() {
   if (!_internal_has_file_name()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.file_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.file_name_.IsDefault()) {
@@ -3897,9 +4377,9 @@ inline std::string* FileNotify::release_file_name() {
 }
 inline void FileNotify::set_allocated_file_name(std::string* file_name) {
   if (file_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.file_name_.SetAllocated(file_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3940,7 +4420,7 @@ inline void FileNotify::set_file_size(uint32_t value) {
 
 // required string task_id = 5;
 inline bool FileNotify::_internal_has_task_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool FileNotify::has_task_id() const {
@@ -3948,7 +4428,7 @@ inline bool FileNotify::has_task_id() const {
 }
 inline void FileNotify::clear_task_id() {
   _impl_.task_id_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline const std::string& FileNotify::task_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileNotify.task_id)
@@ -3957,7 +4437,7 @@ inline const std::string& FileNotify::task_id() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileNotify::set_task_id(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_._has_bits_[0] |= 0x00000008u;
  _impl_.task_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileNotify.task_id)
 }
@@ -3970,11 +4450,11 @@ inline const std::string& FileNotify::_internal_task_id() const {
   return _impl_.task_id_.Get();
 }
 inline void FileNotify::_internal_set_task_id(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.task_id_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileNotify::_internal_mutable_task_id() {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   return _impl_.task_id_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileNotify::release_task_id() {
@@ -3982,7 +4462,7 @@ inline std::string* FileNotify::release_task_id() {
   if (!_internal_has_task_id()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
   auto* p = _impl_.task_id_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.task_id_.IsDefault()) {
@@ -3993,9 +4473,9 @@ inline std::string* FileNotify::release_task_id() {
 }
 inline void FileNotify::set_allocated_task_id(std::string* task_id) {
   if (task_id != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000008u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000008u;
   }
   _impl_.task_id_.SetAllocated(task_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4104,37 +4584,77 @@ inline void FileNotify::set_offline_ready(uint32_t value) {
 
 // FileHasOfflineReq
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool FileHasOfflineReq::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool FileHasOfflineReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void FileHasOfflineReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t FileHasOfflineReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t FileHasOfflineReq::user_id() const {
+inline const std::string& FileHasOfflineReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileHasOfflineReq.user_id)
   return _internal_user_id();
 }
-inline void FileHasOfflineReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void FileHasOfflineReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileHasOfflineReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileHasOfflineReq.user_id)
+}
+inline std::string* FileHasOfflineReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileHasOfflineReq.user_id)
+  return _s;
+}
+inline const std::string& FileHasOfflineReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void FileHasOfflineReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileHasOfflineReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileHasOfflineReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileHasOfflineReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileHasOfflineReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileHasOfflineReq.user_id)
 }
 
 // optional bytes attach_data = 20;
 inline bool FileHasOfflineReq::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FileHasOfflineReq::has_attach_data() const {
@@ -4142,7 +4662,7 @@ inline bool FileHasOfflineReq::has_attach_data() const {
 }
 inline void FileHasOfflineReq::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& FileHasOfflineReq::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileHasOfflineReq.attach_data)
@@ -4151,7 +4671,7 @@ inline const std::string& FileHasOfflineReq::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileHasOfflineReq::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileHasOfflineReq.attach_data)
 }
@@ -4164,11 +4684,11 @@ inline const std::string& FileHasOfflineReq::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void FileHasOfflineReq::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileHasOfflineReq::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileHasOfflineReq::release_attach_data() {
@@ -4176,7 +4696,7 @@ inline std::string* FileHasOfflineReq::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -4187,9 +4707,9 @@ inline std::string* FileHasOfflineReq::release_attach_data() {
 }
 inline void FileHasOfflineReq::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4204,32 +4724,72 @@ inline void FileHasOfflineReq::set_allocated_attach_data(std::string* attach_dat
 
 // FileHasOfflineRsp
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool FileHasOfflineRsp::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool FileHasOfflineRsp::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void FileHasOfflineRsp::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t FileHasOfflineRsp::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t FileHasOfflineRsp::user_id() const {
+inline const std::string& FileHasOfflineRsp::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileHasOfflineRsp.user_id)
   return _internal_user_id();
 }
-inline void FileHasOfflineRsp::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void FileHasOfflineRsp::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileHasOfflineRsp::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileHasOfflineRsp.user_id)
+}
+inline std::string* FileHasOfflineRsp::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileHasOfflineRsp.user_id)
+  return _s;
+}
+inline const std::string& FileHasOfflineRsp::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void FileHasOfflineRsp::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileHasOfflineRsp::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileHasOfflineRsp::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileHasOfflineRsp.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileHasOfflineRsp::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileHasOfflineRsp.user_id)
 }
 
 // repeated .Bohan.BaseDefine.OfflineFileInfo offline_file_list = 2;
@@ -4308,7 +4868,7 @@ FileHasOfflineRsp::ip_addr_list() const {
 
 // optional bytes attach_data = 20;
 inline bool FileHasOfflineRsp::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FileHasOfflineRsp::has_attach_data() const {
@@ -4316,7 +4876,7 @@ inline bool FileHasOfflineRsp::has_attach_data() const {
 }
 inline void FileHasOfflineRsp::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& FileHasOfflineRsp::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileHasOfflineRsp.attach_data)
@@ -4325,7 +4885,7 @@ inline const std::string& FileHasOfflineRsp::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileHasOfflineRsp::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileHasOfflineRsp.attach_data)
 }
@@ -4338,11 +4898,11 @@ inline const std::string& FileHasOfflineRsp::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void FileHasOfflineRsp::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileHasOfflineRsp::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileHasOfflineRsp::release_attach_data() {
@@ -4350,7 +4910,7 @@ inline std::string* FileHasOfflineRsp::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -4361,9 +4921,9 @@ inline std::string* FileHasOfflineRsp::release_attach_data() {
 }
 inline void FileHasOfflineRsp::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4378,65 +4938,145 @@ inline void FileHasOfflineRsp::set_allocated_attach_data(std::string* attach_dat
 
 // FileAddOfflineReq
 
-// required uint32 from_user_id = 1;
+// required bytes from_user_id = 1;
 inline bool FileAddOfflineReq::_internal_has_from_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool FileAddOfflineReq::has_from_user_id() const {
   return _internal_has_from_user_id();
 }
 inline void FileAddOfflineReq::clear_from_user_id() {
-  _impl_.from_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.from_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t FileAddOfflineReq::_internal_from_user_id() const {
-  return _impl_.from_user_id_;
-}
-inline uint32_t FileAddOfflineReq::from_user_id() const {
+inline const std::string& FileAddOfflineReq::from_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileAddOfflineReq.from_user_id)
   return _internal_from_user_id();
 }
-inline void FileAddOfflineReq::_internal_set_from_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.from_user_id_ = value;
-}
-inline void FileAddOfflineReq::set_from_user_id(uint32_t value) {
-  _internal_set_from_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileAddOfflineReq::set_from_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.from_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileAddOfflineReq.from_user_id)
 }
+inline std::string* FileAddOfflineReq::mutable_from_user_id() {
+  std::string* _s = _internal_mutable_from_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileAddOfflineReq.from_user_id)
+  return _s;
+}
+inline const std::string& FileAddOfflineReq::_internal_from_user_id() const {
+  return _impl_.from_user_id_.Get();
+}
+inline void FileAddOfflineReq::_internal_set_from_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.from_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileAddOfflineReq::_internal_mutable_from_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.from_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileAddOfflineReq::release_from_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileAddOfflineReq.from_user_id)
+  if (!_internal_has_from_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.from_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileAddOfflineReq::set_allocated_from_user_id(std::string* from_user_id) {
+  if (from_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.from_user_id_.SetAllocated(from_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileAddOfflineReq.from_user_id)
+}
 
-// required uint32 to_user_id = 2;
+// required bytes to_user_id = 2;
 inline bool FileAddOfflineReq::_internal_has_to_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FileAddOfflineReq::has_to_user_id() const {
   return _internal_has_to_user_id();
 }
 inline void FileAddOfflineReq::clear_to_user_id() {
-  _impl_.to_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.to_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t FileAddOfflineReq::_internal_to_user_id() const {
-  return _impl_.to_user_id_;
-}
-inline uint32_t FileAddOfflineReq::to_user_id() const {
+inline const std::string& FileAddOfflineReq::to_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileAddOfflineReq.to_user_id)
   return _internal_to_user_id();
 }
-inline void FileAddOfflineReq::_internal_set_to_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.to_user_id_ = value;
-}
-inline void FileAddOfflineReq::set_to_user_id(uint32_t value) {
-  _internal_set_to_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileAddOfflineReq::set_to_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.to_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileAddOfflineReq.to_user_id)
+}
+inline std::string* FileAddOfflineReq::mutable_to_user_id() {
+  std::string* _s = _internal_mutable_to_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileAddOfflineReq.to_user_id)
+  return _s;
+}
+inline const std::string& FileAddOfflineReq::_internal_to_user_id() const {
+  return _impl_.to_user_id_.Get();
+}
+inline void FileAddOfflineReq::_internal_set_to_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.to_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileAddOfflineReq::_internal_mutable_to_user_id() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.to_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileAddOfflineReq::release_to_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileAddOfflineReq.to_user_id)
+  if (!_internal_has_to_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.to_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileAddOfflineReq::set_allocated_to_user_id(std::string* to_user_id) {
+  if (to_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.to_user_id_.SetAllocated(to_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileAddOfflineReq.to_user_id)
 }
 
 // required string task_id = 3;
 inline bool FileAddOfflineReq::_internal_has_task_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool FileAddOfflineReq::has_task_id() const {
@@ -4444,7 +5084,7 @@ inline bool FileAddOfflineReq::has_task_id() const {
 }
 inline void FileAddOfflineReq::clear_task_id() {
   _impl_.task_id_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& FileAddOfflineReq::task_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileAddOfflineReq.task_id)
@@ -4453,7 +5093,7 @@ inline const std::string& FileAddOfflineReq::task_id() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileAddOfflineReq::set_task_id(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.task_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileAddOfflineReq.task_id)
 }
@@ -4466,11 +5106,11 @@ inline const std::string& FileAddOfflineReq::_internal_task_id() const {
   return _impl_.task_id_.Get();
 }
 inline void FileAddOfflineReq::_internal_set_task_id(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.task_id_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileAddOfflineReq::_internal_mutable_task_id() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.task_id_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileAddOfflineReq::release_task_id() {
@@ -4478,7 +5118,7 @@ inline std::string* FileAddOfflineReq::release_task_id() {
   if (!_internal_has_task_id()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.task_id_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.task_id_.IsDefault()) {
@@ -4489,9 +5129,9 @@ inline std::string* FileAddOfflineReq::release_task_id() {
 }
 inline void FileAddOfflineReq::set_allocated_task_id(std::string* task_id) {
   if (task_id != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.task_id_.SetAllocated(task_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4504,7 +5144,7 @@ inline void FileAddOfflineReq::set_allocated_task_id(std::string* task_id) {
 
 // required string file_name = 4;
 inline bool FileAddOfflineReq::_internal_has_file_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool FileAddOfflineReq::has_file_name() const {
@@ -4512,7 +5152,7 @@ inline bool FileAddOfflineReq::has_file_name() const {
 }
 inline void FileAddOfflineReq::clear_file_name() {
   _impl_.file_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline const std::string& FileAddOfflineReq::file_name() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileAddOfflineReq.file_name)
@@ -4521,7 +5161,7 @@ inline const std::string& FileAddOfflineReq::file_name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileAddOfflineReq::set_file_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_._has_bits_[0] |= 0x00000008u;
  _impl_.file_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileAddOfflineReq.file_name)
 }
@@ -4534,11 +5174,11 @@ inline const std::string& FileAddOfflineReq::_internal_file_name() const {
   return _impl_.file_name_.Get();
 }
 inline void FileAddOfflineReq::_internal_set_file_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.file_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileAddOfflineReq::_internal_mutable_file_name() {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   return _impl_.file_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileAddOfflineReq::release_file_name() {
@@ -4546,7 +5186,7 @@ inline std::string* FileAddOfflineReq::release_file_name() {
   if (!_internal_has_file_name()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
   auto* p = _impl_.file_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.file_name_.IsDefault()) {
@@ -4557,9 +5197,9 @@ inline std::string* FileAddOfflineReq::release_file_name() {
 }
 inline void FileAddOfflineReq::set_allocated_file_name(std::string* file_name) {
   if (file_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000008u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000008u;
   }
   _impl_.file_name_.SetAllocated(file_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4602,65 +5242,145 @@ inline void FileAddOfflineReq::set_file_size(uint32_t value) {
 
 // FileDelOfflineReq
 
-// required uint32 from_user_id = 1;
+// required bytes from_user_id = 1;
 inline bool FileDelOfflineReq::_internal_has_from_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool FileDelOfflineReq::has_from_user_id() const {
   return _internal_has_from_user_id();
 }
 inline void FileDelOfflineReq::clear_from_user_id() {
-  _impl_.from_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.from_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t FileDelOfflineReq::_internal_from_user_id() const {
-  return _impl_.from_user_id_;
-}
-inline uint32_t FileDelOfflineReq::from_user_id() const {
+inline const std::string& FileDelOfflineReq::from_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileDelOfflineReq.from_user_id)
   return _internal_from_user_id();
 }
-inline void FileDelOfflineReq::_internal_set_from_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.from_user_id_ = value;
-}
-inline void FileDelOfflineReq::set_from_user_id(uint32_t value) {
-  _internal_set_from_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileDelOfflineReq::set_from_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.from_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileDelOfflineReq.from_user_id)
 }
+inline std::string* FileDelOfflineReq::mutable_from_user_id() {
+  std::string* _s = _internal_mutable_from_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileDelOfflineReq.from_user_id)
+  return _s;
+}
+inline const std::string& FileDelOfflineReq::_internal_from_user_id() const {
+  return _impl_.from_user_id_.Get();
+}
+inline void FileDelOfflineReq::_internal_set_from_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.from_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileDelOfflineReq::_internal_mutable_from_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.from_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileDelOfflineReq::release_from_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileDelOfflineReq.from_user_id)
+  if (!_internal_has_from_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.from_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileDelOfflineReq::set_allocated_from_user_id(std::string* from_user_id) {
+  if (from_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.from_user_id_.SetAllocated(from_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.from_user_id_.IsDefault()) {
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileDelOfflineReq.from_user_id)
+}
 
-// required uint32 to_user_id = 2;
+// required bytes to_user_id = 2;
 inline bool FileDelOfflineReq::_internal_has_to_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool FileDelOfflineReq::has_to_user_id() const {
   return _internal_has_to_user_id();
 }
 inline void FileDelOfflineReq::clear_to_user_id() {
-  _impl_.to_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.to_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t FileDelOfflineReq::_internal_to_user_id() const {
-  return _impl_.to_user_id_;
-}
-inline uint32_t FileDelOfflineReq::to_user_id() const {
+inline const std::string& FileDelOfflineReq::to_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileDelOfflineReq.to_user_id)
   return _internal_to_user_id();
 }
-inline void FileDelOfflineReq::_internal_set_to_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.to_user_id_ = value;
-}
-inline void FileDelOfflineReq::set_to_user_id(uint32_t value) {
-  _internal_set_to_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileDelOfflineReq::set_to_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.to_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileDelOfflineReq.to_user_id)
+}
+inline std::string* FileDelOfflineReq::mutable_to_user_id() {
+  std::string* _s = _internal_mutable_to_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.File.FileDelOfflineReq.to_user_id)
+  return _s;
+}
+inline const std::string& FileDelOfflineReq::_internal_to_user_id() const {
+  return _impl_.to_user_id_.Get();
+}
+inline void FileDelOfflineReq::_internal_set_to_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.to_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileDelOfflineReq::_internal_mutable_to_user_id() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.to_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileDelOfflineReq::release_to_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.File.FileDelOfflineReq.to_user_id)
+  if (!_internal_has_to_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.to_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void FileDelOfflineReq::set_allocated_to_user_id(std::string* to_user_id) {
+  if (to_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.to_user_id_.SetAllocated(to_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.to_user_id_.IsDefault()) {
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.File.FileDelOfflineReq.to_user_id)
 }
 
 // required string task_id = 3;
 inline bool FileDelOfflineReq::_internal_has_task_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool FileDelOfflineReq::has_task_id() const {
@@ -4668,7 +5388,7 @@ inline bool FileDelOfflineReq::has_task_id() const {
 }
 inline void FileDelOfflineReq::clear_task_id() {
   _impl_.task_id_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& FileDelOfflineReq::task_id() const {
   // @@protoc_insertion_point(field_get:Bohan.File.FileDelOfflineReq.task_id)
@@ -4677,7 +5397,7 @@ inline const std::string& FileDelOfflineReq::task_id() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void FileDelOfflineReq::set_task_id(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.task_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.File.FileDelOfflineReq.task_id)
 }
@@ -4690,11 +5410,11 @@ inline const std::string& FileDelOfflineReq::_internal_task_id() const {
   return _impl_.task_id_.Get();
 }
 inline void FileDelOfflineReq::_internal_set_task_id(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.task_id_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileDelOfflineReq::_internal_mutable_task_id() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.task_id_.Mutable(GetArenaForAllocation());
 }
 inline std::string* FileDelOfflineReq::release_task_id() {
@@ -4702,7 +5422,7 @@ inline std::string* FileDelOfflineReq::release_task_id() {
   if (!_internal_has_task_id()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.task_id_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.task_id_.IsDefault()) {
@@ -4713,9 +5433,9 @@ inline std::string* FileDelOfflineReq::release_task_id() {
 }
 inline void FileDelOfflineReq::set_allocated_task_id(std::string* task_id) {
   if (task_id != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.task_id_.SetAllocated(task_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING

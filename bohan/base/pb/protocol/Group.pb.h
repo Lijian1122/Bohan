@@ -207,9 +207,27 @@ class NormalGroupListReq final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
   };
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -228,19 +246,6 @@ class NormalGroupListReq final :
   std::string* _internal_mutable_attach_data();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:Bohan.Group.NormalGroupListReq)
  private:
   class _Internal;
@@ -251,8 +256,8 @@ class NormalGroupListReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_Group_2eproto;
@@ -370,8 +375,8 @@ class NormalGroupListRsp final :
 
   enum : int {
     kGroupVersionListFieldNumber = 2,
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
   };
   // repeated .Bohan.BaseDefine.GroupVersionInfo group_version_list = 2;
   int group_version_list_size() const;
@@ -391,6 +396,24 @@ class NormalGroupListRsp final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::GroupVersionInfo >&
       group_version_list() const;
 
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -409,19 +432,6 @@ class NormalGroupListRsp final :
   std::string* _internal_mutable_attach_data();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:Bohan.Group.NormalGroupListRsp)
  private:
   class _Internal;
@@ -433,8 +443,8 @@ class NormalGroupListRsp final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::GroupVersionInfo > group_version_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_Group_2eproto;
@@ -552,8 +562,8 @@ class GroupInfoListReq final :
 
   enum : int {
     kGroupVersionListFieldNumber = 2,
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
   };
   // repeated .Bohan.BaseDefine.GroupVersionInfo group_version_list = 2;
   int group_version_list_size() const;
@@ -573,6 +583,24 @@ class GroupInfoListReq final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::GroupVersionInfo >&
       group_version_list() const;
 
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -591,19 +619,6 @@ class GroupInfoListReq final :
   std::string* _internal_mutable_attach_data();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:Bohan.Group.GroupInfoListReq)
  private:
   class _Internal;
@@ -615,8 +630,8 @@ class GroupInfoListReq final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::GroupVersionInfo > group_version_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_Group_2eproto;
@@ -734,8 +749,8 @@ class GroupInfoListRsp final :
 
   enum : int {
     kGroupInfoListFieldNumber = 2,
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
   };
   // repeated .Bohan.BaseDefine.GroupInfo group_info_list = 2;
   int group_info_list_size() const;
@@ -755,6 +770,24 @@ class GroupInfoListRsp final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::GroupInfo >&
       group_info_list() const;
 
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -773,19 +806,6 @@ class GroupInfoListRsp final :
   std::string* _internal_mutable_attach_data();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:Bohan.Group.GroupInfoListRsp)
  private:
   class _Internal;
@@ -797,8 +817,8 @@ class GroupInfoListRsp final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Bohan::BaseDefine::GroupInfo > group_info_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_Group_2eproto;
@@ -916,10 +936,10 @@ class GroupCreateReq final :
 
   enum : int {
     kMemberIdListFieldNumber = 5,
+    kUserIdFieldNumber = 1,
     kGroupNameFieldNumber = 3,
     kGroupAvatarFieldNumber = 4,
     kAttachDataFieldNumber = 20,
-    kUserIdFieldNumber = 1,
     kGroupTypeFieldNumber = 2,
   };
   // repeated uint32 member_id_list = 5;
@@ -943,6 +963,24 @@ class GroupCreateReq final :
       member_id_list() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_member_id_list();
+
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
 
   // required string group_name = 3;
   bool has_group_name() const;
@@ -998,19 +1036,6 @@ class GroupCreateReq final :
   std::string* _internal_mutable_attach_data();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // required .Bohan.BaseDefine.GroupType group_type = 2 [default = GROUP_TYPE_TMP];
   bool has_group_type() const;
   private:
@@ -1038,10 +1063,10 @@ class GroupCreateReq final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > member_id_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr group_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr group_avatar_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
     int group_type_;
   };
   union { Impl_ _impl_; };
@@ -1160,33 +1185,53 @@ class GroupCreateRsp final :
 
   enum : int {
     kUserIdListFieldNumber = 5,
+    kUserIdFieldNumber = 1,
     kGroupNameFieldNumber = 4,
     kAttachDataFieldNumber = 20,
-    kUserIdFieldNumber = 1,
     kResultCodeFieldNumber = 2,
     kGroupIdFieldNumber = 3,
   };
-  // repeated uint32 user_id_list = 5;
+  // repeated bytes user_id_list = 5;
   int user_id_list_size() const;
   private:
   int _internal_user_id_list_size() const;
   public:
   void clear_user_id_list();
+  const std::string& user_id_list(int index) const;
+  std::string* mutable_user_id_list(int index);
+  void set_user_id_list(int index, const std::string& value);
+  void set_user_id_list(int index, std::string&& value);
+  void set_user_id_list(int index, const char* value);
+  void set_user_id_list(int index, const void* value, size_t size);
+  std::string* add_user_id_list();
+  void add_user_id_list(const std::string& value);
+  void add_user_id_list(std::string&& value);
+  void add_user_id_list(const char* value);
+  void add_user_id_list(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& user_id_list() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_user_id_list();
   private:
-  uint32_t _internal_user_id_list(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_user_id_list() const;
-  void _internal_add_user_id_list(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_user_id_list();
+  const std::string& _internal_user_id_list(int index) const;
+  std::string* _internal_add_user_id_list();
   public:
-  uint32_t user_id_list(int index) const;
-  void set_user_id_list(int index, uint32_t value);
-  void add_user_id_list(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      user_id_list() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_user_id_list();
+
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
 
   // required string group_name = 4;
   bool has_group_name() const;
@@ -1222,19 +1267,6 @@ class GroupCreateRsp final :
   const std::string& _internal_attach_data() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_attach_data(const std::string& value);
   std::string* _internal_mutable_attach_data();
-  public:
-
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
   public:
 
   // required uint32 result_code = 2;
@@ -1276,10 +1308,10 @@ class GroupCreateRsp final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > user_id_list_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> user_id_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr group_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
     uint32_t result_code_;
     uint32_t group_id_;
   };
@@ -1399,8 +1431,8 @@ class GroupChangeMemberReq final :
 
   enum : int {
     kMemberIdListFieldNumber = 4,
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
     kChangeTypeFieldNumber = 2,
     kGroupIdFieldNumber = 3,
   };
@@ -1426,6 +1458,24 @@ class GroupChangeMemberReq final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_member_id_list();
 
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -1442,19 +1492,6 @@ class GroupChangeMemberReq final :
   const std::string& _internal_attach_data() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_attach_data(const std::string& value);
   std::string* _internal_mutable_attach_data();
-  public:
-
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
   public:
 
   // required .Bohan.BaseDefine.GroupModifyType change_type = 2;
@@ -1497,8 +1534,8 @@ class GroupChangeMemberReq final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > member_id_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
     int change_type_;
     uint32_t group_id_;
   };
@@ -1619,55 +1656,77 @@ class GroupChangeMemberRsp final :
   enum : int {
     kCurUserIdListFieldNumber = 5,
     kChgUserIdListFieldNumber = 6,
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
     kChangeTypeFieldNumber = 2,
     kResultCodeFieldNumber = 3,
     kGroupIdFieldNumber = 4,
   };
-  // repeated uint32 cur_user_id_list = 5;
+  // repeated bytes cur_user_id_list = 5;
   int cur_user_id_list_size() const;
   private:
   int _internal_cur_user_id_list_size() const;
   public:
   void clear_cur_user_id_list();
+  const std::string& cur_user_id_list(int index) const;
+  std::string* mutable_cur_user_id_list(int index);
+  void set_cur_user_id_list(int index, const std::string& value);
+  void set_cur_user_id_list(int index, std::string&& value);
+  void set_cur_user_id_list(int index, const char* value);
+  void set_cur_user_id_list(int index, const void* value, size_t size);
+  std::string* add_cur_user_id_list();
+  void add_cur_user_id_list(const std::string& value);
+  void add_cur_user_id_list(std::string&& value);
+  void add_cur_user_id_list(const char* value);
+  void add_cur_user_id_list(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& cur_user_id_list() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_cur_user_id_list();
   private:
-  uint32_t _internal_cur_user_id_list(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_cur_user_id_list() const;
-  void _internal_add_cur_user_id_list(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_cur_user_id_list();
+  const std::string& _internal_cur_user_id_list(int index) const;
+  std::string* _internal_add_cur_user_id_list();
   public:
-  uint32_t cur_user_id_list(int index) const;
-  void set_cur_user_id_list(int index, uint32_t value);
-  void add_cur_user_id_list(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      cur_user_id_list() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_cur_user_id_list();
 
-  // repeated uint32 chg_user_id_list = 6;
+  // repeated bytes chg_user_id_list = 6;
   int chg_user_id_list_size() const;
   private:
   int _internal_chg_user_id_list_size() const;
   public:
   void clear_chg_user_id_list();
+  const std::string& chg_user_id_list(int index) const;
+  std::string* mutable_chg_user_id_list(int index);
+  void set_chg_user_id_list(int index, const std::string& value);
+  void set_chg_user_id_list(int index, std::string&& value);
+  void set_chg_user_id_list(int index, const char* value);
+  void set_chg_user_id_list(int index, const void* value, size_t size);
+  std::string* add_chg_user_id_list();
+  void add_chg_user_id_list(const std::string& value);
+  void add_chg_user_id_list(std::string&& value);
+  void add_chg_user_id_list(const char* value);
+  void add_chg_user_id_list(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& chg_user_id_list() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_chg_user_id_list();
   private:
-  uint32_t _internal_chg_user_id_list(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_chg_user_id_list() const;
-  void _internal_add_chg_user_id_list(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_chg_user_id_list();
+  const std::string& _internal_chg_user_id_list(int index) const;
+  std::string* _internal_add_chg_user_id_list();
   public:
-  uint32_t chg_user_id_list(int index) const;
-  void set_chg_user_id_list(int index, uint32_t value);
-  void add_chg_user_id_list(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      chg_user_id_list() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_chg_user_id_list();
+
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
 
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
@@ -1685,19 +1744,6 @@ class GroupChangeMemberRsp final :
   const std::string& _internal_attach_data() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_attach_data(const std::string& value);
   std::string* _internal_mutable_attach_data();
-  public:
-
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
   public:
 
   // required .Bohan.BaseDefine.GroupModifyType change_type = 2;
@@ -1752,10 +1798,10 @@ class GroupChangeMemberRsp final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > cur_user_id_list_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > chg_user_id_list_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> cur_user_id_list_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> chg_user_id_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
     int change_type_;
     uint32_t result_code_;
     uint32_t group_id_;
@@ -1875,11 +1921,29 @@ class GroupShieldReq final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
     kGroupIdFieldNumber = 2,
     kShieldStatusFieldNumber = 3,
   };
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -1896,19 +1960,6 @@ class GroupShieldReq final :
   const std::string& _internal_attach_data() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_attach_data(const std::string& value);
   std::string* _internal_mutable_attach_data();
-  public:
-
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
   public:
 
   // required uint32 group_id = 2;
@@ -1950,8 +2001,8 @@ class GroupShieldReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
     uint32_t group_id_;
     uint32_t shield_status_;
   };
@@ -2070,11 +2121,29 @@ class GroupShieldRsp final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
     kGroupIdFieldNumber = 2,
     kResultCodeFieldNumber = 3,
   };
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -2091,19 +2160,6 @@ class GroupShieldRsp final :
   const std::string& _internal_attach_data() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_attach_data(const std::string& value);
   std::string* _internal_mutable_attach_data();
-  public:
-
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
   public:
 
   // required uint32 group_id = 2;
@@ -2145,8 +2201,8 @@ class GroupShieldRsp final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
     uint32_t group_id_;
     uint32_t result_code_;
   };
@@ -2271,61 +2327,70 @@ class GroupChangeMemberNotify final :
     kChangeTypeFieldNumber = 2,
     kGroupIdFieldNumber = 3,
   };
-  // repeated uint32 cur_user_id_list = 4;
+  // repeated bytes cur_user_id_list = 4;
   int cur_user_id_list_size() const;
   private:
   int _internal_cur_user_id_list_size() const;
   public:
   void clear_cur_user_id_list();
+  const std::string& cur_user_id_list(int index) const;
+  std::string* mutable_cur_user_id_list(int index);
+  void set_cur_user_id_list(int index, const std::string& value);
+  void set_cur_user_id_list(int index, std::string&& value);
+  void set_cur_user_id_list(int index, const char* value);
+  void set_cur_user_id_list(int index, const void* value, size_t size);
+  std::string* add_cur_user_id_list();
+  void add_cur_user_id_list(const std::string& value);
+  void add_cur_user_id_list(std::string&& value);
+  void add_cur_user_id_list(const char* value);
+  void add_cur_user_id_list(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& cur_user_id_list() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_cur_user_id_list();
   private:
-  uint32_t _internal_cur_user_id_list(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_cur_user_id_list() const;
-  void _internal_add_cur_user_id_list(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_cur_user_id_list();
+  const std::string& _internal_cur_user_id_list(int index) const;
+  std::string* _internal_add_cur_user_id_list();
   public:
-  uint32_t cur_user_id_list(int index) const;
-  void set_cur_user_id_list(int index, uint32_t value);
-  void add_cur_user_id_list(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      cur_user_id_list() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_cur_user_id_list();
 
-  // repeated uint32 chg_user_id_list = 5;
+  // repeated bytes chg_user_id_list = 5;
   int chg_user_id_list_size() const;
   private:
   int _internal_chg_user_id_list_size() const;
   public:
   void clear_chg_user_id_list();
+  const std::string& chg_user_id_list(int index) const;
+  std::string* mutable_chg_user_id_list(int index);
+  void set_chg_user_id_list(int index, const std::string& value);
+  void set_chg_user_id_list(int index, std::string&& value);
+  void set_chg_user_id_list(int index, const char* value);
+  void set_chg_user_id_list(int index, const void* value, size_t size);
+  std::string* add_chg_user_id_list();
+  void add_chg_user_id_list(const std::string& value);
+  void add_chg_user_id_list(std::string&& value);
+  void add_chg_user_id_list(const char* value);
+  void add_chg_user_id_list(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& chg_user_id_list() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_chg_user_id_list();
   private:
-  uint32_t _internal_chg_user_id_list(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_chg_user_id_list() const;
-  void _internal_add_chg_user_id_list(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_chg_user_id_list();
+  const std::string& _internal_chg_user_id_list(int index) const;
+  std::string* _internal_add_chg_user_id_list();
   public:
-  uint32_t chg_user_id_list(int index) const;
-  void set_chg_user_id_list(int index, uint32_t value);
-  void add_chg_user_id_list(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      chg_user_id_list() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_chg_user_id_list();
 
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   bool has_user_id() const;
   private:
   bool _internal_has_user_id() const;
   public:
   void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
   private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
   public:
 
   // required .Bohan.BaseDefine.GroupModifyType change_type = 2;
@@ -2367,9 +2432,9 @@ class GroupChangeMemberNotify final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > cur_user_id_list_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > chg_user_id_list_;
-    uint32_t user_id_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> cur_user_id_list_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> chg_user_id_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     int change_type_;
     uint32_t group_id_;
   };
@@ -2387,37 +2452,77 @@ class GroupChangeMemberNotify final :
 #endif  // __GNUC__
 // NormalGroupListReq
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool NormalGroupListReq::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool NormalGroupListReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void NormalGroupListReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t NormalGroupListReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t NormalGroupListReq::user_id() const {
+inline const std::string& NormalGroupListReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.NormalGroupListReq.user_id)
   return _internal_user_id();
 }
-inline void NormalGroupListReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void NormalGroupListReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void NormalGroupListReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.NormalGroupListReq.user_id)
+}
+inline std::string* NormalGroupListReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.NormalGroupListReq.user_id)
+  return _s;
+}
+inline const std::string& NormalGroupListReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void NormalGroupListReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* NormalGroupListReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* NormalGroupListReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.NormalGroupListReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void NormalGroupListReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.NormalGroupListReq.user_id)
 }
 
 // optional bytes attach_data = 20;
 inline bool NormalGroupListReq::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool NormalGroupListReq::has_attach_data() const {
@@ -2425,7 +2530,7 @@ inline bool NormalGroupListReq::has_attach_data() const {
 }
 inline void NormalGroupListReq::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& NormalGroupListReq::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.NormalGroupListReq.attach_data)
@@ -2434,7 +2539,7 @@ inline const std::string& NormalGroupListReq::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void NormalGroupListReq::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.NormalGroupListReq.attach_data)
 }
@@ -2447,11 +2552,11 @@ inline const std::string& NormalGroupListReq::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void NormalGroupListReq::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* NormalGroupListReq::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* NormalGroupListReq::release_attach_data() {
@@ -2459,7 +2564,7 @@ inline std::string* NormalGroupListReq::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -2470,9 +2575,9 @@ inline std::string* NormalGroupListReq::release_attach_data() {
 }
 inline void NormalGroupListReq::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2487,32 +2592,72 @@ inline void NormalGroupListReq::set_allocated_attach_data(std::string* attach_da
 
 // NormalGroupListRsp
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool NormalGroupListRsp::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool NormalGroupListRsp::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void NormalGroupListRsp::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t NormalGroupListRsp::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t NormalGroupListRsp::user_id() const {
+inline const std::string& NormalGroupListRsp::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.NormalGroupListRsp.user_id)
   return _internal_user_id();
 }
-inline void NormalGroupListRsp::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void NormalGroupListRsp::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void NormalGroupListRsp::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.NormalGroupListRsp.user_id)
+}
+inline std::string* NormalGroupListRsp::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.NormalGroupListRsp.user_id)
+  return _s;
+}
+inline const std::string& NormalGroupListRsp::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void NormalGroupListRsp::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* NormalGroupListRsp::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* NormalGroupListRsp::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.NormalGroupListRsp.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void NormalGroupListRsp::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.NormalGroupListRsp.user_id)
 }
 
 // repeated .Bohan.BaseDefine.GroupVersionInfo group_version_list = 2;
@@ -2554,7 +2699,7 @@ NormalGroupListRsp::group_version_list() const {
 
 // optional bytes attach_data = 20;
 inline bool NormalGroupListRsp::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool NormalGroupListRsp::has_attach_data() const {
@@ -2562,7 +2707,7 @@ inline bool NormalGroupListRsp::has_attach_data() const {
 }
 inline void NormalGroupListRsp::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& NormalGroupListRsp::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.NormalGroupListRsp.attach_data)
@@ -2571,7 +2716,7 @@ inline const std::string& NormalGroupListRsp::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void NormalGroupListRsp::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.NormalGroupListRsp.attach_data)
 }
@@ -2584,11 +2729,11 @@ inline const std::string& NormalGroupListRsp::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void NormalGroupListRsp::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* NormalGroupListRsp::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* NormalGroupListRsp::release_attach_data() {
@@ -2596,7 +2741,7 @@ inline std::string* NormalGroupListRsp::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -2607,9 +2752,9 @@ inline std::string* NormalGroupListRsp::release_attach_data() {
 }
 inline void NormalGroupListRsp::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2624,32 +2769,72 @@ inline void NormalGroupListRsp::set_allocated_attach_data(std::string* attach_da
 
 // GroupInfoListReq
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool GroupInfoListReq::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool GroupInfoListReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void GroupInfoListReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t GroupInfoListReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t GroupInfoListReq::user_id() const {
+inline const std::string& GroupInfoListReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupInfoListReq.user_id)
   return _internal_user_id();
 }
-inline void GroupInfoListReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void GroupInfoListReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupInfoListReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupInfoListReq.user_id)
+}
+inline std::string* GroupInfoListReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupInfoListReq.user_id)
+  return _s;
+}
+inline const std::string& GroupInfoListReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void GroupInfoListReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupInfoListReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupInfoListReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.GroupInfoListReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GroupInfoListReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupInfoListReq.user_id)
 }
 
 // repeated .Bohan.BaseDefine.GroupVersionInfo group_version_list = 2;
@@ -2691,7 +2876,7 @@ GroupInfoListReq::group_version_list() const {
 
 // optional bytes attach_data = 20;
 inline bool GroupInfoListReq::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool GroupInfoListReq::has_attach_data() const {
@@ -2699,7 +2884,7 @@ inline bool GroupInfoListReq::has_attach_data() const {
 }
 inline void GroupInfoListReq::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& GroupInfoListReq::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupInfoListReq.attach_data)
@@ -2708,7 +2893,7 @@ inline const std::string& GroupInfoListReq::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupInfoListReq::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupInfoListReq.attach_data)
 }
@@ -2721,11 +2906,11 @@ inline const std::string& GroupInfoListReq::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void GroupInfoListReq::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupInfoListReq::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupInfoListReq::release_attach_data() {
@@ -2733,7 +2918,7 @@ inline std::string* GroupInfoListReq::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -2744,9 +2929,9 @@ inline std::string* GroupInfoListReq::release_attach_data() {
 }
 inline void GroupInfoListReq::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2761,32 +2946,72 @@ inline void GroupInfoListReq::set_allocated_attach_data(std::string* attach_data
 
 // GroupInfoListRsp
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool GroupInfoListRsp::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool GroupInfoListRsp::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void GroupInfoListRsp::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t GroupInfoListRsp::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t GroupInfoListRsp::user_id() const {
+inline const std::string& GroupInfoListRsp::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupInfoListRsp.user_id)
   return _internal_user_id();
 }
-inline void GroupInfoListRsp::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void GroupInfoListRsp::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupInfoListRsp::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupInfoListRsp.user_id)
+}
+inline std::string* GroupInfoListRsp::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupInfoListRsp.user_id)
+  return _s;
+}
+inline const std::string& GroupInfoListRsp::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void GroupInfoListRsp::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupInfoListRsp::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupInfoListRsp::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.GroupInfoListRsp.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GroupInfoListRsp::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupInfoListRsp.user_id)
 }
 
 // repeated .Bohan.BaseDefine.GroupInfo group_info_list = 2;
@@ -2828,7 +3053,7 @@ GroupInfoListRsp::group_info_list() const {
 
 // optional bytes attach_data = 20;
 inline bool GroupInfoListRsp::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool GroupInfoListRsp::has_attach_data() const {
@@ -2836,7 +3061,7 @@ inline bool GroupInfoListRsp::has_attach_data() const {
 }
 inline void GroupInfoListRsp::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& GroupInfoListRsp::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupInfoListRsp.attach_data)
@@ -2845,7 +3070,7 @@ inline const std::string& GroupInfoListRsp::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupInfoListRsp::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupInfoListRsp.attach_data)
 }
@@ -2858,11 +3083,11 @@ inline const std::string& GroupInfoListRsp::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void GroupInfoListRsp::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupInfoListRsp::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupInfoListRsp::release_attach_data() {
@@ -2870,7 +3095,7 @@ inline std::string* GroupInfoListRsp::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -2881,9 +3106,9 @@ inline std::string* GroupInfoListRsp::release_attach_data() {
 }
 inline void GroupInfoListRsp::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2898,32 +3123,72 @@ inline void GroupInfoListRsp::set_allocated_attach_data(std::string* attach_data
 
 // GroupCreateReq
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool GroupCreateReq::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool GroupCreateReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void GroupCreateReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t GroupCreateReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t GroupCreateReq::user_id() const {
+inline const std::string& GroupCreateReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupCreateReq.user_id)
   return _internal_user_id();
 }
-inline void GroupCreateReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.user_id_ = value;
-}
-inline void GroupCreateReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupCreateReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupCreateReq.user_id)
+}
+inline std::string* GroupCreateReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupCreateReq.user_id)
+  return _s;
+}
+inline const std::string& GroupCreateReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void GroupCreateReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupCreateReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupCreateReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.GroupCreateReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GroupCreateReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupCreateReq.user_id)
 }
 
 // required .Bohan.BaseDefine.GroupType group_type = 2 [default = GROUP_TYPE_TMP];
@@ -2957,7 +3222,7 @@ inline void GroupCreateReq::set_group_type(::Bohan::BaseDefine::GroupType value)
 
 // required string group_name = 3;
 inline bool GroupCreateReq::_internal_has_group_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool GroupCreateReq::has_group_name() const {
@@ -2965,7 +3230,7 @@ inline bool GroupCreateReq::has_group_name() const {
 }
 inline void GroupCreateReq::clear_group_name() {
   _impl_.group_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& GroupCreateReq::group_name() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupCreateReq.group_name)
@@ -2974,7 +3239,7 @@ inline const std::string& GroupCreateReq::group_name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupCreateReq::set_group_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.group_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupCreateReq.group_name)
 }
@@ -2987,11 +3252,11 @@ inline const std::string& GroupCreateReq::_internal_group_name() const {
   return _impl_.group_name_.Get();
 }
 inline void GroupCreateReq::_internal_set_group_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.group_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupCreateReq::_internal_mutable_group_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.group_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupCreateReq::release_group_name() {
@@ -2999,7 +3264,7 @@ inline std::string* GroupCreateReq::release_group_name() {
   if (!_internal_has_group_name()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.group_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.group_name_.IsDefault()) {
@@ -3010,9 +3275,9 @@ inline std::string* GroupCreateReq::release_group_name() {
 }
 inline void GroupCreateReq::set_allocated_group_name(std::string* group_name) {
   if (group_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.group_name_.SetAllocated(group_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3025,7 +3290,7 @@ inline void GroupCreateReq::set_allocated_group_name(std::string* group_name) {
 
 // required string group_avatar = 4;
 inline bool GroupCreateReq::_internal_has_group_avatar() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool GroupCreateReq::has_group_avatar() const {
@@ -3033,7 +3298,7 @@ inline bool GroupCreateReq::has_group_avatar() const {
 }
 inline void GroupCreateReq::clear_group_avatar() {
   _impl_.group_avatar_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& GroupCreateReq::group_avatar() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupCreateReq.group_avatar)
@@ -3042,7 +3307,7 @@ inline const std::string& GroupCreateReq::group_avatar() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupCreateReq::set_group_avatar(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.group_avatar_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupCreateReq.group_avatar)
 }
@@ -3055,11 +3320,11 @@ inline const std::string& GroupCreateReq::_internal_group_avatar() const {
   return _impl_.group_avatar_.Get();
 }
 inline void GroupCreateReq::_internal_set_group_avatar(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.group_avatar_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupCreateReq::_internal_mutable_group_avatar() {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.group_avatar_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupCreateReq::release_group_avatar() {
@@ -3067,7 +3332,7 @@ inline std::string* GroupCreateReq::release_group_avatar() {
   if (!_internal_has_group_avatar()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.group_avatar_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.group_avatar_.IsDefault()) {
@@ -3078,9 +3343,9 @@ inline std::string* GroupCreateReq::release_group_avatar() {
 }
 inline void GroupCreateReq::set_allocated_group_avatar(std::string* group_avatar) {
   if (group_avatar != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.group_avatar_.SetAllocated(group_avatar, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3140,7 +3405,7 @@ GroupCreateReq::mutable_member_id_list() {
 
 // optional bytes attach_data = 20;
 inline bool GroupCreateReq::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool GroupCreateReq::has_attach_data() const {
@@ -3148,7 +3413,7 @@ inline bool GroupCreateReq::has_attach_data() const {
 }
 inline void GroupCreateReq::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline const std::string& GroupCreateReq::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupCreateReq.attach_data)
@@ -3157,7 +3422,7 @@ inline const std::string& GroupCreateReq::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupCreateReq::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
+ _impl_._has_bits_[0] |= 0x00000008u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupCreateReq.attach_data)
 }
@@ -3170,11 +3435,11 @@ inline const std::string& GroupCreateReq::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void GroupCreateReq::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupCreateReq::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupCreateReq::release_attach_data() {
@@ -3182,7 +3447,7 @@ inline std::string* GroupCreateReq::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -3193,9 +3458,9 @@ inline std::string* GroupCreateReq::release_attach_data() {
 }
 inline void GroupCreateReq::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000008u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000008u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3210,32 +3475,72 @@ inline void GroupCreateReq::set_allocated_attach_data(std::string* attach_data) 
 
 // GroupCreateRsp
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool GroupCreateRsp::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool GroupCreateRsp::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void GroupCreateRsp::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t GroupCreateRsp::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t GroupCreateRsp::user_id() const {
+inline const std::string& GroupCreateRsp::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupCreateRsp.user_id)
   return _internal_user_id();
 }
-inline void GroupCreateRsp::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.user_id_ = value;
-}
-inline void GroupCreateRsp::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupCreateRsp::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupCreateRsp.user_id)
+}
+inline std::string* GroupCreateRsp::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupCreateRsp.user_id)
+  return _s;
+}
+inline const std::string& GroupCreateRsp::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void GroupCreateRsp::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupCreateRsp::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupCreateRsp::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.GroupCreateRsp.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GroupCreateRsp::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupCreateRsp.user_id)
 }
 
 // required uint32 result_code = 2;
@@ -3296,7 +3601,7 @@ inline void GroupCreateRsp::set_group_id(uint32_t value) {
 
 // required string group_name = 4;
 inline bool GroupCreateRsp::_internal_has_group_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool GroupCreateRsp::has_group_name() const {
@@ -3304,7 +3609,7 @@ inline bool GroupCreateRsp::has_group_name() const {
 }
 inline void GroupCreateRsp::clear_group_name() {
   _impl_.group_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& GroupCreateRsp::group_name() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupCreateRsp.group_name)
@@ -3313,7 +3618,7 @@ inline const std::string& GroupCreateRsp::group_name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupCreateRsp::set_group_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.group_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupCreateRsp.group_name)
 }
@@ -3326,11 +3631,11 @@ inline const std::string& GroupCreateRsp::_internal_group_name() const {
   return _impl_.group_name_.Get();
 }
 inline void GroupCreateRsp::_internal_set_group_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.group_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupCreateRsp::_internal_mutable_group_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.group_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupCreateRsp::release_group_name() {
@@ -3338,7 +3643,7 @@ inline std::string* GroupCreateRsp::release_group_name() {
   if (!_internal_has_group_name()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.group_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.group_name_.IsDefault()) {
@@ -3349,9 +3654,9 @@ inline std::string* GroupCreateRsp::release_group_name() {
 }
 inline void GroupCreateRsp::set_allocated_group_name(std::string* group_name) {
   if (group_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.group_name_.SetAllocated(group_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3362,7 +3667,7 @@ inline void GroupCreateRsp::set_allocated_group_name(std::string* group_name) {
   // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupCreateRsp.group_name)
 }
 
-// repeated uint32 user_id_list = 5;
+// repeated bytes user_id_list = 5;
 inline int GroupCreateRsp::_internal_user_id_list_size() const {
   return _impl_.user_id_list_.size();
 }
@@ -3372,46 +3677,74 @@ inline int GroupCreateRsp::user_id_list_size() const {
 inline void GroupCreateRsp::clear_user_id_list() {
   _impl_.user_id_list_.Clear();
 }
-inline uint32_t GroupCreateRsp::_internal_user_id_list(int index) const {
+inline std::string* GroupCreateRsp::add_user_id_list() {
+  std::string* _s = _internal_add_user_id_list();
+  // @@protoc_insertion_point(field_add_mutable:Bohan.Group.GroupCreateRsp.user_id_list)
+  return _s;
+}
+inline const std::string& GroupCreateRsp::_internal_user_id_list(int index) const {
   return _impl_.user_id_list_.Get(index);
 }
-inline uint32_t GroupCreateRsp::user_id_list(int index) const {
+inline const std::string& GroupCreateRsp::user_id_list(int index) const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupCreateRsp.user_id_list)
   return _internal_user_id_list(index);
 }
-inline void GroupCreateRsp::set_user_id_list(int index, uint32_t value) {
-  _impl_.user_id_list_.Set(index, value);
+inline std::string* GroupCreateRsp::mutable_user_id_list(int index) {
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupCreateRsp.user_id_list)
+  return _impl_.user_id_list_.Mutable(index);
+}
+inline void GroupCreateRsp::set_user_id_list(int index, const std::string& value) {
+  _impl_.user_id_list_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupCreateRsp.user_id_list)
 }
-inline void GroupCreateRsp::_internal_add_user_id_list(uint32_t value) {
-  _impl_.user_id_list_.Add(value);
+inline void GroupCreateRsp::set_user_id_list(int index, std::string&& value) {
+  _impl_.user_id_list_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:Bohan.Group.GroupCreateRsp.user_id_list)
 }
-inline void GroupCreateRsp::add_user_id_list(uint32_t value) {
-  _internal_add_user_id_list(value);
+inline void GroupCreateRsp::set_user_id_list(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.user_id_list_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:Bohan.Group.GroupCreateRsp.user_id_list)
+}
+inline void GroupCreateRsp::set_user_id_list(int index, const void* value, size_t size) {
+  _impl_.user_id_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:Bohan.Group.GroupCreateRsp.user_id_list)
+}
+inline std::string* GroupCreateRsp::_internal_add_user_id_list() {
+  return _impl_.user_id_list_.Add();
+}
+inline void GroupCreateRsp::add_user_id_list(const std::string& value) {
+  _impl_.user_id_list_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:Bohan.Group.GroupCreateRsp.user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-GroupCreateRsp::_internal_user_id_list() const {
-  return _impl_.user_id_list_;
+inline void GroupCreateRsp::add_user_id_list(std::string&& value) {
+  _impl_.user_id_list_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:Bohan.Group.GroupCreateRsp.user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline void GroupCreateRsp::add_user_id_list(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.user_id_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:Bohan.Group.GroupCreateRsp.user_id_list)
+}
+inline void GroupCreateRsp::add_user_id_list(const void* value, size_t size) {
+  _impl_.user_id_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:Bohan.Group.GroupCreateRsp.user_id_list)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 GroupCreateRsp::user_id_list() const {
   // @@protoc_insertion_point(field_list:Bohan.Group.GroupCreateRsp.user_id_list)
-  return _internal_user_id_list();
+  return _impl_.user_id_list_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-GroupCreateRsp::_internal_mutable_user_id_list() {
-  return &_impl_.user_id_list_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 GroupCreateRsp::mutable_user_id_list() {
   // @@protoc_insertion_point(field_mutable_list:Bohan.Group.GroupCreateRsp.user_id_list)
-  return _internal_mutable_user_id_list();
+  return &_impl_.user_id_list_;
 }
 
 // optional bytes attach_data = 20;
 inline bool GroupCreateRsp::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool GroupCreateRsp::has_attach_data() const {
@@ -3419,7 +3752,7 @@ inline bool GroupCreateRsp::has_attach_data() const {
 }
 inline void GroupCreateRsp::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& GroupCreateRsp::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupCreateRsp.attach_data)
@@ -3428,7 +3761,7 @@ inline const std::string& GroupCreateRsp::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupCreateRsp::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupCreateRsp.attach_data)
 }
@@ -3441,11 +3774,11 @@ inline const std::string& GroupCreateRsp::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void GroupCreateRsp::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupCreateRsp::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupCreateRsp::release_attach_data() {
@@ -3453,7 +3786,7 @@ inline std::string* GroupCreateRsp::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -3464,9 +3797,9 @@ inline std::string* GroupCreateRsp::release_attach_data() {
 }
 inline void GroupCreateRsp::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3481,32 +3814,72 @@ inline void GroupCreateRsp::set_allocated_attach_data(std::string* attach_data) 
 
 // GroupChangeMemberReq
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool GroupChangeMemberReq::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool GroupChangeMemberReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void GroupChangeMemberReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t GroupChangeMemberReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t GroupChangeMemberReq::user_id() const {
+inline const std::string& GroupChangeMemberReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupChangeMemberReq.user_id)
   return _internal_user_id();
 }
-inline void GroupChangeMemberReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void GroupChangeMemberReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupChangeMemberReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberReq.user_id)
+}
+inline std::string* GroupChangeMemberReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupChangeMemberReq.user_id)
+  return _s;
+}
+inline const std::string& GroupChangeMemberReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void GroupChangeMemberReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupChangeMemberReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupChangeMemberReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.GroupChangeMemberReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GroupChangeMemberReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupChangeMemberReq.user_id)
 }
 
 // required .Bohan.BaseDefine.GroupModifyType change_type = 2;
@@ -3615,7 +3988,7 @@ GroupChangeMemberReq::mutable_member_id_list() {
 
 // optional bytes attach_data = 20;
 inline bool GroupChangeMemberReq::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool GroupChangeMemberReq::has_attach_data() const {
@@ -3623,7 +3996,7 @@ inline bool GroupChangeMemberReq::has_attach_data() const {
 }
 inline void GroupChangeMemberReq::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& GroupChangeMemberReq::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupChangeMemberReq.attach_data)
@@ -3632,7 +4005,7 @@ inline const std::string& GroupChangeMemberReq::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupChangeMemberReq::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberReq.attach_data)
 }
@@ -3645,11 +4018,11 @@ inline const std::string& GroupChangeMemberReq::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void GroupChangeMemberReq::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupChangeMemberReq::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupChangeMemberReq::release_attach_data() {
@@ -3657,7 +4030,7 @@ inline std::string* GroupChangeMemberReq::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -3668,9 +4041,9 @@ inline std::string* GroupChangeMemberReq::release_attach_data() {
 }
 inline void GroupChangeMemberReq::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3685,32 +4058,72 @@ inline void GroupChangeMemberReq::set_allocated_attach_data(std::string* attach_
 
 // GroupChangeMemberRsp
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool GroupChangeMemberRsp::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool GroupChangeMemberRsp::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void GroupChangeMemberRsp::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t GroupChangeMemberRsp::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t GroupChangeMemberRsp::user_id() const {
+inline const std::string& GroupChangeMemberRsp::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupChangeMemberRsp.user_id)
   return _internal_user_id();
 }
-inline void GroupChangeMemberRsp::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void GroupChangeMemberRsp::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupChangeMemberRsp::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberRsp.user_id)
+}
+inline std::string* GroupChangeMemberRsp::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupChangeMemberRsp.user_id)
+  return _s;
+}
+inline const std::string& GroupChangeMemberRsp::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void GroupChangeMemberRsp::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupChangeMemberRsp::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupChangeMemberRsp::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.GroupChangeMemberRsp.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GroupChangeMemberRsp::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupChangeMemberRsp.user_id)
 }
 
 // required .Bohan.BaseDefine.GroupModifyType change_type = 2;
@@ -3798,7 +4211,7 @@ inline void GroupChangeMemberRsp::set_group_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberRsp.group_id)
 }
 
-// repeated uint32 cur_user_id_list = 5;
+// repeated bytes cur_user_id_list = 5;
 inline int GroupChangeMemberRsp::_internal_cur_user_id_list_size() const {
   return _impl_.cur_user_id_list_.size();
 }
@@ -3808,44 +4221,72 @@ inline int GroupChangeMemberRsp::cur_user_id_list_size() const {
 inline void GroupChangeMemberRsp::clear_cur_user_id_list() {
   _impl_.cur_user_id_list_.Clear();
 }
-inline uint32_t GroupChangeMemberRsp::_internal_cur_user_id_list(int index) const {
+inline std::string* GroupChangeMemberRsp::add_cur_user_id_list() {
+  std::string* _s = _internal_add_cur_user_id_list();
+  // @@protoc_insertion_point(field_add_mutable:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
+  return _s;
+}
+inline const std::string& GroupChangeMemberRsp::_internal_cur_user_id_list(int index) const {
   return _impl_.cur_user_id_list_.Get(index);
 }
-inline uint32_t GroupChangeMemberRsp::cur_user_id_list(int index) const {
+inline const std::string& GroupChangeMemberRsp::cur_user_id_list(int index) const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
   return _internal_cur_user_id_list(index);
 }
-inline void GroupChangeMemberRsp::set_cur_user_id_list(int index, uint32_t value) {
-  _impl_.cur_user_id_list_.Set(index, value);
+inline std::string* GroupChangeMemberRsp::mutable_cur_user_id_list(int index) {
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
+  return _impl_.cur_user_id_list_.Mutable(index);
+}
+inline void GroupChangeMemberRsp::set_cur_user_id_list(int index, const std::string& value) {
+  _impl_.cur_user_id_list_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
 }
-inline void GroupChangeMemberRsp::_internal_add_cur_user_id_list(uint32_t value) {
-  _impl_.cur_user_id_list_.Add(value);
+inline void GroupChangeMemberRsp::set_cur_user_id_list(int index, std::string&& value) {
+  _impl_.cur_user_id_list_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
 }
-inline void GroupChangeMemberRsp::add_cur_user_id_list(uint32_t value) {
-  _internal_add_cur_user_id_list(value);
+inline void GroupChangeMemberRsp::set_cur_user_id_list(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.cur_user_id_list_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
+}
+inline void GroupChangeMemberRsp::set_cur_user_id_list(int index, const void* value, size_t size) {
+  _impl_.cur_user_id_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
+}
+inline std::string* GroupChangeMemberRsp::_internal_add_cur_user_id_list() {
+  return _impl_.cur_user_id_list_.Add();
+}
+inline void GroupChangeMemberRsp::add_cur_user_id_list(const std::string& value) {
+  _impl_.cur_user_id_list_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-GroupChangeMemberRsp::_internal_cur_user_id_list() const {
-  return _impl_.cur_user_id_list_;
+inline void GroupChangeMemberRsp::add_cur_user_id_list(std::string&& value) {
+  _impl_.cur_user_id_list_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline void GroupChangeMemberRsp::add_cur_user_id_list(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.cur_user_id_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
+}
+inline void GroupChangeMemberRsp::add_cur_user_id_list(const void* value, size_t size) {
+  _impl_.cur_user_id_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 GroupChangeMemberRsp::cur_user_id_list() const {
   // @@protoc_insertion_point(field_list:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
-  return _internal_cur_user_id_list();
+  return _impl_.cur_user_id_list_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-GroupChangeMemberRsp::_internal_mutable_cur_user_id_list() {
-  return &_impl_.cur_user_id_list_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 GroupChangeMemberRsp::mutable_cur_user_id_list() {
   // @@protoc_insertion_point(field_mutable_list:Bohan.Group.GroupChangeMemberRsp.cur_user_id_list)
-  return _internal_mutable_cur_user_id_list();
+  return &_impl_.cur_user_id_list_;
 }
 
-// repeated uint32 chg_user_id_list = 6;
+// repeated bytes chg_user_id_list = 6;
 inline int GroupChangeMemberRsp::_internal_chg_user_id_list_size() const {
   return _impl_.chg_user_id_list_.size();
 }
@@ -3855,46 +4296,74 @@ inline int GroupChangeMemberRsp::chg_user_id_list_size() const {
 inline void GroupChangeMemberRsp::clear_chg_user_id_list() {
   _impl_.chg_user_id_list_.Clear();
 }
-inline uint32_t GroupChangeMemberRsp::_internal_chg_user_id_list(int index) const {
+inline std::string* GroupChangeMemberRsp::add_chg_user_id_list() {
+  std::string* _s = _internal_add_chg_user_id_list();
+  // @@protoc_insertion_point(field_add_mutable:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
+  return _s;
+}
+inline const std::string& GroupChangeMemberRsp::_internal_chg_user_id_list(int index) const {
   return _impl_.chg_user_id_list_.Get(index);
 }
-inline uint32_t GroupChangeMemberRsp::chg_user_id_list(int index) const {
+inline const std::string& GroupChangeMemberRsp::chg_user_id_list(int index) const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
   return _internal_chg_user_id_list(index);
 }
-inline void GroupChangeMemberRsp::set_chg_user_id_list(int index, uint32_t value) {
-  _impl_.chg_user_id_list_.Set(index, value);
+inline std::string* GroupChangeMemberRsp::mutable_chg_user_id_list(int index) {
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
+  return _impl_.chg_user_id_list_.Mutable(index);
+}
+inline void GroupChangeMemberRsp::set_chg_user_id_list(int index, const std::string& value) {
+  _impl_.chg_user_id_list_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
 }
-inline void GroupChangeMemberRsp::_internal_add_chg_user_id_list(uint32_t value) {
-  _impl_.chg_user_id_list_.Add(value);
+inline void GroupChangeMemberRsp::set_chg_user_id_list(int index, std::string&& value) {
+  _impl_.chg_user_id_list_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
 }
-inline void GroupChangeMemberRsp::add_chg_user_id_list(uint32_t value) {
-  _internal_add_chg_user_id_list(value);
+inline void GroupChangeMemberRsp::set_chg_user_id_list(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.chg_user_id_list_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
+}
+inline void GroupChangeMemberRsp::set_chg_user_id_list(int index, const void* value, size_t size) {
+  _impl_.chg_user_id_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
+}
+inline std::string* GroupChangeMemberRsp::_internal_add_chg_user_id_list() {
+  return _impl_.chg_user_id_list_.Add();
+}
+inline void GroupChangeMemberRsp::add_chg_user_id_list(const std::string& value) {
+  _impl_.chg_user_id_list_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-GroupChangeMemberRsp::_internal_chg_user_id_list() const {
-  return _impl_.chg_user_id_list_;
+inline void GroupChangeMemberRsp::add_chg_user_id_list(std::string&& value) {
+  _impl_.chg_user_id_list_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline void GroupChangeMemberRsp::add_chg_user_id_list(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.chg_user_id_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
+}
+inline void GroupChangeMemberRsp::add_chg_user_id_list(const void* value, size_t size) {
+  _impl_.chg_user_id_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 GroupChangeMemberRsp::chg_user_id_list() const {
   // @@protoc_insertion_point(field_list:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
-  return _internal_chg_user_id_list();
+  return _impl_.chg_user_id_list_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-GroupChangeMemberRsp::_internal_mutable_chg_user_id_list() {
-  return &_impl_.chg_user_id_list_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 GroupChangeMemberRsp::mutable_chg_user_id_list() {
   // @@protoc_insertion_point(field_mutable_list:Bohan.Group.GroupChangeMemberRsp.chg_user_id_list)
-  return _internal_mutable_chg_user_id_list();
+  return &_impl_.chg_user_id_list_;
 }
 
 // optional bytes attach_data = 20;
 inline bool GroupChangeMemberRsp::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool GroupChangeMemberRsp::has_attach_data() const {
@@ -3902,7 +4371,7 @@ inline bool GroupChangeMemberRsp::has_attach_data() const {
 }
 inline void GroupChangeMemberRsp::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& GroupChangeMemberRsp::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupChangeMemberRsp.attach_data)
@@ -3911,7 +4380,7 @@ inline const std::string& GroupChangeMemberRsp::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupChangeMemberRsp::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberRsp.attach_data)
 }
@@ -3924,11 +4393,11 @@ inline const std::string& GroupChangeMemberRsp::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void GroupChangeMemberRsp::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupChangeMemberRsp::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupChangeMemberRsp::release_attach_data() {
@@ -3936,7 +4405,7 @@ inline std::string* GroupChangeMemberRsp::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -3947,9 +4416,9 @@ inline std::string* GroupChangeMemberRsp::release_attach_data() {
 }
 inline void GroupChangeMemberRsp::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3964,32 +4433,72 @@ inline void GroupChangeMemberRsp::set_allocated_attach_data(std::string* attach_
 
 // GroupShieldReq
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool GroupShieldReq::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool GroupShieldReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void GroupShieldReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t GroupShieldReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t GroupShieldReq::user_id() const {
+inline const std::string& GroupShieldReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupShieldReq.user_id)
   return _internal_user_id();
 }
-inline void GroupShieldReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void GroupShieldReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupShieldReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupShieldReq.user_id)
+}
+inline std::string* GroupShieldReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupShieldReq.user_id)
+  return _s;
+}
+inline const std::string& GroupShieldReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void GroupShieldReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupShieldReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupShieldReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.GroupShieldReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GroupShieldReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupShieldReq.user_id)
 }
 
 // required uint32 group_id = 2;
@@ -4050,7 +4559,7 @@ inline void GroupShieldReq::set_shield_status(uint32_t value) {
 
 // optional bytes attach_data = 20;
 inline bool GroupShieldReq::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool GroupShieldReq::has_attach_data() const {
@@ -4058,7 +4567,7 @@ inline bool GroupShieldReq::has_attach_data() const {
 }
 inline void GroupShieldReq::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& GroupShieldReq::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupShieldReq.attach_data)
@@ -4067,7 +4576,7 @@ inline const std::string& GroupShieldReq::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupShieldReq::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupShieldReq.attach_data)
 }
@@ -4080,11 +4589,11 @@ inline const std::string& GroupShieldReq::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void GroupShieldReq::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupShieldReq::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupShieldReq::release_attach_data() {
@@ -4092,7 +4601,7 @@ inline std::string* GroupShieldReq::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -4103,9 +4612,9 @@ inline std::string* GroupShieldReq::release_attach_data() {
 }
 inline void GroupShieldReq::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4120,32 +4629,72 @@ inline void GroupShieldReq::set_allocated_attach_data(std::string* attach_data) 
 
 // GroupShieldRsp
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool GroupShieldRsp::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool GroupShieldRsp::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void GroupShieldRsp::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t GroupShieldRsp::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t GroupShieldRsp::user_id() const {
+inline const std::string& GroupShieldRsp::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupShieldRsp.user_id)
   return _internal_user_id();
 }
-inline void GroupShieldRsp::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void GroupShieldRsp::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupShieldRsp::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupShieldRsp.user_id)
+}
+inline std::string* GroupShieldRsp::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupShieldRsp.user_id)
+  return _s;
+}
+inline const std::string& GroupShieldRsp::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void GroupShieldRsp::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupShieldRsp::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupShieldRsp::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.GroupShieldRsp.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GroupShieldRsp::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupShieldRsp.user_id)
 }
 
 // required uint32 group_id = 2;
@@ -4206,7 +4755,7 @@ inline void GroupShieldRsp::set_result_code(uint32_t value) {
 
 // optional bytes attach_data = 20;
 inline bool GroupShieldRsp::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool GroupShieldRsp::has_attach_data() const {
@@ -4214,7 +4763,7 @@ inline bool GroupShieldRsp::has_attach_data() const {
 }
 inline void GroupShieldRsp::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& GroupShieldRsp::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupShieldRsp.attach_data)
@@ -4223,7 +4772,7 @@ inline const std::string& GroupShieldRsp::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void GroupShieldRsp::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupShieldRsp.attach_data)
 }
@@ -4236,11 +4785,11 @@ inline const std::string& GroupShieldRsp::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void GroupShieldRsp::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GroupShieldRsp::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* GroupShieldRsp::release_attach_data() {
@@ -4248,7 +4797,7 @@ inline std::string* GroupShieldRsp::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -4259,9 +4808,9 @@ inline std::string* GroupShieldRsp::release_attach_data() {
 }
 inline void GroupShieldRsp::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4276,7 +4825,7 @@ inline void GroupShieldRsp::set_allocated_attach_data(std::string* attach_data) 
 
 // GroupChangeMemberNotify
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool GroupChangeMemberNotify::_internal_has_user_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4285,23 +4834,63 @@ inline bool GroupChangeMemberNotify::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void GroupChangeMemberNotify::clear_user_id() {
-  _impl_.user_id_ = 0u;
+  _impl_.user_id_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t GroupChangeMemberNotify::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t GroupChangeMemberNotify::user_id() const {
+inline const std::string& GroupChangeMemberNotify::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupChangeMemberNotify.user_id)
   return _internal_user_id();
 }
-inline void GroupChangeMemberNotify::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.user_id_ = value;
-}
-inline void GroupChangeMemberNotify::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupChangeMemberNotify::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberNotify.user_id)
+}
+inline std::string* GroupChangeMemberNotify::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupChangeMemberNotify.user_id)
+  return _s;
+}
+inline const std::string& GroupChangeMemberNotify::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void GroupChangeMemberNotify::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupChangeMemberNotify::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupChangeMemberNotify::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Group.GroupChangeMemberNotify.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void GroupChangeMemberNotify::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Group.GroupChangeMemberNotify.user_id)
 }
 
 // required .Bohan.BaseDefine.GroupModifyType change_type = 2;
@@ -4361,7 +4950,7 @@ inline void GroupChangeMemberNotify::set_group_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberNotify.group_id)
 }
 
-// repeated uint32 cur_user_id_list = 4;
+// repeated bytes cur_user_id_list = 4;
 inline int GroupChangeMemberNotify::_internal_cur_user_id_list_size() const {
   return _impl_.cur_user_id_list_.size();
 }
@@ -4371,44 +4960,72 @@ inline int GroupChangeMemberNotify::cur_user_id_list_size() const {
 inline void GroupChangeMemberNotify::clear_cur_user_id_list() {
   _impl_.cur_user_id_list_.Clear();
 }
-inline uint32_t GroupChangeMemberNotify::_internal_cur_user_id_list(int index) const {
+inline std::string* GroupChangeMemberNotify::add_cur_user_id_list() {
+  std::string* _s = _internal_add_cur_user_id_list();
+  // @@protoc_insertion_point(field_add_mutable:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
+  return _s;
+}
+inline const std::string& GroupChangeMemberNotify::_internal_cur_user_id_list(int index) const {
   return _impl_.cur_user_id_list_.Get(index);
 }
-inline uint32_t GroupChangeMemberNotify::cur_user_id_list(int index) const {
+inline const std::string& GroupChangeMemberNotify::cur_user_id_list(int index) const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
   return _internal_cur_user_id_list(index);
 }
-inline void GroupChangeMemberNotify::set_cur_user_id_list(int index, uint32_t value) {
-  _impl_.cur_user_id_list_.Set(index, value);
+inline std::string* GroupChangeMemberNotify::mutable_cur_user_id_list(int index) {
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
+  return _impl_.cur_user_id_list_.Mutable(index);
+}
+inline void GroupChangeMemberNotify::set_cur_user_id_list(int index, const std::string& value) {
+  _impl_.cur_user_id_list_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
 }
-inline void GroupChangeMemberNotify::_internal_add_cur_user_id_list(uint32_t value) {
-  _impl_.cur_user_id_list_.Add(value);
+inline void GroupChangeMemberNotify::set_cur_user_id_list(int index, std::string&& value) {
+  _impl_.cur_user_id_list_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
 }
-inline void GroupChangeMemberNotify::add_cur_user_id_list(uint32_t value) {
-  _internal_add_cur_user_id_list(value);
+inline void GroupChangeMemberNotify::set_cur_user_id_list(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.cur_user_id_list_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
+}
+inline void GroupChangeMemberNotify::set_cur_user_id_list(int index, const void* value, size_t size) {
+  _impl_.cur_user_id_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
+}
+inline std::string* GroupChangeMemberNotify::_internal_add_cur_user_id_list() {
+  return _impl_.cur_user_id_list_.Add();
+}
+inline void GroupChangeMemberNotify::add_cur_user_id_list(const std::string& value) {
+  _impl_.cur_user_id_list_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-GroupChangeMemberNotify::_internal_cur_user_id_list() const {
-  return _impl_.cur_user_id_list_;
+inline void GroupChangeMemberNotify::add_cur_user_id_list(std::string&& value) {
+  _impl_.cur_user_id_list_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline void GroupChangeMemberNotify::add_cur_user_id_list(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.cur_user_id_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
+}
+inline void GroupChangeMemberNotify::add_cur_user_id_list(const void* value, size_t size) {
+  _impl_.cur_user_id_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 GroupChangeMemberNotify::cur_user_id_list() const {
   // @@protoc_insertion_point(field_list:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
-  return _internal_cur_user_id_list();
+  return _impl_.cur_user_id_list_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-GroupChangeMemberNotify::_internal_mutable_cur_user_id_list() {
-  return &_impl_.cur_user_id_list_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 GroupChangeMemberNotify::mutable_cur_user_id_list() {
   // @@protoc_insertion_point(field_mutable_list:Bohan.Group.GroupChangeMemberNotify.cur_user_id_list)
-  return _internal_mutable_cur_user_id_list();
+  return &_impl_.cur_user_id_list_;
 }
 
-// repeated uint32 chg_user_id_list = 5;
+// repeated bytes chg_user_id_list = 5;
 inline int GroupChangeMemberNotify::_internal_chg_user_id_list_size() const {
   return _impl_.chg_user_id_list_.size();
 }
@@ -4418,41 +5035,69 @@ inline int GroupChangeMemberNotify::chg_user_id_list_size() const {
 inline void GroupChangeMemberNotify::clear_chg_user_id_list() {
   _impl_.chg_user_id_list_.Clear();
 }
-inline uint32_t GroupChangeMemberNotify::_internal_chg_user_id_list(int index) const {
+inline std::string* GroupChangeMemberNotify::add_chg_user_id_list() {
+  std::string* _s = _internal_add_chg_user_id_list();
+  // @@protoc_insertion_point(field_add_mutable:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
+  return _s;
+}
+inline const std::string& GroupChangeMemberNotify::_internal_chg_user_id_list(int index) const {
   return _impl_.chg_user_id_list_.Get(index);
 }
-inline uint32_t GroupChangeMemberNotify::chg_user_id_list(int index) const {
+inline const std::string& GroupChangeMemberNotify::chg_user_id_list(int index) const {
   // @@protoc_insertion_point(field_get:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
   return _internal_chg_user_id_list(index);
 }
-inline void GroupChangeMemberNotify::set_chg_user_id_list(int index, uint32_t value) {
-  _impl_.chg_user_id_list_.Set(index, value);
+inline std::string* GroupChangeMemberNotify::mutable_chg_user_id_list(int index) {
+  // @@protoc_insertion_point(field_mutable:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
+  return _impl_.chg_user_id_list_.Mutable(index);
+}
+inline void GroupChangeMemberNotify::set_chg_user_id_list(int index, const std::string& value) {
+  _impl_.chg_user_id_list_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
 }
-inline void GroupChangeMemberNotify::_internal_add_chg_user_id_list(uint32_t value) {
-  _impl_.chg_user_id_list_.Add(value);
+inline void GroupChangeMemberNotify::set_chg_user_id_list(int index, std::string&& value) {
+  _impl_.chg_user_id_list_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
 }
-inline void GroupChangeMemberNotify::add_chg_user_id_list(uint32_t value) {
-  _internal_add_chg_user_id_list(value);
+inline void GroupChangeMemberNotify::set_chg_user_id_list(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.chg_user_id_list_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
+}
+inline void GroupChangeMemberNotify::set_chg_user_id_list(int index, const void* value, size_t size) {
+  _impl_.chg_user_id_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
+}
+inline std::string* GroupChangeMemberNotify::_internal_add_chg_user_id_list() {
+  return _impl_.chg_user_id_list_.Add();
+}
+inline void GroupChangeMemberNotify::add_chg_user_id_list(const std::string& value) {
+  _impl_.chg_user_id_list_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-GroupChangeMemberNotify::_internal_chg_user_id_list() const {
-  return _impl_.chg_user_id_list_;
+inline void GroupChangeMemberNotify::add_chg_user_id_list(std::string&& value) {
+  _impl_.chg_user_id_list_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline void GroupChangeMemberNotify::add_chg_user_id_list(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.chg_user_id_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
+}
+inline void GroupChangeMemberNotify::add_chg_user_id_list(const void* value, size_t size) {
+  _impl_.chg_user_id_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 GroupChangeMemberNotify::chg_user_id_list() const {
   // @@protoc_insertion_point(field_list:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
-  return _internal_chg_user_id_list();
+  return _impl_.chg_user_id_list_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-GroupChangeMemberNotify::_internal_mutable_chg_user_id_list() {
-  return &_impl_.chg_user_id_list_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 GroupChangeMemberNotify::mutable_chg_user_id_list() {
   // @@protoc_insertion_point(field_mutable_list:Bohan.Group.GroupChangeMemberNotify.chg_user_id_list)
-  return _internal_mutable_chg_user_id_list();
+  return &_impl_.chg_user_id_list_;
 }
 
 #ifdef __GNUC__

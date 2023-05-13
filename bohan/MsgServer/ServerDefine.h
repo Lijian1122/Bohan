@@ -3,7 +3,7 @@
  * @Date: 2022-12-11 21:37:01
  * @FilePath: /Bohan/bohan/MsgServer/ServerDefine.h
  * @LastEditors: bohan.lj
- * @LastEditTime: 2023-03-12 12:48:56
+ * @LastEditTime: 2023-05-13 23:06:56
  * @Description: srouce_code
  */
 #ifndef SERVER_DEFINE_H
@@ -55,14 +55,14 @@ enum ClientType{
 };
 
 struct UserStat{
-    uint32_t user_id;
+    std::string user_id;
     uint32_t status;
     uint32_t client_type;
 };
 
 
 struct UserConn{
-    uint32_t user_id;
+    std::string user_id;
     uint32_t conn_cnt;
 };
 }

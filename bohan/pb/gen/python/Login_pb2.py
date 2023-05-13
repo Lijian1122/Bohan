@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import BaseDefine_pb2 as BaseDefine__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bLogin.proto\x12\x0b\x42ohan.Login\x1a\x10\x42\x61seDefine.proto\"\x0c\n\nMsgServReq\"r\n\nMsgServRsp\x12\x31\n\x0bresult_code\x18\x01 \x02(\x0e\x32\x1c.Bohan.BaseDefine.ResultType\x12\x10\n\x08prior_ip\x18\x02 \x01(\t\x12\x11\n\tbackip_ip\x18\x03 \x01(\t\x12\x0c\n\x04port\x18\x04 \x01(\r\"\xb1\x01\n\x08LoginReq\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\x12\x35\n\ronline_status\x18\x03 \x02(\x0e\x32\x1e.Bohan.BaseDefine.UserStatType\x12\x31\n\x0b\x63lient_type\x18\x04 \x02(\x0e\x32\x1c.Bohan.BaseDefine.ClientType\x12\x16\n\x0e\x63lient_version\x18\x05 \x01(\t\"\xcf\x01\n\x08LoginRes\x12\x13\n\x0bserver_time\x18\x01 \x02(\r\x12\x31\n\x0bresult_code\x18\x02 \x02(\x0e\x32\x1c.Bohan.BaseDefine.ResultType\x12\x15\n\rresult_string\x18\x03 \x01(\t\x12\x35\n\ronline_status\x18\x04 \x01(\x0e\x32\x1e.Bohan.BaseDefine.UserStatType\x12-\n\tuser_info\x18\x05 \x01(\x0b\x32\x1a.Bohan.BaseDefine.UserInfo\"\x0b\n\tLogoutReq\" \n\tLogoutRsp\x12\x13\n\x0bresult_code\x18\x01 \x02(\r\"R\n\x08KickUser\x12\x0f\n\x07user_id\x18\x01 \x02(\r\x12\x35\n\x0bkick_reason\x18\x02 \x02(\x0e\x32 .Bohan.BaseDefine.KickReasonType\"\x7f\n\x0e\x44\x65viceTokenReq\x12\x0f\n\x07user_id\x18\x01 \x02(\r\x12\x14\n\x0c\x64\x65vice_token\x18\x02 \x02(\t\x12\x31\n\x0b\x63lient_type\x18\x03 \x01(\x0e\x32\x1c.Bohan.BaseDefine.ClientType\x12\x13\n\x0b\x61ttach_data\x18\x14 \x01(\x0c\"6\n\x0e\x44\x65viceTokenRsp\x12\x0f\n\x07user_id\x18\x01 \x02(\r\x12\x13\n\x0b\x61ttach_data\x18\x14 \x01(\x0c\"\"\n\x0fKickPCClientReq\x12\x0f\n\x07user_id\x18\x01 \x02(\r\"7\n\x0fKickPCClientRsp\x12\x0f\n\x07user_id\x18\x01 \x02(\r\x12\x13\n\x0bresult_code\x18\x02 \x02(\rB\x16\n\x12\x63om.bohan.protobufH\x03')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bLogin.proto\x12\x0b\x42ohan.Login\x1a\x10\x42\x61seDefine.proto\"\x0c\n\nMsgServReq\"r\n\nMsgServRsp\x12\x31\n\x0bresult_code\x18\x01 \x02(\x0e\x32\x1c.Bohan.BaseDefine.ResultType\x12\x10\n\x08prior_ip\x18\x02 \x01(\t\x12\x11\n\tbackip_ip\x18\x03 \x01(\t\x12\x0c\n\x04port\x18\x04 \x01(\r\"\x81\x02\n\x08LoginReq\x12\x0f\n\x07user_id\x18\x01 \x02(\x0c\x12\x10\n\x08password\x18\x02 \x02(\x0c\x12\x11\n\tnick_name\x18\x03 \x02(\t\x12-\n\trole_type\x18\x04 \x02(\x0e\x32\x1a.Bohan.BaseDefine.RoleType\x12\x35\n\ronline_status\x18\x05 \x02(\x0e\x32\x1e.Bohan.BaseDefine.UserStatType\x12\x31\n\x0b\x63lient_type\x18\x06 \x02(\x0e\x32\x1c.Bohan.BaseDefine.ClientType\x12\x0e\n\x06\x61vatar\x18\x07 \x02(\t\x12\x16\n\x0e\x63lient_version\x18\x08 \x01(\t\"\xcf\x01\n\x08LoginRes\x12\x13\n\x0bserver_time\x18\x01 \x02(\r\x12\x31\n\x0bresult_code\x18\x02 \x02(\x0e\x32\x1c.Bohan.BaseDefine.ResultType\x12\x15\n\rresult_string\x18\x03 \x01(\t\x12\x35\n\ronline_status\x18\x04 \x01(\x0e\x32\x1e.Bohan.BaseDefine.UserStatType\x12-\n\tuser_info\x18\x05 \x01(\x0b\x32\x1a.Bohan.BaseDefine.UserInfo\"\x0b\n\tLogoutReq\" \n\tLogoutRsp\x12\x13\n\x0bresult_code\x18\x01 \x02(\r\"R\n\x08KickUser\x12\x0f\n\x07user_id\x18\x01 \x02(\x0c\x12\x35\n\x0bkick_reason\x18\x02 \x02(\x0e\x32 .Bohan.BaseDefine.KickReasonType\"\x7f\n\x0e\x44\x65viceTokenReq\x12\x0f\n\x07user_id\x18\x01 \x02(\x0c\x12\x14\n\x0c\x64\x65vice_token\x18\x02 \x02(\t\x12\x31\n\x0b\x63lient_type\x18\x03 \x01(\x0e\x32\x1c.Bohan.BaseDefine.ClientType\x12\x13\n\x0b\x61ttach_data\x18\x14 \x01(\x0c\"6\n\x0e\x44\x65viceTokenRsp\x12\x0f\n\x07user_id\x18\x01 \x02(\x0c\x12\x13\n\x0b\x61ttach_data\x18\x14 \x01(\x0c\"\"\n\x0fKickPCClientReq\x12\x0f\n\x07user_id\x18\x01 \x02(\x0c\"7\n\x0fKickPCClientRsp\x12\x0f\n\x07user_id\x18\x01 \x02(\x0c\x12\x13\n\x0bresult_code\x18\x02 \x02(\rB\x16\n\x12\x63om.bohan.protobufH\x03')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'Login_pb2', globals())
@@ -27,21 +27,21 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MSGSERVRSP._serialized_start=60
   _MSGSERVRSP._serialized_end=174
   _LOGINREQ._serialized_start=177
-  _LOGINREQ._serialized_end=354
-  _LOGINRES._serialized_start=357
-  _LOGINRES._serialized_end=564
-  _LOGOUTREQ._serialized_start=566
-  _LOGOUTREQ._serialized_end=577
-  _LOGOUTRSP._serialized_start=579
-  _LOGOUTRSP._serialized_end=611
-  _KICKUSER._serialized_start=613
-  _KICKUSER._serialized_end=695
-  _DEVICETOKENREQ._serialized_start=697
-  _DEVICETOKENREQ._serialized_end=824
-  _DEVICETOKENRSP._serialized_start=826
-  _DEVICETOKENRSP._serialized_end=880
-  _KICKPCCLIENTREQ._serialized_start=882
-  _KICKPCCLIENTREQ._serialized_end=916
-  _KICKPCCLIENTRSP._serialized_start=918
-  _KICKPCCLIENTRSP._serialized_end=973
+  _LOGINREQ._serialized_end=434
+  _LOGINRES._serialized_start=437
+  _LOGINRES._serialized_end=644
+  _LOGOUTREQ._serialized_start=646
+  _LOGOUTREQ._serialized_end=657
+  _LOGOUTRSP._serialized_start=659
+  _LOGOUTRSP._serialized_end=691
+  _KICKUSER._serialized_start=693
+  _KICKUSER._serialized_end=775
+  _DEVICETOKENREQ._serialized_start=777
+  _DEVICETOKENREQ._serialized_end=904
+  _DEVICETOKENRSP._serialized_start=906
+  _DEVICETOKENRSP._serialized_end=960
+  _KICKPCCLIENTREQ._serialized_start=962
+  _KICKPCCLIENTREQ._serialized_end=996
+  _KICKPCCLIENTRSP._serialized_start=998
+  _KICKPCCLIENTRSP._serialized_end=1053
 # @@protoc_insertion_point(module_scope)

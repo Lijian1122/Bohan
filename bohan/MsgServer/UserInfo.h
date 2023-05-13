@@ -18,13 +18,12 @@ namespace bohan
 class UserInfo
 {
 public:
-    UserInfo(string user_name);
+    UserInfo(string user_id);
     UserInfo(Bohan::Login::LoginReq msg);
     ~UserInfo();
     
-    void SetUserId(uint32_t user_id) { m_user_id = user_id; }
-    uint32_t GetUserId() { return m_user_id; }
-    string GetLoginName() { return m_login_name; }
+    void SetUserId(std::string user_id) { m_user_id = user_id; }
+    std::string GetUserId() { return m_user_id; }
     void SetNickName(string nick_name) { m_nick_name = nick_name; }
     string GetNickName() { return m_nick_name; }
     bool IsValidate() { return m_bValidate; }
@@ -32,10 +31,8 @@ public:
     uint32_t GetPCLoginStatus() { return m_pc_login_status; }
     void SetPCLoginStatus(uint32_t pc_login_status) { m_pc_login_status = pc_login_status; }
 	
-	string GetGroupId(){return m_group_Id; }
-	string GetUserGroup() {return m_user_group; }  
     string GetUserHead(){return m_user_head; }	  
-	//Bohan::BaseDefine::RoleType  GetRoleType(){ return  m_role_type; }   
+    Bohan::BaseDefine::RoleType  GetRoleType(){ return  m_role_type;}   
 	
 	bool  GetSendFlag(){return m_sendFlag;}
 	void  SetSendFlag(bool flag){ m_sendFlag = flag; }
@@ -66,13 +63,10 @@ public:
     
     uint32_t GetClientTypeFlag();
 private:
-    uint32_t		m_user_id;
-    string			m_login_name;            /* 登录ID */
-    string          m_nick_name;            /* 登录名 */
-    string          m_group_Id;          /*直播群组ID */
-    string          m_user_group;        /*分组ID*/
+    string		    m_user_id;           /*userId*/
+    string          m_nick_name;         /* 登录名 */
     string          m_user_head;         /*头像地址*/
-    //Bohan::BaseDefine::RoleType       m_role_type;      //用户类别
+    Bohan::BaseDefine::RoleType       m_role_type;      //用户类别
 	
     bool            m_sendFlag;          /*是否禁言*/
 	
@@ -85,7 +79,7 @@ private:
     set<MsgConn*> m_unvalidate_conn_set;
 };
 
-typedef map<uint32_t, UserInfo*> UserInfoMap_t;
+typedef map<string, UserInfo*> UserInfoMap_t;
 typedef map<string, UserInfo*> UserInfoMapByName_t;
 typedef list<UserStat> UserStatList_t;
 
@@ -96,15 +90,15 @@ public:
     ~UserInfoManager();
     
     static UserInfoManager* GetInstance();
-    UserInfo* GetImUserById(uint32_t user_id);
+    UserInfo* GetImUserById(string user_id);
     UserInfo* GetImUserByLoginName(string login_name);
     
-    MsgConn* GetMsgConnByHandle(uint32_t user_id, uint32_t handle);
+    MsgConn* GetMsgConnByHandle(string user_id, uint32_t handle);
     bool AddImUserByLoginName(string login_name, UserInfo* pUser);
     void RemoveImUserByLoginName(string login_name);
     
-    bool AddImUserById(uint32_t user_id, UserInfo* pUser);
-    void RemoveImUserById(uint32_t user_id);
+    bool AddImUserById(string user_id, UserInfo* pUser);
+    void RemoveImUserById(string user_id);
     
     void RemoveImUser(UserInfo* pUser);
     

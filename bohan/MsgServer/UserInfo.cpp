@@ -7,14 +7,13 @@ using namespace ::Bohan::BaseDefine;
 
 namespace bohan
 {
-UserInfo::UserInfo(string user_name)
+UserInfo::UserInfo(string user_id)
 {
 	//初始化为不禁言
 	m_sendFlag = false; 
-	
-    m_login_name = user_name;
+
     m_bValidate = false;
-    m_user_id = 0;
+    m_user_id = user_id;
     m_user_updated = false;
     m_pc_login_status = Bohan::BaseDefine::USER_STATUS_OFFLINE;
 }
@@ -25,15 +24,12 @@ UserInfo::UserInfo(Bohan::Login::LoginReq msg)
 	m_sendFlag = false; 
 	
 	//设置字段
-    // m_login_name = msg.user_id();
-    // m_nick_name = msg.user_name();
-    // m_group_Id = msg.group_id();
-    // m_user_group = msg.user_group();      
-	// m_user_head = msg.user_head();      
-	//m_role_type = msg.role_type();   
+    m_user_id = msg.user_id();
+    m_nick_name = msg.nick_name();  
+	m_user_head = msg.avatar();    
+	m_role_type = msg.role_type();   
 	
     m_bValidate = false;
-    m_user_id = 0;
     m_user_updated = false;
     m_pc_login_status = Bohan::BaseDefine::USER_STATUS_OFFLINE;
 }
@@ -233,7 +229,7 @@ UserInfo* UserInfoManager::GetImUserByLoginName(string login_name)
     return pUser;
 }
 
-UserInfo* UserInfoManager::GetImUserById(uint32_t user_id)
+UserInfo* UserInfoManager::GetImUserById(std::string user_id)
 {
     UserInfo* pUser = NULL;
     UserInfoMap_t::iterator it = m_im_user_map.find(user_id);
@@ -243,7 +239,7 @@ UserInfo* UserInfoManager::GetImUserById(uint32_t user_id)
     return pUser;
 }
 
-MsgConn* UserInfoManager::GetMsgConnByHandle(uint32_t user_id, uint32_t handle)
+MsgConn* UserInfoManager::GetMsgConnByHandle(std::string user_id, uint32_t handle)
 {
     MsgConn* pMsgConn = NULL;
     UserInfo* pImUser = GetImUserById(user_id);
@@ -268,7 +264,7 @@ void UserInfoManager::RemoveImUserByLoginName(string login_name)
     m_im_user_map_by_name.erase(login_name);
 }
 
-bool UserInfoManager::AddImUserById(uint32_t user_id, UserInfo *pUser)
+bool UserInfoManager::AddImUserById(std::string user_id, UserInfo *pUser)
 {
     bool bRet = false;
     if (GetImUserById(user_id) == NULL) {
@@ -278,7 +274,7 @@ bool UserInfoManager::AddImUserById(uint32_t user_id, UserInfo *pUser)
     return bRet;
 }
 
-void UserInfoManager::RemoveImUserById(uint32_t user_id)
+void UserInfoManager::RemoveImUserById(string user_id)
 {
     m_im_user_map.erase(user_id);
 }
@@ -287,7 +283,7 @@ void UserInfoManager::RemoveImUser(UserInfo *pUser)
 {
     if (pUser != NULL) {
         RemoveImUserById(pUser->GetUserId());
-        RemoveImUserByLoginName(pUser->GetLoginName());
+        RemoveImUserByLoginName(pUser->GetNickName());
         delete pUser;
         pUser = NULL;
     }

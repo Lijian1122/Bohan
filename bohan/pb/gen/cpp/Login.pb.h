@@ -528,31 +528,34 @@ class LoginReq final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kUserNameFieldNumber = 1,
+    kUserIdFieldNumber = 1,
     kPasswordFieldNumber = 2,
-    kClientVersionFieldNumber = 5,
-    kOnlineStatusFieldNumber = 3,
-    kClientTypeFieldNumber = 4,
+    kNickNameFieldNumber = 3,
+    kAvatarFieldNumber = 7,
+    kClientVersionFieldNumber = 8,
+    kClientTypeFieldNumber = 6,
+    kRoleTypeFieldNumber = 4,
+    kOnlineStatusFieldNumber = 5,
   };
-  // required string user_name = 1;
-  bool has_user_name() const;
+  // required bytes user_id = 1;
+  bool has_user_id() const;
   private:
-  bool _internal_has_user_name() const;
+  bool _internal_has_user_id() const;
   public:
-  void clear_user_name();
-  const std::string& user_name() const;
+  void clear_user_id();
+  const std::string& user_id() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_user_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_user_name();
-  PROTOBUF_NODISCARD std::string* release_user_name();
-  void set_allocated_user_name(std::string* user_name);
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
   private:
-  const std::string& _internal_user_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_name(const std::string& value);
-  std::string* _internal_mutable_user_name();
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
   public:
 
-  // required string password = 2;
+  // required bytes password = 2;
   bool has_password() const;
   private:
   bool _internal_has_password() const;
@@ -570,7 +573,43 @@ class LoginReq final :
   std::string* _internal_mutable_password();
   public:
 
-  // optional string client_version = 5;
+  // required string nick_name = 3;
+  bool has_nick_name() const;
+  private:
+  bool _internal_has_nick_name() const;
+  public:
+  void clear_nick_name();
+  const std::string& nick_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_nick_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_nick_name();
+  PROTOBUF_NODISCARD std::string* release_nick_name();
+  void set_allocated_nick_name(std::string* nick_name);
+  private:
+  const std::string& _internal_nick_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_nick_name(const std::string& value);
+  std::string* _internal_mutable_nick_name();
+  public:
+
+  // required string avatar = 7;
+  bool has_avatar() const;
+  private:
+  bool _internal_has_avatar() const;
+  public:
+  void clear_avatar();
+  const std::string& avatar() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_avatar(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_avatar();
+  PROTOBUF_NODISCARD std::string* release_avatar();
+  void set_allocated_avatar(std::string* avatar);
+  private:
+  const std::string& _internal_avatar() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_avatar(const std::string& value);
+  std::string* _internal_mutable_avatar();
+  public:
+
+  // optional string client_version = 8;
   bool has_client_version() const;
   private:
   bool _internal_has_client_version() const;
@@ -588,20 +627,7 @@ class LoginReq final :
   std::string* _internal_mutable_client_version();
   public:
 
-  // required .Bohan.BaseDefine.UserStatType online_status = 3;
-  bool has_online_status() const;
-  private:
-  bool _internal_has_online_status() const;
-  public:
-  void clear_online_status();
-  ::Bohan::BaseDefine::UserStatType online_status() const;
-  void set_online_status(::Bohan::BaseDefine::UserStatType value);
-  private:
-  ::Bohan::BaseDefine::UserStatType _internal_online_status() const;
-  void _internal_set_online_status(::Bohan::BaseDefine::UserStatType value);
-  public:
-
-  // required .Bohan.BaseDefine.ClientType client_type = 4;
+  // required .Bohan.BaseDefine.ClientType client_type = 6;
   bool has_client_type() const;
   private:
   bool _internal_has_client_type() const;
@@ -612,6 +638,32 @@ class LoginReq final :
   private:
   ::Bohan::BaseDefine::ClientType _internal_client_type() const;
   void _internal_set_client_type(::Bohan::BaseDefine::ClientType value);
+  public:
+
+  // required .Bohan.BaseDefine.RoleType role_type = 4;
+  bool has_role_type() const;
+  private:
+  bool _internal_has_role_type() const;
+  public:
+  void clear_role_type();
+  ::Bohan::BaseDefine::RoleType role_type() const;
+  void set_role_type(::Bohan::BaseDefine::RoleType value);
+  private:
+  ::Bohan::BaseDefine::RoleType _internal_role_type() const;
+  void _internal_set_role_type(::Bohan::BaseDefine::RoleType value);
+  public:
+
+  // required .Bohan.BaseDefine.UserStatType online_status = 5;
+  bool has_online_status() const;
+  private:
+  bool _internal_has_online_status() const;
+  public:
+  void clear_online_status();
+  ::Bohan::BaseDefine::UserStatType online_status() const;
+  void set_online_status(::Bohan::BaseDefine::UserStatType value);
+  private:
+  ::Bohan::BaseDefine::UserStatType _internal_online_status() const;
+  void _internal_set_online_status(::Bohan::BaseDefine::UserStatType value);
   public:
 
   // @@protoc_insertion_point(class_scope:Bohan.Login.LoginReq)
@@ -627,11 +679,14 @@ class LoginReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr password_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr nick_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_version_;
-    int online_status_;
     int client_type_;
+    int role_type_;
+    int online_status_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_Login_2eproto;
@@ -1232,17 +1287,22 @@ class KickUser final :
     kUserIdFieldNumber = 1,
     kKickReasonFieldNumber = 2,
   };
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   bool has_user_id() const;
   private:
   bool _internal_has_user_id() const;
   public:
   void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
   private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
   public:
 
   // required .Bohan.BaseDefine.KickReasonType kick_reason = 2;
@@ -1271,7 +1331,7 @@ class KickUser final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     int kick_reason_;
   };
   union { Impl_ _impl_; };
@@ -1389,11 +1449,29 @@ class DeviceTokenReq final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kUserIdFieldNumber = 1,
     kDeviceTokenFieldNumber = 2,
     kAttachDataFieldNumber = 20,
-    kUserIdFieldNumber = 1,
     kClientTypeFieldNumber = 3,
   };
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // required string device_token = 2;
   bool has_device_token() const;
   private:
@@ -1430,19 +1508,6 @@ class DeviceTokenReq final :
   std::string* _internal_mutable_attach_data();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // optional .Bohan.BaseDefine.ClientType client_type = 3;
   bool has_client_type() const;
   private:
@@ -1469,9 +1534,9 @@ class DeviceTokenReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr device_token_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
     int client_type_;
   };
   union { Impl_ _impl_; };
@@ -1589,9 +1654,27 @@ class DeviceTokenRsp final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAttachDataFieldNumber = 20,
     kUserIdFieldNumber = 1,
+    kAttachDataFieldNumber = 20,
   };
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // optional bytes attach_data = 20;
   bool has_attach_data() const;
   private:
@@ -1610,19 +1693,6 @@ class DeviceTokenRsp final :
   std::string* _internal_mutable_attach_data();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:Bohan.Login.DeviceTokenRsp)
  private:
   class _Internal;
@@ -1633,8 +1703,8 @@ class DeviceTokenRsp final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr attach_data_;
-    uint32_t user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_Login_2eproto;
@@ -1753,17 +1823,22 @@ class KickPCClientReq final :
   enum : int {
     kUserIdFieldNumber = 1,
   };
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   bool has_user_id() const;
   private:
   bool _internal_has_user_id() const;
   public:
   void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
   private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
   public:
 
   // @@protoc_insertion_point(class_scope:Bohan.Login.KickPCClientReq)
@@ -1776,7 +1851,7 @@ class KickPCClientReq final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_Login_2eproto;
@@ -1896,17 +1971,22 @@ class KickPCClientRsp final :
     kUserIdFieldNumber = 1,
     kResultCodeFieldNumber = 2,
   };
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   bool has_user_id() const;
   private:
   bool _internal_has_user_id() const;
   public:
   void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
   private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
   public:
 
   // required uint32 result_code = 2;
@@ -1935,7 +2015,7 @@ class KickPCClientRsp final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     uint32_t result_code_;
   };
   union { Impl_ _impl_; };
@@ -2153,75 +2233,75 @@ inline void MsgServRsp::set_port(uint32_t value) {
 
 // LoginReq
 
-// required string user_name = 1;
-inline bool LoginReq::_internal_has_user_name() const {
+// required bytes user_id = 1;
+inline bool LoginReq::_internal_has_user_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool LoginReq::has_user_name() const {
-  return _internal_has_user_name();
+inline bool LoginReq::has_user_id() const {
+  return _internal_has_user_id();
 }
-inline void LoginReq::clear_user_name() {
-  _impl_.user_name_.ClearToEmpty();
+inline void LoginReq::clear_user_id() {
+  _impl_.user_id_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const std::string& LoginReq::user_name() const {
-  // @@protoc_insertion_point(field_get:Bohan.Login.LoginReq.user_name)
-  return _internal_user_name();
+inline const std::string& LoginReq::user_id() const {
+  // @@protoc_insertion_point(field_get:Bohan.Login.LoginReq.user_id)
+  return _internal_user_id();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void LoginReq::set_user_name(ArgT0&& arg0, ArgT... args) {
+void LoginReq::set_user_id(ArgT0&& arg0, ArgT... args) {
  _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.user_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:Bohan.Login.LoginReq.user_name)
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Bohan.Login.LoginReq.user_id)
 }
-inline std::string* LoginReq::mutable_user_name() {
-  std::string* _s = _internal_mutable_user_name();
-  // @@protoc_insertion_point(field_mutable:Bohan.Login.LoginReq.user_name)
+inline std::string* LoginReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Login.LoginReq.user_id)
   return _s;
 }
-inline const std::string& LoginReq::_internal_user_name() const {
-  return _impl_.user_name_.Get();
+inline const std::string& LoginReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
 }
-inline void LoginReq::_internal_set_user_name(const std::string& value) {
+inline void LoginReq::_internal_set_user_id(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.user_name_.Set(value, GetArenaForAllocation());
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
 }
-inline std::string* LoginReq::_internal_mutable_user_name() {
+inline std::string* LoginReq::_internal_mutable_user_id() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.user_name_.Mutable(GetArenaForAllocation());
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
 }
-inline std::string* LoginReq::release_user_name() {
-  // @@protoc_insertion_point(field_release:Bohan.Login.LoginReq.user_name)
-  if (!_internal_has_user_name()) {
+inline std::string* LoginReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Login.LoginReq.user_id)
+  if (!_internal_has_user_id()) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.user_name_.Release();
+  auto* p = _impl_.user_id_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.user_name_.IsDefault()) {
-    _impl_.user_name_.Set("", GetArenaForAllocation());
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void LoginReq::set_allocated_user_name(std::string* user_name) {
-  if (user_name != nullptr) {
+inline void LoginReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.user_name_.SetAllocated(user_name, GetArenaForAllocation());
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.user_name_.IsDefault()) {
-    _impl_.user_name_.Set("", GetArenaForAllocation());
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:Bohan.Login.LoginReq.user_name)
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Login.LoginReq.user_id)
 }
 
-// required string password = 2;
+// required bytes password = 2;
 inline bool LoginReq::_internal_has_password() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -2241,7 +2321,7 @@ template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void LoginReq::set_password(ArgT0&& arg0, ArgT... args) {
  _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.password_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+ _impl_.password_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.LoginReq.password)
 }
 inline std::string* LoginReq::mutable_password() {
@@ -2289,9 +2369,106 @@ inline void LoginReq::set_allocated_password(std::string* password) {
   // @@protoc_insertion_point(field_set_allocated:Bohan.Login.LoginReq.password)
 }
 
-// required .Bohan.BaseDefine.UserStatType online_status = 3;
+// required string nick_name = 3;
+inline bool LoginReq::_internal_has_nick_name() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool LoginReq::has_nick_name() const {
+  return _internal_has_nick_name();
+}
+inline void LoginReq::clear_nick_name() {
+  _impl_.nick_name_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& LoginReq::nick_name() const {
+  // @@protoc_insertion_point(field_get:Bohan.Login.LoginReq.nick_name)
+  return _internal_nick_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void LoginReq::set_nick_name(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000004u;
+ _impl_.nick_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Bohan.Login.LoginReq.nick_name)
+}
+inline std::string* LoginReq::mutable_nick_name() {
+  std::string* _s = _internal_mutable_nick_name();
+  // @@protoc_insertion_point(field_mutable:Bohan.Login.LoginReq.nick_name)
+  return _s;
+}
+inline const std::string& LoginReq::_internal_nick_name() const {
+  return _impl_.nick_name_.Get();
+}
+inline void LoginReq::_internal_set_nick_name(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.nick_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* LoginReq::_internal_mutable_nick_name() {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  return _impl_.nick_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* LoginReq::release_nick_name() {
+  // @@protoc_insertion_point(field_release:Bohan.Login.LoginReq.nick_name)
+  if (!_internal_has_nick_name()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  auto* p = _impl_.nick_name_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.nick_name_.IsDefault()) {
+    _impl_.nick_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void LoginReq::set_allocated_nick_name(std::string* nick_name) {
+  if (nick_name != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  _impl_.nick_name_.SetAllocated(nick_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.nick_name_.IsDefault()) {
+    _impl_.nick_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Login.LoginReq.nick_name)
+}
+
+// required .Bohan.BaseDefine.RoleType role_type = 4;
+inline bool LoginReq::_internal_has_role_type() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool LoginReq::has_role_type() const {
+  return _internal_has_role_type();
+}
+inline void LoginReq::clear_role_type() {
+  _impl_.role_type_ = 1;
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline ::Bohan::BaseDefine::RoleType LoginReq::_internal_role_type() const {
+  return static_cast< ::Bohan::BaseDefine::RoleType >(_impl_.role_type_);
+}
+inline ::Bohan::BaseDefine::RoleType LoginReq::role_type() const {
+  // @@protoc_insertion_point(field_get:Bohan.Login.LoginReq.role_type)
+  return _internal_role_type();
+}
+inline void LoginReq::_internal_set_role_type(::Bohan::BaseDefine::RoleType value) {
+  assert(::Bohan::BaseDefine::RoleType_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.role_type_ = value;
+}
+inline void LoginReq::set_role_type(::Bohan::BaseDefine::RoleType value) {
+  _internal_set_role_type(value);
+  // @@protoc_insertion_point(field_set:Bohan.Login.LoginReq.role_type)
+}
+
+// required .Bohan.BaseDefine.UserStatType online_status = 5;
 inline bool LoginReq::_internal_has_online_status() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool LoginReq::has_online_status() const {
@@ -2299,7 +2476,7 @@ inline bool LoginReq::has_online_status() const {
 }
 inline void LoginReq::clear_online_status() {
   _impl_.online_status_ = 1;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline ::Bohan::BaseDefine::UserStatType LoginReq::_internal_online_status() const {
   return static_cast< ::Bohan::BaseDefine::UserStatType >(_impl_.online_status_);
@@ -2310,7 +2487,7 @@ inline ::Bohan::BaseDefine::UserStatType LoginReq::online_status() const {
 }
 inline void LoginReq::_internal_set_online_status(::Bohan::BaseDefine::UserStatType value) {
   assert(::Bohan::BaseDefine::UserStatType_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.online_status_ = value;
 }
 inline void LoginReq::set_online_status(::Bohan::BaseDefine::UserStatType value) {
@@ -2318,9 +2495,9 @@ inline void LoginReq::set_online_status(::Bohan::BaseDefine::UserStatType value)
   // @@protoc_insertion_point(field_set:Bohan.Login.LoginReq.online_status)
 }
 
-// required .Bohan.BaseDefine.ClientType client_type = 4;
+// required .Bohan.BaseDefine.ClientType client_type = 6;
 inline bool LoginReq::_internal_has_client_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool LoginReq::has_client_type() const {
@@ -2328,7 +2505,7 @@ inline bool LoginReq::has_client_type() const {
 }
 inline void LoginReq::clear_client_type() {
   _impl_.client_type_ = 1;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline ::Bohan::BaseDefine::ClientType LoginReq::_internal_client_type() const {
   return static_cast< ::Bohan::BaseDefine::ClientType >(_impl_.client_type_);
@@ -2339,7 +2516,7 @@ inline ::Bohan::BaseDefine::ClientType LoginReq::client_type() const {
 }
 inline void LoginReq::_internal_set_client_type(::Bohan::BaseDefine::ClientType value) {
   assert(::Bohan::BaseDefine::ClientType_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.client_type_ = value;
 }
 inline void LoginReq::set_client_type(::Bohan::BaseDefine::ClientType value) {
@@ -2347,9 +2524,77 @@ inline void LoginReq::set_client_type(::Bohan::BaseDefine::ClientType value) {
   // @@protoc_insertion_point(field_set:Bohan.Login.LoginReq.client_type)
 }
 
-// optional string client_version = 5;
+// required string avatar = 7;
+inline bool LoginReq::_internal_has_avatar() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool LoginReq::has_avatar() const {
+  return _internal_has_avatar();
+}
+inline void LoginReq::clear_avatar() {
+  _impl_.avatar_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline const std::string& LoginReq::avatar() const {
+  // @@protoc_insertion_point(field_get:Bohan.Login.LoginReq.avatar)
+  return _internal_avatar();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void LoginReq::set_avatar(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000008u;
+ _impl_.avatar_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Bohan.Login.LoginReq.avatar)
+}
+inline std::string* LoginReq::mutable_avatar() {
+  std::string* _s = _internal_mutable_avatar();
+  // @@protoc_insertion_point(field_mutable:Bohan.Login.LoginReq.avatar)
+  return _s;
+}
+inline const std::string& LoginReq::_internal_avatar() const {
+  return _impl_.avatar_.Get();
+}
+inline void LoginReq::_internal_set_avatar(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.avatar_.Set(value, GetArenaForAllocation());
+}
+inline std::string* LoginReq::_internal_mutable_avatar() {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  return _impl_.avatar_.Mutable(GetArenaForAllocation());
+}
+inline std::string* LoginReq::release_avatar() {
+  // @@protoc_insertion_point(field_release:Bohan.Login.LoginReq.avatar)
+  if (!_internal_has_avatar()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000008u;
+  auto* p = _impl_.avatar_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.avatar_.IsDefault()) {
+    _impl_.avatar_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void LoginReq::set_allocated_avatar(std::string* avatar) {
+  if (avatar != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000008u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000008u;
+  }
+  _impl_.avatar_.SetAllocated(avatar, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.avatar_.IsDefault()) {
+    _impl_.avatar_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Login.LoginReq.avatar)
+}
+
+// optional string client_version = 8;
 inline bool LoginReq::_internal_has_client_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool LoginReq::has_client_version() const {
@@ -2357,7 +2602,7 @@ inline bool LoginReq::has_client_version() const {
 }
 inline void LoginReq::clear_client_version() {
   _impl_.client_version_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline const std::string& LoginReq::client_version() const {
   // @@protoc_insertion_point(field_get:Bohan.Login.LoginReq.client_version)
@@ -2366,7 +2611,7 @@ inline const std::string& LoginReq::client_version() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void LoginReq::set_client_version(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
+ _impl_._has_bits_[0] |= 0x00000010u;
  _impl_.client_version_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.LoginReq.client_version)
 }
@@ -2379,11 +2624,11 @@ inline const std::string& LoginReq::_internal_client_version() const {
   return _impl_.client_version_.Get();
 }
 inline void LoginReq::_internal_set_client_version(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.client_version_.Set(value, GetArenaForAllocation());
 }
 inline std::string* LoginReq::_internal_mutable_client_version() {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   return _impl_.client_version_.Mutable(GetArenaForAllocation());
 }
 inline std::string* LoginReq::release_client_version() {
@@ -2391,7 +2636,7 @@ inline std::string* LoginReq::release_client_version() {
   if (!_internal_has_client_version()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
   auto* p = _impl_.client_version_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.client_version_.IsDefault()) {
@@ -2402,9 +2647,9 @@ inline std::string* LoginReq::release_client_version() {
 }
 inline void LoginReq::set_allocated_client_version(std::string* client_version) {
   if (client_version != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000010u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000010u;
   }
   _impl_.client_version_.SetAllocated(client_version, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2700,7 +2945,7 @@ inline void LogoutRsp::set_result_code(uint32_t value) {
 
 // KickUser
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool KickUser::_internal_has_user_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2709,23 +2954,63 @@ inline bool KickUser::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void KickUser::clear_user_id() {
-  _impl_.user_id_ = 0u;
+  _impl_.user_id_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t KickUser::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t KickUser::user_id() const {
+inline const std::string& KickUser::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Login.KickUser.user_id)
   return _internal_user_id();
 }
-inline void KickUser::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.user_id_ = value;
-}
-inline void KickUser::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void KickUser::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.KickUser.user_id)
+}
+inline std::string* KickUser::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Login.KickUser.user_id)
+  return _s;
+}
+inline const std::string& KickUser::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void KickUser::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* KickUser::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* KickUser::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Login.KickUser.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void KickUser::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Login.KickUser.user_id)
 }
 
 // required .Bohan.BaseDefine.KickReasonType kick_reason = 2;
@@ -2761,37 +3046,77 @@ inline void KickUser::set_kick_reason(::Bohan::BaseDefine::KickReasonType value)
 
 // DeviceTokenReq
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool DeviceTokenReq::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool DeviceTokenReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void DeviceTokenReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t DeviceTokenReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t DeviceTokenReq::user_id() const {
+inline const std::string& DeviceTokenReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Login.DeviceTokenReq.user_id)
   return _internal_user_id();
 }
-inline void DeviceTokenReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.user_id_ = value;
-}
-inline void DeviceTokenReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DeviceTokenReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.DeviceTokenReq.user_id)
+}
+inline std::string* DeviceTokenReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Login.DeviceTokenReq.user_id)
+  return _s;
+}
+inline const std::string& DeviceTokenReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void DeviceTokenReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DeviceTokenReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DeviceTokenReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Login.DeviceTokenReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void DeviceTokenReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Login.DeviceTokenReq.user_id)
 }
 
 // required string device_token = 2;
 inline bool DeviceTokenReq::_internal_has_device_token() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool DeviceTokenReq::has_device_token() const {
@@ -2799,7 +3124,7 @@ inline bool DeviceTokenReq::has_device_token() const {
 }
 inline void DeviceTokenReq::clear_device_token() {
   _impl_.device_token_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& DeviceTokenReq::device_token() const {
   // @@protoc_insertion_point(field_get:Bohan.Login.DeviceTokenReq.device_token)
@@ -2808,7 +3133,7 @@ inline const std::string& DeviceTokenReq::device_token() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceTokenReq::set_device_token(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.device_token_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.DeviceTokenReq.device_token)
 }
@@ -2821,11 +3146,11 @@ inline const std::string& DeviceTokenReq::_internal_device_token() const {
   return _impl_.device_token_.Get();
 }
 inline void DeviceTokenReq::_internal_set_device_token(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.device_token_.Set(value, GetArenaForAllocation());
 }
 inline std::string* DeviceTokenReq::_internal_mutable_device_token() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.device_token_.Mutable(GetArenaForAllocation());
 }
 inline std::string* DeviceTokenReq::release_device_token() {
@@ -2833,7 +3158,7 @@ inline std::string* DeviceTokenReq::release_device_token() {
   if (!_internal_has_device_token()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.device_token_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.device_token_.IsDefault()) {
@@ -2844,9 +3169,9 @@ inline std::string* DeviceTokenReq::release_device_token() {
 }
 inline void DeviceTokenReq::set_allocated_device_token(std::string* device_token) {
   if (device_token != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.device_token_.SetAllocated(device_token, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2888,7 +3213,7 @@ inline void DeviceTokenReq::set_client_type(::Bohan::BaseDefine::ClientType valu
 
 // optional bytes attach_data = 20;
 inline bool DeviceTokenReq::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool DeviceTokenReq::has_attach_data() const {
@@ -2896,7 +3221,7 @@ inline bool DeviceTokenReq::has_attach_data() const {
 }
 inline void DeviceTokenReq::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& DeviceTokenReq::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Login.DeviceTokenReq.attach_data)
@@ -2905,7 +3230,7 @@ inline const std::string& DeviceTokenReq::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceTokenReq::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.DeviceTokenReq.attach_data)
 }
@@ -2918,11 +3243,11 @@ inline const std::string& DeviceTokenReq::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void DeviceTokenReq::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* DeviceTokenReq::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* DeviceTokenReq::release_attach_data() {
@@ -2930,7 +3255,7 @@ inline std::string* DeviceTokenReq::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -2941,9 +3266,9 @@ inline std::string* DeviceTokenReq::release_attach_data() {
 }
 inline void DeviceTokenReq::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2958,37 +3283,77 @@ inline void DeviceTokenReq::set_allocated_attach_data(std::string* attach_data) 
 
 // DeviceTokenRsp
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool DeviceTokenRsp::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool DeviceTokenRsp::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void DeviceTokenRsp::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t DeviceTokenRsp::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t DeviceTokenRsp::user_id() const {
+inline const std::string& DeviceTokenRsp::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Login.DeviceTokenRsp.user_id)
   return _internal_user_id();
 }
-inline void DeviceTokenRsp::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void DeviceTokenRsp::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DeviceTokenRsp::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.DeviceTokenRsp.user_id)
+}
+inline std::string* DeviceTokenRsp::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Login.DeviceTokenRsp.user_id)
+  return _s;
+}
+inline const std::string& DeviceTokenRsp::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void DeviceTokenRsp::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DeviceTokenRsp::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DeviceTokenRsp::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Login.DeviceTokenRsp.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void DeviceTokenRsp::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Login.DeviceTokenRsp.user_id)
 }
 
 // optional bytes attach_data = 20;
 inline bool DeviceTokenRsp::_internal_has_attach_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool DeviceTokenRsp::has_attach_data() const {
@@ -2996,7 +3361,7 @@ inline bool DeviceTokenRsp::has_attach_data() const {
 }
 inline void DeviceTokenRsp::clear_attach_data() {
   _impl_.attach_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& DeviceTokenRsp::attach_data() const {
   // @@protoc_insertion_point(field_get:Bohan.Login.DeviceTokenRsp.attach_data)
@@ -3005,7 +3370,7 @@ inline const std::string& DeviceTokenRsp::attach_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceTokenRsp::set_attach_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.attach_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.DeviceTokenRsp.attach_data)
 }
@@ -3018,11 +3383,11 @@ inline const std::string& DeviceTokenRsp::_internal_attach_data() const {
   return _impl_.attach_data_.Get();
 }
 inline void DeviceTokenRsp::_internal_set_attach_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.attach_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* DeviceTokenRsp::_internal_mutable_attach_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.attach_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* DeviceTokenRsp::release_attach_data() {
@@ -3030,7 +3395,7 @@ inline std::string* DeviceTokenRsp::release_attach_data() {
   if (!_internal_has_attach_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.attach_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.attach_data_.IsDefault()) {
@@ -3041,9 +3406,9 @@ inline std::string* DeviceTokenRsp::release_attach_data() {
 }
 inline void DeviceTokenRsp::set_allocated_attach_data(std::string* attach_data) {
   if (attach_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.attach_data_.SetAllocated(attach_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3058,7 +3423,7 @@ inline void DeviceTokenRsp::set_allocated_attach_data(std::string* attach_data) 
 
 // KickPCClientReq
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool KickPCClientReq::_internal_has_user_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -3067,30 +3432,70 @@ inline bool KickPCClientReq::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void KickPCClientReq::clear_user_id() {
-  _impl_.user_id_ = 0u;
+  _impl_.user_id_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t KickPCClientReq::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t KickPCClientReq::user_id() const {
+inline const std::string& KickPCClientReq::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Login.KickPCClientReq.user_id)
   return _internal_user_id();
 }
-inline void KickPCClientReq::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.user_id_ = value;
-}
-inline void KickPCClientReq::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void KickPCClientReq::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.KickPCClientReq.user_id)
+}
+inline std::string* KickPCClientReq::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Login.KickPCClientReq.user_id)
+  return _s;
+}
+inline const std::string& KickPCClientReq::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void KickPCClientReq::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* KickPCClientReq::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* KickPCClientReq::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Login.KickPCClientReq.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void KickPCClientReq::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Login.KickPCClientReq.user_id)
 }
 
 // -------------------------------------------------------------------
 
 // KickPCClientRsp
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool KickPCClientRsp::_internal_has_user_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -3099,23 +3504,63 @@ inline bool KickPCClientRsp::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void KickPCClientRsp::clear_user_id() {
-  _impl_.user_id_ = 0u;
+  _impl_.user_id_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t KickPCClientRsp::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t KickPCClientRsp::user_id() const {
+inline const std::string& KickPCClientRsp::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.Login.KickPCClientRsp.user_id)
   return _internal_user_id();
 }
-inline void KickPCClientRsp::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.user_id_ = value;
-}
-inline void KickPCClientRsp::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void KickPCClientRsp::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.Login.KickPCClientRsp.user_id)
+}
+inline std::string* KickPCClientRsp::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.Login.KickPCClientRsp.user_id)
+  return _s;
+}
+inline const std::string& KickPCClientRsp::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void KickPCClientRsp::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* KickPCClientRsp::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* KickPCClientRsp::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.Login.KickPCClientRsp.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void KickPCClientRsp::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.Login.KickPCClientRsp.user_id)
 }
 
 // required uint32 result_code = 2;

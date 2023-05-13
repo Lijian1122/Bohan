@@ -21,11 +21,14 @@ message MsgServRsp{
 
 message LoginReq{
 	//cmd id:		0x0103
-	required string user_name = 1;
-	required string password = 2;
-	required BaseDefine.UserStatType online_status = 3;
-	required BaseDefine.ClientType client_type = 4;
-	optional string client_version = 5;
+	required bytes user_id = 1;
+	required bytes password = 2;
+	required string nick_name = 3;
+	required BaseDefine.RoleType role_type = 4;
+	required BaseDefine.UserStatType online_status = 5;
+	required BaseDefine.ClientType client_type = 6;
+	required string avatar = 7;
+	optional string client_version = 8;
 }
 
 message LoginRes{
@@ -48,13 +51,13 @@ message LogoutRsp{
 
 message KickUser{
 	//cmd id:		0x0107
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required BaseDefine.KickReasonType kick_reason = 2;
 }
 
 message DeviceTokenReq{
 	//cmd id:		0x0108
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required string device_token = 2;
 	optional BaseDefine.ClientType client_type = 3;
 	optional bytes attach_data = 20;
@@ -62,19 +65,19 @@ message DeviceTokenReq{
 
 message DeviceTokenRsp{
 	//cmd id: 		0x0109
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	optional bytes attach_data = 20;
 }
 
 //只给移动端请求
 message KickPCClientReq{
 	//cmd id:		0x010a
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 }
 
 message KickPCClientRsp{
 	//cmd id: 		0x010b
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required uint32 result_code = 2;
 }
  

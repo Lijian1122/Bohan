@@ -23,7 +23,7 @@ public final class Buddy {
      *cmd id:		0x0201
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -32,10 +32,10 @@ public final class Buddy {
      *cmd id:		0x0201
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 latest_update_time = 2;</code>
@@ -72,6 +72,7 @@ public final class Buddy {
       super(builder);
     }
     private RecentContactSessionReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -102,13 +103,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0201
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -120,11 +121,11 @@ public final class Buddy {
      *cmd id:		0x0201
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -189,7 +190,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, latestUpdateTime_);
@@ -208,7 +209,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -235,8 +236,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasLatestUpdateTime() != other.hasLatestUpdateTime()) return false;
       if (hasLatestUpdateTime()) {
@@ -261,7 +262,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasLatestUpdateTime()) {
         hash = (37 * hash) + LATEST_UPDATE_TIME_FIELD_NUMBER;
@@ -399,7 +400,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         latestUpdateTime_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -434,9 +435,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.latestUpdateTime_ = latestUpdateTime_;
           to_bitField0_ |= 0x00000002;
@@ -535,11 +536,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 latestUpdateTime_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -567,13 +568,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0201
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -585,11 +586,11 @@ public final class Buddy {
        *cmd id:		0x0201
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -597,12 +598,15 @@ public final class Buddy {
        *cmd id:		0x0201
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -612,12 +616,12 @@ public final class Buddy {
        *cmd id:		0x0201
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -775,7 +779,7 @@ public final class Buddy {
      *cmd id:		0x0202
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -784,10 +788,10 @@ public final class Buddy {
      *cmd id:		0x0202
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>repeated .Bohan.BaseDefine.ContactSessionInfo contact_session_list = 2;</code>
@@ -837,6 +841,7 @@ public final class Buddy {
       super(builder);
     }
     private RecentContactSessionRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       contactSessionList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -868,13 +873,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0202
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -886,11 +891,11 @@ public final class Buddy {
      *cmd id:		0x0202
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -978,7 +983,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       for (int i = 0; i < contactSessionList_.size(); i++) {
         output.writeMessage(2, contactSessionList_.get(i));
@@ -997,7 +1002,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       for (int i = 0; i < contactSessionList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -1024,8 +1029,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getContactSessionListList()
           .equals(other.getContactSessionListList())) return false;
@@ -1047,7 +1052,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (getContactSessionListCount() > 0) {
         hash = (37 * hash) + CONTACT_SESSION_LIST_FIELD_NUMBER;
@@ -1185,7 +1190,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (contactSessionListBuilder_ == null) {
           contactSessionList_ = java.util.Collections.emptyList();
@@ -1225,9 +1230,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (contactSessionListBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             contactSessionList_ = java.util.Collections.unmodifiableList(contactSessionList_);
@@ -1356,11 +1361,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 com.bohan.protobuf.BaseDefine.ContactSessionInfo m =
                     input.readMessage(
@@ -1396,13 +1401,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0202
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -1414,11 +1419,11 @@ public final class Buddy {
        *cmd id:		0x0202
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -1426,12 +1431,15 @@ public final class Buddy {
        *cmd id:		0x0202
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -1441,12 +1449,12 @@ public final class Buddy {
        *cmd id:		0x0202
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -2491,7 +2499,7 @@ public final class Buddy {
      *cmd id:		0x0204
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -2500,27 +2508,27 @@ public final class Buddy {
      *cmd id:		0x0204
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @return A list containing the userIdList.
      */
-    java.util.List<java.lang.Integer> getUserIdListList();
+    java.util.List<com.google.protobuf.ByteString> getUserIdListList();
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @return The count of userIdList.
      */
     int getUserIdListCount();
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @param index The index of the element to return.
      * @return The userIdList at the given index.
      */
-    int getUserIdList(int index);
+    com.google.protobuf.ByteString getUserIdList(int index);
 
     /**
      * <code>optional bytes attach_data = 20;</code>
@@ -2546,7 +2554,8 @@ public final class Buddy {
       super(builder);
     }
     private UsersInfoReq() {
-      userIdList_ = emptyIntList();
+      userId_ = com.google.protobuf.ByteString.EMPTY;
+      userIdList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -2577,13 +2586,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0204
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -2595,39 +2604,39 @@ public final class Buddy {
      *cmd id:		0x0204
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
     public static final int USER_ID_LIST_FIELD_NUMBER = 2;
-    private com.google.protobuf.Internal.IntList userIdList_;
+    private java.util.List<com.google.protobuf.ByteString> userIdList_;
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @return A list containing the userIdList.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Integer>
+    public java.util.List<com.google.protobuf.ByteString>
         getUserIdListList() {
       return userIdList_;
     }
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @return The count of userIdList.
      */
     public int getUserIdListCount() {
       return userIdList_.size();
     }
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @param index The index of the element to return.
      * @return The userIdList at the given index.
      */
-    public int getUserIdList(int index) {
-      return userIdList_.getInt(index);
+    public com.google.protobuf.ByteString getUserIdList(int index) {
+      return userIdList_.get(index);
     }
 
     public static final int ATTACH_DATA_FIELD_NUMBER = 20;
@@ -2668,10 +2677,10 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       for (int i = 0; i < userIdList_.size(); i++) {
-        output.writeUInt32(2, userIdList_.getInt(i));
+        output.writeBytes(2, userIdList_.get(i));
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeBytes(20, attachData_);
@@ -2687,13 +2696,13 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       {
         int dataSize = 0;
         for (int i = 0; i < userIdList_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(userIdList_.getInt(i));
+            .computeBytesSizeNoTag(userIdList_.get(i));
         }
         size += dataSize;
         size += 1 * getUserIdListList().size();
@@ -2719,8 +2728,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getUserIdListList()
           .equals(other.getUserIdListList())) return false;
@@ -2742,7 +2751,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (getUserIdListCount() > 0) {
         hash = (37 * hash) + USER_ID_LIST_FIELD_NUMBER;
@@ -2880,9 +2889,9 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userIdList_ = emptyIntList();
+        userIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         attachData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -2915,11 +2924,11 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((bitField0_ & 0x00000002) != 0)) {
-          userIdList_.makeImmutable();
+          userIdList_ = java.util.Collections.unmodifiableList(userIdList_);
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.userIdList_ = userIdList_;
@@ -3021,25 +3030,15 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
-              case 16: {
-                int v = input.readUInt32();
-                ensureUserIdListIsMutable();
-                userIdList_.addInt(v);
-                break;
-              } // case 16
+              } // case 10
               case 18: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
+                com.google.protobuf.ByteString v = input.readBytes();
                 ensureUserIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  userIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
+                userIdList_.add(v);
                 break;
               } // case 18
               case 162: {
@@ -3064,13 +3063,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0204
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -3082,11 +3081,11 @@ public final class Buddy {
        *cmd id:		0x0204
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -3094,12 +3093,15 @@ public final class Buddy {
        *cmd id:		0x0204
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -3109,78 +3111,84 @@ public final class Buddy {
        *cmd id:		0x0204
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList userIdList_ = emptyIntList();
+      private java.util.List<com.google.protobuf.ByteString> userIdList_ = java.util.Collections.emptyList();
       private void ensureUserIdListIsMutable() {
         if (!((bitField0_ & 0x00000002) != 0)) {
-          userIdList_ = mutableCopy(userIdList_);
+          userIdList_ = new java.util.ArrayList<com.google.protobuf.ByteString>(userIdList_);
           bitField0_ |= 0x00000002;
          }
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @return A list containing the userIdList.
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<com.google.protobuf.ByteString>
           getUserIdListList() {
         return ((bitField0_ & 0x00000002) != 0) ?
                  java.util.Collections.unmodifiableList(userIdList_) : userIdList_;
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @return The count of userIdList.
        */
       public int getUserIdListCount() {
         return userIdList_.size();
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @param index The index of the element to return.
        * @return The userIdList at the given index.
        */
-      public int getUserIdList(int index) {
-        return userIdList_.getInt(index);
+      public com.google.protobuf.ByteString getUserIdList(int index) {
+        return userIdList_.get(index);
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @param index The index to set the value at.
        * @param value The userIdList to set.
        * @return This builder for chaining.
        */
       public Builder setUserIdList(
-          int index, int value) {
-        ensureUserIdListIsMutable();
-        userIdList_.setInt(index, value);
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUserIdListIsMutable();
+        userIdList_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @param value The userIdList to add.
        * @return This builder for chaining.
        */
-      public Builder addUserIdList(int value) {
-        ensureUserIdListIsMutable();
-        userIdList_.addInt(value);
+      public Builder addUserIdList(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUserIdListIsMutable();
+        userIdList_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @param values The userIdList to add.
        * @return This builder for chaining.
        */
       public Builder addAllUserIdList(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureUserIdListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, userIdList_);
@@ -3188,11 +3196,11 @@ public final class Buddy {
         return this;
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserIdList() {
-        userIdList_ = emptyIntList();
+        userIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
@@ -3312,7 +3320,7 @@ public final class Buddy {
      *cmd id:		0x0205
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -3321,10 +3329,10 @@ public final class Buddy {
      *cmd id:		0x0205
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>repeated .Bohan.BaseDefine.UserInfo user_info_list = 2;</code>
@@ -3374,6 +3382,7 @@ public final class Buddy {
       super(builder);
     }
     private UsersInfoRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       userInfoList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -3405,13 +3414,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0205
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -3423,11 +3432,11 @@ public final class Buddy {
      *cmd id:		0x0205
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -3515,7 +3524,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       for (int i = 0; i < userInfoList_.size(); i++) {
         output.writeMessage(2, userInfoList_.get(i));
@@ -3534,7 +3543,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       for (int i = 0; i < userInfoList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -3561,8 +3570,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getUserInfoListList()
           .equals(other.getUserInfoListList())) return false;
@@ -3584,7 +3593,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (getUserInfoListCount() > 0) {
         hash = (37 * hash) + USER_INFO_LIST_FIELD_NUMBER;
@@ -3722,7 +3731,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (userInfoListBuilder_ == null) {
           userInfoList_ = java.util.Collections.emptyList();
@@ -3762,9 +3771,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (userInfoListBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             userInfoList_ = java.util.Collections.unmodifiableList(userInfoList_);
@@ -3893,11 +3902,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 com.bohan.protobuf.BaseDefine.UserInfo m =
                     input.readMessage(
@@ -3933,13 +3942,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0205
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -3951,11 +3960,11 @@ public final class Buddy {
        *cmd id:		0x0205
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -3963,12 +3972,15 @@ public final class Buddy {
        *cmd id:		0x0205
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -3978,12 +3990,12 @@ public final class Buddy {
        *cmd id:		0x0205
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -4342,7 +4354,7 @@ public final class Buddy {
      *cmd id:		0x0206
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -4351,10 +4363,10 @@ public final class Buddy {
      *cmd id:		0x0206
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.SessionType session_type = 2;</code>
@@ -4368,15 +4380,15 @@ public final class Buddy {
     com.bohan.protobuf.BaseDefine.SessionType getSessionType();
 
     /**
-     * <code>required uint32 session_id = 3;</code>
+     * <code>required bytes session_id = 3;</code>
      * @return Whether the sessionId field is set.
      */
     boolean hasSessionId();
     /**
-     * <code>required uint32 session_id = 3;</code>
+     * <code>required bytes session_id = 3;</code>
      * @return The sessionId.
      */
-    int getSessionId();
+    com.google.protobuf.ByteString getSessionId();
 
     /**
      * <code>optional bytes attach_data = 20;</code>
@@ -4402,7 +4414,9 @@ public final class Buddy {
       super(builder);
     }
     private RemoveSessionReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       sessionType_ = 1;
+      sessionId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -4433,13 +4447,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0206
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -4451,11 +4465,11 @@ public final class Buddy {
      *cmd id:		0x0206
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -4479,9 +4493,9 @@ public final class Buddy {
     }
 
     public static final int SESSION_ID_FIELD_NUMBER = 3;
-    private int sessionId_;
+    private com.google.protobuf.ByteString sessionId_;
     /**
-     * <code>required uint32 session_id = 3;</code>
+     * <code>required bytes session_id = 3;</code>
      * @return Whether the sessionId field is set.
      */
     @java.lang.Override
@@ -4489,11 +4503,11 @@ public final class Buddy {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>required uint32 session_id = 3;</code>
+     * <code>required bytes session_id = 3;</code>
      * @return The sessionId.
      */
     @java.lang.Override
-    public int getSessionId() {
+    public com.google.protobuf.ByteString getSessionId() {
       return sessionId_;
     }
 
@@ -4543,13 +4557,13 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, sessionType_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeUInt32(3, sessionId_);
+        output.writeBytes(3, sessionId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         output.writeBytes(20, attachData_);
@@ -4565,7 +4579,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4573,7 +4587,7 @@ public final class Buddy {
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, sessionId_);
+          .computeBytesSize(3, sessionId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4596,8 +4610,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasSessionType() != other.hasSessionType()) return false;
       if (hasSessionType()) {
@@ -4605,8 +4619,8 @@ public final class Buddy {
       }
       if (hasSessionId() != other.hasSessionId()) return false;
       if (hasSessionId()) {
-        if (getSessionId()
-            != other.getSessionId()) return false;
+        if (!getSessionId()
+            .equals(other.getSessionId())) return false;
       }
       if (hasAttachData() != other.hasAttachData()) return false;
       if (hasAttachData()) {
@@ -4626,7 +4640,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasSessionType()) {
         hash = (37 * hash) + SESSION_TYPE_FIELD_NUMBER;
@@ -4634,7 +4648,7 @@ public final class Buddy {
       }
       if (hasSessionId()) {
         hash = (37 * hash) + SESSION_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getSessionId();
+        hash = (53 * hash) + getSessionId().hashCode();
       }
       if (hasAttachData()) {
         hash = (37 * hash) + ATTACH_DATA_FIELD_NUMBER;
@@ -4768,11 +4782,11 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         sessionType_ = 1;
         bitField0_ = (bitField0_ & ~0x00000002);
-        sessionId_ = 0;
+        sessionId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         attachData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -4805,17 +4819,17 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
         result.sessionType_ = sessionType_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sessionId_ = sessionId_;
           to_bitField0_ |= 0x00000004;
         }
+        result.sessionId_ = sessionId_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
           to_bitField0_ |= 0x00000008;
         }
@@ -4916,11 +4930,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.SessionType tmpValue =
@@ -4933,11 +4947,11 @@ public final class Buddy {
                 }
                 break;
               } // case 16
-              case 24: {
-                sessionId_ = input.readUInt32();
+              case 26: {
+                sessionId_ = input.readBytes();
                 bitField0_ |= 0x00000004;
                 break;
-              } // case 24
+              } // case 26
               case 162: {
                 attachData_ = input.readBytes();
                 bitField0_ |= 0x00000008;
@@ -4960,13 +4974,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0206
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -4978,11 +4992,11 @@ public final class Buddy {
        *cmd id:		0x0206
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -4990,12 +5004,15 @@ public final class Buddy {
        *cmd id:		0x0206
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -5005,12 +5022,12 @@ public final class Buddy {
        *cmd id:		0x0206
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -5058,9 +5075,9 @@ public final class Buddy {
         return this;
       }
 
-      private int sessionId_ ;
+      private com.google.protobuf.ByteString sessionId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 session_id = 3;</code>
+       * <code>required bytes session_id = 3;</code>
        * @return Whether the sessionId field is set.
        */
       @java.lang.Override
@@ -5068,31 +5085,34 @@ public final class Buddy {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>required uint32 session_id = 3;</code>
+       * <code>required bytes session_id = 3;</code>
        * @return The sessionId.
        */
       @java.lang.Override
-      public int getSessionId() {
+      public com.google.protobuf.ByteString getSessionId() {
         return sessionId_;
       }
       /**
-       * <code>required uint32 session_id = 3;</code>
+       * <code>required bytes session_id = 3;</code>
        * @param value The sessionId to set.
        * @return This builder for chaining.
        */
-      public Builder setSessionId(int value) {
-        bitField0_ |= 0x00000004;
+      public Builder setSessionId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         sessionId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 session_id = 3;</code>
+       * <code>required bytes session_id = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearSessionId() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        sessionId_ = 0;
+        sessionId_ = getDefaultInstance().getSessionId();
         onChanged();
         return this;
       }
@@ -5211,7 +5231,7 @@ public final class Buddy {
      *cmd id:		0x0207
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -5220,10 +5240,10 @@ public final class Buddy {
      *cmd id:		0x0207
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 result_code = 2;</code>
@@ -5282,6 +5302,7 @@ public final class Buddy {
       super(builder);
     }
     private RemoveSessionRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       sessionType_ = 1;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -5313,13 +5334,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0207
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -5331,11 +5352,11 @@ public final class Buddy {
      *cmd id:		0x0207
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -5446,7 +5467,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, resultCode_);
@@ -5471,7 +5492,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -5506,8 +5527,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasResultCode() != other.hasResultCode()) return false;
       if (hasResultCode()) {
@@ -5541,7 +5562,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasResultCode()) {
         hash = (37 * hash) + RESULT_CODE_FIELD_NUMBER;
@@ -5687,7 +5708,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         resultCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -5726,9 +5747,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.resultCode_ = resultCode_;
           to_bitField0_ |= 0x00000002;
@@ -5847,11 +5868,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 resultCode_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -5896,13 +5917,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0207
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -5914,11 +5935,11 @@ public final class Buddy {
        *cmd id:		0x0207
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -5926,12 +5947,15 @@ public final class Buddy {
        *cmd id:		0x0207
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -5941,12 +5965,12 @@ public final class Buddy {
        *cmd id:		0x0207
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -6186,7 +6210,7 @@ public final class Buddy {
      *cmd id:		0x0208
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -6195,10 +6219,10 @@ public final class Buddy {
      *cmd id:		0x0208
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 latest_update_time = 2;</code>
@@ -6235,6 +6259,7 @@ public final class Buddy {
       super(builder);
     }
     private AllUserReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -6265,13 +6290,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0208
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -6283,11 +6308,11 @@ public final class Buddy {
      *cmd id:		0x0208
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -6352,7 +6377,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, latestUpdateTime_);
@@ -6371,7 +6396,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -6398,8 +6423,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasLatestUpdateTime() != other.hasLatestUpdateTime()) return false;
       if (hasLatestUpdateTime()) {
@@ -6424,7 +6449,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasLatestUpdateTime()) {
         hash = (37 * hash) + LATEST_UPDATE_TIME_FIELD_NUMBER;
@@ -6562,7 +6587,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         latestUpdateTime_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -6597,9 +6622,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.latestUpdateTime_ = latestUpdateTime_;
           to_bitField0_ |= 0x00000002;
@@ -6698,11 +6723,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 latestUpdateTime_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -6730,13 +6755,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0208
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -6748,11 +6773,11 @@ public final class Buddy {
        *cmd id:		0x0208
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -6760,12 +6785,15 @@ public final class Buddy {
        *cmd id:		0x0208
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -6775,12 +6803,12 @@ public final class Buddy {
        *cmd id:		0x0208
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -6938,7 +6966,7 @@ public final class Buddy {
      *cmd id:		0x0209
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -6947,10 +6975,10 @@ public final class Buddy {
      *cmd id:		0x0209
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 latest_update_time = 2;</code>
@@ -7011,6 +7039,7 @@ public final class Buddy {
       super(builder);
     }
     private AllUserRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       userList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -7042,13 +7071,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0209
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -7060,11 +7089,11 @@ public final class Buddy {
      *cmd id:		0x0209
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -7175,7 +7204,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, latestUpdateTime_);
@@ -7197,7 +7226,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -7228,8 +7257,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasLatestUpdateTime() != other.hasLatestUpdateTime()) return false;
       if (hasLatestUpdateTime()) {
@@ -7256,7 +7285,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasLatestUpdateTime()) {
         hash = (37 * hash) + LATEST_UPDATE_TIME_FIELD_NUMBER;
@@ -7398,7 +7427,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         latestUpdateTime_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -7440,9 +7469,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.latestUpdateTime_ = latestUpdateTime_;
           to_bitField0_ |= 0x00000002;
@@ -7581,11 +7610,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 latestUpdateTime_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -7626,13 +7655,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0209
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -7644,11 +7673,11 @@ public final class Buddy {
        *cmd id:		0x0209
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -7656,12 +7685,15 @@ public final class Buddy {
        *cmd id:		0x0209
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -7671,12 +7703,12 @@ public final class Buddy {
        *cmd id:		0x0209
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -8074,7 +8106,7 @@ public final class Buddy {
      *cmd id:		0x020a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -8083,27 +8115,27 @@ public final class Buddy {
      *cmd id:		0x020a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @return A list containing the userIdList.
      */
-    java.util.List<java.lang.Integer> getUserIdListList();
+    java.util.List<com.google.protobuf.ByteString> getUserIdListList();
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @return The count of userIdList.
      */
     int getUserIdListCount();
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @param index The index of the element to return.
      * @return The userIdList at the given index.
      */
-    int getUserIdList(int index);
+    com.google.protobuf.ByteString getUserIdList(int index);
 
     /**
      * <code>optional bytes attach_data = 20;</code>
@@ -8129,7 +8161,8 @@ public final class Buddy {
       super(builder);
     }
     private UsersStatReq() {
-      userIdList_ = emptyIntList();
+      userId_ = com.google.protobuf.ByteString.EMPTY;
+      userIdList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -8160,13 +8193,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x020a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -8178,39 +8211,39 @@ public final class Buddy {
      *cmd id:		0x020a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
     public static final int USER_ID_LIST_FIELD_NUMBER = 2;
-    private com.google.protobuf.Internal.IntList userIdList_;
+    private java.util.List<com.google.protobuf.ByteString> userIdList_;
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @return A list containing the userIdList.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Integer>
+    public java.util.List<com.google.protobuf.ByteString>
         getUserIdListList() {
       return userIdList_;
     }
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @return The count of userIdList.
      */
     public int getUserIdListCount() {
       return userIdList_.size();
     }
     /**
-     * <code>repeated uint32 user_id_list = 2;</code>
+     * <code>repeated bytes user_id_list = 2;</code>
      * @param index The index of the element to return.
      * @return The userIdList at the given index.
      */
-    public int getUserIdList(int index) {
-      return userIdList_.getInt(index);
+    public com.google.protobuf.ByteString getUserIdList(int index) {
+      return userIdList_.get(index);
     }
 
     public static final int ATTACH_DATA_FIELD_NUMBER = 20;
@@ -8251,10 +8284,10 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       for (int i = 0; i < userIdList_.size(); i++) {
-        output.writeUInt32(2, userIdList_.getInt(i));
+        output.writeBytes(2, userIdList_.get(i));
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeBytes(20, attachData_);
@@ -8270,13 +8303,13 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       {
         int dataSize = 0;
         for (int i = 0; i < userIdList_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(userIdList_.getInt(i));
+            .computeBytesSizeNoTag(userIdList_.get(i));
         }
         size += dataSize;
         size += 1 * getUserIdListList().size();
@@ -8302,8 +8335,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getUserIdListList()
           .equals(other.getUserIdListList())) return false;
@@ -8325,7 +8358,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (getUserIdListCount() > 0) {
         hash = (37 * hash) + USER_ID_LIST_FIELD_NUMBER;
@@ -8463,9 +8496,9 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userIdList_ = emptyIntList();
+        userIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         attachData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -8498,11 +8531,11 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((bitField0_ & 0x00000002) != 0)) {
-          userIdList_.makeImmutable();
+          userIdList_ = java.util.Collections.unmodifiableList(userIdList_);
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.userIdList_ = userIdList_;
@@ -8604,25 +8637,15 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
-              case 16: {
-                int v = input.readUInt32();
-                ensureUserIdListIsMutable();
-                userIdList_.addInt(v);
-                break;
-              } // case 16
+              } // case 10
               case 18: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
+                com.google.protobuf.ByteString v = input.readBytes();
                 ensureUserIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  userIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
+                userIdList_.add(v);
                 break;
               } // case 18
               case 162: {
@@ -8647,13 +8670,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x020a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -8665,11 +8688,11 @@ public final class Buddy {
        *cmd id:		0x020a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -8677,12 +8700,15 @@ public final class Buddy {
        *cmd id:		0x020a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -8692,78 +8718,84 @@ public final class Buddy {
        *cmd id:		0x020a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList userIdList_ = emptyIntList();
+      private java.util.List<com.google.protobuf.ByteString> userIdList_ = java.util.Collections.emptyList();
       private void ensureUserIdListIsMutable() {
         if (!((bitField0_ & 0x00000002) != 0)) {
-          userIdList_ = mutableCopy(userIdList_);
+          userIdList_ = new java.util.ArrayList<com.google.protobuf.ByteString>(userIdList_);
           bitField0_ |= 0x00000002;
          }
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @return A list containing the userIdList.
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<com.google.protobuf.ByteString>
           getUserIdListList() {
         return ((bitField0_ & 0x00000002) != 0) ?
                  java.util.Collections.unmodifiableList(userIdList_) : userIdList_;
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @return The count of userIdList.
        */
       public int getUserIdListCount() {
         return userIdList_.size();
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @param index The index of the element to return.
        * @return The userIdList at the given index.
        */
-      public int getUserIdList(int index) {
-        return userIdList_.getInt(index);
+      public com.google.protobuf.ByteString getUserIdList(int index) {
+        return userIdList_.get(index);
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @param index The index to set the value at.
        * @param value The userIdList to set.
        * @return This builder for chaining.
        */
       public Builder setUserIdList(
-          int index, int value) {
-        ensureUserIdListIsMutable();
-        userIdList_.setInt(index, value);
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUserIdListIsMutable();
+        userIdList_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @param value The userIdList to add.
        * @return This builder for chaining.
        */
-      public Builder addUserIdList(int value) {
-        ensureUserIdListIsMutable();
-        userIdList_.addInt(value);
+      public Builder addUserIdList(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUserIdListIsMutable();
+        userIdList_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @param values The userIdList to add.
        * @return This builder for chaining.
        */
       public Builder addAllUserIdList(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureUserIdListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, userIdList_);
@@ -8771,11 +8803,11 @@ public final class Buddy {
         return this;
       }
       /**
-       * <code>repeated uint32 user_id_list = 2;</code>
+       * <code>repeated bytes user_id_list = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserIdList() {
-        userIdList_ = emptyIntList();
+        userIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
@@ -8895,7 +8927,7 @@ public final class Buddy {
      *cmd id:		0x020b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -8904,10 +8936,10 @@ public final class Buddy {
      *cmd id:		0x020b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>repeated .Bohan.BaseDefine.UserStat user_stat_list = 2;</code>
@@ -8957,6 +8989,7 @@ public final class Buddy {
       super(builder);
     }
     private UsersStatRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       userStatList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -8988,13 +9021,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x020b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -9006,11 +9039,11 @@ public final class Buddy {
      *cmd id:		0x020b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -9098,7 +9131,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       for (int i = 0; i < userStatList_.size(); i++) {
         output.writeMessage(2, userStatList_.get(i));
@@ -9117,7 +9150,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       for (int i = 0; i < userStatList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -9144,8 +9177,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getUserStatListList()
           .equals(other.getUserStatListList())) return false;
@@ -9167,7 +9200,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (getUserStatListCount() > 0) {
         hash = (37 * hash) + USER_STAT_LIST_FIELD_NUMBER;
@@ -9305,7 +9338,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (userStatListBuilder_ == null) {
           userStatList_ = java.util.Collections.emptyList();
@@ -9345,9 +9378,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (userStatListBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             userStatList_ = java.util.Collections.unmodifiableList(userStatList_);
@@ -9476,11 +9509,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 com.bohan.protobuf.BaseDefine.UserStat m =
                     input.readMessage(
@@ -9516,13 +9549,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x020b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -9534,11 +9567,11 @@ public final class Buddy {
        *cmd id:		0x020b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -9546,12 +9579,15 @@ public final class Buddy {
        *cmd id:		0x020b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -9561,12 +9597,12 @@ public final class Buddy {
        *cmd id:		0x020b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -9925,7 +9961,7 @@ public final class Buddy {
      *cmd id:		0x020c
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -9934,10 +9970,10 @@ public final class Buddy {
      *cmd id:		0x020c
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required string avatar_url = 2;</code>
@@ -9980,6 +10016,7 @@ public final class Buddy {
       super(builder);
     }
     private ChangeAvatarReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       avatarUrl_ = "";
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -10011,13 +10048,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x020c
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -10029,11 +10066,11 @@ public final class Buddy {
      *cmd id:		0x020c
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -10127,7 +10164,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, avatarUrl_);
@@ -10146,7 +10183,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, avatarUrl_);
@@ -10172,8 +10209,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasAvatarUrl() != other.hasAvatarUrl()) return false;
       if (hasAvatarUrl()) {
@@ -10198,7 +10235,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasAvatarUrl()) {
         hash = (37 * hash) + AVATAR_URL_FIELD_NUMBER;
@@ -10336,7 +10373,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         avatarUrl_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -10371,9 +10408,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -10474,11 +10511,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 avatarUrl_ = input.readBytes();
                 bitField0_ |= 0x00000002;
@@ -10506,13 +10543,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x020c
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -10524,11 +10561,11 @@ public final class Buddy {
        *cmd id:		0x020c
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -10536,12 +10573,15 @@ public final class Buddy {
        *cmd id:		0x020c
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -10551,12 +10591,12 @@ public final class Buddy {
        *cmd id:		0x020c
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -10759,7 +10799,7 @@ public final class Buddy {
      *cmd id:		0x020d
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -10768,10 +10808,10 @@ public final class Buddy {
      *cmd id:		0x020d
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 result_code = 2;</code>
@@ -10808,6 +10848,7 @@ public final class Buddy {
       super(builder);
     }
     private ChangeAvatarRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -10838,13 +10879,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x020d
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -10856,11 +10897,11 @@ public final class Buddy {
      *cmd id:		0x020d
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -10925,7 +10966,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, resultCode_);
@@ -10944,7 +10985,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -10971,8 +11012,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasResultCode() != other.hasResultCode()) return false;
       if (hasResultCode()) {
@@ -10997,7 +11038,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasResultCode()) {
         hash = (37 * hash) + RESULT_CODE_FIELD_NUMBER;
@@ -11135,7 +11176,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         resultCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -11170,9 +11211,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.resultCode_ = resultCode_;
           to_bitField0_ |= 0x00000002;
@@ -11271,11 +11312,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 resultCode_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -11303,13 +11344,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x020d
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -11321,11 +11362,11 @@ public final class Buddy {
        *cmd id:		0x020d
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -11333,12 +11374,15 @@ public final class Buddy {
        *cmd id:		0x020d
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -11348,12 +11392,12 @@ public final class Buddy {
        *cmd id:		0x020d
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -11511,7 +11555,7 @@ public final class Buddy {
      *cmd id:		0x020e
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -11520,10 +11564,10 @@ public final class Buddy {
      *cmd id:		0x020e
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.UserStatType login_stat = 2;</code>
@@ -11553,6 +11597,7 @@ public final class Buddy {
       super(builder);
     }
     private PCLoginStatusNotify() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       loginStat_ = 1;
     }
 
@@ -11583,13 +11628,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x020e
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -11601,11 +11646,11 @@ public final class Buddy {
      *cmd id:		0x020e
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -11651,7 +11696,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, loginStat_);
@@ -11667,7 +11712,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -11690,8 +11735,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasLoginStat() != other.hasLoginStat()) return false;
       if (hasLoginStat()) {
@@ -11710,7 +11755,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasLoginStat()) {
         hash = (37 * hash) + LOGIN_STAT_FIELD_NUMBER;
@@ -11848,7 +11893,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         loginStat_ = 1;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -11881,9 +11926,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -11975,11 +12020,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.UserStatType tmpValue =
@@ -12009,13 +12054,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x020e
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -12027,11 +12072,11 @@ public final class Buddy {
        *cmd id:		0x020e
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -12039,12 +12084,15 @@ public final class Buddy {
        *cmd id:		0x020e
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -12054,12 +12102,12 @@ public final class Buddy {
        *cmd id:		0x020e
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -12179,7 +12227,7 @@ public final class Buddy {
      *cmd id:		0x020f
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -12188,10 +12236,10 @@ public final class Buddy {
      *cmd id:		0x020f
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.SessionType session_type = 2;</code>
@@ -12228,6 +12276,7 @@ public final class Buddy {
       super(builder);
     }
     private RemoveSessionNotify() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       sessionType_ = 1;
     }
 
@@ -12258,13 +12307,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x020f
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -12276,11 +12325,11 @@ public final class Buddy {
      *cmd id:		0x020f
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -12349,7 +12398,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, sessionType_);
@@ -12368,7 +12417,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -12395,8 +12444,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasSessionType() != other.hasSessionType()) return false;
       if (hasSessionType()) {
@@ -12420,7 +12469,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasSessionType()) {
         hash = (37 * hash) + SESSION_TYPE_FIELD_NUMBER;
@@ -12558,7 +12607,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         sessionType_ = 1;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -12593,9 +12642,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -12697,11 +12746,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.SessionType tmpValue =
@@ -12736,13 +12785,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x020f
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -12754,11 +12803,11 @@ public final class Buddy {
        *cmd id:		0x020f
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -12766,12 +12815,15 @@ public final class Buddy {
        *cmd id:		0x020f
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -12781,12 +12833,12 @@ public final class Buddy {
        *cmd id:		0x020f
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -12945,7 +12997,7 @@ public final class Buddy {
      *cmd id:		0x0210
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -12954,10 +13006,10 @@ public final class Buddy {
      *cmd id:		0x0210
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 latest_update_time = 2;</code>
@@ -12994,6 +13046,7 @@ public final class Buddy {
       super(builder);
     }
     private DepartmentReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -13024,13 +13077,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0210
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -13042,11 +13095,11 @@ public final class Buddy {
      *cmd id:		0x0210
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -13111,7 +13164,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, latestUpdateTime_);
@@ -13130,7 +13183,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -13157,8 +13210,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasLatestUpdateTime() != other.hasLatestUpdateTime()) return false;
       if (hasLatestUpdateTime()) {
@@ -13183,7 +13236,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasLatestUpdateTime()) {
         hash = (37 * hash) + LATEST_UPDATE_TIME_FIELD_NUMBER;
@@ -13321,7 +13374,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         latestUpdateTime_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -13356,9 +13409,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.latestUpdateTime_ = latestUpdateTime_;
           to_bitField0_ |= 0x00000002;
@@ -13457,11 +13510,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 latestUpdateTime_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -13489,13 +13542,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0210
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -13507,11 +13560,11 @@ public final class Buddy {
        *cmd id:		0x0210
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -13519,12 +13572,15 @@ public final class Buddy {
        *cmd id:		0x0210
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -13534,12 +13590,12 @@ public final class Buddy {
        *cmd id:		0x0210
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -13697,7 +13753,7 @@ public final class Buddy {
      *cmd id:		0x0211
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -13706,10 +13762,10 @@ public final class Buddy {
      *cmd id:		0x0211
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 latest_update_time = 2;</code>
@@ -13770,6 +13826,7 @@ public final class Buddy {
       super(builder);
     }
     private DepartmentRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       deptList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -13801,13 +13858,13 @@ public final class Buddy {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:		0x0211
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -13819,11 +13876,11 @@ public final class Buddy {
      *cmd id:		0x0211
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -13934,7 +13991,7 @@ public final class Buddy {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, latestUpdateTime_);
@@ -13956,7 +14013,7 @@ public final class Buddy {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -13987,8 +14044,8 @@ public final class Buddy {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasLatestUpdateTime() != other.hasLatestUpdateTime()) return false;
       if (hasLatestUpdateTime()) {
@@ -14015,7 +14072,7 @@ public final class Buddy {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasLatestUpdateTime()) {
         hash = (37 * hash) + LATEST_UPDATE_TIME_FIELD_NUMBER;
@@ -14157,7 +14214,7 @@ public final class Buddy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         latestUpdateTime_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -14199,9 +14256,9 @@ public final class Buddy {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.latestUpdateTime_ = latestUpdateTime_;
           to_bitField0_ |= 0x00000002;
@@ -14340,11 +14397,11 @@ public final class Buddy {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 latestUpdateTime_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -14385,13 +14442,13 @@ public final class Buddy {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:		0x0211
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -14403,11 +14460,11 @@ public final class Buddy {
        *cmd id:		0x0211
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -14415,12 +14472,15 @@ public final class Buddy {
        *cmd id:		0x0211
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -14430,12 +14490,12 @@ public final class Buddy {
        *cmd id:		0x0211
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -14920,46 +14980,46 @@ public final class Buddy {
     java.lang.String[] descriptorData = {
       "\n\013Buddy.proto\022\013Bohan.Buddy\032\020BaseDefine.p" +
       "roto\"[\n\027RecentContactSessionReq\022\017\n\007user_" +
-      "id\030\001 \002(\r\022\032\n\022latest_update_time\030\002 \002(\r\022\023\n\013" +
+      "id\030\001 \002(\014\022\032\n\022latest_update_time\030\002 \002(\r\022\023\n\013" +
       "attach_data\030\024 \001(\014\"\203\001\n\027RecentContactSessi" +
-      "onRsp\022\017\n\007user_id\030\001 \002(\r\022B\n\024contact_sessio" +
+      "onRsp\022\017\n\007user_id\030\001 \002(\014\022B\n\024contact_sessio" +
       "n_list\030\002 \003(\0132$.Bohan.BaseDefine.ContactS" +
       "essionInfo\022\023\n\013attach_data\030\024 \001(\014\"?\n\016UserS" +
       "tatNotify\022-\n\tuser_stat\030\001 \002(\0132\032.Bohan.Bas" +
       "eDefine.UserStat\"J\n\014UsersInfoReq\022\017\n\007user" +
-      "_id\030\001 \002(\r\022\024\n\014user_id_list\030\002 \003(\r\022\023\n\013attac" +
+      "_id\030\001 \002(\014\022\024\n\014user_id_list\030\002 \003(\014\022\023\n\013attac" +
       "h_data\030\024 \001(\014\"h\n\014UsersInfoRsp\022\017\n\007user_id\030" +
-      "\001 \002(\r\0222\n\016user_info_list\030\002 \003(\0132\032.Bohan.Ba" +
+      "\001 \002(\014\0222\n\016user_info_list\030\002 \003(\0132\032.Bohan.Ba" +
       "seDefine.UserInfo\022\023\n\013attach_data\030\024 \001(\014\"\201" +
-      "\001\n\020RemoveSessionReq\022\017\n\007user_id\030\001 \002(\r\0223\n\014" +
+      "\001\n\020RemoveSessionReq\022\017\n\007user_id\030\001 \002(\014\0223\n\014" +
       "session_type\030\002 \002(\0162\035.Bohan.BaseDefine.Se" +
-      "ssionType\022\022\n\nsession_id\030\003 \002(\r\022\023\n\013attach_" +
+      "ssionType\022\022\n\nsession_id\030\003 \002(\014\022\023\n\013attach_" +
       "data\030\024 \001(\014\"\226\001\n\020RemoveSessionRsp\022\017\n\007user_" +
-      "id\030\001 \002(\r\022\023\n\013result_code\030\002 \002(\r\0223\n\014session" +
+      "id\030\001 \002(\014\022\023\n\013result_code\030\002 \002(\r\0223\n\014session" +
       "_type\030\003 \002(\0162\035.Bohan.BaseDefine.SessionTy" +
       "pe\022\022\n\nsession_id\030\004 \002(\r\022\023\n\013attach_data\030\024 " +
-      "\001(\014\"N\n\nAllUserReq\022\017\n\007user_id\030\001 \002(\r\022\032\n\022la" +
+      "\001(\014\"N\n\nAllUserReq\022\017\n\007user_id\030\001 \002(\014\022\032\n\022la" +
       "test_update_time\030\002 \002(\r\022\023\n\013attach_data\030\024 " +
-      "\001(\014\"}\n\nAllUserRsp\022\017\n\007user_id\030\001 \002(\r\022\032\n\022la" +
+      "\001(\014\"}\n\nAllUserRsp\022\017\n\007user_id\030\001 \002(\014\022\032\n\022la" +
       "test_update_time\030\002 \002(\r\022-\n\tuser_list\030\003 \003(" +
       "\0132\032.Bohan.BaseDefine.UserInfo\022\023\n\013attach_" +
       "data\030\024 \001(\014\"J\n\014UsersStatReq\022\017\n\007user_id\030\001 " +
-      "\002(\r\022\024\n\014user_id_list\030\002 \003(\r\022\023\n\013attach_data" +
-      "\030\024 \001(\014\"h\n\014UsersStatRsp\022\017\n\007user_id\030\001 \002(\r\022" +
+      "\002(\014\022\024\n\014user_id_list\030\002 \003(\014\022\023\n\013attach_data" +
+      "\030\024 \001(\014\"h\n\014UsersStatRsp\022\017\n\007user_id\030\001 \002(\014\022" +
       "2\n\016user_stat_list\030\002 \003(\0132\032.Bohan.BaseDefi" +
       "ne.UserStat\022\023\n\013attach_data\030\024 \001(\014\"K\n\017Chan" +
-      "geAvatarReq\022\017\n\007user_id\030\001 \002(\r\022\022\n\navatar_u" +
+      "geAvatarReq\022\017\n\007user_id\030\001 \002(\014\022\022\n\navatar_u" +
       "rl\030\002 \002(\t\022\023\n\013attach_data\030\024 \001(\014\"L\n\017ChangeA" +
-      "vatarRsp\022\017\n\007user_id\030\001 \002(\r\022\023\n\013result_code" +
+      "vatarRsp\022\017\n\007user_id\030\001 \002(\014\022\023\n\013result_code" +
       "\030\002 \002(\r\022\023\n\013attach_data\030\024 \001(\014\"Z\n\023PCLoginSt" +
-      "atusNotify\022\017\n\007user_id\030\001 \002(\r\0222\n\nlogin_sta" +
+      "atusNotify\022\017\n\007user_id\030\001 \002(\014\0222\n\nlogin_sta" +
       "t\030\002 \002(\0162\036.Bohan.BaseDefine.UserStatType\"" +
-      "o\n\023RemoveSessionNotify\022\017\n\007user_id\030\001 \002(\r\022" +
+      "o\n\023RemoveSessionNotify\022\017\n\007user_id\030\001 \002(\014\022" +
       "3\n\014session_type\030\002 \002(\0162\035.Bohan.BaseDefine" +
       ".SessionType\022\022\n\nsession_id\030\003 \002(\r\"Q\n\rDepa" +
-      "rtmentReq\022\017\n\007user_id\030\001 \002(\r\022\032\n\022latest_upd" +
+      "rtmentReq\022\017\n\007user_id\030\001 \002(\014\022\032\n\022latest_upd" +
       "ate_time\030\002 \002(\r\022\023\n\013attach_data\030\024 \001(\014\"\202\001\n\r" +
-      "DepartmentRsp\022\017\n\007user_id\030\001 \002(\r\022\032\n\022latest" +
+      "DepartmentRsp\022\017\n\007user_id\030\001 \002(\014\022\032\n\022latest" +
       "_update_time\030\002 \002(\r\022/\n\tdept_list\030\003 \003(\0132\034." +
       "Bohan.BaseDefine.DepartInfo\022\023\n\013attach_da" +
       "ta\030\024 \001(\014B\026\n\022com.bohan.protobufH\003"

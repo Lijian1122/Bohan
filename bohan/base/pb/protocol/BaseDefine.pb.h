@@ -459,6 +459,26 @@ inline const std::string& MsgType_Name(T enum_t_value) {
 }
 bool MsgType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, MsgType* value);
+enum RoleType : int {
+  ROLE_CREATER_TYPE = 1,
+  ROLE_ADMIN_TYPE = 2,
+  ROLE_NORMAL_TYPE = 3
+};
+bool RoleType_IsValid(int value);
+constexpr RoleType RoleType_MIN = ROLE_CREATER_TYPE;
+constexpr RoleType RoleType_MAX = ROLE_NORMAL_TYPE;
+constexpr int RoleType_ARRAYSIZE = RoleType_MAX + 1;
+
+const std::string& RoleType_Name(RoleType value);
+template<typename T>
+inline const std::string& RoleType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, RoleType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function RoleType_Name.");
+  return RoleType_Name(static_cast<RoleType>(enum_t_value));
+}
+bool RoleType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, RoleType* value);
 enum ClientType : int {
   CLIENT_TYPE_WINDOWS = 1,
   CLIENT_TYPE_MAC = 2,
@@ -924,17 +944,35 @@ class UserInfo final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kUserIdFieldNumber = 1,
     kNickNameFieldNumber = 3,
     kAvatarUrlFieldNumber = 4,
     kEmailFieldNumber = 6,
     kUserRealNameFieldNumber = 7,
     kUserTelFieldNumber = 8,
     kUserDomainFieldNumber = 9,
-    kUserIdFieldNumber = 1,
     kGenderFieldNumber = 2,
     kDepartmentIdFieldNumber = 5,
     kStatusFieldNumber = 10,
   };
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // required string nick_name = 3;
   bool has_nick_name() const;
   private:
@@ -1043,19 +1081,6 @@ class UserInfo final :
   std::string* _internal_mutable_user_domain();
   public:
 
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
-  public:
-
   // required uint32 gender = 2;
   bool has_gender() const;
   private:
@@ -1108,13 +1133,13 @@ class UserInfo final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr nick_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr avatar_url_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr email_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_real_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_tel_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_domain_;
-    uint32_t user_id_;
     uint32_t gender_;
     uint32_t department_id_;
     uint32_t status_;
@@ -1234,15 +1259,33 @@ class ContactSessionInfo final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kLatestMsgDataFieldNumber = 6,
     kSessionIdFieldNumber = 1,
+    kLatestMsgDataFieldNumber = 6,
+    kLatestMsgFromUserIdFieldNumber = 8,
     kSessionStatusFieldNumber = 3,
     kUpdatedTimeFieldNumber = 4,
     kLatestMsgIdFieldNumber = 5,
-    kLatestMsgFromUserIdFieldNumber = 8,
     kSessionTypeFieldNumber = 2,
     kLatestMsgTypeFieldNumber = 7,
   };
+  // required bytes session_id = 1;
+  bool has_session_id() const;
+  private:
+  bool _internal_has_session_id() const;
+  public:
+  void clear_session_id();
+  const std::string& session_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_session_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_session_id();
+  PROTOBUF_NODISCARD std::string* release_session_id();
+  void set_allocated_session_id(std::string* session_id);
+  private:
+  const std::string& _internal_session_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_session_id(const std::string& value);
+  std::string* _internal_mutable_session_id();
+  public:
+
   // required bytes latest_msg_data = 6;
   bool has_latest_msg_data() const;
   private:
@@ -1261,17 +1304,22 @@ class ContactSessionInfo final :
   std::string* _internal_mutable_latest_msg_data();
   public:
 
-  // required uint32 session_id = 1;
-  bool has_session_id() const;
+  // required bytes latest_msg_from_user_id = 8;
+  bool has_latest_msg_from_user_id() const;
   private:
-  bool _internal_has_session_id() const;
+  bool _internal_has_latest_msg_from_user_id() const;
   public:
-  void clear_session_id();
-  uint32_t session_id() const;
-  void set_session_id(uint32_t value);
+  void clear_latest_msg_from_user_id();
+  const std::string& latest_msg_from_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_latest_msg_from_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_latest_msg_from_user_id();
+  PROTOBUF_NODISCARD std::string* release_latest_msg_from_user_id();
+  void set_allocated_latest_msg_from_user_id(std::string* latest_msg_from_user_id);
   private:
-  uint32_t _internal_session_id() const;
-  void _internal_set_session_id(uint32_t value);
+  const std::string& _internal_latest_msg_from_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_latest_msg_from_user_id(const std::string& value);
+  std::string* _internal_mutable_latest_msg_from_user_id();
   public:
 
   // required .Bohan.BaseDefine.SessionStatusType session_status = 3;
@@ -1313,19 +1361,6 @@ class ContactSessionInfo final :
   void _internal_set_latest_msg_id(uint32_t value);
   public:
 
-  // required uint32 latest_msg_from_user_id = 8;
-  bool has_latest_msg_from_user_id() const;
-  private:
-  bool _internal_has_latest_msg_from_user_id() const;
-  public:
-  void clear_latest_msg_from_user_id();
-  uint32_t latest_msg_from_user_id() const;
-  void set_latest_msg_from_user_id(uint32_t value);
-  private:
-  uint32_t _internal_latest_msg_from_user_id() const;
-  void _internal_set_latest_msg_from_user_id(uint32_t value);
-  public:
-
   // required .Bohan.BaseDefine.SessionType session_type = 2;
   bool has_session_type() const;
   private:
@@ -1365,12 +1400,12 @@ class ContactSessionInfo final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr session_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr latest_msg_data_;
-    uint32_t session_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr latest_msg_from_user_id_;
     int session_status_;
     uint32_t updated_time_;
     uint32_t latest_msg_id_;
-    uint32_t latest_msg_from_user_id_;
     int session_type_;
     int latest_msg_type_;
   };
@@ -1492,17 +1527,22 @@ class UserStat final :
     kUserIdFieldNumber = 1,
     kStatusFieldNumber = 2,
   };
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   bool has_user_id() const;
   private:
   bool _internal_has_user_id() const;
   public:
   void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
   private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
   public:
 
   // required .Bohan.BaseDefine.UserStatType status = 2;
@@ -1531,7 +1571,7 @@ class UserStat final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     int status_;
   };
   union { Impl_ _impl_; };
@@ -1653,17 +1693,22 @@ class ServerUserStat final :
     kStatusFieldNumber = 2,
     kClientTypeFieldNumber = 3,
   };
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   bool has_user_id() const;
   private:
   bool _internal_has_user_id() const;
   public:
   void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
   private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
   public:
 
   // required .Bohan.BaseDefine.UserStatType status = 2;
@@ -1705,7 +1750,7 @@ class ServerUserStat final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t user_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     int status_;
     int client_type_;
   };
@@ -1825,10 +1870,10 @@ class UnreadInfo final :
 
   enum : int {
     kLatestMsgDataFieldNumber = 5,
+    kLatestMsgFromUserIdFieldNumber = 7,
     kSessionIdFieldNumber = 1,
     kUnreadCntFieldNumber = 3,
     kLatestMsgIdFieldNumber = 4,
-    kLatestMsgFromUserIdFieldNumber = 7,
     kSessionTypeFieldNumber = 2,
     kLatestMsgTypeFieldNumber = 6,
   };
@@ -1848,6 +1893,24 @@ class UnreadInfo final :
   const std::string& _internal_latest_msg_data() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_latest_msg_data(const std::string& value);
   std::string* _internal_mutable_latest_msg_data();
+  public:
+
+  // required bytes latest_msg_from_user_id = 7;
+  bool has_latest_msg_from_user_id() const;
+  private:
+  bool _internal_has_latest_msg_from_user_id() const;
+  public:
+  void clear_latest_msg_from_user_id();
+  const std::string& latest_msg_from_user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_latest_msg_from_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_latest_msg_from_user_id();
+  PROTOBUF_NODISCARD std::string* release_latest_msg_from_user_id();
+  void set_allocated_latest_msg_from_user_id(std::string* latest_msg_from_user_id);
+  private:
+  const std::string& _internal_latest_msg_from_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_latest_msg_from_user_id(const std::string& value);
+  std::string* _internal_mutable_latest_msg_from_user_id();
   public:
 
   // required uint32 session_id = 1;
@@ -1887,19 +1950,6 @@ class UnreadInfo final :
   private:
   uint32_t _internal_latest_msg_id() const;
   void _internal_set_latest_msg_id(uint32_t value);
-  public:
-
-  // required uint32 latest_msg_from_user_id = 7;
-  bool has_latest_msg_from_user_id() const;
-  private:
-  bool _internal_has_latest_msg_from_user_id() const;
-  public:
-  void clear_latest_msg_from_user_id();
-  uint32_t latest_msg_from_user_id() const;
-  void set_latest_msg_from_user_id(uint32_t value);
-  private:
-  uint32_t _internal_latest_msg_from_user_id() const;
-  void _internal_set_latest_msg_from_user_id(uint32_t value);
   public:
 
   // required .Bohan.BaseDefine.SessionType session_type = 2;
@@ -1942,10 +1992,10 @@ class UnreadInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr latest_msg_data_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr latest_msg_from_user_id_;
     uint32_t session_id_;
     uint32_t unread_cnt_;
     uint32_t latest_msg_id_;
-    uint32_t latest_msg_from_user_id_;
     int session_type_;
     int latest_msg_type_;
   };
@@ -2703,12 +2753,30 @@ class UserTokenInfo final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTokenFieldNumber = 3,
     kUserIdFieldNumber = 1,
+    kTokenFieldNumber = 3,
     kPushCountFieldNumber = 4,
     kPushTypeFieldNumber = 5,
     kUserTypeFieldNumber = 2,
   };
+  // required bytes user_id = 1;
+  bool has_user_id() const;
+  private:
+  bool _internal_has_user_id() const;
+  public:
+  void clear_user_id();
+  const std::string& user_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_user_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_user_id();
+  PROTOBUF_NODISCARD std::string* release_user_id();
+  void set_allocated_user_id(std::string* user_id);
+  private:
+  const std::string& _internal_user_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_id(const std::string& value);
+  std::string* _internal_mutable_user_id();
+  public:
+
   // required string token = 3;
   bool has_token() const;
   private:
@@ -2725,19 +2793,6 @@ class UserTokenInfo final :
   const std::string& _internal_token() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_token(const std::string& value);
   std::string* _internal_mutable_token();
-  public:
-
-  // required uint32 user_id = 1;
-  bool has_user_id() const;
-  private:
-  bool _internal_has_user_id() const;
-  public:
-  void clear_user_id();
-  uint32_t user_id() const;
-  void set_user_id(uint32_t value);
-  private:
-  uint32_t _internal_user_id() const;
-  void _internal_set_user_id(uint32_t value);
   public:
 
   // required uint32 push_count = 4;
@@ -2792,8 +2847,8 @@ class UserTokenInfo final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr user_id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr token_;
-    uint32_t user_id_;
     uint32_t push_count_;
     uint32_t push_type_;
     int user_type_;
@@ -3662,32 +3717,72 @@ inline void IpAddr::set_port(uint32_t value) {
 
 // UserInfo
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool UserInfo::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool UserInfo::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void UserInfo::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t UserInfo::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t UserInfo::user_id() const {
+inline const std::string& UserInfo::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserInfo.user_id)
   return _internal_user_id();
 }
-inline void UserInfo::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
-  _impl_.user_id_ = value;
-}
-inline void UserInfo::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void UserInfo::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserInfo.user_id)
+}
+inline std::string* UserInfo::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.BaseDefine.UserInfo.user_id)
+  return _s;
+}
+inline const std::string& UserInfo::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void UserInfo::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* UserInfo::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* UserInfo::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.BaseDefine.UserInfo.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void UserInfo::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.BaseDefine.UserInfo.user_id)
 }
 
 // required uint32 gender = 2;
@@ -3720,7 +3815,7 @@ inline void UserInfo::set_gender(uint32_t value) {
 
 // required string nick_name = 3;
 inline bool UserInfo::_internal_has_nick_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool UserInfo::has_nick_name() const {
@@ -3728,7 +3823,7 @@ inline bool UserInfo::has_nick_name() const {
 }
 inline void UserInfo::clear_nick_name() {
   _impl_.nick_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& UserInfo::nick_name() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserInfo.nick_name)
@@ -3737,7 +3832,7 @@ inline const std::string& UserInfo::nick_name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void UserInfo::set_nick_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.nick_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserInfo.nick_name)
 }
@@ -3750,11 +3845,11 @@ inline const std::string& UserInfo::_internal_nick_name() const {
   return _impl_.nick_name_.Get();
 }
 inline void UserInfo::_internal_set_nick_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.nick_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UserInfo::_internal_mutable_nick_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.nick_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* UserInfo::release_nick_name() {
@@ -3762,7 +3857,7 @@ inline std::string* UserInfo::release_nick_name() {
   if (!_internal_has_nick_name()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.nick_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.nick_name_.IsDefault()) {
@@ -3773,9 +3868,9 @@ inline std::string* UserInfo::release_nick_name() {
 }
 inline void UserInfo::set_allocated_nick_name(std::string* nick_name) {
   if (nick_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.nick_name_.SetAllocated(nick_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3788,7 +3883,7 @@ inline void UserInfo::set_allocated_nick_name(std::string* nick_name) {
 
 // required string avatar_url = 4;
 inline bool UserInfo::_internal_has_avatar_url() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool UserInfo::has_avatar_url() const {
@@ -3796,7 +3891,7 @@ inline bool UserInfo::has_avatar_url() const {
 }
 inline void UserInfo::clear_avatar_url() {
   _impl_.avatar_url_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline const std::string& UserInfo::avatar_url() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserInfo.avatar_url)
@@ -3805,7 +3900,7 @@ inline const std::string& UserInfo::avatar_url() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void UserInfo::set_avatar_url(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_._has_bits_[0] |= 0x00000004u;
  _impl_.avatar_url_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserInfo.avatar_url)
 }
@@ -3818,11 +3913,11 @@ inline const std::string& UserInfo::_internal_avatar_url() const {
   return _impl_.avatar_url_.Get();
 }
 inline void UserInfo::_internal_set_avatar_url(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.avatar_url_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UserInfo::_internal_mutable_avatar_url() {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   return _impl_.avatar_url_.Mutable(GetArenaForAllocation());
 }
 inline std::string* UserInfo::release_avatar_url() {
@@ -3830,7 +3925,7 @@ inline std::string* UserInfo::release_avatar_url() {
   if (!_internal_has_avatar_url()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   auto* p = _impl_.avatar_url_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.avatar_url_.IsDefault()) {
@@ -3841,9 +3936,9 @@ inline std::string* UserInfo::release_avatar_url() {
 }
 inline void UserInfo::set_allocated_avatar_url(std::string* avatar_url) {
   if (avatar_url != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   _impl_.avatar_url_.SetAllocated(avatar_url, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3884,7 +3979,7 @@ inline void UserInfo::set_department_id(uint32_t value) {
 
 // required string email = 6;
 inline bool UserInfo::_internal_has_email() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool UserInfo::has_email() const {
@@ -3892,7 +3987,7 @@ inline bool UserInfo::has_email() const {
 }
 inline void UserInfo::clear_email() {
   _impl_.email_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline const std::string& UserInfo::email() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserInfo.email)
@@ -3901,7 +3996,7 @@ inline const std::string& UserInfo::email() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void UserInfo::set_email(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
+ _impl_._has_bits_[0] |= 0x00000008u;
  _impl_.email_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserInfo.email)
 }
@@ -3914,11 +4009,11 @@ inline const std::string& UserInfo::_internal_email() const {
   return _impl_.email_.Get();
 }
 inline void UserInfo::_internal_set_email(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.email_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UserInfo::_internal_mutable_email() {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   return _impl_.email_.Mutable(GetArenaForAllocation());
 }
 inline std::string* UserInfo::release_email() {
@@ -3926,7 +4021,7 @@ inline std::string* UserInfo::release_email() {
   if (!_internal_has_email()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
   auto* p = _impl_.email_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.email_.IsDefault()) {
@@ -3937,9 +4032,9 @@ inline std::string* UserInfo::release_email() {
 }
 inline void UserInfo::set_allocated_email(std::string* email) {
   if (email != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000008u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000008u;
   }
   _impl_.email_.SetAllocated(email, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -3952,7 +4047,7 @@ inline void UserInfo::set_allocated_email(std::string* email) {
 
 // required string user_real_name = 7;
 inline bool UserInfo::_internal_has_user_real_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool UserInfo::has_user_real_name() const {
@@ -3960,7 +4055,7 @@ inline bool UserInfo::has_user_real_name() const {
 }
 inline void UserInfo::clear_user_real_name() {
   _impl_.user_real_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline const std::string& UserInfo::user_real_name() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserInfo.user_real_name)
@@ -3969,7 +4064,7 @@ inline const std::string& UserInfo::user_real_name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void UserInfo::set_user_real_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000008u;
+ _impl_._has_bits_[0] |= 0x00000010u;
  _impl_.user_real_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserInfo.user_real_name)
 }
@@ -3982,11 +4077,11 @@ inline const std::string& UserInfo::_internal_user_real_name() const {
   return _impl_.user_real_name_.Get();
 }
 inline void UserInfo::_internal_set_user_real_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.user_real_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UserInfo::_internal_mutable_user_real_name() {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   return _impl_.user_real_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* UserInfo::release_user_real_name() {
@@ -3994,7 +4089,7 @@ inline std::string* UserInfo::release_user_real_name() {
   if (!_internal_has_user_real_name()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
   auto* p = _impl_.user_real_name_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.user_real_name_.IsDefault()) {
@@ -4005,9 +4100,9 @@ inline std::string* UserInfo::release_user_real_name() {
 }
 inline void UserInfo::set_allocated_user_real_name(std::string* user_real_name) {
   if (user_real_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000008u;
+    _impl_._has_bits_[0] |= 0x00000010u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
+    _impl_._has_bits_[0] &= ~0x00000010u;
   }
   _impl_.user_real_name_.SetAllocated(user_real_name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4020,7 +4115,7 @@ inline void UserInfo::set_allocated_user_real_name(std::string* user_real_name) 
 
 // required string user_tel = 8;
 inline bool UserInfo::_internal_has_user_tel() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool UserInfo::has_user_tel() const {
@@ -4028,7 +4123,7 @@ inline bool UserInfo::has_user_tel() const {
 }
 inline void UserInfo::clear_user_tel() {
   _impl_.user_tel_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline const std::string& UserInfo::user_tel() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserInfo.user_tel)
@@ -4037,7 +4132,7 @@ inline const std::string& UserInfo::user_tel() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void UserInfo::set_user_tel(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000010u;
+ _impl_._has_bits_[0] |= 0x00000020u;
  _impl_.user_tel_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserInfo.user_tel)
 }
@@ -4050,11 +4145,11 @@ inline const std::string& UserInfo::_internal_user_tel() const {
   return _impl_.user_tel_.Get();
 }
 inline void UserInfo::_internal_set_user_tel(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.user_tel_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UserInfo::_internal_mutable_user_tel() {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   return _impl_.user_tel_.Mutable(GetArenaForAllocation());
 }
 inline std::string* UserInfo::release_user_tel() {
@@ -4062,7 +4157,7 @@ inline std::string* UserInfo::release_user_tel() {
   if (!_internal_has_user_tel()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
   auto* p = _impl_.user_tel_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.user_tel_.IsDefault()) {
@@ -4073,9 +4168,9 @@ inline std::string* UserInfo::release_user_tel() {
 }
 inline void UserInfo::set_allocated_user_tel(std::string* user_tel) {
   if (user_tel != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000010u;
+    _impl_._has_bits_[0] |= 0x00000020u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000010u;
+    _impl_._has_bits_[0] &= ~0x00000020u;
   }
   _impl_.user_tel_.SetAllocated(user_tel, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4088,7 +4183,7 @@ inline void UserInfo::set_allocated_user_tel(std::string* user_tel) {
 
 // required string user_domain = 9;
 inline bool UserInfo::_internal_has_user_domain() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool UserInfo::has_user_domain() const {
@@ -4096,7 +4191,7 @@ inline bool UserInfo::has_user_domain() const {
 }
 inline void UserInfo::clear_user_domain() {
   _impl_.user_domain_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline const std::string& UserInfo::user_domain() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserInfo.user_domain)
@@ -4105,7 +4200,7 @@ inline const std::string& UserInfo::user_domain() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void UserInfo::set_user_domain(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000020u;
+ _impl_._has_bits_[0] |= 0x00000040u;
  _impl_.user_domain_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserInfo.user_domain)
 }
@@ -4118,11 +4213,11 @@ inline const std::string& UserInfo::_internal_user_domain() const {
   return _impl_.user_domain_.Get();
 }
 inline void UserInfo::_internal_set_user_domain(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.user_domain_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UserInfo::_internal_mutable_user_domain() {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   return _impl_.user_domain_.Mutable(GetArenaForAllocation());
 }
 inline std::string* UserInfo::release_user_domain() {
@@ -4130,7 +4225,7 @@ inline std::string* UserInfo::release_user_domain() {
   if (!_internal_has_user_domain()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
   auto* p = _impl_.user_domain_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.user_domain_.IsDefault()) {
@@ -4141,9 +4236,9 @@ inline std::string* UserInfo::release_user_domain() {
 }
 inline void UserInfo::set_allocated_user_domain(std::string* user_domain) {
   if (user_domain != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000020u;
+    _impl_._has_bits_[0] |= 0x00000040u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000020u;
+    _impl_._has_bits_[0] &= ~0x00000040u;
   }
   _impl_.user_domain_.SetAllocated(user_domain, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4186,32 +4281,72 @@ inline void UserInfo::set_status(uint32_t value) {
 
 // ContactSessionInfo
 
-// required uint32 session_id = 1;
+// required bytes session_id = 1;
 inline bool ContactSessionInfo::_internal_has_session_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool ContactSessionInfo::has_session_id() const {
   return _internal_has_session_id();
 }
 inline void ContactSessionInfo::clear_session_id() {
-  _impl_.session_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.session_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t ContactSessionInfo::_internal_session_id() const {
-  return _impl_.session_id_;
-}
-inline uint32_t ContactSessionInfo::session_id() const {
+inline const std::string& ContactSessionInfo::session_id() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.ContactSessionInfo.session_id)
   return _internal_session_id();
 }
-inline void ContactSessionInfo::_internal_set_session_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.session_id_ = value;
-}
-inline void ContactSessionInfo::set_session_id(uint32_t value) {
-  _internal_set_session_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ContactSessionInfo::set_session_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.session_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.ContactSessionInfo.session_id)
+}
+inline std::string* ContactSessionInfo::mutable_session_id() {
+  std::string* _s = _internal_mutable_session_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.BaseDefine.ContactSessionInfo.session_id)
+  return _s;
+}
+inline const std::string& ContactSessionInfo::_internal_session_id() const {
+  return _impl_.session_id_.Get();
+}
+inline void ContactSessionInfo::_internal_set_session_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.session_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ContactSessionInfo::_internal_mutable_session_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.session_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ContactSessionInfo::release_session_id() {
+  // @@protoc_insertion_point(field_release:Bohan.BaseDefine.ContactSessionInfo.session_id)
+  if (!_internal_has_session_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.session_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.session_id_.IsDefault()) {
+    _impl_.session_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void ContactSessionInfo::set_allocated_session_id(std::string* session_id) {
+  if (session_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.session_id_.SetAllocated(session_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.session_id_.IsDefault()) {
+    _impl_.session_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.BaseDefine.ContactSessionInfo.session_id)
 }
 
 // required .Bohan.BaseDefine.SessionType session_type = 2;
@@ -4245,7 +4380,7 @@ inline void ContactSessionInfo::set_session_type(::Bohan::BaseDefine::SessionTyp
 
 // required .Bohan.BaseDefine.SessionStatusType session_status = 3;
 inline bool ContactSessionInfo::_internal_has_session_status() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool ContactSessionInfo::has_session_status() const {
@@ -4253,7 +4388,7 @@ inline bool ContactSessionInfo::has_session_status() const {
 }
 inline void ContactSessionInfo::clear_session_status() {
   _impl_.session_status_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline ::Bohan::BaseDefine::SessionStatusType ContactSessionInfo::_internal_session_status() const {
   return static_cast< ::Bohan::BaseDefine::SessionStatusType >(_impl_.session_status_);
@@ -4264,7 +4399,7 @@ inline ::Bohan::BaseDefine::SessionStatusType ContactSessionInfo::session_status
 }
 inline void ContactSessionInfo::_internal_set_session_status(::Bohan::BaseDefine::SessionStatusType value) {
   assert(::Bohan::BaseDefine::SessionStatusType_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.session_status_ = value;
 }
 inline void ContactSessionInfo::set_session_status(::Bohan::BaseDefine::SessionStatusType value) {
@@ -4274,7 +4409,7 @@ inline void ContactSessionInfo::set_session_status(::Bohan::BaseDefine::SessionS
 
 // required uint32 updated_time = 4;
 inline bool ContactSessionInfo::_internal_has_updated_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool ContactSessionInfo::has_updated_time() const {
@@ -4282,7 +4417,7 @@ inline bool ContactSessionInfo::has_updated_time() const {
 }
 inline void ContactSessionInfo::clear_updated_time() {
   _impl_.updated_time_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t ContactSessionInfo::_internal_updated_time() const {
   return _impl_.updated_time_;
@@ -4292,7 +4427,7 @@ inline uint32_t ContactSessionInfo::updated_time() const {
   return _internal_updated_time();
 }
 inline void ContactSessionInfo::_internal_set_updated_time(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.updated_time_ = value;
 }
 inline void ContactSessionInfo::set_updated_time(uint32_t value) {
@@ -4302,7 +4437,7 @@ inline void ContactSessionInfo::set_updated_time(uint32_t value) {
 
 // required uint32 latest_msg_id = 5;
 inline bool ContactSessionInfo::_internal_has_latest_msg_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool ContactSessionInfo::has_latest_msg_id() const {
@@ -4310,7 +4445,7 @@ inline bool ContactSessionInfo::has_latest_msg_id() const {
 }
 inline void ContactSessionInfo::clear_latest_msg_id() {
   _impl_.latest_msg_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t ContactSessionInfo::_internal_latest_msg_id() const {
   return _impl_.latest_msg_id_;
@@ -4320,7 +4455,7 @@ inline uint32_t ContactSessionInfo::latest_msg_id() const {
   return _internal_latest_msg_id();
 }
 inline void ContactSessionInfo::_internal_set_latest_msg_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.latest_msg_id_ = value;
 }
 inline void ContactSessionInfo::set_latest_msg_id(uint32_t value) {
@@ -4330,7 +4465,7 @@ inline void ContactSessionInfo::set_latest_msg_id(uint32_t value) {
 
 // required bytes latest_msg_data = 6;
 inline bool ContactSessionInfo::_internal_has_latest_msg_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool ContactSessionInfo::has_latest_msg_data() const {
@@ -4338,7 +4473,7 @@ inline bool ContactSessionInfo::has_latest_msg_data() const {
 }
 inline void ContactSessionInfo::clear_latest_msg_data() {
   _impl_.latest_msg_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& ContactSessionInfo::latest_msg_data() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.ContactSessionInfo.latest_msg_data)
@@ -4347,7 +4482,7 @@ inline const std::string& ContactSessionInfo::latest_msg_data() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ContactSessionInfo::set_latest_msg_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.latest_msg_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.ContactSessionInfo.latest_msg_data)
 }
@@ -4360,11 +4495,11 @@ inline const std::string& ContactSessionInfo::_internal_latest_msg_data() const 
   return _impl_.latest_msg_data_.Get();
 }
 inline void ContactSessionInfo::_internal_set_latest_msg_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.latest_msg_data_.Set(value, GetArenaForAllocation());
 }
 inline std::string* ContactSessionInfo::_internal_mutable_latest_msg_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.latest_msg_data_.Mutable(GetArenaForAllocation());
 }
 inline std::string* ContactSessionInfo::release_latest_msg_data() {
@@ -4372,7 +4507,7 @@ inline std::string* ContactSessionInfo::release_latest_msg_data() {
   if (!_internal_has_latest_msg_data()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.latest_msg_data_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.latest_msg_data_.IsDefault()) {
@@ -4383,9 +4518,9 @@ inline std::string* ContactSessionInfo::release_latest_msg_data() {
 }
 inline void ContactSessionInfo::set_allocated_latest_msg_data(std::string* latest_msg_data) {
   if (latest_msg_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.latest_msg_data_.SetAllocated(latest_msg_data, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -4425,39 +4560,79 @@ inline void ContactSessionInfo::set_latest_msg_type(::Bohan::BaseDefine::MsgType
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.ContactSessionInfo.latest_msg_type)
 }
 
-// required uint32 latest_msg_from_user_id = 8;
+// required bytes latest_msg_from_user_id = 8;
 inline bool ContactSessionInfo::_internal_has_latest_msg_from_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool ContactSessionInfo::has_latest_msg_from_user_id() const {
   return _internal_has_latest_msg_from_user_id();
 }
 inline void ContactSessionInfo::clear_latest_msg_from_user_id() {
-  _impl_.latest_msg_from_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_.latest_msg_from_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t ContactSessionInfo::_internal_latest_msg_from_user_id() const {
-  return _impl_.latest_msg_from_user_id_;
-}
-inline uint32_t ContactSessionInfo::latest_msg_from_user_id() const {
+inline const std::string& ContactSessionInfo::latest_msg_from_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.ContactSessionInfo.latest_msg_from_user_id)
   return _internal_latest_msg_from_user_id();
 }
-inline void ContactSessionInfo::_internal_set_latest_msg_from_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
-  _impl_.latest_msg_from_user_id_ = value;
-}
-inline void ContactSessionInfo::set_latest_msg_from_user_id(uint32_t value) {
-  _internal_set_latest_msg_from_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ContactSessionInfo::set_latest_msg_from_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000004u;
+ _impl_.latest_msg_from_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.ContactSessionInfo.latest_msg_from_user_id)
+}
+inline std::string* ContactSessionInfo::mutable_latest_msg_from_user_id() {
+  std::string* _s = _internal_mutable_latest_msg_from_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.BaseDefine.ContactSessionInfo.latest_msg_from_user_id)
+  return _s;
+}
+inline const std::string& ContactSessionInfo::_internal_latest_msg_from_user_id() const {
+  return _impl_.latest_msg_from_user_id_.Get();
+}
+inline void ContactSessionInfo::_internal_set_latest_msg_from_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.latest_msg_from_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ContactSessionInfo::_internal_mutable_latest_msg_from_user_id() {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  return _impl_.latest_msg_from_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ContactSessionInfo::release_latest_msg_from_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.BaseDefine.ContactSessionInfo.latest_msg_from_user_id)
+  if (!_internal_has_latest_msg_from_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  auto* p = _impl_.latest_msg_from_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.latest_msg_from_user_id_.IsDefault()) {
+    _impl_.latest_msg_from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void ContactSessionInfo::set_allocated_latest_msg_from_user_id(std::string* latest_msg_from_user_id) {
+  if (latest_msg_from_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  _impl_.latest_msg_from_user_id_.SetAllocated(latest_msg_from_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.latest_msg_from_user_id_.IsDefault()) {
+    _impl_.latest_msg_from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.BaseDefine.ContactSessionInfo.latest_msg_from_user_id)
 }
 
 // -------------------------------------------------------------------
 
 // UserStat
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool UserStat::_internal_has_user_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4466,23 +4641,63 @@ inline bool UserStat::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void UserStat::clear_user_id() {
-  _impl_.user_id_ = 0u;
+  _impl_.user_id_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t UserStat::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t UserStat::user_id() const {
+inline const std::string& UserStat::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserStat.user_id)
   return _internal_user_id();
 }
-inline void UserStat::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.user_id_ = value;
-}
-inline void UserStat::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void UserStat::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserStat.user_id)
+}
+inline std::string* UserStat::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.BaseDefine.UserStat.user_id)
+  return _s;
+}
+inline const std::string& UserStat::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void UserStat::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* UserStat::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* UserStat::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.BaseDefine.UserStat.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void UserStat::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.BaseDefine.UserStat.user_id)
 }
 
 // required .Bohan.BaseDefine.UserStatType status = 2;
@@ -4518,7 +4733,7 @@ inline void UserStat::set_status(::Bohan::BaseDefine::UserStatType value) {
 
 // ServerUserStat
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool ServerUserStat::_internal_has_user_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4527,23 +4742,63 @@ inline bool ServerUserStat::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void ServerUserStat::clear_user_id() {
-  _impl_.user_id_ = 0u;
+  _impl_.user_id_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t ServerUserStat::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t ServerUserStat::user_id() const {
+inline const std::string& ServerUserStat::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.ServerUserStat.user_id)
   return _internal_user_id();
 }
-inline void ServerUserStat::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.user_id_ = value;
-}
-inline void ServerUserStat::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ServerUserStat::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.ServerUserStat.user_id)
+}
+inline std::string* ServerUserStat::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.BaseDefine.ServerUserStat.user_id)
+  return _s;
+}
+inline const std::string& ServerUserStat::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void ServerUserStat::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ServerUserStat::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ServerUserStat::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.BaseDefine.ServerUserStat.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void ServerUserStat::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.BaseDefine.ServerUserStat.user_id)
 }
 
 // required .Bohan.BaseDefine.UserStatType status = 2;
@@ -4610,7 +4865,7 @@ inline void ServerUserStat::set_client_type(::Bohan::BaseDefine::ClientType valu
 
 // required uint32 session_id = 1;
 inline bool UnreadInfo::_internal_has_session_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool UnreadInfo::has_session_id() const {
@@ -4618,7 +4873,7 @@ inline bool UnreadInfo::has_session_id() const {
 }
 inline void UnreadInfo::clear_session_id() {
   _impl_.session_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t UnreadInfo::_internal_session_id() const {
   return _impl_.session_id_;
@@ -4628,7 +4883,7 @@ inline uint32_t UnreadInfo::session_id() const {
   return _internal_session_id();
 }
 inline void UnreadInfo::_internal_set_session_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.session_id_ = value;
 }
 inline void UnreadInfo::set_session_id(uint32_t value) {
@@ -4667,7 +4922,7 @@ inline void UnreadInfo::set_session_type(::Bohan::BaseDefine::SessionType value)
 
 // required uint32 unread_cnt = 3;
 inline bool UnreadInfo::_internal_has_unread_cnt() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool UnreadInfo::has_unread_cnt() const {
@@ -4675,7 +4930,7 @@ inline bool UnreadInfo::has_unread_cnt() const {
 }
 inline void UnreadInfo::clear_unread_cnt() {
   _impl_.unread_cnt_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t UnreadInfo::_internal_unread_cnt() const {
   return _impl_.unread_cnt_;
@@ -4685,7 +4940,7 @@ inline uint32_t UnreadInfo::unread_cnt() const {
   return _internal_unread_cnt();
 }
 inline void UnreadInfo::_internal_set_unread_cnt(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.unread_cnt_ = value;
 }
 inline void UnreadInfo::set_unread_cnt(uint32_t value) {
@@ -4695,7 +4950,7 @@ inline void UnreadInfo::set_unread_cnt(uint32_t value) {
 
 // required uint32 latest_msg_id = 4;
 inline bool UnreadInfo::_internal_has_latest_msg_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool UnreadInfo::has_latest_msg_id() const {
@@ -4703,7 +4958,7 @@ inline bool UnreadInfo::has_latest_msg_id() const {
 }
 inline void UnreadInfo::clear_latest_msg_id() {
   _impl_.latest_msg_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t UnreadInfo::_internal_latest_msg_id() const {
   return _impl_.latest_msg_id_;
@@ -4713,7 +4968,7 @@ inline uint32_t UnreadInfo::latest_msg_id() const {
   return _internal_latest_msg_id();
 }
 inline void UnreadInfo::_internal_set_latest_msg_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.latest_msg_id_ = value;
 }
 inline void UnreadInfo::set_latest_msg_id(uint32_t value) {
@@ -4818,32 +5073,72 @@ inline void UnreadInfo::set_latest_msg_type(::Bohan::BaseDefine::MsgType value) 
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UnreadInfo.latest_msg_type)
 }
 
-// required uint32 latest_msg_from_user_id = 7;
+// required bytes latest_msg_from_user_id = 7;
 inline bool UnreadInfo::_internal_has_latest_msg_from_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool UnreadInfo::has_latest_msg_from_user_id() const {
   return _internal_has_latest_msg_from_user_id();
 }
 inline void UnreadInfo::clear_latest_msg_from_user_id() {
-  _impl_.latest_msg_from_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_.latest_msg_from_user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t UnreadInfo::_internal_latest_msg_from_user_id() const {
-  return _impl_.latest_msg_from_user_id_;
-}
-inline uint32_t UnreadInfo::latest_msg_from_user_id() const {
+inline const std::string& UnreadInfo::latest_msg_from_user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UnreadInfo.latest_msg_from_user_id)
   return _internal_latest_msg_from_user_id();
 }
-inline void UnreadInfo::_internal_set_latest_msg_from_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.latest_msg_from_user_id_ = value;
-}
-inline void UnreadInfo::set_latest_msg_from_user_id(uint32_t value) {
-  _internal_set_latest_msg_from_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void UnreadInfo::set_latest_msg_from_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.latest_msg_from_user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UnreadInfo.latest_msg_from_user_id)
+}
+inline std::string* UnreadInfo::mutable_latest_msg_from_user_id() {
+  std::string* _s = _internal_mutable_latest_msg_from_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.BaseDefine.UnreadInfo.latest_msg_from_user_id)
+  return _s;
+}
+inline const std::string& UnreadInfo::_internal_latest_msg_from_user_id() const {
+  return _impl_.latest_msg_from_user_id_.Get();
+}
+inline void UnreadInfo::_internal_set_latest_msg_from_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.latest_msg_from_user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* UnreadInfo::_internal_mutable_latest_msg_from_user_id() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.latest_msg_from_user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* UnreadInfo::release_latest_msg_from_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.BaseDefine.UnreadInfo.latest_msg_from_user_id)
+  if (!_internal_has_latest_msg_from_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.latest_msg_from_user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.latest_msg_from_user_id_.IsDefault()) {
+    _impl_.latest_msg_from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void UnreadInfo::set_allocated_latest_msg_from_user_id(std::string* latest_msg_from_user_id) {
+  if (latest_msg_from_user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.latest_msg_from_user_id_.SetAllocated(latest_msg_from_user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.latest_msg_from_user_id_.IsDefault()) {
+    _impl_.latest_msg_from_user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.BaseDefine.UnreadInfo.latest_msg_from_user_id)
 }
 
 // -------------------------------------------------------------------
@@ -5423,32 +5718,72 @@ GroupInfo::mutable_group_member_list() {
 
 // UserTokenInfo
 
-// required uint32 user_id = 1;
+// required bytes user_id = 1;
 inline bool UserTokenInfo::_internal_has_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool UserTokenInfo::has_user_id() const {
   return _internal_has_user_id();
 }
 inline void UserTokenInfo::clear_user_id() {
-  _impl_.user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_.user_id_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t UserTokenInfo::_internal_user_id() const {
-  return _impl_.user_id_;
-}
-inline uint32_t UserTokenInfo::user_id() const {
+inline const std::string& UserTokenInfo::user_id() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserTokenInfo.user_id)
   return _internal_user_id();
 }
-inline void UserTokenInfo::_internal_set_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.user_id_ = value;
-}
-inline void UserTokenInfo::set_user_id(uint32_t value) {
-  _internal_set_user_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void UserTokenInfo::set_user_id(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.user_id_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserTokenInfo.user_id)
+}
+inline std::string* UserTokenInfo::mutable_user_id() {
+  std::string* _s = _internal_mutable_user_id();
+  // @@protoc_insertion_point(field_mutable:Bohan.BaseDefine.UserTokenInfo.user_id)
+  return _s;
+}
+inline const std::string& UserTokenInfo::_internal_user_id() const {
+  return _impl_.user_id_.Get();
+}
+inline void UserTokenInfo::_internal_set_user_id(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.user_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* UserTokenInfo::_internal_mutable_user_id() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.user_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* UserTokenInfo::release_user_id() {
+  // @@protoc_insertion_point(field_release:Bohan.BaseDefine.UserTokenInfo.user_id)
+  if (!_internal_has_user_id()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.user_id_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void UserTokenInfo::set_allocated_user_id(std::string* user_id) {
+  if (user_id != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.user_id_.SetAllocated(user_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.user_id_.IsDefault()) {
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:Bohan.BaseDefine.UserTokenInfo.user_id)
 }
 
 // required .Bohan.BaseDefine.ClientType user_type = 2;
@@ -5482,7 +5817,7 @@ inline void UserTokenInfo::set_user_type(::Bohan::BaseDefine::ClientType value) 
 
 // required string token = 3;
 inline bool UserTokenInfo::_internal_has_token() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool UserTokenInfo::has_token() const {
@@ -5490,7 +5825,7 @@ inline bool UserTokenInfo::has_token() const {
 }
 inline void UserTokenInfo::clear_token() {
   _impl_.token_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const std::string& UserTokenInfo::token() const {
   // @@protoc_insertion_point(field_get:Bohan.BaseDefine.UserTokenInfo.token)
@@ -5499,7 +5834,7 @@ inline const std::string& UserTokenInfo::token() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void UserTokenInfo::set_token(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_._has_bits_[0] |= 0x00000002u;
  _impl_.token_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:Bohan.BaseDefine.UserTokenInfo.token)
 }
@@ -5512,11 +5847,11 @@ inline const std::string& UserTokenInfo::_internal_token() const {
   return _impl_.token_.Get();
 }
 inline void UserTokenInfo::_internal_set_token(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.token_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UserTokenInfo::_internal_mutable_token() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   return _impl_.token_.Mutable(GetArenaForAllocation());
 }
 inline std::string* UserTokenInfo::release_token() {
@@ -5524,7 +5859,7 @@ inline std::string* UserTokenInfo::release_token() {
   if (!_internal_has_token()) {
     return nullptr;
   }
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   auto* p = _impl_.token_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (_impl_.token_.IsDefault()) {
@@ -5535,9 +5870,9 @@ inline std::string* UserTokenInfo::release_token() {
 }
 inline void UserTokenInfo::set_allocated_token(std::string* token) {
   if (token != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.token_.SetAllocated(token, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -6224,6 +6559,7 @@ template <> struct is_proto_enum< ::Bohan::BaseDefine::OnlineListType> : ::std::
 template <> struct is_proto_enum< ::Bohan::BaseDefine::UserStatType> : ::std::true_type {};
 template <> struct is_proto_enum< ::Bohan::BaseDefine::SessionType> : ::std::true_type {};
 template <> struct is_proto_enum< ::Bohan::BaseDefine::MsgType> : ::std::true_type {};
+template <> struct is_proto_enum< ::Bohan::BaseDefine::RoleType> : ::std::true_type {};
 template <> struct is_proto_enum< ::Bohan::BaseDefine::ClientType> : ::std::true_type {};
 template <> struct is_proto_enum< ::Bohan::BaseDefine::GroupType> : ::std::true_type {};
 template <> struct is_proto_enum< ::Bohan::BaseDefine::GroupModifyType> : ::std::true_type {};

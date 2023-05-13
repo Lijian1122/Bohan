@@ -167,6 +167,12 @@ enum MsgType{
     MSG_TYPE_GROUP_AUDIO    = 0x12;
 }
 
+enum RoleType{
+    ROLE_CREATER_TYPE    = 0x01;
+    ROLE_ADMIN_TYPE      = 0x02;
+    ROLE_NORMAL_TYPE     = 0x03;
+}
+
 enum ClientType{
 	CLIENT_TYPE_WINDOWS     = 0x01;
     CLIENT_TYPE_MAC         = 0x02;
@@ -235,7 +241,7 @@ message IpAddr{
 }
 
 message UserInfo{
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required uint32 gender = 2; 	//// 用户性别,男：1 女：2 人妖/外星人：0
 	required string nick_name = 3;	//绰号
 	required string avatar_url = 4;
@@ -248,23 +254,23 @@ message UserInfo{
 }
 
 message ContactSessionInfo{
-	required uint32 session_id = 1;
+	required bytes session_id = 1;
 	required SessionType session_type = 2;
     required SessionStatusType session_status = 3;
 	required uint32 updated_time = 4;
 	required uint32 latest_msg_id = 5;
 	required bytes latest_msg_data = 6;
     required MsgType latest_msg_type = 7;
-    required uint32 latest_msg_from_user_id = 8;
+    required bytes latest_msg_from_user_id = 8;
 }
 
 message UserStat{
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required UserStatType status = 2;
 }
 
 message ServerUserStat{
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required UserStatType status = 2;
 	required ClientType client_type = 3;
 }
@@ -276,7 +282,7 @@ message UnreadInfo{
 	required uint32 latest_msg_id = 4;
 	required bytes latest_msg_data = 5;
     required MsgType latest_msg_type = 6;
-    required uint32 latest_msg_from_user_id = 7;        //发送得用户id
+    required bytes latest_msg_from_user_id = 7;        //发送得用户id
 }
 
 message MsgInfo{
@@ -305,7 +311,7 @@ message GroupInfo{
 }
 
 message UserTokenInfo{
-    required uint32 user_id = 1;
+    required bytes user_id = 1;
 	required ClientType user_type = 2;
 	required string token = 3;
 	required uint32 push_count = 4;

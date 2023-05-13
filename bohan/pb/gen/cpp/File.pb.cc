@@ -23,8 +23,8 @@ PROTOBUF_CONSTEXPR FileLoginReq::FileLoginReq(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.task_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.user_id_)*/0u
   , /*decltype(_impl_.file_role_)*/1} {}
 struct FileLoginReqDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FileLoginReqDefaultTypeInternal()
@@ -55,8 +55,8 @@ PROTOBUF_CONSTEXPR FileState::FileState(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.task_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.state_)*/0
-  , /*decltype(_impl_.user_id_)*/0u} {}
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.state_)*/0} {}
 struct FileStateDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FileStateDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -71,7 +71,7 @@ PROTOBUF_CONSTEXPR FilePullDataReq::FilePullDataReq(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.task_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.user_id_)*/0u
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.trans_mode_)*/0
   , /*decltype(_impl_.offset_)*/0u
   , /*decltype(_impl_.data_size_)*/0u} {}
@@ -89,9 +89,9 @@ PROTOBUF_CONSTEXPR FilePullDataRsp::FilePullDataRsp(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.task_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.result_code_)*/0u
-  , /*decltype(_impl_.user_id_)*/0u
   , /*decltype(_impl_.offset_)*/0u} {}
 struct FilePullDataRspDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FilePullDataRspDefaultTypeInternal()
@@ -106,9 +106,9 @@ PROTOBUF_CONSTEXPR FileReq::FileReq(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.from_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.to_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.file_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.from_user_id_)*/0u
-  , /*decltype(_impl_.to_user_id_)*/0u
   , /*decltype(_impl_.file_size_)*/0u
   , /*decltype(_impl_.trans_mode_)*/0} {}
 struct FileReqDefaultTypeInternal {
@@ -125,11 +125,11 @@ PROTOBUF_CONSTEXPR FileRsp::FileRsp(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.ip_addr_list_)*/{}
+  , /*decltype(_impl_.from_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.to_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.file_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.task_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.result_code_)*/0u
-  , /*decltype(_impl_.from_user_id_)*/0u
-  , /*decltype(_impl_.to_user_id_)*/0u
   , /*decltype(_impl_.trans_mode_)*/0} {}
 struct FileRspDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FileRspDefaultTypeInternal()
@@ -145,10 +145,10 @@ PROTOBUF_CONSTEXPR FileNotify::FileNotify(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.ip_addr_list_)*/{}
+  , /*decltype(_impl_.from_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.to_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.file_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.task_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.from_user_id_)*/0u
-  , /*decltype(_impl_.to_user_id_)*/0u
   , /*decltype(_impl_.file_size_)*/0u
   , /*decltype(_impl_.trans_mode_)*/0
   , /*decltype(_impl_.offline_ready_)*/0u} {}
@@ -165,8 +165,8 @@ PROTOBUF_CONSTEXPR FileHasOfflineReq::FileHasOfflineReq(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.attach_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.user_id_)*/0u} {}
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.attach_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}} {}
 struct FileHasOfflineReqDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FileHasOfflineReqDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -182,8 +182,8 @@ PROTOBUF_CONSTEXPR FileHasOfflineRsp::FileHasOfflineRsp(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.offline_file_list_)*/{}
   , /*decltype(_impl_.ip_addr_list_)*/{}
-  , /*decltype(_impl_.attach_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.user_id_)*/0u} {}
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.attach_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}} {}
 struct FileHasOfflineRspDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FileHasOfflineRspDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -197,10 +197,10 @@ PROTOBUF_CONSTEXPR FileAddOfflineReq::FileAddOfflineReq(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.from_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.to_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.task_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.file_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.from_user_id_)*/0u
-  , /*decltype(_impl_.to_user_id_)*/0u
   , /*decltype(_impl_.file_size_)*/0u} {}
 struct FileAddOfflineReqDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FileAddOfflineReqDefaultTypeInternal()
@@ -215,9 +215,9 @@ PROTOBUF_CONSTEXPR FileDelOfflineReq::FileDelOfflineReq(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.task_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.from_user_id_)*/0u
-  , /*decltype(_impl_.to_user_id_)*/0u} {}
+  , /*decltype(_impl_.from_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.to_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.task_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}} {}
 struct FileDelOfflineReqDefaultTypeInternal {
   PROTOBUF_CONSTEXPR FileDelOfflineReqDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -238,10 +238,10 @@ class FileLoginReq::_Internal {
  public:
   using HasBits = decltype(std::declval<FileLoginReq>()._impl_._has_bits_);
   static void set_has_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_task_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_file_role(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
@@ -263,11 +263,19 @@ FileLoginReq::FileLoginReq(const FileLoginReq& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.task_id_){}
     , decltype(_impl_.user_id_){}
+    , decltype(_impl_.task_id_){}
     , decltype(_impl_.file_role_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.task_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.task_id_.Set("", GetArenaForAllocation());
@@ -276,9 +284,7 @@ FileLoginReq::FileLoginReq(const FileLoginReq& from)
     _this->_impl_.task_id_.Set(from._internal_task_id(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.user_id_, &from._impl_.user_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.file_role_) -
-    reinterpret_cast<char*>(&_impl_.user_id_)) + sizeof(_impl_.file_role_));
+  _this->_impl_.file_role_ = from._impl_.file_role_;
   // @@protoc_insertion_point(copy_constructor:Bohan.File.FileLoginReq)
 }
 
@@ -289,10 +295,14 @@ inline void FileLoginReq::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.task_id_){}
-    , decltype(_impl_.user_id_){0u}
     , decltype(_impl_.file_role_){1}
   };
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.task_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.task_id_.Set("", GetArenaForAllocation());
@@ -310,6 +320,7 @@ FileLoginReq::~FileLoginReq() {
 
 inline void FileLoginReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.user_id_.Destroy();
   _impl_.task_id_.Destroy();
 }
 
@@ -324,11 +335,13 @@ void FileLoginReq::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.task_id_.ClearNonDefaultToEmpty();
-  }
-  if (cached_has_bits & 0x00000006u) {
-    _impl_.user_id_ = 0u;
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.task_id_.ClearNonDefaultToEmpty();
+    }
     _impl_.file_role_ = 1;
   }
   _impl_._has_bits_.Clear();
@@ -342,11 +355,11 @@ const char* FileLoginReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 user_id = 1;
+      // required bytes user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -404,14 +417,14 @@ uint8_t* FileLoginReq::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_user_id(), target);
+  // required bytes user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_user_id(), target);
   }
 
   // required string task_id = 2;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_task_id(), target);
   }
@@ -435,16 +448,18 @@ size_t FileLoginReq::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:Bohan.File.FileLoginReq)
   size_t total_size = 0;
 
+  if (_internal_has_user_id()) {
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+  }
+
   if (_internal_has_task_id()) {
     // required string task_id = 2;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_task_id());
-  }
-
-  if (_internal_has_user_id()) {
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
   }
 
   if (_internal_has_file_role()) {
@@ -460,13 +475,15 @@ size_t FileLoginReq::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+
     // required string task_id = 2;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_task_id());
-
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
 
     // required .Bohan.BaseDefine.ClientFileRole file_role = 3;
     total_size += 1 +
@@ -503,10 +520,10 @@ void FileLoginReq::MergeFrom(const FileLoginReq& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_task_id(from._internal_task_id());
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_internal_set_task_id(from._internal_task_id());
     }
     if (cached_has_bits & 0x00000004u) {
       _this->_impl_.file_role_ = from._impl_.file_role_;
@@ -535,10 +552,13 @@ void FileLoginReq::InternalSwap(FileLoginReq* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.task_id_, lhs_arena,
       &other->_impl_.task_id_, rhs_arena
   );
-  swap(_impl_.user_id_, other->_impl_.user_id_);
   swap(_impl_.file_role_, other->_impl_.file_role_);
 }
 
@@ -824,13 +844,13 @@ class FileState::_Internal {
  public:
   using HasBits = decltype(std::declval<FileState>()._impl_._has_bits_);
   static void set_has_state(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_task_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x00000007) ^ 0x00000007) != 0;
@@ -850,8 +870,8 @@ FileState::FileState(const FileState& from)
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.task_id_){}
-    , decltype(_impl_.state_){}
-    , decltype(_impl_.user_id_){}};
+    , decltype(_impl_.user_id_){}
+    , decltype(_impl_.state_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   _impl_.task_id_.InitDefault();
@@ -862,9 +882,15 @@ FileState::FileState(const FileState& from)
     _this->_impl_.task_id_.Set(from._internal_task_id(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.state_, &from._impl_.state_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.user_id_) -
-    reinterpret_cast<char*>(&_impl_.state_)) + sizeof(_impl_.user_id_));
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.state_ = from._impl_.state_;
   // @@protoc_insertion_point(copy_constructor:Bohan.File.FileState)
 }
 
@@ -876,12 +902,16 @@ inline void FileState::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.task_id_){}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.state_){0}
-    , decltype(_impl_.user_id_){0u}
   };
   _impl_.task_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.task_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -897,6 +927,7 @@ FileState::~FileState() {
 inline void FileState::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.task_id_.Destroy();
+  _impl_.user_id_.Destroy();
 }
 
 void FileState::SetCachedSize(int size) const {
@@ -910,14 +941,15 @@ void FileState::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.task_id_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.task_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.user_id_.ClearNonDefaultToEmpty();
+    }
   }
-  if (cached_has_bits & 0x00000006u) {
-    ::memset(&_impl_.state_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.user_id_) -
-        reinterpret_cast<char*>(&_impl_.state_)) + sizeof(_impl_.user_id_));
-  }
+  _impl_.state_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
@@ -951,11 +983,11 @@ const char* FileState::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         } else
           goto handle_unusual;
         continue;
-      // required uint32 user_id = 3;
+      // required bytes user_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -992,7 +1024,7 @@ uint8_t* FileState::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // required .Bohan.BaseDefine.ClientFileState state = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_state(), target);
@@ -1004,10 +1036,10 @@ uint8_t* FileState::_InternalSerialize(
         2, this->_internal_task_id(), target);
   }
 
-  // required uint32 user_id = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_user_id(), target);
+  // required bytes user_id = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->WriteBytesMaybeAliased(
+        3, this->_internal_user_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1029,15 +1061,17 @@ size_t FileState::RequiredFieldsByteSizeFallback() const {
         this->_internal_task_id());
   }
 
+  if (_internal_has_user_id()) {
+    // required bytes user_id = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+  }
+
   if (_internal_has_state()) {
     // required .Bohan.BaseDefine.ClientFileState state = 1;
     total_size += 1 +
       ::_pbi::WireFormatLite::EnumSize(this->_internal_state());
-  }
-
-  if (_internal_has_user_id()) {
-    // required uint32 user_id = 3;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
   }
 
   return total_size;
@@ -1052,12 +1086,14 @@ size_t FileState::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_task_id());
 
+    // required bytes user_id = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+
     // required .Bohan.BaseDefine.ClientFileState state = 1;
     total_size += 1 +
       ::_pbi::WireFormatLite::EnumSize(this->_internal_state());
-
-    // required uint32 user_id = 3;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -1093,10 +1129,10 @@ void FileState::MergeFrom(const FileState& from) {
       _this->_internal_set_task_id(from._internal_task_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.state_ = from._impl_.state_;
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_impl_.state_ = from._impl_.state_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -1125,12 +1161,11 @@ void FileState::InternalSwap(FileState* other) {
       &_impl_.task_id_, lhs_arena,
       &other->_impl_.task_id_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(FileState, _impl_.user_id_)
-      + sizeof(FileState::_impl_.user_id_)
-      - PROTOBUF_FIELD_OFFSET(FileState, _impl_.state_)>(
-          reinterpret_cast<char*>(&_impl_.state_),
-          reinterpret_cast<char*>(&other->_impl_.state_));
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
+  swap(_impl_.state_, other->_impl_.state_);
 }
 
 std::string FileState::GetTypeName() const {
@@ -1190,9 +1225,17 @@ FilePullDataReq::FilePullDataReq(const FilePullDataReq& from)
     _this->_impl_.task_id_.Set(from._internal_task_id(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.user_id_, &from._impl_.user_id_,
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.trans_mode_, &from._impl_.trans_mode_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.data_size_) -
-    reinterpret_cast<char*>(&_impl_.user_id_)) + sizeof(_impl_.data_size_));
+    reinterpret_cast<char*>(&_impl_.trans_mode_)) + sizeof(_impl_.data_size_));
   // @@protoc_insertion_point(copy_constructor:Bohan.File.FilePullDataReq)
 }
 
@@ -1204,7 +1247,7 @@ inline void FilePullDataReq::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.task_id_){}
-    , decltype(_impl_.user_id_){0u}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.trans_mode_){0}
     , decltype(_impl_.offset_){0u}
     , decltype(_impl_.data_size_){0u}
@@ -1212,6 +1255,10 @@ inline void FilePullDataReq::SharedCtor(
   _impl_.task_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.task_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -1227,6 +1274,7 @@ FilePullDataReq::~FilePullDataReq() {
 inline void FilePullDataReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.task_id_.Destroy();
+  _impl_.user_id_.Destroy();
 }
 
 void FilePullDataReq::SetCachedSize(int size) const {
@@ -1240,13 +1288,18 @@ void FilePullDataReq::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.task_id_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.task_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.user_id_.ClearNonDefaultToEmpty();
+    }
   }
-  if (cached_has_bits & 0x0000001eu) {
-    ::memset(&_impl_.user_id_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x0000001cu) {
+    ::memset(&_impl_.trans_mode_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.data_size_) -
-        reinterpret_cast<char*>(&_impl_.user_id_)) + sizeof(_impl_.data_size_));
+        reinterpret_cast<char*>(&_impl_.trans_mode_)) + sizeof(_impl_.data_size_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
@@ -1268,11 +1321,11 @@ const char* FilePullDataReq::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // required uint32 user_id = 2;
+      // required bytes user_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1345,10 +1398,10 @@ uint8_t* FilePullDataReq::_InternalSerialize(
         1, this->_internal_task_id(), target);
   }
 
-  // required uint32 user_id = 2;
+  // required bytes user_id = 2;
   if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_user_id(), target);
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_user_id(), target);
   }
 
   // required .Bohan.BaseDefine.FileType trans_mode = 3;
@@ -1390,8 +1443,10 @@ size_t FilePullDataReq::RequiredFieldsByteSizeFallback() const {
   }
 
   if (_internal_has_user_id()) {
-    // required uint32 user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
+    // required bytes user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
   }
 
   if (_internal_has_trans_mode()) {
@@ -1422,8 +1477,10 @@ size_t FilePullDataReq::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_task_id());
 
-    // required uint32 user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
+    // required bytes user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
 
     // required .Bohan.BaseDefine.FileType trans_mode = 3;
     total_size += 1 +
@@ -1469,7 +1526,7 @@ void FilePullDataReq::MergeFrom(const FilePullDataReq& from) {
       _this->_internal_set_task_id(from._internal_task_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000004u) {
       _this->_impl_.trans_mode_ = from._impl_.trans_mode_;
@@ -1507,12 +1564,16 @@ void FilePullDataReq::InternalSwap(FilePullDataReq* other) {
       &_impl_.task_id_, lhs_arena,
       &other->_impl_.task_id_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(FilePullDataReq, _impl_.data_size_)
       + sizeof(FilePullDataReq::_impl_.data_size_)
-      - PROTOBUF_FIELD_OFFSET(FilePullDataReq, _impl_.user_id_)>(
-          reinterpret_cast<char*>(&_impl_.user_id_),
-          reinterpret_cast<char*>(&other->_impl_.user_id_));
+      - PROTOBUF_FIELD_OFFSET(FilePullDataReq, _impl_.trans_mode_)>(
+          reinterpret_cast<char*>(&_impl_.trans_mode_),
+          reinterpret_cast<char*>(&other->_impl_.trans_mode_));
 }
 
 std::string FilePullDataReq::GetTypeName() const {
@@ -1526,19 +1587,19 @@ class FilePullDataRsp::_Internal {
  public:
   using HasBits = decltype(std::declval<FilePullDataRsp>()._impl_._has_bits_);
   static void set_has_result_code(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_task_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_offset(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_data(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
   }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x0000001f) ^ 0x0000001f) != 0;
@@ -1558,9 +1619,9 @@ FilePullDataRsp::FilePullDataRsp(const FilePullDataRsp& from)
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.task_id_){}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.data_){}
     , decltype(_impl_.result_code_){}
-    , decltype(_impl_.user_id_){}
     , decltype(_impl_.offset_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
@@ -1570,6 +1631,14 @@ FilePullDataRsp::FilePullDataRsp(const FilePullDataRsp& from)
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (from._internal_has_task_id()) {
     _this->_impl_.task_id_.Set(from._internal_task_id(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
       _this->GetArenaForAllocation());
   }
   _impl_.data_.InitDefault();
@@ -1594,14 +1663,18 @@ inline void FilePullDataRsp::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.task_id_){}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.data_){}
     , decltype(_impl_.result_code_){0u}
-    , decltype(_impl_.user_id_){0u}
     , decltype(_impl_.offset_){0u}
   };
   _impl_.task_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.task_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -1621,6 +1694,7 @@ FilePullDataRsp::~FilePullDataRsp() {
 inline void FilePullDataRsp::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.task_id_.Destroy();
+  _impl_.user_id_.Destroy();
   _impl_.data_.Destroy();
 }
 
@@ -1635,15 +1709,18 @@ void FilePullDataRsp::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _impl_.task_id_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000002u) {
+      _impl_.user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
       _impl_.data_.ClearNonDefaultToEmpty();
     }
   }
-  if (cached_has_bits & 0x0000001cu) {
+  if (cached_has_bits & 0x00000018u) {
     ::memset(&_impl_.result_code_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.offset_) -
         reinterpret_cast<char*>(&_impl_.result_code_)) + sizeof(_impl_.offset_));
@@ -1677,11 +1754,11 @@ const char* FilePullDataRsp::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // required uint32 user_id = 3;
+      // required bytes user_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1736,7 +1813,7 @@ uint8_t* FilePullDataRsp::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // required uint32 result_code = 1;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_result_code(), target);
   }
@@ -1747,10 +1824,10 @@ uint8_t* FilePullDataRsp::_InternalSerialize(
         2, this->_internal_task_id(), target);
   }
 
-  // required uint32 user_id = 3;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_user_id(), target);
+  // required bytes user_id = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->WriteBytesMaybeAliased(
+        3, this->_internal_user_id(), target);
   }
 
   // required uint32 offset = 4;
@@ -1760,7 +1837,7 @@ uint8_t* FilePullDataRsp::_InternalSerialize(
   }
 
   // required bytes data = 5;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->WriteBytesMaybeAliased(
         5, this->_internal_data(), target);
   }
@@ -1784,6 +1861,13 @@ size_t FilePullDataRsp::RequiredFieldsByteSizeFallback() const {
         this->_internal_task_id());
   }
 
+  if (_internal_has_user_id()) {
+    // required bytes user_id = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+  }
+
   if (_internal_has_data()) {
     // required bytes data = 5;
     total_size += 1 +
@@ -1794,11 +1878,6 @@ size_t FilePullDataRsp::RequiredFieldsByteSizeFallback() const {
   if (_internal_has_result_code()) {
     // required uint32 result_code = 1;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_result_code());
-  }
-
-  if (_internal_has_user_id()) {
-    // required uint32 user_id = 3;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
   }
 
   if (_internal_has_offset()) {
@@ -1818,6 +1897,11 @@ size_t FilePullDataRsp::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_task_id());
 
+    // required bytes user_id = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+
     // required bytes data = 5;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
@@ -1825,9 +1909,6 @@ size_t FilePullDataRsp::ByteSizeLong() const {
 
     // required uint32 result_code = 1;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_result_code());
-
-    // required uint32 user_id = 3;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
 
     // required uint32 offset = 4;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_offset());
@@ -1866,13 +1947,13 @@ void FilePullDataRsp::MergeFrom(const FilePullDataRsp& from) {
       _this->_internal_set_task_id(from._internal_task_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_data(from._internal_data());
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.result_code_ = from._impl_.result_code_;
+      _this->_internal_set_data(from._internal_data());
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_impl_.result_code_ = from._impl_.result_code_;
     }
     if (cached_has_bits & 0x00000010u) {
       _this->_impl_.offset_ = from._impl_.offset_;
@@ -1905,6 +1986,10 @@ void FilePullDataRsp::InternalSwap(FilePullDataRsp* other) {
       &other->_impl_.task_id_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.data_, lhs_arena,
       &other->_impl_.data_, rhs_arena
   );
@@ -1927,13 +2012,13 @@ class FileReq::_Internal {
  public:
   using HasBits = decltype(std::declval<FileReq>()._impl_._has_bits_);
   static void set_has_from_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_to_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_file_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_file_size(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
@@ -1958,13 +2043,29 @@ FileReq::FileReq(const FileReq& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.file_name_){}
     , decltype(_impl_.from_user_id_){}
     , decltype(_impl_.to_user_id_){}
+    , decltype(_impl_.file_name_){}
     , decltype(_impl_.file_size_){}
     , decltype(_impl_.trans_mode_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_from_user_id()) {
+    _this->_impl_.from_user_id_.Set(from._internal_from_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_to_user_id()) {
+    _this->_impl_.to_user_id_.Set(from._internal_to_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.file_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.file_name_.Set("", GetArenaForAllocation());
@@ -1973,9 +2074,9 @@ FileReq::FileReq(const FileReq& from)
     _this->_impl_.file_name_.Set(from._internal_file_name(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.from_user_id_, &from._impl_.from_user_id_,
+  ::memcpy(&_impl_.file_size_, &from._impl_.file_size_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.trans_mode_) -
-    reinterpret_cast<char*>(&_impl_.from_user_id_)) + sizeof(_impl_.trans_mode_));
+    reinterpret_cast<char*>(&_impl_.file_size_)) + sizeof(_impl_.trans_mode_));
   // @@protoc_insertion_point(copy_constructor:Bohan.File.FileReq)
 }
 
@@ -1986,12 +2087,20 @@ inline void FileReq::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.from_user_id_){}
+    , decltype(_impl_.to_user_id_){}
     , decltype(_impl_.file_name_){}
-    , decltype(_impl_.from_user_id_){0u}
-    , decltype(_impl_.to_user_id_){0u}
     , decltype(_impl_.file_size_){0u}
     , decltype(_impl_.trans_mode_){0}
   };
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.file_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.file_name_.Set("", GetArenaForAllocation());
@@ -2009,6 +2118,8 @@ FileReq::~FileReq() {
 
 inline void FileReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.from_user_id_.Destroy();
+  _impl_.to_user_id_.Destroy();
   _impl_.file_name_.Destroy();
 }
 
@@ -2023,13 +2134,21 @@ void FileReq::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.file_name_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.from_user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.to_user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _impl_.file_name_.ClearNonDefaultToEmpty();
+    }
   }
-  if (cached_has_bits & 0x0000001eu) {
-    ::memset(&_impl_.from_user_id_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x00000018u) {
+    ::memset(&_impl_.file_size_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.trans_mode_) -
-        reinterpret_cast<char*>(&_impl_.from_user_id_)) + sizeof(_impl_.trans_mode_));
+        reinterpret_cast<char*>(&_impl_.file_size_)) + sizeof(_impl_.trans_mode_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
@@ -2042,20 +2161,20 @@ const char* FileReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 from_user_id = 1;
+      // required bytes from_user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_from_user_id(&has_bits);
-          _impl_.from_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_from_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 to_user_id = 2;
+      // required bytes to_user_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_to_user_id(&has_bits);
-          _impl_.to_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_to_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2122,20 +2241,20 @@ uint8_t* FileReq::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 from_user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_from_user_id(), target);
+  // required bytes from_user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_from_user_id(), target);
   }
 
-  // required uint32 to_user_id = 2;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_to_user_id(), target);
+  // required bytes to_user_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_to_user_id(), target);
   }
 
   // required string file_name = 3;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_file_name(), target);
   }
@@ -2165,21 +2284,25 @@ size_t FileReq::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:Bohan.File.FileReq)
   size_t total_size = 0;
 
+  if (_internal_has_from_user_id()) {
+    // required bytes from_user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+  }
+
+  if (_internal_has_to_user_id()) {
+    // required bytes to_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+  }
+
   if (_internal_has_file_name()) {
     // required string file_name = 3;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_file_name());
-  }
-
-  if (_internal_has_from_user_id()) {
-    // required uint32 from_user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-  }
-
-  if (_internal_has_to_user_id()) {
-    // required uint32 to_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
   }
 
   if (_internal_has_file_size()) {
@@ -2200,16 +2323,20 @@ size_t FileReq::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+    // required bytes from_user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+
+    // required bytes to_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+
     // required string file_name = 3;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_file_name());
-
-    // required uint32 from_user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-
-    // required uint32 to_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
 
     // required uint32 file_size = 4;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_file_size());
@@ -2249,13 +2376,13 @@ void FileReq::MergeFrom(const FileReq& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_file_name(from._internal_file_name());
+      _this->_internal_set_from_user_id(from._internal_from_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.from_user_id_ = from._impl_.from_user_id_;
+      _this->_internal_set_to_user_id(from._internal_to_user_id());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.to_user_id_ = from._impl_.to_user_id_;
+      _this->_internal_set_file_name(from._internal_file_name());
     }
     if (cached_has_bits & 0x00000008u) {
       _this->_impl_.file_size_ = from._impl_.file_size_;
@@ -2287,15 +2414,23 @@ void FileReq::InternalSwap(FileReq* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.from_user_id_, lhs_arena,
+      &other->_impl_.from_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.to_user_id_, lhs_arena,
+      &other->_impl_.to_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.file_name_, lhs_arena,
       &other->_impl_.file_name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(FileReq, _impl_.trans_mode_)
       + sizeof(FileReq::_impl_.trans_mode_)
-      - PROTOBUF_FIELD_OFFSET(FileReq, _impl_.from_user_id_)>(
-          reinterpret_cast<char*>(&_impl_.from_user_id_),
-          reinterpret_cast<char*>(&other->_impl_.from_user_id_));
+      - PROTOBUF_FIELD_OFFSET(FileReq, _impl_.file_size_)>(
+          reinterpret_cast<char*>(&_impl_.file_size_),
+          reinterpret_cast<char*>(&other->_impl_.file_size_));
 }
 
 std::string FileReq::GetTypeName() const {
@@ -2309,19 +2444,19 @@ class FileRsp::_Internal {
  public:
   using HasBits = decltype(std::declval<FileRsp>()._impl_._has_bits_);
   static void set_has_result_code(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_from_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_to_user_id(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
-  static void set_has_file_name(HasBits* has_bits) {
+  static void set_has_from_user_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_task_id(HasBits* has_bits) {
+  static void set_has_to_user_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
+  }
+  static void set_has_file_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_task_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_trans_mode(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
@@ -2347,14 +2482,30 @@ FileRsp::FileRsp(const FileRsp& from)
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.ip_addr_list_){from._impl_.ip_addr_list_}
+    , decltype(_impl_.from_user_id_){}
+    , decltype(_impl_.to_user_id_){}
     , decltype(_impl_.file_name_){}
     , decltype(_impl_.task_id_){}
     , decltype(_impl_.result_code_){}
-    , decltype(_impl_.from_user_id_){}
-    , decltype(_impl_.to_user_id_){}
     , decltype(_impl_.trans_mode_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_from_user_id()) {
+    _this->_impl_.from_user_id_.Set(from._internal_from_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_to_user_id()) {
+    _this->_impl_.to_user_id_.Set(from._internal_to_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.file_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.file_name_.Set("", GetArenaForAllocation());
@@ -2385,13 +2536,21 @@ inline void FileRsp::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.ip_addr_list_){arena}
+    , decltype(_impl_.from_user_id_){}
+    , decltype(_impl_.to_user_id_){}
     , decltype(_impl_.file_name_){}
     , decltype(_impl_.task_id_){}
     , decltype(_impl_.result_code_){0u}
-    , decltype(_impl_.from_user_id_){0u}
-    , decltype(_impl_.to_user_id_){0u}
     , decltype(_impl_.trans_mode_){0}
   };
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.file_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.file_name_.Set("", GetArenaForAllocation());
@@ -2414,6 +2573,8 @@ FileRsp::~FileRsp() {
 inline void FileRsp::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.ip_addr_list_.~RepeatedPtrField();
+  _impl_.from_user_id_.Destroy();
+  _impl_.to_user_id_.Destroy();
   _impl_.file_name_.Destroy();
   _impl_.task_id_.Destroy();
 }
@@ -2430,15 +2591,21 @@ void FileRsp::Clear() {
 
   _impl_.ip_addr_list_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _impl_.file_name_.ClearNonDefaultToEmpty();
+      _impl_.from_user_id_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000002u) {
+      _impl_.to_user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _impl_.file_name_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000008u) {
       _impl_.task_id_.ClearNonDefaultToEmpty();
     }
   }
-  if (cached_has_bits & 0x0000003cu) {
+  if (cached_has_bits & 0x00000030u) {
     ::memset(&_impl_.result_code_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.trans_mode_) -
         reinterpret_cast<char*>(&_impl_.result_code_)) + sizeof(_impl_.trans_mode_));
@@ -2463,20 +2630,20 @@ const char* FileRsp::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) 
         } else
           goto handle_unusual;
         continue;
-      // required uint32 from_user_id = 2;
+      // required bytes from_user_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_from_user_id(&has_bits);
-          _impl_.from_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_from_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 to_user_id = 3;
+      // required bytes to_user_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_to_user_id(&has_bits);
-          _impl_.to_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_to_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2557,31 +2724,31 @@ uint8_t* FileRsp::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // required uint32 result_code = 1;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_result_code(), target);
   }
 
-  // required uint32 from_user_id = 2;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_from_user_id(), target);
+  // required bytes from_user_id = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_from_user_id(), target);
   }
 
-  // required uint32 to_user_id = 3;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_to_user_id(), target);
+  // required bytes to_user_id = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->WriteBytesMaybeAliased(
+        3, this->_internal_to_user_id(), target);
   }
 
   // required string file_name = 4;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->WriteStringMaybeAliased(
         4, this->_internal_file_name(), target);
   }
 
   // required string task_id = 5;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->WriteStringMaybeAliased(
         5, this->_internal_task_id(), target);
   }
@@ -2613,6 +2780,20 @@ size_t FileRsp::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:Bohan.File.FileRsp)
   size_t total_size = 0;
 
+  if (_internal_has_from_user_id()) {
+    // required bytes from_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+  }
+
+  if (_internal_has_to_user_id()) {
+    // required bytes to_user_id = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+  }
+
   if (_internal_has_file_name()) {
     // required string file_name = 4;
     total_size += 1 +
@@ -2632,16 +2813,6 @@ size_t FileRsp::RequiredFieldsByteSizeFallback() const {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_result_code());
   }
 
-  if (_internal_has_from_user_id()) {
-    // required uint32 from_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-  }
-
-  if (_internal_has_to_user_id()) {
-    // required uint32 to_user_id = 3;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
-  }
-
   if (_internal_has_trans_mode()) {
     // required .Bohan.BaseDefine.FileType trans_mode = 7;
     total_size += 1 +
@@ -2655,6 +2826,16 @@ size_t FileRsp::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x0000003f) ^ 0x0000003f) == 0) {  // All required fields are present.
+    // required bytes from_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+
+    // required bytes to_user_id = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+
     // required string file_name = 4;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -2667,12 +2848,6 @@ size_t FileRsp::ByteSizeLong() const {
 
     // required uint32 result_code = 1;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_result_code());
-
-    // required uint32 from_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-
-    // required uint32 to_user_id = 3;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
 
     // required .Bohan.BaseDefine.FileType trans_mode = 7;
     total_size += 1 +
@@ -2717,19 +2892,19 @@ void FileRsp::MergeFrom(const FileRsp& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_file_name(from._internal_file_name());
+      _this->_internal_set_from_user_id(from._internal_from_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_task_id(from._internal_task_id());
+      _this->_internal_set_to_user_id(from._internal_to_user_id());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.result_code_ = from._impl_.result_code_;
+      _this->_internal_set_file_name(from._internal_file_name());
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.from_user_id_ = from._impl_.from_user_id_;
+      _this->_internal_set_task_id(from._internal_task_id());
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.to_user_id_ = from._impl_.to_user_id_;
+      _this->_impl_.result_code_ = from._impl_.result_code_;
     }
     if (cached_has_bits & 0x00000020u) {
       _this->_impl_.trans_mode_ = from._impl_.trans_mode_;
@@ -2761,6 +2936,14 @@ void FileRsp::InternalSwap(FileRsp* other) {
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.ip_addr_list_.InternalSwap(&other->_impl_.ip_addr_list_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.from_user_id_, lhs_arena,
+      &other->_impl_.from_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.to_user_id_, lhs_arena,
+      &other->_impl_.to_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.file_name_, lhs_arena,
       &other->_impl_.file_name_, rhs_arena
   );
@@ -2787,19 +2970,19 @@ class FileNotify::_Internal {
  public:
   using HasBits = decltype(std::declval<FileNotify>()._impl_._has_bits_);
   static void set_has_from_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_to_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_file_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_file_size(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_task_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_trans_mode(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
@@ -2828,15 +3011,31 @@ FileNotify::FileNotify(const FileNotify& from)
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.ip_addr_list_){from._impl_.ip_addr_list_}
-    , decltype(_impl_.file_name_){}
-    , decltype(_impl_.task_id_){}
     , decltype(_impl_.from_user_id_){}
     , decltype(_impl_.to_user_id_){}
+    , decltype(_impl_.file_name_){}
+    , decltype(_impl_.task_id_){}
     , decltype(_impl_.file_size_){}
     , decltype(_impl_.trans_mode_){}
     , decltype(_impl_.offline_ready_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_from_user_id()) {
+    _this->_impl_.from_user_id_.Set(from._internal_from_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_to_user_id()) {
+    _this->_impl_.to_user_id_.Set(from._internal_to_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.file_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.file_name_.Set("", GetArenaForAllocation());
@@ -2853,9 +3052,9 @@ FileNotify::FileNotify(const FileNotify& from)
     _this->_impl_.task_id_.Set(from._internal_task_id(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.from_user_id_, &from._impl_.from_user_id_,
+  ::memcpy(&_impl_.file_size_, &from._impl_.file_size_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.offline_ready_) -
-    reinterpret_cast<char*>(&_impl_.from_user_id_)) + sizeof(_impl_.offline_ready_));
+    reinterpret_cast<char*>(&_impl_.file_size_)) + sizeof(_impl_.offline_ready_));
   // @@protoc_insertion_point(copy_constructor:Bohan.File.FileNotify)
 }
 
@@ -2867,14 +3066,22 @@ inline void FileNotify::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.ip_addr_list_){arena}
+    , decltype(_impl_.from_user_id_){}
+    , decltype(_impl_.to_user_id_){}
     , decltype(_impl_.file_name_){}
     , decltype(_impl_.task_id_){}
-    , decltype(_impl_.from_user_id_){0u}
-    , decltype(_impl_.to_user_id_){0u}
     , decltype(_impl_.file_size_){0u}
     , decltype(_impl_.trans_mode_){0}
     , decltype(_impl_.offline_ready_){0u}
   };
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.file_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.file_name_.Set("", GetArenaForAllocation());
@@ -2897,6 +3104,8 @@ FileNotify::~FileNotify() {
 inline void FileNotify::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.ip_addr_list_.~RepeatedPtrField();
+  _impl_.from_user_id_.Destroy();
+  _impl_.to_user_id_.Destroy();
   _impl_.file_name_.Destroy();
   _impl_.task_id_.Destroy();
 }
@@ -2913,18 +3122,24 @@ void FileNotify::Clear() {
 
   _impl_.ip_addr_list_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _impl_.file_name_.ClearNonDefaultToEmpty();
+      _impl_.from_user_id_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000002u) {
+      _impl_.to_user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _impl_.file_name_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000008u) {
       _impl_.task_id_.ClearNonDefaultToEmpty();
     }
   }
-  if (cached_has_bits & 0x0000007cu) {
-    ::memset(&_impl_.from_user_id_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x00000070u) {
+    ::memset(&_impl_.file_size_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.offline_ready_) -
-        reinterpret_cast<char*>(&_impl_.from_user_id_)) + sizeof(_impl_.offline_ready_));
+        reinterpret_cast<char*>(&_impl_.file_size_)) + sizeof(_impl_.offline_ready_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
@@ -2937,20 +3152,20 @@ const char* FileNotify::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 from_user_id = 1;
+      // required bytes from_user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_from_user_id(&has_bits);
-          _impl_.from_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_from_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 to_user_id = 2;
+      // required bytes to_user_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_to_user_id(&has_bits);
-          _impl_.to_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_to_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3048,20 +3263,20 @@ uint8_t* FileNotify::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 from_user_id = 1;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_from_user_id(), target);
+  // required bytes from_user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_from_user_id(), target);
   }
 
-  // required uint32 to_user_id = 2;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_to_user_id(), target);
+  // required bytes to_user_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_to_user_id(), target);
   }
 
   // required string file_name = 3;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_file_name(), target);
   }
@@ -3073,7 +3288,7 @@ uint8_t* FileNotify::_InternalSerialize(
   }
 
   // required string task_id = 5;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->WriteStringMaybeAliased(
         5, this->_internal_task_id(), target);
   }
@@ -3111,6 +3326,20 @@ size_t FileNotify::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:Bohan.File.FileNotify)
   size_t total_size = 0;
 
+  if (_internal_has_from_user_id()) {
+    // required bytes from_user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+  }
+
+  if (_internal_has_to_user_id()) {
+    // required bytes to_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+  }
+
   if (_internal_has_file_name()) {
     // required string file_name = 3;
     total_size += 1 +
@@ -3123,16 +3352,6 @@ size_t FileNotify::RequiredFieldsByteSizeFallback() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_task_id());
-  }
-
-  if (_internal_has_from_user_id()) {
-    // required uint32 from_user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-  }
-
-  if (_internal_has_to_user_id()) {
-    // required uint32 to_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
   }
 
   if (_internal_has_file_size()) {
@@ -3158,6 +3377,16 @@ size_t FileNotify::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x0000007f) ^ 0x0000007f) == 0) {  // All required fields are present.
+    // required bytes from_user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+
+    // required bytes to_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+
     // required string file_name = 3;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -3167,12 +3396,6 @@ size_t FileNotify::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_task_id());
-
-    // required uint32 from_user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-
-    // required uint32 to_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
 
     // required uint32 file_size = 4;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_file_size());
@@ -3223,16 +3446,16 @@ void FileNotify::MergeFrom(const FileNotify& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_file_name(from._internal_file_name());
+      _this->_internal_set_from_user_id(from._internal_from_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_task_id(from._internal_task_id());
+      _this->_internal_set_to_user_id(from._internal_to_user_id());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.from_user_id_ = from._impl_.from_user_id_;
+      _this->_internal_set_file_name(from._internal_file_name());
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.to_user_id_ = from._impl_.to_user_id_;
+      _this->_internal_set_task_id(from._internal_task_id());
     }
     if (cached_has_bits & 0x00000010u) {
       _this->_impl_.file_size_ = from._impl_.file_size_;
@@ -3270,6 +3493,14 @@ void FileNotify::InternalSwap(FileNotify* other) {
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.ip_addr_list_.InternalSwap(&other->_impl_.ip_addr_list_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.from_user_id_, lhs_arena,
+      &other->_impl_.from_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.to_user_id_, lhs_arena,
+      &other->_impl_.to_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.file_name_, lhs_arena,
       &other->_impl_.file_name_, rhs_arena
   );
@@ -3280,9 +3511,9 @@ void FileNotify::InternalSwap(FileNotify* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(FileNotify, _impl_.offline_ready_)
       + sizeof(FileNotify::_impl_.offline_ready_)
-      - PROTOBUF_FIELD_OFFSET(FileNotify, _impl_.from_user_id_)>(
-          reinterpret_cast<char*>(&_impl_.from_user_id_),
-          reinterpret_cast<char*>(&other->_impl_.from_user_id_));
+      - PROTOBUF_FIELD_OFFSET(FileNotify, _impl_.file_size_)>(
+          reinterpret_cast<char*>(&_impl_.file_size_),
+          reinterpret_cast<char*>(&other->_impl_.file_size_));
 }
 
 std::string FileNotify::GetTypeName() const {
@@ -3296,13 +3527,13 @@ class FileHasOfflineReq::_Internal {
  public:
   using HasBits = decltype(std::declval<FileHasOfflineReq>()._impl_._has_bits_);
   static void set_has_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_attach_data(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_attach_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000002) ^ 0x00000002) != 0;
+    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -3318,10 +3549,18 @@ FileHasOfflineReq::FileHasOfflineReq(const FileHasOfflineReq& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.attach_data_){}
-    , decltype(_impl_.user_id_){}};
+    , decltype(_impl_.user_id_){}
+    , decltype(_impl_.attach_data_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.attach_data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.attach_data_.Set("", GetArenaForAllocation());
@@ -3330,7 +3569,6 @@ FileHasOfflineReq::FileHasOfflineReq(const FileHasOfflineReq& from)
     _this->_impl_.attach_data_.Set(from._internal_attach_data(), 
       _this->GetArenaForAllocation());
   }
-  _this->_impl_.user_id_ = from._impl_.user_id_;
   // @@protoc_insertion_point(copy_constructor:Bohan.File.FileHasOfflineReq)
 }
 
@@ -3341,9 +3579,13 @@ inline void FileHasOfflineReq::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.attach_data_){}
-    , decltype(_impl_.user_id_){0u}
   };
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.attach_data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.attach_data_.Set("", GetArenaForAllocation());
@@ -3361,6 +3603,7 @@ FileHasOfflineReq::~FileHasOfflineReq() {
 
 inline void FileHasOfflineReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.user_id_.Destroy();
   _impl_.attach_data_.Destroy();
 }
 
@@ -3375,10 +3618,14 @@ void FileHasOfflineReq::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.attach_data_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.attach_data_.ClearNonDefaultToEmpty();
+    }
   }
-  _impl_.user_id_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
@@ -3390,11 +3637,11 @@ const char* FileHasOfflineReq::_InternalParse(const char* ptr, ::_pbi::ParseCont
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 user_id = 1;
+      // required bytes user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3439,14 +3686,14 @@ uint8_t* FileHasOfflineReq::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_user_id(), target);
+  // required bytes user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_user_id(), target);
   }
 
   // optional bytes attach_data = 20;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->WriteBytesMaybeAliased(
         20, this->_internal_attach_data(), target);
   }
@@ -3463,9 +3710,11 @@ size_t FileHasOfflineReq::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:Bohan.File.FileHasOfflineReq)
   size_t total_size = 0;
 
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   if (_internal_has_user_id()) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
   }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -3473,7 +3722,7 @@ size_t FileHasOfflineReq::ByteSizeLong() const {
 
   // optional bytes attach_data = 20;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_attach_data());
@@ -3503,12 +3752,11 @@ void FileHasOfflineReq::MergeFrom(const FileHasOfflineReq& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_attach_data(from._internal_attach_data());
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_internal_set_attach_data(from._internal_attach_data());
     }
-    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
@@ -3532,10 +3780,13 @@ void FileHasOfflineReq::InternalSwap(FileHasOfflineReq* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.attach_data_, lhs_arena,
       &other->_impl_.attach_data_, rhs_arena
   );
-  swap(_impl_.user_id_, other->_impl_.user_id_);
 }
 
 std::string FileHasOfflineReq::GetTypeName() const {
@@ -3549,13 +3800,13 @@ class FileHasOfflineRsp::_Internal {
  public:
   using HasBits = decltype(std::declval<FileHasOfflineRsp>()._impl_._has_bits_);
   static void set_has_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_attach_data(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_attach_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000002) ^ 0x00000002) != 0;
+    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -3579,10 +3830,18 @@ FileHasOfflineRsp::FileHasOfflineRsp(const FileHasOfflineRsp& from)
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.offline_file_list_){from._impl_.offline_file_list_}
     , decltype(_impl_.ip_addr_list_){from._impl_.ip_addr_list_}
-    , decltype(_impl_.attach_data_){}
-    , decltype(_impl_.user_id_){}};
+    , decltype(_impl_.user_id_){}
+    , decltype(_impl_.attach_data_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.attach_data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.attach_data_.Set("", GetArenaForAllocation());
@@ -3591,7 +3850,6 @@ FileHasOfflineRsp::FileHasOfflineRsp(const FileHasOfflineRsp& from)
     _this->_impl_.attach_data_.Set(from._internal_attach_data(), 
       _this->GetArenaForAllocation());
   }
-  _this->_impl_.user_id_ = from._impl_.user_id_;
   // @@protoc_insertion_point(copy_constructor:Bohan.File.FileHasOfflineRsp)
 }
 
@@ -3604,9 +3862,13 @@ inline void FileHasOfflineRsp::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.offline_file_list_){arena}
     , decltype(_impl_.ip_addr_list_){arena}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.attach_data_){}
-    , decltype(_impl_.user_id_){0u}
   };
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.attach_data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.attach_data_.Set("", GetArenaForAllocation());
@@ -3626,6 +3888,7 @@ inline void FileHasOfflineRsp::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.offline_file_list_.~RepeatedPtrField();
   _impl_.ip_addr_list_.~RepeatedPtrField();
+  _impl_.user_id_.Destroy();
   _impl_.attach_data_.Destroy();
 }
 
@@ -3642,10 +3905,14 @@ void FileHasOfflineRsp::Clear() {
   _impl_.offline_file_list_.Clear();
   _impl_.ip_addr_list_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.attach_data_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.attach_data_.ClearNonDefaultToEmpty();
+    }
   }
-  _impl_.user_id_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
@@ -3657,11 +3924,11 @@ const char* FileHasOfflineRsp::_InternalParse(const char* ptr, ::_pbi::ParseCont
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 user_id = 1;
+      // required bytes user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3732,10 +3999,10 @@ uint8_t* FileHasOfflineRsp::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_user_id(), target);
+  // required bytes user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_user_id(), target);
   }
 
   // repeated .Bohan.BaseDefine.OfflineFileInfo offline_file_list = 2;
@@ -3755,7 +4022,7 @@ uint8_t* FileHasOfflineRsp::_InternalSerialize(
   }
 
   // optional bytes attach_data = 20;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->WriteBytesMaybeAliased(
         20, this->_internal_attach_data(), target);
   }
@@ -3772,9 +4039,11 @@ size_t FileHasOfflineRsp::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:Bohan.File.FileHasOfflineRsp)
   size_t total_size = 0;
 
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   if (_internal_has_user_id()) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
   }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -3796,7 +4065,7 @@ size_t FileHasOfflineRsp::ByteSizeLong() const {
 
   // optional bytes attach_data = 20;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_attach_data());
@@ -3828,12 +4097,11 @@ void FileHasOfflineRsp::MergeFrom(const FileHasOfflineRsp& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_attach_data(from._internal_attach_data());
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_internal_set_attach_data(from._internal_attach_data());
     }
-    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
@@ -3863,10 +4131,13 @@ void FileHasOfflineRsp::InternalSwap(FileHasOfflineRsp* other) {
   _impl_.offline_file_list_.InternalSwap(&other->_impl_.offline_file_list_);
   _impl_.ip_addr_list_.InternalSwap(&other->_impl_.ip_addr_list_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.attach_data_, lhs_arena,
       &other->_impl_.attach_data_, rhs_arena
   );
-  swap(_impl_.user_id_, other->_impl_.user_id_);
 }
 
 std::string FileHasOfflineRsp::GetTypeName() const {
@@ -3880,16 +4151,16 @@ class FileAddOfflineReq::_Internal {
  public:
   using HasBits = decltype(std::declval<FileAddOfflineReq>()._impl_._has_bits_);
   static void set_has_from_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_to_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_task_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_file_name(HasBits* has_bits) {
+  static void set_has_to_user_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
+  }
+  static void set_has_task_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_file_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_file_size(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
@@ -3911,13 +4182,29 @@ FileAddOfflineReq::FileAddOfflineReq(const FileAddOfflineReq& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.task_id_){}
-    , decltype(_impl_.file_name_){}
     , decltype(_impl_.from_user_id_){}
     , decltype(_impl_.to_user_id_){}
+    , decltype(_impl_.task_id_){}
+    , decltype(_impl_.file_name_){}
     , decltype(_impl_.file_size_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_from_user_id()) {
+    _this->_impl_.from_user_id_.Set(from._internal_from_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_to_user_id()) {
+    _this->_impl_.to_user_id_.Set(from._internal_to_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.task_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.task_id_.Set("", GetArenaForAllocation());
@@ -3934,9 +4221,7 @@ FileAddOfflineReq::FileAddOfflineReq(const FileAddOfflineReq& from)
     _this->_impl_.file_name_.Set(from._internal_file_name(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.from_user_id_, &from._impl_.from_user_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.file_size_) -
-    reinterpret_cast<char*>(&_impl_.from_user_id_)) + sizeof(_impl_.file_size_));
+  _this->_impl_.file_size_ = from._impl_.file_size_;
   // @@protoc_insertion_point(copy_constructor:Bohan.File.FileAddOfflineReq)
 }
 
@@ -3947,12 +4232,20 @@ inline void FileAddOfflineReq::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.from_user_id_){}
+    , decltype(_impl_.to_user_id_){}
     , decltype(_impl_.task_id_){}
     , decltype(_impl_.file_name_){}
-    , decltype(_impl_.from_user_id_){0u}
-    , decltype(_impl_.to_user_id_){0u}
     , decltype(_impl_.file_size_){0u}
   };
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.task_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.task_id_.Set("", GetArenaForAllocation());
@@ -3974,6 +4267,8 @@ FileAddOfflineReq::~FileAddOfflineReq() {
 
 inline void FileAddOfflineReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.from_user_id_.Destroy();
+  _impl_.to_user_id_.Destroy();
   _impl_.task_id_.Destroy();
   _impl_.file_name_.Destroy();
 }
@@ -3989,19 +4284,21 @@ void FileAddOfflineReq::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      _impl_.task_id_.ClearNonDefaultToEmpty();
+      _impl_.from_user_id_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000002u) {
+      _impl_.to_user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _impl_.task_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000008u) {
       _impl_.file_name_.ClearNonDefaultToEmpty();
     }
   }
-  if (cached_has_bits & 0x0000001cu) {
-    ::memset(&_impl_.from_user_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.file_size_) -
-        reinterpret_cast<char*>(&_impl_.from_user_id_)) + sizeof(_impl_.file_size_));
-  }
+  _impl_.file_size_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
 }
@@ -4013,20 +4310,20 @@ const char* FileAddOfflineReq::_InternalParse(const char* ptr, ::_pbi::ParseCont
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 from_user_id = 1;
+      // required bytes from_user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_from_user_id(&has_bits);
-          _impl_.from_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_from_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 to_user_id = 2;
+      // required bytes to_user_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_to_user_id(&has_bits);
-          _impl_.to_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_to_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4089,26 +4386,26 @@ uint8_t* FileAddOfflineReq::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 from_user_id = 1;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_from_user_id(), target);
+  // required bytes from_user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_from_user_id(), target);
   }
 
-  // required uint32 to_user_id = 2;
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_to_user_id(), target);
+  // required bytes to_user_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_to_user_id(), target);
   }
 
   // required string task_id = 3;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_task_id(), target);
   }
 
   // required string file_name = 4;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->WriteStringMaybeAliased(
         4, this->_internal_file_name(), target);
   }
@@ -4131,6 +4428,20 @@ size_t FileAddOfflineReq::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:Bohan.File.FileAddOfflineReq)
   size_t total_size = 0;
 
+  if (_internal_has_from_user_id()) {
+    // required bytes from_user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+  }
+
+  if (_internal_has_to_user_id()) {
+    // required bytes to_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+  }
+
   if (_internal_has_task_id()) {
     // required string task_id = 3;
     total_size += 1 +
@@ -4145,16 +4456,6 @@ size_t FileAddOfflineReq::RequiredFieldsByteSizeFallback() const {
         this->_internal_file_name());
   }
 
-  if (_internal_has_from_user_id()) {
-    // required uint32 from_user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-  }
-
-  if (_internal_has_to_user_id()) {
-    // required uint32 to_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
-  }
-
   if (_internal_has_file_size()) {
     // required uint32 file_size = 5;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_file_size());
@@ -4167,6 +4468,16 @@ size_t FileAddOfflineReq::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+    // required bytes from_user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+
+    // required bytes to_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+
     // required string task_id = 3;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -4176,12 +4487,6 @@ size_t FileAddOfflineReq::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_file_name());
-
-    // required uint32 from_user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-
-    // required uint32 to_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
 
     // required uint32 file_size = 5;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_file_size());
@@ -4217,16 +4522,16 @@ void FileAddOfflineReq::MergeFrom(const FileAddOfflineReq& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_task_id(from._internal_task_id());
+      _this->_internal_set_from_user_id(from._internal_from_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_file_name(from._internal_file_name());
+      _this->_internal_set_to_user_id(from._internal_to_user_id());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.from_user_id_ = from._impl_.from_user_id_;
+      _this->_internal_set_task_id(from._internal_task_id());
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.to_user_id_ = from._impl_.to_user_id_;
+      _this->_internal_set_file_name(from._internal_file_name());
     }
     if (cached_has_bits & 0x00000010u) {
       _this->_impl_.file_size_ = from._impl_.file_size_;
@@ -4255,6 +4560,14 @@ void FileAddOfflineReq::InternalSwap(FileAddOfflineReq* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.from_user_id_, lhs_arena,
+      &other->_impl_.from_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.to_user_id_, lhs_arena,
+      &other->_impl_.to_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.task_id_, lhs_arena,
       &other->_impl_.task_id_, rhs_arena
   );
@@ -4262,12 +4575,7 @@ void FileAddOfflineReq::InternalSwap(FileAddOfflineReq* other) {
       &_impl_.file_name_, lhs_arena,
       &other->_impl_.file_name_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(FileAddOfflineReq, _impl_.file_size_)
-      + sizeof(FileAddOfflineReq::_impl_.file_size_)
-      - PROTOBUF_FIELD_OFFSET(FileAddOfflineReq, _impl_.from_user_id_)>(
-          reinterpret_cast<char*>(&_impl_.from_user_id_),
-          reinterpret_cast<char*>(&other->_impl_.from_user_id_));
+  swap(_impl_.file_size_, other->_impl_.file_size_);
 }
 
 std::string FileAddOfflineReq::GetTypeName() const {
@@ -4281,13 +4589,13 @@ class FileDelOfflineReq::_Internal {
  public:
   using HasBits = decltype(std::declval<FileDelOfflineReq>()._impl_._has_bits_);
   static void set_has_from_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_to_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_task_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 4u;
   }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x00000007) ^ 0x00000007) != 0;
@@ -4306,11 +4614,27 @@ FileDelOfflineReq::FileDelOfflineReq(const FileDelOfflineReq& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.task_id_){}
     , decltype(_impl_.from_user_id_){}
-    , decltype(_impl_.to_user_id_){}};
+    , decltype(_impl_.to_user_id_){}
+    , decltype(_impl_.task_id_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_from_user_id()) {
+    _this->_impl_.from_user_id_.Set(from._internal_from_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_to_user_id()) {
+    _this->_impl_.to_user_id_.Set(from._internal_to_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.task_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.task_id_.Set("", GetArenaForAllocation());
@@ -4319,9 +4643,6 @@ FileDelOfflineReq::FileDelOfflineReq(const FileDelOfflineReq& from)
     _this->_impl_.task_id_.Set(from._internal_task_id(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.from_user_id_, &from._impl_.from_user_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.to_user_id_) -
-    reinterpret_cast<char*>(&_impl_.from_user_id_)) + sizeof(_impl_.to_user_id_));
   // @@protoc_insertion_point(copy_constructor:Bohan.File.FileDelOfflineReq)
 }
 
@@ -4332,10 +4653,18 @@ inline void FileDelOfflineReq::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.from_user_id_){}
+    , decltype(_impl_.to_user_id_){}
     , decltype(_impl_.task_id_){}
-    , decltype(_impl_.from_user_id_){0u}
-    , decltype(_impl_.to_user_id_){0u}
   };
+  _impl_.from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.to_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.to_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.task_id_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.task_id_.Set("", GetArenaForAllocation());
@@ -4353,6 +4682,8 @@ FileDelOfflineReq::~FileDelOfflineReq() {
 
 inline void FileDelOfflineReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.from_user_id_.Destroy();
+  _impl_.to_user_id_.Destroy();
   _impl_.task_id_.Destroy();
 }
 
@@ -4367,13 +4698,16 @@ void FileDelOfflineReq::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.task_id_.ClearNonDefaultToEmpty();
-  }
-  if (cached_has_bits & 0x00000006u) {
-    ::memset(&_impl_.from_user_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.to_user_id_) -
-        reinterpret_cast<char*>(&_impl_.from_user_id_)) + sizeof(_impl_.to_user_id_));
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.from_user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.to_user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _impl_.task_id_.ClearNonDefaultToEmpty();
+    }
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
@@ -4386,20 +4720,20 @@ const char* FileDelOfflineReq::_InternalParse(const char* ptr, ::_pbi::ParseCont
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 from_user_id = 1;
+      // required bytes from_user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_from_user_id(&has_bits);
-          _impl_.from_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_from_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 to_user_id = 2;
+      // required bytes to_user_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_to_user_id(&has_bits);
-          _impl_.to_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_to_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4444,20 +4778,20 @@ uint8_t* FileDelOfflineReq::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 from_user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_from_user_id(), target);
+  // required bytes from_user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_from_user_id(), target);
   }
 
-  // required uint32 to_user_id = 2;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_to_user_id(), target);
+  // required bytes to_user_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_to_user_id(), target);
   }
 
   // required string task_id = 3;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_task_id(), target);
   }
@@ -4474,21 +4808,25 @@ size_t FileDelOfflineReq::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:Bohan.File.FileDelOfflineReq)
   size_t total_size = 0;
 
+  if (_internal_has_from_user_id()) {
+    // required bytes from_user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+  }
+
+  if (_internal_has_to_user_id()) {
+    // required bytes to_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+  }
+
   if (_internal_has_task_id()) {
     // required string task_id = 3;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_task_id());
-  }
-
-  if (_internal_has_from_user_id()) {
-    // required uint32 from_user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-  }
-
-  if (_internal_has_to_user_id()) {
-    // required uint32 to_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
   }
 
   return total_size;
@@ -4498,16 +4836,20 @@ size_t FileDelOfflineReq::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required bytes from_user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_from_user_id());
+
+    // required bytes to_user_id = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_to_user_id());
+
     // required string task_id = 3;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_task_id());
-
-    // required uint32 from_user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_from_user_id());
-
-    // required uint32 to_user_id = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_to_user_id());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -4540,15 +4882,14 @@ void FileDelOfflineReq::MergeFrom(const FileDelOfflineReq& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_task_id(from._internal_task_id());
+      _this->_internal_set_from_user_id(from._internal_from_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.from_user_id_ = from._impl_.from_user_id_;
+      _this->_internal_set_to_user_id(from._internal_to_user_id());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.to_user_id_ = from._impl_.to_user_id_;
+      _this->_internal_set_task_id(from._internal_task_id());
     }
-    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
@@ -4572,15 +4913,17 @@ void FileDelOfflineReq::InternalSwap(FileDelOfflineReq* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.from_user_id_, lhs_arena,
+      &other->_impl_.from_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.to_user_id_, lhs_arena,
+      &other->_impl_.to_user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.task_id_, lhs_arena,
       &other->_impl_.task_id_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(FileDelOfflineReq, _impl_.to_user_id_)
-      + sizeof(FileDelOfflineReq::_impl_.to_user_id_)
-      - PROTOBUF_FIELD_OFFSET(FileDelOfflineReq, _impl_.from_user_id_)>(
-          reinterpret_cast<char*>(&_impl_.from_user_id_),
-          reinterpret_cast<char*>(&other->_impl_.from_user_id_));
 }
 
 std::string FileDelOfflineReq::GetTypeName() const {

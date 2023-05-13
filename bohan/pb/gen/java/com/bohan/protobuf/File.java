@@ -23,7 +23,7 @@ public final class File {
      *cmd id:	0x0501
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -32,10 +32,10 @@ public final class File {
      *cmd id:	0x0501
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required string task_id = 2;</code>
@@ -78,6 +78,7 @@ public final class File {
       super(builder);
     }
     private FileLoginReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       taskId_ = "";
       fileRole_ = 1;
     }
@@ -109,13 +110,13 @@ public final class File {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:	0x0501
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -127,11 +128,11 @@ public final class File {
      *cmd id:	0x0501
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -229,7 +230,7 @@ public final class File {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, taskId_);
@@ -248,7 +249,7 @@ public final class File {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, taskId_);
@@ -274,8 +275,8 @@ public final class File {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasTaskId() != other.hasTaskId()) return false;
       if (hasTaskId()) {
@@ -299,7 +300,7 @@ public final class File {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasTaskId()) {
         hash = (37 * hash) + TASK_ID_FIELD_NUMBER;
@@ -437,7 +438,7 @@ public final class File {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         taskId_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -472,9 +473,9 @@ public final class File {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -578,11 +579,11 @@ public final class File {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 taskId_ = input.readBytes();
                 bitField0_ |= 0x00000002;
@@ -617,13 +618,13 @@ public final class File {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:	0x0501
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -635,11 +636,11 @@ public final class File {
        *cmd id:	0x0501
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -647,12 +648,15 @@ public final class File {
        *cmd id:	0x0501
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -662,12 +666,12 @@ public final class File {
        *cmd id:	0x0501
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -1634,15 +1638,15 @@ public final class File {
         getTaskIdBytes();
 
     /**
-     * <code>required uint32 user_id = 3;</code>
+     * <code>required bytes user_id = 3;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
     /**
-     * <code>required uint32 user_id = 3;</code>
+     * <code>required bytes user_id = 3;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
   }
   /**
    * Protobuf type {@code Bohan.File.FileState}
@@ -1659,6 +1663,7 @@ public final class File {
     private FileState() {
       state_ = 0;
       taskId_ = "";
+      userId_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -1763,9 +1768,9 @@ public final class File {
     }
 
     public static final int USER_ID_FIELD_NUMBER = 3;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
-     * <code>required uint32 user_id = 3;</code>
+     * <code>required bytes user_id = 3;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -1773,11 +1778,11 @@ public final class File {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>required uint32 user_id = 3;</code>
+     * <code>required bytes user_id = 3;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -1814,7 +1819,7 @@ public final class File {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, taskId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeUInt32(3, userId_);
+        output.writeBytes(3, userId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1834,7 +1839,7 @@ public final class File {
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, userId_);
+          .computeBytesSize(3, userId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1862,8 +1867,8 @@ public final class File {
       }
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -1886,7 +1891,7 @@ public final class File {
       }
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -2020,7 +2025,7 @@ public final class File {
         bitField0_ = (bitField0_ & ~0x00000001);
         taskId_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -2059,9 +2064,9 @@ public final class File {
         }
         result.taskId_ = taskId_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000004;
         }
+        result.userId_ = userId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2174,11 +2179,11 @@ public final class File {
                 bitField0_ |= 0x00000002;
                 break;
               } // case 18
-              case 24: {
-                userId_ = input.readUInt32();
+              case 26: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000004;
                 break;
-              } // case 24
+              } // case 26
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -2339,9 +2344,9 @@ public final class File {
         return this;
       }
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 user_id = 3;</code>
+       * <code>required bytes user_id = 3;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -2349,31 +2354,34 @@ public final class File {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>required uint32 user_id = 3;</code>
+       * <code>required bytes user_id = 3;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
-       * <code>required uint32 user_id = 3;</code>
+       * <code>required bytes user_id = 3;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000004;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         userId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 user_id = 3;</code>
+       * <code>required bytes user_id = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -2475,15 +2483,15 @@ public final class File {
         getTaskIdBytes();
 
     /**
-     * <code>required uint32 user_id = 2;</code>
+     * <code>required bytes user_id = 2;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
     /**
-     * <code>required uint32 user_id = 2;</code>
+     * <code>required bytes user_id = 2;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.FileType trans_mode = 3;</code>
@@ -2532,6 +2540,7 @@ public final class File {
     }
     private FilePullDataReq() {
       taskId_ = "";
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       transMode_ = 0;
     }
 
@@ -2622,9 +2631,9 @@ public final class File {
     }
 
     public static final int USER_ID_FIELD_NUMBER = 2;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
-     * <code>required uint32 user_id = 2;</code>
+     * <code>required bytes user_id = 2;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -2632,11 +2641,11 @@ public final class File {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required uint32 user_id = 2;</code>
+     * <code>required bytes user_id = 2;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -2735,7 +2744,7 @@ public final class File {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, taskId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeUInt32(2, userId_);
+        output.writeBytes(2, userId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         output.writeEnum(3, transMode_);
@@ -2760,7 +2769,7 @@ public final class File {
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, userId_);
+          .computeBytesSize(2, userId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -2796,8 +2805,8 @@ public final class File {
       }
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasTransMode() != other.hasTransMode()) return false;
       if (hasTransMode()) {
@@ -2830,7 +2839,7 @@ public final class File {
       }
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasTransMode()) {
         hash = (37 * hash) + TRANS_MODE_FIELD_NUMBER;
@@ -2974,7 +2983,7 @@ public final class File {
         super.clear();
         taskId_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         transMode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -3015,9 +3024,9 @@ public final class File {
         }
         result.taskId_ = taskId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000002;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -3142,11 +3151,11 @@ public final class File {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 10
-              case 16: {
-                userId_ = input.readUInt32();
+              case 18: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 16
+              } // case 18
               case 24: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.FileType tmpValue =
@@ -3294,9 +3303,9 @@ public final class File {
         return this;
       }
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 user_id = 2;</code>
+       * <code>required bytes user_id = 2;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -3304,31 +3313,34 @@ public final class File {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required uint32 user_id = 2;</code>
+       * <code>required bytes user_id = 2;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
-       * <code>required uint32 user_id = 2;</code>
+       * <code>required bytes user_id = 2;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000002;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         userId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 user_id = 2;</code>
+       * <code>required bytes user_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -3558,15 +3570,15 @@ public final class File {
         getTaskIdBytes();
 
     /**
-     * <code>required uint32 user_id = 3;</code>
+     * <code>required bytes user_id = 3;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
     /**
-     * <code>required uint32 user_id = 3;</code>
+     * <code>required bytes user_id = 3;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 offset = 4;</code>
@@ -3604,6 +3616,7 @@ public final class File {
     }
     private FilePullDataRsp() {
       taskId_ = "";
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       data_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -3709,9 +3722,9 @@ public final class File {
     }
 
     public static final int USER_ID_FIELD_NUMBER = 3;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
-     * <code>required uint32 user_id = 3;</code>
+     * <code>required bytes user_id = 3;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -3719,11 +3732,11 @@ public final class File {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>required uint32 user_id = 3;</code>
+     * <code>required bytes user_id = 3;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -3806,7 +3819,7 @@ public final class File {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, taskId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeUInt32(3, userId_);
+        output.writeBytes(3, userId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         output.writeUInt32(4, offset_);
@@ -3832,7 +3845,7 @@ public final class File {
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, userId_);
+          .computeBytesSize(3, userId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -3869,8 +3882,8 @@ public final class File {
       }
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasOffset() != other.hasOffset()) return false;
       if (hasOffset()) {
@@ -3903,7 +3916,7 @@ public final class File {
       }
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasOffset()) {
         hash = (37 * hash) + OFFSET_FIELD_NUMBER;
@@ -4045,7 +4058,7 @@ public final class File {
         bitField0_ = (bitField0_ & ~0x00000001);
         taskId_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         offset_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -4088,9 +4101,9 @@ public final class File {
         }
         result.taskId_ = taskId_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000004;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.offset_ = offset_;
           to_bitField0_ |= 0x00000008;
@@ -4216,11 +4229,11 @@ public final class File {
                 bitField0_ |= 0x00000002;
                 break;
               } // case 18
-              case 24: {
-                userId_ = input.readUInt32();
+              case 26: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000004;
                 break;
-              } // case 24
+              } // case 26
               case 32: {
                 offset_ = input.readUInt32();
                 bitField0_ |= 0x00000008;
@@ -4387,9 +4400,9 @@ public final class File {
         return this;
       }
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 user_id = 3;</code>
+       * <code>required bytes user_id = 3;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -4397,31 +4410,34 @@ public final class File {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>required uint32 user_id = 3;</code>
+       * <code>required bytes user_id = 3;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
-       * <code>required uint32 user_id = 3;</code>
+       * <code>required bytes user_id = 3;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000004;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         userId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 user_id = 3;</code>
+       * <code>required bytes user_id = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -4579,7 +4595,7 @@ public final class File {
      *cmd id: 	0x0506
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return Whether the fromUserId field is set.
      */
     boolean hasFromUserId();
@@ -4588,21 +4604,21 @@ public final class File {
      *cmd id: 	0x0506
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return The fromUserId.
      */
-    int getFromUserId();
+    com.google.protobuf.ByteString getFromUserId();
 
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return Whether the toUserId field is set.
      */
     boolean hasToUserId();
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return The toUserId.
      */
-    int getToUserId();
+    com.google.protobuf.ByteString getToUserId();
 
     /**
      * <code>required string file_name = 3;</code>
@@ -4656,6 +4672,8 @@ public final class File {
       super(builder);
     }
     private FileReq() {
+      fromUserId_ = com.google.protobuf.ByteString.EMPTY;
+      toUserId_ = com.google.protobuf.ByteString.EMPTY;
       fileName_ = "";
       transMode_ = 0;
     }
@@ -4687,13 +4705,13 @@ public final class File {
 
     private int bitField0_;
     public static final int FROM_USER_ID_FIELD_NUMBER = 1;
-    private int fromUserId_;
+    private com.google.protobuf.ByteString fromUserId_;
     /**
      * <pre>
      *cmd id: 	0x0506
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return Whether the fromUserId field is set.
      */
     @java.lang.Override
@@ -4705,18 +4723,18 @@ public final class File {
      *cmd id: 	0x0506
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return The fromUserId.
      */
     @java.lang.Override
-    public int getFromUserId() {
+    public com.google.protobuf.ByteString getFromUserId() {
       return fromUserId_;
     }
 
     public static final int TO_USER_ID_FIELD_NUMBER = 2;
-    private int toUserId_;
+    private com.google.protobuf.ByteString toUserId_;
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return Whether the toUserId field is set.
      */
     @java.lang.Override
@@ -4724,11 +4742,11 @@ public final class File {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return The toUserId.
      */
     @java.lang.Override
-    public int getToUserId() {
+    public com.google.protobuf.ByteString getToUserId() {
       return toUserId_;
     }
 
@@ -4853,10 +4871,10 @@ public final class File {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, fromUserId_);
+        output.writeBytes(1, fromUserId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeUInt32(2, toUserId_);
+        output.writeBytes(2, toUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fileName_);
@@ -4878,11 +4896,11 @@ public final class File {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, fromUserId_);
+          .computeBytesSize(1, fromUserId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, toUserId_);
+          .computeBytesSize(2, toUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fileName_);
@@ -4912,13 +4930,13 @@ public final class File {
 
       if (hasFromUserId() != other.hasFromUserId()) return false;
       if (hasFromUserId()) {
-        if (getFromUserId()
-            != other.getFromUserId()) return false;
+        if (!getFromUserId()
+            .equals(other.getFromUserId())) return false;
       }
       if (hasToUserId() != other.hasToUserId()) return false;
       if (hasToUserId()) {
-        if (getToUserId()
-            != other.getToUserId()) return false;
+        if (!getToUserId()
+            .equals(other.getToUserId())) return false;
       }
       if (hasFileName() != other.hasFileName()) return false;
       if (hasFileName()) {
@@ -4947,11 +4965,11 @@ public final class File {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasFromUserId()) {
         hash = (37 * hash) + FROM_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getFromUserId();
+        hash = (53 * hash) + getFromUserId().hashCode();
       }
       if (hasToUserId()) {
         hash = (37 * hash) + TO_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getToUserId();
+        hash = (53 * hash) + getToUserId().hashCode();
       }
       if (hasFileName()) {
         hash = (37 * hash) + FILE_NAME_FIELD_NUMBER;
@@ -5093,9 +5111,9 @@ public final class File {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        fromUserId_ = 0;
+        fromUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        toUserId_ = 0;
+        toUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         fileName_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -5132,13 +5150,13 @@ public final class File {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.fromUserId_ = fromUserId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.fromUserId_ = fromUserId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.toUserId_ = toUserId_;
           to_bitField0_ |= 0x00000002;
         }
+        result.toUserId_ = toUserId_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -5258,16 +5276,16 @@ public final class File {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromUserId_ = input.readUInt32();
+              case 10: {
+                fromUserId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
-              case 16: {
-                toUserId_ = input.readUInt32();
+              } // case 10
+              case 18: {
+                toUserId_ = input.readBytes();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 16
+              } // case 18
               case 26: {
                 fileName_ = input.readBytes();
                 bitField0_ |= 0x00000004;
@@ -5307,13 +5325,13 @@ public final class File {
       }
       private int bitField0_;
 
-      private int fromUserId_ ;
+      private com.google.protobuf.ByteString fromUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id: 	0x0506
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return Whether the fromUserId field is set.
        */
       @java.lang.Override
@@ -5325,11 +5343,11 @@ public final class File {
        *cmd id: 	0x0506
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return The fromUserId.
        */
       @java.lang.Override
-      public int getFromUserId() {
+      public com.google.protobuf.ByteString getFromUserId() {
         return fromUserId_;
       }
       /**
@@ -5337,12 +5355,15 @@ public final class File {
        *cmd id: 	0x0506
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @param value The fromUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setFromUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setFromUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         fromUserId_ = value;
         onChanged();
         return this;
@@ -5352,19 +5373,19 @@ public final class File {
        *cmd id: 	0x0506
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearFromUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        fromUserId_ = 0;
+        fromUserId_ = getDefaultInstance().getFromUserId();
         onChanged();
         return this;
       }
 
-      private int toUserId_ ;
+      private com.google.protobuf.ByteString toUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return Whether the toUserId field is set.
        */
       @java.lang.Override
@@ -5372,31 +5393,34 @@ public final class File {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return The toUserId.
        */
       @java.lang.Override
-      public int getToUserId() {
+      public com.google.protobuf.ByteString getToUserId() {
         return toUserId_;
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @param value The toUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setToUserId(int value) {
-        bitField0_ |= 0x00000002;
+      public Builder setToUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         toUserId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearToUserId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        toUserId_ = 0;
+        toUserId_ = getDefaultInstance().getToUserId();
         onChanged();
         return this;
       }
@@ -5654,26 +5678,26 @@ public final class File {
     int getResultCode();
 
     /**
-     * <code>required uint32 from_user_id = 2;</code>
+     * <code>required bytes from_user_id = 2;</code>
      * @return Whether the fromUserId field is set.
      */
     boolean hasFromUserId();
     /**
-     * <code>required uint32 from_user_id = 2;</code>
+     * <code>required bytes from_user_id = 2;</code>
      * @return The fromUserId.
      */
-    int getFromUserId();
+    com.google.protobuf.ByteString getFromUserId();
 
     /**
-     * <code>required uint32 to_user_id = 3;</code>
+     * <code>required bytes to_user_id = 3;</code>
      * @return Whether the toUserId field is set.
      */
     boolean hasToUserId();
     /**
-     * <code>required uint32 to_user_id = 3;</code>
+     * <code>required bytes to_user_id = 3;</code>
      * @return The toUserId.
      */
-    int getToUserId();
+    com.google.protobuf.ByteString getToUserId();
 
     /**
      * <code>required string file_name = 4;</code>
@@ -5757,6 +5781,8 @@ public final class File {
       super(builder);
     }
     private FileRsp() {
+      fromUserId_ = com.google.protobuf.ByteString.EMPTY;
+      toUserId_ = com.google.protobuf.ByteString.EMPTY;
       fileName_ = "";
       taskId_ = "";
       ipAddrList_ = java.util.Collections.emptyList();
@@ -5817,9 +5843,9 @@ public final class File {
     }
 
     public static final int FROM_USER_ID_FIELD_NUMBER = 2;
-    private int fromUserId_;
+    private com.google.protobuf.ByteString fromUserId_;
     /**
-     * <code>required uint32 from_user_id = 2;</code>
+     * <code>required bytes from_user_id = 2;</code>
      * @return Whether the fromUserId field is set.
      */
     @java.lang.Override
@@ -5827,18 +5853,18 @@ public final class File {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required uint32 from_user_id = 2;</code>
+     * <code>required bytes from_user_id = 2;</code>
      * @return The fromUserId.
      */
     @java.lang.Override
-    public int getFromUserId() {
+    public com.google.protobuf.ByteString getFromUserId() {
       return fromUserId_;
     }
 
     public static final int TO_USER_ID_FIELD_NUMBER = 3;
-    private int toUserId_;
+    private com.google.protobuf.ByteString toUserId_;
     /**
-     * <code>required uint32 to_user_id = 3;</code>
+     * <code>required bytes to_user_id = 3;</code>
      * @return Whether the toUserId field is set.
      */
     @java.lang.Override
@@ -5846,11 +5872,11 @@ public final class File {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>required uint32 to_user_id = 3;</code>
+     * <code>required bytes to_user_id = 3;</code>
      * @return The toUserId.
      */
     @java.lang.Override
-    public int getToUserId() {
+    public com.google.protobuf.ByteString getToUserId() {
       return toUserId_;
     }
 
@@ -6057,10 +6083,10 @@ public final class File {
         output.writeUInt32(1, resultCode_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeUInt32(2, fromUserId_);
+        output.writeBytes(2, fromUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeUInt32(3, toUserId_);
+        output.writeBytes(3, toUserId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fileName_);
@@ -6089,11 +6115,11 @@ public final class File {
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, fromUserId_);
+          .computeBytesSize(2, fromUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, toUserId_);
+          .computeBytesSize(3, toUserId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fileName_);
@@ -6131,13 +6157,13 @@ public final class File {
       }
       if (hasFromUserId() != other.hasFromUserId()) return false;
       if (hasFromUserId()) {
-        if (getFromUserId()
-            != other.getFromUserId()) return false;
+        if (!getFromUserId()
+            .equals(other.getFromUserId())) return false;
       }
       if (hasToUserId() != other.hasToUserId()) return false;
       if (hasToUserId()) {
-        if (getToUserId()
-            != other.getToUserId()) return false;
+        if (!getToUserId()
+            .equals(other.getToUserId())) return false;
       }
       if (hasFileName() != other.hasFileName()) return false;
       if (hasFileName()) {
@@ -6172,11 +6198,11 @@ public final class File {
       }
       if (hasFromUserId()) {
         hash = (37 * hash) + FROM_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getFromUserId();
+        hash = (53 * hash) + getFromUserId().hashCode();
       }
       if (hasToUserId()) {
         hash = (37 * hash) + TO_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getToUserId();
+        hash = (53 * hash) + getToUserId().hashCode();
       }
       if (hasFileName()) {
         hash = (37 * hash) + FILE_NAME_FIELD_NUMBER;
@@ -6324,9 +6350,9 @@ public final class File {
         super.clear();
         resultCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        fromUserId_ = 0;
+        fromUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        toUserId_ = 0;
+        toUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         fileName_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -6374,13 +6400,13 @@ public final class File {
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.fromUserId_ = fromUserId_;
           to_bitField0_ |= 0x00000002;
         }
+        result.fromUserId_ = fromUserId_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.toUserId_ = toUserId_;
           to_bitField0_ |= 0x00000004;
         }
+        result.toUserId_ = toUserId_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
           to_bitField0_ |= 0x00000008;
         }
@@ -6553,16 +6579,16 @@ public final class File {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
-              case 16: {
-                fromUserId_ = input.readUInt32();
+              case 18: {
+                fromUserId_ = input.readBytes();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 16
-              case 24: {
-                toUserId_ = input.readUInt32();
+              } // case 18
+              case 26: {
+                toUserId_ = input.readBytes();
                 bitField0_ |= 0x00000004;
                 break;
-              } // case 24
+              } // case 26
               case 34: {
                 fileName_ = input.readBytes();
                 bitField0_ |= 0x00000008;
@@ -6670,9 +6696,9 @@ public final class File {
         return this;
       }
 
-      private int fromUserId_ ;
+      private com.google.protobuf.ByteString fromUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 from_user_id = 2;</code>
+       * <code>required bytes from_user_id = 2;</code>
        * @return Whether the fromUserId field is set.
        */
       @java.lang.Override
@@ -6680,38 +6706,41 @@ public final class File {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required uint32 from_user_id = 2;</code>
+       * <code>required bytes from_user_id = 2;</code>
        * @return The fromUserId.
        */
       @java.lang.Override
-      public int getFromUserId() {
+      public com.google.protobuf.ByteString getFromUserId() {
         return fromUserId_;
       }
       /**
-       * <code>required uint32 from_user_id = 2;</code>
+       * <code>required bytes from_user_id = 2;</code>
        * @param value The fromUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setFromUserId(int value) {
-        bitField0_ |= 0x00000002;
+      public Builder setFromUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         fromUserId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 from_user_id = 2;</code>
+       * <code>required bytes from_user_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearFromUserId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        fromUserId_ = 0;
+        fromUserId_ = getDefaultInstance().getFromUserId();
         onChanged();
         return this;
       }
 
-      private int toUserId_ ;
+      private com.google.protobuf.ByteString toUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 to_user_id = 3;</code>
+       * <code>required bytes to_user_id = 3;</code>
        * @return Whether the toUserId field is set.
        */
       @java.lang.Override
@@ -6719,31 +6748,34 @@ public final class File {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>required uint32 to_user_id = 3;</code>
+       * <code>required bytes to_user_id = 3;</code>
        * @return The toUserId.
        */
       @java.lang.Override
-      public int getToUserId() {
+      public com.google.protobuf.ByteString getToUserId() {
         return toUserId_;
       }
       /**
-       * <code>required uint32 to_user_id = 3;</code>
+       * <code>required bytes to_user_id = 3;</code>
        * @param value The toUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setToUserId(int value) {
-        bitField0_ |= 0x00000004;
+      public Builder setToUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         toUserId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 to_user_id = 3;</code>
+       * <code>required bytes to_user_id = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearToUserId() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        toUserId_ = 0;
+        toUserId_ = getDefaultInstance().getToUserId();
         onChanged();
         return this;
       }
@@ -7271,7 +7303,7 @@ public final class File {
      *cmd id: 	0x0508
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return Whether the fromUserId field is set.
      */
     boolean hasFromUserId();
@@ -7280,21 +7312,21 @@ public final class File {
      *cmd id: 	0x0508
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return The fromUserId.
      */
-    int getFromUserId();
+    com.google.protobuf.ByteString getFromUserId();
 
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return Whether the toUserId field is set.
      */
     boolean hasToUserId();
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return The toUserId.
      */
-    int getToUserId();
+    com.google.protobuf.ByteString getToUserId();
 
     /**
      * <code>required string file_name = 3;</code>
@@ -7408,6 +7440,8 @@ public final class File {
       super(builder);
     }
     private FileNotify() {
+      fromUserId_ = com.google.protobuf.ByteString.EMPTY;
+      toUserId_ = com.google.protobuf.ByteString.EMPTY;
       fileName_ = "";
       taskId_ = "";
       ipAddrList_ = java.util.Collections.emptyList();
@@ -7441,13 +7475,13 @@ public final class File {
 
     private int bitField0_;
     public static final int FROM_USER_ID_FIELD_NUMBER = 1;
-    private int fromUserId_;
+    private com.google.protobuf.ByteString fromUserId_;
     /**
      * <pre>
      *cmd id: 	0x0508
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return Whether the fromUserId field is set.
      */
     @java.lang.Override
@@ -7459,18 +7493,18 @@ public final class File {
      *cmd id: 	0x0508
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return The fromUserId.
      */
     @java.lang.Override
-    public int getFromUserId() {
+    public com.google.protobuf.ByteString getFromUserId() {
       return fromUserId_;
     }
 
     public static final int TO_USER_ID_FIELD_NUMBER = 2;
-    private int toUserId_;
+    private com.google.protobuf.ByteString toUserId_;
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return Whether the toUserId field is set.
      */
     @java.lang.Override
@@ -7478,11 +7512,11 @@ public final class File {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return The toUserId.
      */
     @java.lang.Override
-    public int getToUserId() {
+    public com.google.protobuf.ByteString getToUserId() {
       return toUserId_;
     }
 
@@ -7736,10 +7770,10 @@ public final class File {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, fromUserId_);
+        output.writeBytes(1, fromUserId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeUInt32(2, toUserId_);
+        output.writeBytes(2, toUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fileName_);
@@ -7770,11 +7804,11 @@ public final class File {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, fromUserId_);
+          .computeBytesSize(1, fromUserId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, toUserId_);
+          .computeBytesSize(2, toUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fileName_);
@@ -7815,13 +7849,13 @@ public final class File {
 
       if (hasFromUserId() != other.hasFromUserId()) return false;
       if (hasFromUserId()) {
-        if (getFromUserId()
-            != other.getFromUserId()) return false;
+        if (!getFromUserId()
+            .equals(other.getFromUserId())) return false;
       }
       if (hasToUserId() != other.hasToUserId()) return false;
       if (hasToUserId()) {
-        if (getToUserId()
-            != other.getToUserId()) return false;
+        if (!getToUserId()
+            .equals(other.getToUserId())) return false;
       }
       if (hasFileName() != other.hasFileName()) return false;
       if (hasFileName()) {
@@ -7862,11 +7896,11 @@ public final class File {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasFromUserId()) {
         hash = (37 * hash) + FROM_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getFromUserId();
+        hash = (53 * hash) + getFromUserId().hashCode();
       }
       if (hasToUserId()) {
         hash = (37 * hash) + TO_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getToUserId();
+        hash = (53 * hash) + getToUserId().hashCode();
       }
       if (hasFileName()) {
         hash = (37 * hash) + FILE_NAME_FIELD_NUMBER;
@@ -8020,9 +8054,9 @@ public final class File {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        fromUserId_ = 0;
+        fromUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        toUserId_ = 0;
+        toUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         fileName_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -8070,13 +8104,13 @@ public final class File {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.fromUserId_ = fromUserId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.fromUserId_ = fromUserId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.toUserId_ = toUserId_;
           to_bitField0_ |= 0x00000002;
         }
+        result.toUserId_ = toUserId_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -8258,16 +8292,16 @@ public final class File {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromUserId_ = input.readUInt32();
+              case 10: {
+                fromUserId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
-              case 16: {
-                toUserId_ = input.readUInt32();
+              } // case 10
+              case 18: {
+                toUserId_ = input.readBytes();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 16
+              } // case 18
               case 26: {
                 fileName_ = input.readBytes();
                 bitField0_ |= 0x00000004;
@@ -8330,13 +8364,13 @@ public final class File {
       }
       private int bitField0_;
 
-      private int fromUserId_ ;
+      private com.google.protobuf.ByteString fromUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id: 	0x0508
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return Whether the fromUserId field is set.
        */
       @java.lang.Override
@@ -8348,11 +8382,11 @@ public final class File {
        *cmd id: 	0x0508
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return The fromUserId.
        */
       @java.lang.Override
-      public int getFromUserId() {
+      public com.google.protobuf.ByteString getFromUserId() {
         return fromUserId_;
       }
       /**
@@ -8360,12 +8394,15 @@ public final class File {
        *cmd id: 	0x0508
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @param value The fromUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setFromUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setFromUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         fromUserId_ = value;
         onChanged();
         return this;
@@ -8375,19 +8412,19 @@ public final class File {
        *cmd id: 	0x0508
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearFromUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        fromUserId_ = 0;
+        fromUserId_ = getDefaultInstance().getFromUserId();
         onChanged();
         return this;
       }
 
-      private int toUserId_ ;
+      private com.google.protobuf.ByteString toUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return Whether the toUserId field is set.
        */
       @java.lang.Override
@@ -8395,31 +8432,34 @@ public final class File {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return The toUserId.
        */
       @java.lang.Override
-      public int getToUserId() {
+      public com.google.protobuf.ByteString getToUserId() {
         return toUserId_;
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @param value The toUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setToUserId(int value) {
-        bitField0_ |= 0x00000002;
+      public Builder setToUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         toUserId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearToUserId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        toUserId_ = 0;
+        toUserId_ = getDefaultInstance().getToUserId();
         onChanged();
         return this;
       }
@@ -9041,7 +9081,7 @@ public final class File {
      *cmd id: 	0x0509
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -9050,10 +9090,10 @@ public final class File {
      *cmd id: 	0x0509
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>optional bytes attach_data = 20;</code>
@@ -9079,6 +9119,7 @@ public final class File {
       super(builder);
     }
     private FileHasOfflineReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -9109,13 +9150,13 @@ public final class File {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id: 	0x0509
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -9127,11 +9168,11 @@ public final class File {
      *cmd id: 	0x0509
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -9173,7 +9214,7 @@ public final class File {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeBytes(20, attachData_);
@@ -9189,7 +9230,7 @@ public final class File {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -9212,8 +9253,8 @@ public final class File {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasAttachData() != other.hasAttachData()) return false;
       if (hasAttachData()) {
@@ -9233,7 +9274,7 @@ public final class File {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasAttachData()) {
         hash = (37 * hash) + ATTACH_DATA_FIELD_NUMBER;
@@ -9367,7 +9408,7 @@ public final class File {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         attachData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -9400,9 +9441,9 @@ public final class File {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -9491,11 +9532,11 @@ public final class File {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 162: {
                 attachData_ = input.readBytes();
                 bitField0_ |= 0x00000002;
@@ -9518,13 +9559,13 @@ public final class File {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id: 	0x0509
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -9536,11 +9577,11 @@ public final class File {
        *cmd id: 	0x0509
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -9548,12 +9589,15 @@ public final class File {
        *cmd id: 	0x0509
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -9563,12 +9607,12 @@ public final class File {
        *cmd id: 	0x0509
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -9687,7 +9731,7 @@ public final class File {
      *cmd id:	0x050a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -9696,10 +9740,10 @@ public final class File {
      *cmd id:	0x050a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>repeated .Bohan.BaseDefine.OfflineFileInfo offline_file_list = 2;</code>
@@ -9773,6 +9817,7 @@ public final class File {
       super(builder);
     }
     private FileHasOfflineRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       offlineFileList_ = java.util.Collections.emptyList();
       ipAddrList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
@@ -9805,13 +9850,13 @@ public final class File {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:	0x050a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -9823,11 +9868,11 @@ public final class File {
      *cmd id:	0x050a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -9961,7 +10006,7 @@ public final class File {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       for (int i = 0; i < offlineFileList_.size(); i++) {
         output.writeMessage(2, offlineFileList_.get(i));
@@ -9983,7 +10028,7 @@ public final class File {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       for (int i = 0; i < offlineFileList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -10014,8 +10059,8 @@ public final class File {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getOfflineFileListList()
           .equals(other.getOfflineFileListList())) return false;
@@ -10039,7 +10084,7 @@ public final class File {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (getOfflineFileListCount() > 0) {
         hash = (37 * hash) + OFFLINE_FILE_LIST_FIELD_NUMBER;
@@ -10181,7 +10226,7 @@ public final class File {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (offlineFileListBuilder_ == null) {
           offlineFileList_ = java.util.Collections.emptyList();
@@ -10228,9 +10273,9 @@ public final class File {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (offlineFileListBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             offlineFileList_ = java.util.Collections.unmodifiableList(offlineFileList_);
@@ -10399,11 +10444,11 @@ public final class File {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 com.bohan.protobuf.BaseDefine.OfflineFileInfo m =
                     input.readMessage(
@@ -10452,13 +10497,13 @@ public final class File {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:	0x050a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -10470,11 +10515,11 @@ public final class File {
        *cmd id:	0x050a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -10482,12 +10527,15 @@ public final class File {
        *cmd id:	0x050a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -10497,12 +10545,12 @@ public final class File {
        *cmd id:	0x050a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -11101,7 +11149,7 @@ public final class File {
      *cmd id:	0x050b
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return Whether the fromUserId field is set.
      */
     boolean hasFromUserId();
@@ -11110,21 +11158,21 @@ public final class File {
      *cmd id:	0x050b
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return The fromUserId.
      */
-    int getFromUserId();
+    com.google.protobuf.ByteString getFromUserId();
 
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return Whether the toUserId field is set.
      */
     boolean hasToUserId();
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return The toUserId.
      */
-    int getToUserId();
+    com.google.protobuf.ByteString getToUserId();
 
     /**
      * <code>required string task_id = 3;</code>
@@ -11184,6 +11232,8 @@ public final class File {
       super(builder);
     }
     private FileAddOfflineReq() {
+      fromUserId_ = com.google.protobuf.ByteString.EMPTY;
+      toUserId_ = com.google.protobuf.ByteString.EMPTY;
       taskId_ = "";
       fileName_ = "";
     }
@@ -11215,13 +11265,13 @@ public final class File {
 
     private int bitField0_;
     public static final int FROM_USER_ID_FIELD_NUMBER = 1;
-    private int fromUserId_;
+    private com.google.protobuf.ByteString fromUserId_;
     /**
      * <pre>
      *cmd id:	0x050b
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return Whether the fromUserId field is set.
      */
     @java.lang.Override
@@ -11233,18 +11283,18 @@ public final class File {
      *cmd id:	0x050b
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return The fromUserId.
      */
     @java.lang.Override
-    public int getFromUserId() {
+    public com.google.protobuf.ByteString getFromUserId() {
       return fromUserId_;
     }
 
     public static final int TO_USER_ID_FIELD_NUMBER = 2;
-    private int toUserId_;
+    private com.google.protobuf.ByteString toUserId_;
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return Whether the toUserId field is set.
      */
     @java.lang.Override
@@ -11252,11 +11302,11 @@ public final class File {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return The toUserId.
      */
     @java.lang.Override
-    public int getToUserId() {
+    public com.google.protobuf.ByteString getToUserId() {
       return toUserId_;
     }
 
@@ -11410,10 +11460,10 @@ public final class File {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, fromUserId_);
+        output.writeBytes(1, fromUserId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeUInt32(2, toUserId_);
+        output.writeBytes(2, toUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, taskId_);
@@ -11435,11 +11485,11 @@ public final class File {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, fromUserId_);
+          .computeBytesSize(1, fromUserId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, toUserId_);
+          .computeBytesSize(2, toUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, taskId_);
@@ -11468,13 +11518,13 @@ public final class File {
 
       if (hasFromUserId() != other.hasFromUserId()) return false;
       if (hasFromUserId()) {
-        if (getFromUserId()
-            != other.getFromUserId()) return false;
+        if (!getFromUserId()
+            .equals(other.getFromUserId())) return false;
       }
       if (hasToUserId() != other.hasToUserId()) return false;
       if (hasToUserId()) {
-        if (getToUserId()
-            != other.getToUserId()) return false;
+        if (!getToUserId()
+            .equals(other.getToUserId())) return false;
       }
       if (hasTaskId() != other.hasTaskId()) return false;
       if (hasTaskId()) {
@@ -11504,11 +11554,11 @@ public final class File {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasFromUserId()) {
         hash = (37 * hash) + FROM_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getFromUserId();
+        hash = (53 * hash) + getFromUserId().hashCode();
       }
       if (hasToUserId()) {
         hash = (37 * hash) + TO_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getToUserId();
+        hash = (53 * hash) + getToUserId().hashCode();
       }
       if (hasTaskId()) {
         hash = (37 * hash) + TASK_ID_FIELD_NUMBER;
@@ -11650,9 +11700,9 @@ public final class File {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        fromUserId_ = 0;
+        fromUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        toUserId_ = 0;
+        toUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         taskId_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -11689,13 +11739,13 @@ public final class File {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.fromUserId_ = fromUserId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.fromUserId_ = fromUserId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.toUserId_ = toUserId_;
           to_bitField0_ |= 0x00000002;
         }
+        result.toUserId_ = toUserId_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -11817,16 +11867,16 @@ public final class File {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromUserId_ = input.readUInt32();
+              case 10: {
+                fromUserId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
-              case 16: {
-                toUserId_ = input.readUInt32();
+              } // case 10
+              case 18: {
+                toUserId_ = input.readBytes();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 16
+              } // case 18
               case 26: {
                 taskId_ = input.readBytes();
                 bitField0_ |= 0x00000004;
@@ -11859,13 +11909,13 @@ public final class File {
       }
       private int bitField0_;
 
-      private int fromUserId_ ;
+      private com.google.protobuf.ByteString fromUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:	0x050b
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return Whether the fromUserId field is set.
        */
       @java.lang.Override
@@ -11877,11 +11927,11 @@ public final class File {
        *cmd id:	0x050b
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return The fromUserId.
        */
       @java.lang.Override
-      public int getFromUserId() {
+      public com.google.protobuf.ByteString getFromUserId() {
         return fromUserId_;
       }
       /**
@@ -11889,12 +11939,15 @@ public final class File {
        *cmd id:	0x050b
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @param value The fromUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setFromUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setFromUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         fromUserId_ = value;
         onChanged();
         return this;
@@ -11904,19 +11957,19 @@ public final class File {
        *cmd id:	0x050b
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearFromUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        fromUserId_ = 0;
+        fromUserId_ = getDefaultInstance().getFromUserId();
         onChanged();
         return this;
       }
 
-      private int toUserId_ ;
+      private com.google.protobuf.ByteString toUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return Whether the toUserId field is set.
        */
       @java.lang.Override
@@ -11924,31 +11977,34 @@ public final class File {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return The toUserId.
        */
       @java.lang.Override
-      public int getToUserId() {
+      public com.google.protobuf.ByteString getToUserId() {
         return toUserId_;
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @param value The toUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setToUserId(int value) {
-        bitField0_ |= 0x00000002;
+      public Builder setToUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         toUserId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearToUserId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        toUserId_ = 0;
+        toUserId_ = getDefaultInstance().getToUserId();
         onChanged();
         return this;
       }
@@ -12232,7 +12288,7 @@ public final class File {
      *cmd id:	0x050c
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return Whether the fromUserId field is set.
      */
     boolean hasFromUserId();
@@ -12241,21 +12297,21 @@ public final class File {
      *cmd id:	0x050c
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return The fromUserId.
      */
-    int getFromUserId();
+    com.google.protobuf.ByteString getFromUserId();
 
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return Whether the toUserId field is set.
      */
     boolean hasToUserId();
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return The toUserId.
      */
-    int getToUserId();
+    com.google.protobuf.ByteString getToUserId();
 
     /**
      * <code>required string task_id = 3;</code>
@@ -12287,6 +12343,8 @@ public final class File {
       super(builder);
     }
     private FileDelOfflineReq() {
+      fromUserId_ = com.google.protobuf.ByteString.EMPTY;
+      toUserId_ = com.google.protobuf.ByteString.EMPTY;
       taskId_ = "";
     }
 
@@ -12317,13 +12375,13 @@ public final class File {
 
     private int bitField0_;
     public static final int FROM_USER_ID_FIELD_NUMBER = 1;
-    private int fromUserId_;
+    private com.google.protobuf.ByteString fromUserId_;
     /**
      * <pre>
      *cmd id:	0x050c
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return Whether the fromUserId field is set.
      */
     @java.lang.Override
@@ -12335,18 +12393,18 @@ public final class File {
      *cmd id:	0x050c
      * </pre>
      *
-     * <code>required uint32 from_user_id = 1;</code>
+     * <code>required bytes from_user_id = 1;</code>
      * @return The fromUserId.
      */
     @java.lang.Override
-    public int getFromUserId() {
+    public com.google.protobuf.ByteString getFromUserId() {
       return fromUserId_;
     }
 
     public static final int TO_USER_ID_FIELD_NUMBER = 2;
-    private int toUserId_;
+    private com.google.protobuf.ByteString toUserId_;
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return Whether the toUserId field is set.
      */
     @java.lang.Override
@@ -12354,11 +12412,11 @@ public final class File {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required uint32 to_user_id = 2;</code>
+     * <code>required bytes to_user_id = 2;</code>
      * @return The toUserId.
      */
     @java.lang.Override
-    public int getToUserId() {
+    public com.google.protobuf.ByteString getToUserId() {
       return toUserId_;
     }
 
@@ -12437,10 +12495,10 @@ public final class File {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, fromUserId_);
+        output.writeBytes(1, fromUserId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeUInt32(2, toUserId_);
+        output.writeBytes(2, toUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, taskId_);
@@ -12456,11 +12514,11 @@ public final class File {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, fromUserId_);
+          .computeBytesSize(1, fromUserId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, toUserId_);
+          .computeBytesSize(2, toUserId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, taskId_);
@@ -12482,13 +12540,13 @@ public final class File {
 
       if (hasFromUserId() != other.hasFromUserId()) return false;
       if (hasFromUserId()) {
-        if (getFromUserId()
-            != other.getFromUserId()) return false;
+        if (!getFromUserId()
+            .equals(other.getFromUserId())) return false;
       }
       if (hasToUserId() != other.hasToUserId()) return false;
       if (hasToUserId()) {
-        if (getToUserId()
-            != other.getToUserId()) return false;
+        if (!getToUserId()
+            .equals(other.getToUserId())) return false;
       }
       if (hasTaskId() != other.hasTaskId()) return false;
       if (hasTaskId()) {
@@ -12508,11 +12566,11 @@ public final class File {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasFromUserId()) {
         hash = (37 * hash) + FROM_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getFromUserId();
+        hash = (53 * hash) + getFromUserId().hashCode();
       }
       if (hasToUserId()) {
         hash = (37 * hash) + TO_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getToUserId();
+        hash = (53 * hash) + getToUserId().hashCode();
       }
       if (hasTaskId()) {
         hash = (37 * hash) + TASK_ID_FIELD_NUMBER;
@@ -12646,9 +12704,9 @@ public final class File {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        fromUserId_ = 0;
+        fromUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        toUserId_ = 0;
+        toUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         taskId_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -12681,13 +12739,13 @@ public final class File {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.fromUserId_ = fromUserId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.fromUserId_ = fromUserId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.toUserId_ = toUserId_;
           to_bitField0_ |= 0x00000002;
         }
+        result.toUserId_ = toUserId_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -12787,16 +12845,16 @@ public final class File {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                fromUserId_ = input.readUInt32();
+              case 10: {
+                fromUserId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
-              case 16: {
-                toUserId_ = input.readUInt32();
+              } // case 10
+              case 18: {
+                toUserId_ = input.readBytes();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 16
+              } // case 18
               case 26: {
                 taskId_ = input.readBytes();
                 bitField0_ |= 0x00000004;
@@ -12819,13 +12877,13 @@ public final class File {
       }
       private int bitField0_;
 
-      private int fromUserId_ ;
+      private com.google.protobuf.ByteString fromUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:	0x050c
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return Whether the fromUserId field is set.
        */
       @java.lang.Override
@@ -12837,11 +12895,11 @@ public final class File {
        *cmd id:	0x050c
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return The fromUserId.
        */
       @java.lang.Override
-      public int getFromUserId() {
+      public com.google.protobuf.ByteString getFromUserId() {
         return fromUserId_;
       }
       /**
@@ -12849,12 +12907,15 @@ public final class File {
        *cmd id:	0x050c
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @param value The fromUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setFromUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setFromUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         fromUserId_ = value;
         onChanged();
         return this;
@@ -12864,19 +12925,19 @@ public final class File {
        *cmd id:	0x050c
        * </pre>
        *
-       * <code>required uint32 from_user_id = 1;</code>
+       * <code>required bytes from_user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearFromUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        fromUserId_ = 0;
+        fromUserId_ = getDefaultInstance().getFromUserId();
         onChanged();
         return this;
       }
 
-      private int toUserId_ ;
+      private com.google.protobuf.ByteString toUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return Whether the toUserId field is set.
        */
       @java.lang.Override
@@ -12884,31 +12945,34 @@ public final class File {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return The toUserId.
        */
       @java.lang.Override
-      public int getToUserId() {
+      public com.google.protobuf.ByteString getToUserId() {
         return toUserId_;
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @param value The toUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setToUserId(int value) {
-        bitField0_ |= 0x00000002;
+      public Builder setToUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         toUserId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 to_user_id = 2;</code>
+       * <code>required bytes to_user_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearToUserId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        toUserId_ = 0;
+        toUserId_ = getDefaultInstance().getToUserId();
         onChanged();
         return this;
       }
@@ -13130,44 +13194,44 @@ public final class File {
   static {
     java.lang.String[] descriptorData = {
       "\n\nFile.proto\022\nBohan.File\032\020BaseDefine.pro" +
-      "to\"e\n\014FileLoginReq\022\017\n\007user_id\030\001 \002(\r\022\017\n\007t" +
+      "to\"e\n\014FileLoginReq\022\017\n\007user_id\030\001 \002(\014\022\017\n\007t" +
       "ask_id\030\002 \002(\t\0223\n\tfile_role\030\003 \002(\0162 .Bohan." +
       "BaseDefine.ClientFileRole\"4\n\014FileLoginRs" +
       "p\022\023\n\013result_code\030\001 \002(\r\022\017\n\007task_id\030\002 \002(\t\"" +
       "_\n\tFileState\0220\n\005state\030\001 \002(\0162!.Bohan.Base" +
       "Define.ClientFileState\022\017\n\007task_id\030\002 \002(\t\022" +
-      "\017\n\007user_id\030\003 \002(\r\"\206\001\n\017FilePullDataReq\022\017\n\007" +
-      "task_id\030\001 \002(\t\022\017\n\007user_id\030\002 \002(\r\022.\n\ntrans_" +
+      "\017\n\007user_id\030\003 \002(\014\"\206\001\n\017FilePullDataReq\022\017\n\007" +
+      "task_id\030\001 \002(\t\022\017\n\007user_id\030\002 \002(\014\022.\n\ntrans_" +
       "mode\030\003 \002(\0162\032.Bohan.BaseDefine.FileType\022\016" +
       "\n\006offset\030\004 \002(\r\022\021\n\tdata_size\030\005 \002(\r\"f\n\017Fil" +
       "ePullDataRsp\022\023\n\013result_code\030\001 \002(\r\022\017\n\007tas" +
-      "k_id\030\002 \002(\t\022\017\n\007user_id\030\003 \002(\r\022\016\n\006offset\030\004 " +
+      "k_id\030\002 \002(\t\022\017\n\007user_id\030\003 \002(\014\022\016\n\006offset\030\004 " +
       "\002(\r\022\014\n\004data\030\005 \002(\014\"\211\001\n\007FileReq\022\024\n\014from_us" +
-      "er_id\030\001 \002(\r\022\022\n\nto_user_id\030\002 \002(\r\022\021\n\tfile_" +
+      "er_id\030\001 \002(\014\022\022\n\nto_user_id\030\002 \002(\014\022\021\n\tfile_" +
       "name\030\003 \002(\t\022\021\n\tfile_size\030\004 \002(\r\022.\n\ntrans_m" +
       "ode\030\005 \002(\0162\032.Bohan.BaseDefine.FileType\"\314\001" +
       "\n\007FileRsp\022\023\n\013result_code\030\001 \002(\r\022\024\n\014from_u" +
-      "ser_id\030\002 \002(\r\022\022\n\nto_user_id\030\003 \002(\r\022\021\n\tfile" +
+      "ser_id\030\002 \002(\014\022\022\n\nto_user_id\030\003 \002(\014\022\021\n\tfile" +
       "_name\030\004 \002(\t\022\017\n\007task_id\030\005 \002(\t\022.\n\014ip_addr_" +
       "list\030\006 \003(\0132\030.Bohan.BaseDefine.IpAddr\022.\n\n" +
       "trans_mode\030\007 \002(\0162\032.Bohan.BaseDefine.File" +
       "Type\"\344\001\n\nFileNotify\022\024\n\014from_user_id\030\001 \002(" +
-      "\r\022\022\n\nto_user_id\030\002 \002(\r\022\021\n\tfile_name\030\003 \002(\t" +
+      "\014\022\022\n\nto_user_id\030\002 \002(\014\022\021\n\tfile_name\030\003 \002(\t" +
       "\022\021\n\tfile_size\030\004 \002(\r\022\017\n\007task_id\030\005 \002(\t\022.\n\014" +
       "ip_addr_list\030\006 \003(\0132\030.Bohan.BaseDefine.Ip" +
       "Addr\022.\n\ntrans_mode\030\007 \002(\0162\032.Bohan.BaseDef" +
       "ine.FileType\022\025\n\roffline_ready\030\010 \002(\r\"9\n\021F" +
-      "ileHasOfflineReq\022\017\n\007user_id\030\001 \002(\r\022\023\n\013att" +
+      "ileHasOfflineReq\022\017\n\007user_id\030\001 \002(\014\022\023\n\013att" +
       "ach_data\030\024 \001(\014\"\247\001\n\021FileHasOfflineRsp\022\017\n\007" +
-      "user_id\030\001 \002(\r\022<\n\021offline_file_list\030\002 \003(\013" +
+      "user_id\030\001 \002(\014\022<\n\021offline_file_list\030\002 \003(\013" +
       "2!.Bohan.BaseDefine.OfflineFileInfo\022.\n\014i" +
       "p_addr_list\030\003 \003(\0132\030.Bohan.BaseDefine.IpA" +
       "ddr\022\023\n\013attach_data\030\024 \001(\014\"t\n\021FileAddOffli" +
-      "neReq\022\024\n\014from_user_id\030\001 \002(\r\022\022\n\nto_user_i" +
-      "d\030\002 \002(\r\022\017\n\007task_id\030\003 \002(\t\022\021\n\tfile_name\030\004 " +
+      "neReq\022\024\n\014from_user_id\030\001 \002(\014\022\022\n\nto_user_i" +
+      "d\030\002 \002(\014\022\017\n\007task_id\030\003 \002(\t\022\021\n\tfile_name\030\004 " +
       "\002(\t\022\021\n\tfile_size\030\005 \002(\r\"N\n\021FileDelOffline" +
-      "Req\022\024\n\014from_user_id\030\001 \002(\r\022\022\n\nto_user_id\030" +
-      "\002 \002(\r\022\017\n\007task_id\030\003 \002(\tB\026\n\022com.bohan.prot" +
+      "Req\022\024\n\014from_user_id\030\001 \002(\014\022\022\n\nto_user_id\030" +
+      "\002 \002(\014\022\017\n\007task_id\030\003 \002(\tB\026\n\022com.bohan.prot" +
       "obufH\003"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

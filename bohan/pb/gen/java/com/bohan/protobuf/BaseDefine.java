@@ -2187,6 +2187,111 @@ public final class BaseDefine {
   }
 
   /**
+   * Protobuf enum {@code Bohan.BaseDefine.RoleType}
+   */
+  public enum RoleType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ROLE_CREATER_TYPE = 1;</code>
+     */
+    ROLE_CREATER_TYPE(1),
+    /**
+     * <code>ROLE_ADMIN_TYPE = 2;</code>
+     */
+    ROLE_ADMIN_TYPE(2),
+    /**
+     * <code>ROLE_NORMAL_TYPE = 3;</code>
+     */
+    ROLE_NORMAL_TYPE(3),
+    ;
+
+    /**
+     * <code>ROLE_CREATER_TYPE = 1;</code>
+     */
+    public static final int ROLE_CREATER_TYPE_VALUE = 1;
+    /**
+     * <code>ROLE_ADMIN_TYPE = 2;</code>
+     */
+    public static final int ROLE_ADMIN_TYPE_VALUE = 2;
+    /**
+     * <code>ROLE_NORMAL_TYPE = 3;</code>
+     */
+    public static final int ROLE_NORMAL_TYPE_VALUE = 3;
+
+
+    public final int getNumber() {
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static RoleType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static RoleType forNumber(int value) {
+      switch (value) {
+        case 1: return ROLE_CREATER_TYPE;
+        case 2: return ROLE_ADMIN_TYPE;
+        case 3: return ROLE_NORMAL_TYPE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<RoleType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        RoleType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<RoleType>() {
+            public RoleType findValueByNumber(int number) {
+              return RoleType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(14);
+    }
+
+    private static final RoleType[] VALUES = values();
+
+    public static RoleType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private RoleType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:Bohan.BaseDefine.RoleType)
+  }
+
+  /**
    * Protobuf enum {@code Bohan.BaseDefine.ClientType}
    */
   public enum ClientType
@@ -2277,7 +2382,7 @@ public final class BaseDefine {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(14);
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(15);
     }
 
     private static final ClientType[] VALUES = values();
@@ -2373,7 +2478,7 @@ public final class BaseDefine {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(15);
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(16);
     }
 
     private static final GroupType[] VALUES = values();
@@ -2469,7 +2574,7 @@ public final class BaseDefine {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(16);
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(17);
     }
 
     private static final GroupModifyType[] VALUES = values();
@@ -2565,7 +2670,7 @@ public final class BaseDefine {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(17);
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(18);
     }
 
     private static final FileType[] VALUES = values();
@@ -2679,7 +2784,7 @@ public final class BaseDefine {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(18);
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(19);
     }
 
     private static final ClientFileState[] VALUES = values();
@@ -2793,7 +2898,7 @@ public final class BaseDefine {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(19);
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(20);
     }
 
     private static final ClientFileRole[] VALUES = values();
@@ -2988,7 +3093,7 @@ public final class BaseDefine {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(20);
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(21);
     }
 
     private static final FileServerError[] VALUES = values();
@@ -3084,7 +3189,7 @@ public final class BaseDefine {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(21);
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(22);
     }
 
     private static final SessionStatusType[] VALUES = values();
@@ -3180,7 +3285,7 @@ public final class BaseDefine {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(22);
+      return com.bohan.protobuf.BaseDefine.getDescriptor().getEnumTypes().get(23);
     }
 
     private static final DepartmentStatusType[] VALUES = values();
@@ -3907,15 +4012,15 @@ public final class BaseDefine {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <pre>
@@ -4117,6 +4222,7 @@ public final class BaseDefine {
       super(builder);
     }
     private UserInfo() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       nickName_ = "";
       avatarUrl_ = "";
       email_ = "";
@@ -4152,9 +4258,9 @@ public final class BaseDefine {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -4162,11 +4268,11 @@ public final class BaseDefine {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -4622,7 +4728,7 @@ public final class BaseDefine {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, gender_);
@@ -4662,7 +4768,7 @@ public final class BaseDefine {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4711,8 +4817,8 @@ public final class BaseDefine {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasGender() != other.hasGender()) return false;
       if (hasGender()) {
@@ -4772,7 +4878,7 @@ public final class BaseDefine {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasGender()) {
         hash = (37 * hash) + GENDER_FIELD_NUMBER;
@@ -4938,7 +5044,7 @@ public final class BaseDefine {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         gender_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -4987,9 +5093,9 @@ public final class BaseDefine {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.gender_ = gender_;
           to_bitField0_ |= 0x00000002;
@@ -5173,11 +5279,11 @@ public final class BaseDefine {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 gender_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -5240,9 +5346,9 @@ public final class BaseDefine {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -5250,31 +5356,34 @@ public final class BaseDefine {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -6072,15 +6181,15 @@ public final class BaseDefine {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required uint32 session_id = 1;</code>
+     * <code>required bytes session_id = 1;</code>
      * @return Whether the sessionId field is set.
      */
     boolean hasSessionId();
     /**
-     * <code>required uint32 session_id = 1;</code>
+     * <code>required bytes session_id = 1;</code>
      * @return The sessionId.
      */
-    int getSessionId();
+    com.google.protobuf.ByteString getSessionId();
 
     /**
      * <code>required .Bohan.BaseDefine.SessionType session_type = 2;</code>
@@ -6149,15 +6258,15 @@ public final class BaseDefine {
     com.bohan.protobuf.BaseDefine.MsgType getLatestMsgType();
 
     /**
-     * <code>required uint32 latest_msg_from_user_id = 8;</code>
+     * <code>required bytes latest_msg_from_user_id = 8;</code>
      * @return Whether the latestMsgFromUserId field is set.
      */
     boolean hasLatestMsgFromUserId();
     /**
-     * <code>required uint32 latest_msg_from_user_id = 8;</code>
+     * <code>required bytes latest_msg_from_user_id = 8;</code>
      * @return The latestMsgFromUserId.
      */
-    int getLatestMsgFromUserId();
+    com.google.protobuf.ByteString getLatestMsgFromUserId();
   }
   /**
    * Protobuf type {@code Bohan.BaseDefine.ContactSessionInfo}
@@ -6172,10 +6281,12 @@ public final class BaseDefine {
       super(builder);
     }
     private ContactSessionInfo() {
+      sessionId_ = com.google.protobuf.ByteString.EMPTY;
       sessionType_ = 1;
       sessionStatus_ = 0;
       latestMsgData_ = com.google.protobuf.ByteString.EMPTY;
       latestMsgType_ = 1;
+      latestMsgFromUserId_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -6205,9 +6316,9 @@ public final class BaseDefine {
 
     private int bitField0_;
     public static final int SESSION_ID_FIELD_NUMBER = 1;
-    private int sessionId_;
+    private com.google.protobuf.ByteString sessionId_;
     /**
-     * <code>required uint32 session_id = 1;</code>
+     * <code>required bytes session_id = 1;</code>
      * @return Whether the sessionId field is set.
      */
     @java.lang.Override
@@ -6215,11 +6326,11 @@ public final class BaseDefine {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 session_id = 1;</code>
+     * <code>required bytes session_id = 1;</code>
      * @return The sessionId.
      */
     @java.lang.Override
-    public int getSessionId() {
+    public com.google.protobuf.ByteString getSessionId() {
       return sessionId_;
     }
 
@@ -6338,9 +6449,9 @@ public final class BaseDefine {
     }
 
     public static final int LATEST_MSG_FROM_USER_ID_FIELD_NUMBER = 8;
-    private int latestMsgFromUserId_;
+    private com.google.protobuf.ByteString latestMsgFromUserId_;
     /**
-     * <code>required uint32 latest_msg_from_user_id = 8;</code>
+     * <code>required bytes latest_msg_from_user_id = 8;</code>
      * @return Whether the latestMsgFromUserId field is set.
      */
     @java.lang.Override
@@ -6348,11 +6459,11 @@ public final class BaseDefine {
       return ((bitField0_ & 0x00000080) != 0);
     }
     /**
-     * <code>required uint32 latest_msg_from_user_id = 8;</code>
+     * <code>required bytes latest_msg_from_user_id = 8;</code>
      * @return The latestMsgFromUserId.
      */
     @java.lang.Override
-    public int getLatestMsgFromUserId() {
+    public com.google.protobuf.ByteString getLatestMsgFromUserId() {
       return latestMsgFromUserId_;
     }
 
@@ -6403,7 +6514,7 @@ public final class BaseDefine {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, sessionId_);
+        output.writeBytes(1, sessionId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, sessionType_);
@@ -6424,7 +6535,7 @@ public final class BaseDefine {
         output.writeEnum(7, latestMsgType_);
       }
       if (((bitField0_ & 0x00000080) != 0)) {
-        output.writeUInt32(8, latestMsgFromUserId_);
+        output.writeBytes(8, latestMsgFromUserId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6437,7 +6548,7 @@ public final class BaseDefine {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, sessionId_);
+          .computeBytesSize(1, sessionId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -6465,7 +6576,7 @@ public final class BaseDefine {
       }
       if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(8, latestMsgFromUserId_);
+          .computeBytesSize(8, latestMsgFromUserId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -6484,8 +6595,8 @@ public final class BaseDefine {
 
       if (hasSessionId() != other.hasSessionId()) return false;
       if (hasSessionId()) {
-        if (getSessionId()
-            != other.getSessionId()) return false;
+        if (!getSessionId()
+            .equals(other.getSessionId())) return false;
       }
       if (hasSessionType() != other.hasSessionType()) return false;
       if (hasSessionType()) {
@@ -6516,8 +6627,8 @@ public final class BaseDefine {
       }
       if (hasLatestMsgFromUserId() != other.hasLatestMsgFromUserId()) return false;
       if (hasLatestMsgFromUserId()) {
-        if (getLatestMsgFromUserId()
-            != other.getLatestMsgFromUserId()) return false;
+        if (!getLatestMsgFromUserId()
+            .equals(other.getLatestMsgFromUserId())) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -6532,7 +6643,7 @@ public final class BaseDefine {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasSessionId()) {
         hash = (37 * hash) + SESSION_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getSessionId();
+        hash = (53 * hash) + getSessionId().hashCode();
       }
       if (hasSessionType()) {
         hash = (37 * hash) + SESSION_TYPE_FIELD_NUMBER;
@@ -6560,7 +6671,7 @@ public final class BaseDefine {
       }
       if (hasLatestMsgFromUserId()) {
         hash = (37 * hash) + LATEST_MSG_FROM_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getLatestMsgFromUserId();
+        hash = (53 * hash) + getLatestMsgFromUserId().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -6690,7 +6801,7 @@ public final class BaseDefine {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        sessionId_ = 0;
+        sessionId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         sessionType_ = 1;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -6704,7 +6815,7 @@ public final class BaseDefine {
         bitField0_ = (bitField0_ & ~0x00000020);
         latestMsgType_ = 1;
         bitField0_ = (bitField0_ & ~0x00000040);
-        latestMsgFromUserId_ = 0;
+        latestMsgFromUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
@@ -6735,9 +6846,9 @@ public final class BaseDefine {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sessionId_ = sessionId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.sessionId_ = sessionId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -6763,9 +6874,9 @@ public final class BaseDefine {
         }
         result.latestMsgType_ = latestMsgType_;
         if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.latestMsgFromUserId_ = latestMsgFromUserId_;
           to_bitField0_ |= 0x00000080;
         }
+        result.latestMsgFromUserId_ = latestMsgFromUserId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6889,11 +7000,11 @@ public final class BaseDefine {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                sessionId_ = input.readUInt32();
+              case 10: {
+                sessionId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.SessionType tmpValue =
@@ -6945,11 +7056,11 @@ public final class BaseDefine {
                 }
                 break;
               } // case 56
-              case 64: {
-                latestMsgFromUserId_ = input.readUInt32();
+              case 66: {
+                latestMsgFromUserId_ = input.readBytes();
                 bitField0_ |= 0x00000080;
                 break;
-              } // case 64
+              } // case 66
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -6967,9 +7078,9 @@ public final class BaseDefine {
       }
       private int bitField0_;
 
-      private int sessionId_ ;
+      private com.google.protobuf.ByteString sessionId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 session_id = 1;</code>
+       * <code>required bytes session_id = 1;</code>
        * @return Whether the sessionId field is set.
        */
       @java.lang.Override
@@ -6977,31 +7088,34 @@ public final class BaseDefine {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required uint32 session_id = 1;</code>
+       * <code>required bytes session_id = 1;</code>
        * @return The sessionId.
        */
       @java.lang.Override
-      public int getSessionId() {
+      public com.google.protobuf.ByteString getSessionId() {
         return sessionId_;
       }
       /**
-       * <code>required uint32 session_id = 1;</code>
+       * <code>required bytes session_id = 1;</code>
        * @param value The sessionId to set.
        * @return This builder for chaining.
        */
-      public Builder setSessionId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setSessionId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         sessionId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 session_id = 1;</code>
+       * <code>required bytes session_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearSessionId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        sessionId_ = 0;
+        sessionId_ = getDefaultInstance().getSessionId();
         onChanged();
         return this;
       }
@@ -7255,9 +7369,9 @@ public final class BaseDefine {
         return this;
       }
 
-      private int latestMsgFromUserId_ ;
+      private com.google.protobuf.ByteString latestMsgFromUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 latest_msg_from_user_id = 8;</code>
+       * <code>required bytes latest_msg_from_user_id = 8;</code>
        * @return Whether the latestMsgFromUserId field is set.
        */
       @java.lang.Override
@@ -7265,31 +7379,34 @@ public final class BaseDefine {
         return ((bitField0_ & 0x00000080) != 0);
       }
       /**
-       * <code>required uint32 latest_msg_from_user_id = 8;</code>
+       * <code>required bytes latest_msg_from_user_id = 8;</code>
        * @return The latestMsgFromUserId.
        */
       @java.lang.Override
-      public int getLatestMsgFromUserId() {
+      public com.google.protobuf.ByteString getLatestMsgFromUserId() {
         return latestMsgFromUserId_;
       }
       /**
-       * <code>required uint32 latest_msg_from_user_id = 8;</code>
+       * <code>required bytes latest_msg_from_user_id = 8;</code>
        * @param value The latestMsgFromUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setLatestMsgFromUserId(int value) {
-        bitField0_ |= 0x00000080;
+      public Builder setLatestMsgFromUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
         latestMsgFromUserId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 latest_msg_from_user_id = 8;</code>
+       * <code>required bytes latest_msg_from_user_id = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearLatestMsgFromUserId() {
         bitField0_ = (bitField0_ & ~0x00000080);
-        latestMsgFromUserId_ = 0;
+        latestMsgFromUserId_ = getDefaultInstance().getLatestMsgFromUserId();
         onChanged();
         return this;
       }
@@ -7362,15 +7479,15 @@ public final class BaseDefine {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.UserStatType status = 2;</code>
@@ -7396,6 +7513,7 @@ public final class BaseDefine {
       super(builder);
     }
     private UserStat() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       status_ = 1;
     }
 
@@ -7426,9 +7544,9 @@ public final class BaseDefine {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -7436,11 +7554,11 @@ public final class BaseDefine {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -7486,7 +7604,7 @@ public final class BaseDefine {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, status_);
@@ -7502,7 +7620,7 @@ public final class BaseDefine {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -7525,8 +7643,8 @@ public final class BaseDefine {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
@@ -7545,7 +7663,7 @@ public final class BaseDefine {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasStatus()) {
         hash = (37 * hash) + STATUS_FIELD_NUMBER;
@@ -7679,7 +7797,7 @@ public final class BaseDefine {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         status_ = 1;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -7712,9 +7830,9 @@ public final class BaseDefine {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -7806,11 +7924,11 @@ public final class BaseDefine {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.UserStatType tmpValue =
@@ -7840,9 +7958,9 @@ public final class BaseDefine {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -7850,31 +7968,34 @@ public final class BaseDefine {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -7990,15 +8111,15 @@ public final class BaseDefine {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.UserStatType status = 2;</code>
@@ -8035,6 +8156,7 @@ public final class BaseDefine {
       super(builder);
     }
     private ServerUserStat() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       status_ = 1;
       clientType_ = 1;
     }
@@ -8066,9 +8188,9 @@ public final class BaseDefine {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -8076,11 +8198,11 @@ public final class BaseDefine {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -8149,7 +8271,7 @@ public final class BaseDefine {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, status_);
@@ -8168,7 +8290,7 @@ public final class BaseDefine {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8195,8 +8317,8 @@ public final class BaseDefine {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasStatus() != other.hasStatus()) return false;
       if (hasStatus()) {
@@ -8219,7 +8341,7 @@ public final class BaseDefine {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasStatus()) {
         hash = (37 * hash) + STATUS_FIELD_NUMBER;
@@ -8357,7 +8479,7 @@ public final class BaseDefine {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         status_ = 1;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -8392,9 +8514,9 @@ public final class BaseDefine {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -8496,11 +8618,11 @@ public final class BaseDefine {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.UserStatType tmpValue =
@@ -8542,9 +8664,9 @@ public final class BaseDefine {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -8552,31 +8674,34 @@ public final class BaseDefine {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -8805,7 +8930,7 @@ public final class BaseDefine {
      *发送得用户id
      * </pre>
      *
-     * <code>required uint32 latest_msg_from_user_id = 7;</code>
+     * <code>required bytes latest_msg_from_user_id = 7;</code>
      * @return Whether the latestMsgFromUserId field is set.
      */
     boolean hasLatestMsgFromUserId();
@@ -8814,10 +8939,10 @@ public final class BaseDefine {
      *发送得用户id
      * </pre>
      *
-     * <code>required uint32 latest_msg_from_user_id = 7;</code>
+     * <code>required bytes latest_msg_from_user_id = 7;</code>
      * @return The latestMsgFromUserId.
      */
-    int getLatestMsgFromUserId();
+    com.google.protobuf.ByteString getLatestMsgFromUserId();
   }
   /**
    * Protobuf type {@code Bohan.BaseDefine.UnreadInfo}
@@ -8835,6 +8960,7 @@ public final class BaseDefine {
       sessionType_ = 1;
       latestMsgData_ = com.google.protobuf.ByteString.EMPTY;
       latestMsgType_ = 1;
+      latestMsgFromUserId_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -8978,13 +9104,13 @@ public final class BaseDefine {
     }
 
     public static final int LATEST_MSG_FROM_USER_ID_FIELD_NUMBER = 7;
-    private int latestMsgFromUserId_;
+    private com.google.protobuf.ByteString latestMsgFromUserId_;
     /**
      * <pre>
      *发送得用户id
      * </pre>
      *
-     * <code>required uint32 latest_msg_from_user_id = 7;</code>
+     * <code>required bytes latest_msg_from_user_id = 7;</code>
      * @return Whether the latestMsgFromUserId field is set.
      */
     @java.lang.Override
@@ -8996,11 +9122,11 @@ public final class BaseDefine {
      *发送得用户id
      * </pre>
      *
-     * <code>required uint32 latest_msg_from_user_id = 7;</code>
+     * <code>required bytes latest_msg_from_user_id = 7;</code>
      * @return The latestMsgFromUserId.
      */
     @java.lang.Override
-    public int getLatestMsgFromUserId() {
+    public com.google.protobuf.ByteString getLatestMsgFromUserId() {
       return latestMsgFromUserId_;
     }
 
@@ -9065,7 +9191,7 @@ public final class BaseDefine {
         output.writeEnum(6, latestMsgType_);
       }
       if (((bitField0_ & 0x00000040) != 0)) {
-        output.writeUInt32(7, latestMsgFromUserId_);
+        output.writeBytes(7, latestMsgFromUserId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -9102,7 +9228,7 @@ public final class BaseDefine {
       }
       if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(7, latestMsgFromUserId_);
+          .computeBytesSize(7, latestMsgFromUserId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -9149,8 +9275,8 @@ public final class BaseDefine {
       }
       if (hasLatestMsgFromUserId() != other.hasLatestMsgFromUserId()) return false;
       if (hasLatestMsgFromUserId()) {
-        if (getLatestMsgFromUserId()
-            != other.getLatestMsgFromUserId()) return false;
+        if (!getLatestMsgFromUserId()
+            .equals(other.getLatestMsgFromUserId())) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -9189,7 +9315,7 @@ public final class BaseDefine {
       }
       if (hasLatestMsgFromUserId()) {
         hash = (37 * hash) + LATEST_MSG_FROM_USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getLatestMsgFromUserId();
+        hash = (53 * hash) + getLatestMsgFromUserId().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -9331,7 +9457,7 @@ public final class BaseDefine {
         bitField0_ = (bitField0_ & ~0x00000010);
         latestMsgType_ = 1;
         bitField0_ = (bitField0_ & ~0x00000020);
-        latestMsgFromUserId_ = 0;
+        latestMsgFromUserId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
@@ -9386,9 +9512,9 @@ public final class BaseDefine {
         }
         result.latestMsgType_ = latestMsgType_;
         if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.latestMsgFromUserId_ = latestMsgFromUserId_;
           to_bitField0_ |= 0x00000040;
         }
+        result.latestMsgFromUserId_ = latestMsgFromUserId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -9550,11 +9676,11 @@ public final class BaseDefine {
                 }
                 break;
               } // case 48
-              case 56: {
-                latestMsgFromUserId_ = input.readUInt32();
+              case 58: {
+                latestMsgFromUserId_ = input.readBytes();
                 bitField0_ |= 0x00000040;
                 break;
-              } // case 56
+              } // case 58
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -9817,13 +9943,13 @@ public final class BaseDefine {
         return this;
       }
 
-      private int latestMsgFromUserId_ ;
+      private com.google.protobuf.ByteString latestMsgFromUserId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *发送得用户id
        * </pre>
        *
-       * <code>required uint32 latest_msg_from_user_id = 7;</code>
+       * <code>required bytes latest_msg_from_user_id = 7;</code>
        * @return Whether the latestMsgFromUserId field is set.
        */
       @java.lang.Override
@@ -9835,11 +9961,11 @@ public final class BaseDefine {
        *发送得用户id
        * </pre>
        *
-       * <code>required uint32 latest_msg_from_user_id = 7;</code>
+       * <code>required bytes latest_msg_from_user_id = 7;</code>
        * @return The latestMsgFromUserId.
        */
       @java.lang.Override
-      public int getLatestMsgFromUserId() {
+      public com.google.protobuf.ByteString getLatestMsgFromUserId() {
         return latestMsgFromUserId_;
       }
       /**
@@ -9847,12 +9973,15 @@ public final class BaseDefine {
        *发送得用户id
        * </pre>
        *
-       * <code>required uint32 latest_msg_from_user_id = 7;</code>
+       * <code>required bytes latest_msg_from_user_id = 7;</code>
        * @param value The latestMsgFromUserId to set.
        * @return This builder for chaining.
        */
-      public Builder setLatestMsgFromUserId(int value) {
-        bitField0_ |= 0x00000040;
+      public Builder setLatestMsgFromUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
         latestMsgFromUserId_ = value;
         onChanged();
         return this;
@@ -9862,12 +9991,12 @@ public final class BaseDefine {
        *发送得用户id
        * </pre>
        *
-       * <code>required uint32 latest_msg_from_user_id = 7;</code>
+       * <code>required bytes latest_msg_from_user_id = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearLatestMsgFromUserId() {
         bitField0_ = (bitField0_ & ~0x00000040);
-        latestMsgFromUserId_ = 0;
+        latestMsgFromUserId_ = getDefaultInstance().getLatestMsgFromUserId();
         onChanged();
         return this;
       }
@@ -13068,15 +13197,15 @@ public final class BaseDefine {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.ClientType user_type = 2;</code>
@@ -13149,6 +13278,7 @@ public final class BaseDefine {
       super(builder);
     }
     private UserTokenInfo() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       userType_ = 1;
       token_ = "";
     }
@@ -13180,9 +13310,9 @@ public final class BaseDefine {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -13190,11 +13320,11 @@ public final class BaseDefine {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -13346,7 +13476,7 @@ public final class BaseDefine {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, userType_);
@@ -13371,7 +13501,7 @@ public final class BaseDefine {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -13405,8 +13535,8 @@ public final class BaseDefine {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasUserType() != other.hasUserType()) return false;
       if (hasUserType()) {
@@ -13440,7 +13570,7 @@ public final class BaseDefine {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasUserType()) {
         hash = (37 * hash) + USER_TYPE_FIELD_NUMBER;
@@ -13586,7 +13716,7 @@ public final class BaseDefine {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         userType_ = 1;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -13625,9 +13755,9 @@ public final class BaseDefine {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -13751,11 +13881,11 @@ public final class BaseDefine {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.ClientType tmpValue =
@@ -13800,9 +13930,9 @@ public final class BaseDefine {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -13810,31 +13940,34 @@ public final class BaseDefine {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -17679,22 +17812,22 @@ public final class BaseDefine {
     java.lang.String[] descriptorData = {
       "\n\020BaseDefine.proto\022\020Bohan.BaseDefine\"\"\n\006" +
       "IpAddr\022\n\n\002ip\030\001 \002(\t\022\014\n\004port\030\002 \002(\r\"\307\001\n\010Use" +
-      "rInfo\022\017\n\007user_id\030\001 \002(\r\022\016\n\006gender\030\002 \002(\r\022\021" +
+      "rInfo\022\017\n\007user_id\030\001 \002(\014\022\016\n\006gender\030\002 \002(\r\022\021" +
       "\n\tnick_name\030\003 \002(\t\022\022\n\navatar_url\030\004 \002(\t\022\025\n" +
       "\rdepartment_id\030\005 \002(\r\022\r\n\005email\030\006 \002(\t\022\026\n\016u" +
       "ser_real_name\030\007 \002(\t\022\020\n\010user_tel\030\010 \002(\t\022\023\n" +
       "\013user_domain\030\t \002(\t\022\016\n\006status\030\n \002(\r\"\265\002\n\022C" +
-      "ontactSessionInfo\022\022\n\nsession_id\030\001 \002(\r\0223\n" +
+      "ontactSessionInfo\022\022\n\nsession_id\030\001 \002(\014\0223\n" +
       "\014session_type\030\002 \002(\0162\035.Bohan.BaseDefine.S" +
       "essionType\022;\n\016session_status\030\003 \002(\0162#.Boh" +
       "an.BaseDefine.SessionStatusType\022\024\n\014updat" +
       "ed_time\030\004 \002(\r\022\025\n\rlatest_msg_id\030\005 \002(\r\022\027\n\017" +
       "latest_msg_data\030\006 \002(\014\0222\n\017latest_msg_type" +
       "\030\007 \002(\0162\031.Bohan.BaseDefine.MsgType\022\037\n\027lat" +
-      "est_msg_from_user_id\030\010 \002(\r\"K\n\010UserStat\022\017" +
-      "\n\007user_id\030\001 \002(\r\022.\n\006status\030\002 \002(\0162\036.Bohan." +
+      "est_msg_from_user_id\030\010 \002(\014\"K\n\010UserStat\022\017" +
+      "\n\007user_id\030\001 \002(\014\022.\n\006status\030\002 \002(\0162\036.Bohan." +
       "BaseDefine.UserStatType\"\204\001\n\016ServerUserSt" +
-      "at\022\017\n\007user_id\030\001 \002(\r\022.\n\006status\030\002 \002(\0162\036.Bo" +
+      "at\022\017\n\007user_id\030\001 \002(\014\022.\n\006status\030\002 \002(\0162\036.Bo" +
       "han.BaseDefine.UserStatType\0221\n\013client_ty" +
       "pe\030\003 \002(\0162\034.Bohan.BaseDefine.ClientType\"\356" +
       "\001\n\nUnreadInfo\022\022\n\nsession_id\030\001 \002(\r\0223\n\014ses" +
@@ -17702,7 +17835,7 @@ public final class BaseDefine {
       "onType\022\022\n\nunread_cnt\030\003 \002(\r\022\025\n\rlatest_msg" +
       "_id\030\004 \002(\r\022\027\n\017latest_msg_data\030\005 \002(\014\0222\n\017la" +
       "test_msg_type\030\006 \002(\0162\031.Bohan.BaseDefine.M" +
-      "sgType\022\037\n\027latest_msg_from_user_id\030\007 \002(\r\"" +
+      "sgType\022\037\n\027latest_msg_from_user_id\030\007 \002(\014\"" +
       "\206\001\n\007MsgInfo\022\016\n\006msg_id\030\001 \002(\r\022\027\n\017from_sess" +
       "ion_id\030\002 \002(\r\022\023\n\013create_time\030\003 \002(\r\022+\n\010msg" +
       "_type\030\004 \002(\0162\031.Bohan.BaseDefine.MsgType\022\020" +
@@ -17714,7 +17847,7 @@ public final class BaseDefine {
       "pe\030\006 \002(\0162\033.Bohan.BaseDefine.GroupType\022\025\n" +
       "\rshield_status\030\007 \002(\r\022\031\n\021group_member_lis" +
       "t\030\010 \003(\r\"\207\001\n\rUserTokenInfo\022\017\n\007user_id\030\001 \002" +
-      "(\r\022/\n\tuser_type\030\002 \002(\0162\034.Bohan.BaseDefine" +
+      "(\014\022/\n\tuser_type\030\002 \002(\0162\034.Bohan.BaseDefine" +
       ".ClientType\022\r\n\005token\030\003 \002(\t\022\022\n\npush_count" +
       "\030\004 \002(\r\022\021\n\tpush_type\030\005 \002(\r\"5\n\nPushResult\022" +
       "\022\n\nuser_token\030\001 \002(\t\022\023\n\013result_code\030\002 \002(\r" +
@@ -17820,40 +17953,42 @@ public final class BaseDefine {
       "INGLE\020\001\022\026\n\022SESSION_TYPE_GROUP\020\002*q\n\007MsgTy" +
       "pe\022\030\n\024MSG_TYPE_SINGLE_TEXT\020\001\022\031\n\025MSG_TYPE" +
       "_SINGLE_AUDIO\020\002\022\027\n\023MSG_TYPE_GROUP_TEXT\020\021" +
-      "\022\030\n\024MSG_TYPE_GROUP_AUDIO\020\022*h\n\nClientType" +
-      "\022\027\n\023CLIENT_TYPE_WINDOWS\020\001\022\023\n\017CLIENT_TYPE" +
-      "_MAC\020\002\022\023\n\017CLIENT_TYPE_IOS\020\021\022\027\n\023CLIENT_TY" +
-      "PE_ANDROID\020\022*6\n\tGroupType\022\025\n\021GROUP_TYPE_" +
-      "NORMAL\020\000\022\022\n\016GROUP_TYPE_TMP\020\001*G\n\017GroupMod" +
-      "ifyType\022\031\n\025GROUP_MODIFY_TYPE_ADD\020\000\022\031\n\025GR" +
-      "OUP_MODIFY_TYPE_DEL\020\001*7\n\010FileType\022\024\n\020FIL" +
-      "E_TYPE_ONLINE\020\000\022\025\n\021FILE_TYPE_OFFLINE\020\002*s" +
-      "\n\017ClientFileState\022\032\n\026CLIENT_FILE_PEER_RE" +
-      "ADY\020\000\022\026\n\022CLIENT_FILE_CANCEL\020\001\022\026\n\022CLIENT_" +
-      "FILE_REFUSE\020\002\022\024\n\020CLIENT_FILE_DONE\020\003*\200\001\n\016" +
-      "ClientFileRole\022\032\n\026CLIENT_REALTIME_SENDER" +
-      "\020\001\022\032\n\026CLIENT_REALTIME_RECVER\020\002\022\031\n\025CLIENT" +
-      "_OFFLINE_UPLOAD\020\003\022\033\n\027CLIENT_OFFLINE_DOWN" +
-      "LOAD\020\004*\341\004\n\017FileServerError\022\030\n\024FILE_SERVE" +
-      "R_ERRNO_OK\020\000\022*\n&FILE_SERVER_ERRNO_CREATE" +
-      "_TASK_ID_ERROR\020\001\022\'\n#FILE_SERVER_ERRNO_CR" +
-      "EATE_TASK_ERROR\020\002\022)\n%FILE_SERVER_ERRNO_L" +
-      "OGIN_INVALID_TOKEN\020\003\022+\n\'FILE_SERVER_ERRN" +
-      "O_INVALID_USER_FOR_TASK\020\004\0224\n0FILE_SERVER" +
-      "_ERRNO_PULL_DATA_WITH_INVALID_TASK_ID\020\005\022" +
-      "-\n)FILE_SERVER_ERRNO_PULL_DATA_ILLIEAGE_" +
-      "USER\020\006\022+\n\'FILE_SERVER_ERRNO_PULL_DATA_MK" +
-      "DIR_ERROR\020\007\022/\n+FILE_SERVER_ERRNO_PULL_DA" +
-      "TA_OPEN_FILE_ERROR\020\010\0226\n2FILE_SERVER_ERRN" +
-      "O_PULL_DATA_READ_FILE_HEADER_ERROR\020\t\022/\n+" +
-      "FILE_SERVER_ERRNO_PULL_DATA_ALLOC_MEM_ER" +
-      "ROR\020\n\0221\n-FILE_SERVER_ERRNO_PULL_DATA_SEE" +
-      "K_OFFSET_ERROR\020\013\022(\n$FILE_SERVER_ERRNO_PU" +
-      "LL_DATA_FINISHED\020\014*E\n\021SessionStatusType\022" +
-      "\025\n\021SESSION_STATUS_OK\020\000\022\031\n\025SESSION_STATUS" +
-      "_DELETE\020\001*B\n\024DepartmentStatusType\022\022\n\016DEP" +
-      "T_STATUS_OK\020\000\022\026\n\022DEPT_STATUS_DELETE\020\001B\026\n" +
-      "\022com.bohan.protobufH\003"
+      "\022\030\n\024MSG_TYPE_GROUP_AUDIO\020\022*L\n\010RoleType\022\025" +
+      "\n\021ROLE_CREATER_TYPE\020\001\022\023\n\017ROLE_ADMIN_TYPE" +
+      "\020\002\022\024\n\020ROLE_NORMAL_TYPE\020\003*h\n\nClientType\022\027" +
+      "\n\023CLIENT_TYPE_WINDOWS\020\001\022\023\n\017CLIENT_TYPE_M" +
+      "AC\020\002\022\023\n\017CLIENT_TYPE_IOS\020\021\022\027\n\023CLIENT_TYPE" +
+      "_ANDROID\020\022*6\n\tGroupType\022\025\n\021GROUP_TYPE_NO" +
+      "RMAL\020\000\022\022\n\016GROUP_TYPE_TMP\020\001*G\n\017GroupModif" +
+      "yType\022\031\n\025GROUP_MODIFY_TYPE_ADD\020\000\022\031\n\025GROU" +
+      "P_MODIFY_TYPE_DEL\020\001*7\n\010FileType\022\024\n\020FILE_" +
+      "TYPE_ONLINE\020\000\022\025\n\021FILE_TYPE_OFFLINE\020\002*s\n\017" +
+      "ClientFileState\022\032\n\026CLIENT_FILE_PEER_READ" +
+      "Y\020\000\022\026\n\022CLIENT_FILE_CANCEL\020\001\022\026\n\022CLIENT_FI" +
+      "LE_REFUSE\020\002\022\024\n\020CLIENT_FILE_DONE\020\003*\200\001\n\016Cl" +
+      "ientFileRole\022\032\n\026CLIENT_REALTIME_SENDER\020\001" +
+      "\022\032\n\026CLIENT_REALTIME_RECVER\020\002\022\031\n\025CLIENT_O" +
+      "FFLINE_UPLOAD\020\003\022\033\n\027CLIENT_OFFLINE_DOWNLO" +
+      "AD\020\004*\341\004\n\017FileServerError\022\030\n\024FILE_SERVER_" +
+      "ERRNO_OK\020\000\022*\n&FILE_SERVER_ERRNO_CREATE_T" +
+      "ASK_ID_ERROR\020\001\022\'\n#FILE_SERVER_ERRNO_CREA" +
+      "TE_TASK_ERROR\020\002\022)\n%FILE_SERVER_ERRNO_LOG" +
+      "IN_INVALID_TOKEN\020\003\022+\n\'FILE_SERVER_ERRNO_" +
+      "INVALID_USER_FOR_TASK\020\004\0224\n0FILE_SERVER_E" +
+      "RRNO_PULL_DATA_WITH_INVALID_TASK_ID\020\005\022-\n" +
+      ")FILE_SERVER_ERRNO_PULL_DATA_ILLIEAGE_US" +
+      "ER\020\006\022+\n\'FILE_SERVER_ERRNO_PULL_DATA_MKDI" +
+      "R_ERROR\020\007\022/\n+FILE_SERVER_ERRNO_PULL_DATA" +
+      "_OPEN_FILE_ERROR\020\010\0226\n2FILE_SERVER_ERRNO_" +
+      "PULL_DATA_READ_FILE_HEADER_ERROR\020\t\022/\n+FI" +
+      "LE_SERVER_ERRNO_PULL_DATA_ALLOC_MEM_ERRO" +
+      "R\020\n\0221\n-FILE_SERVER_ERRNO_PULL_DATA_SEEK_" +
+      "OFFSET_ERROR\020\013\022(\n$FILE_SERVER_ERRNO_PULL" +
+      "_DATA_FINISHED\020\014*E\n\021SessionStatusType\022\025\n" +
+      "\021SESSION_STATUS_OK\020\000\022\031\n\025SESSION_STATUS_D" +
+      "ELETE\020\001*B\n\024DepartmentStatusType\022\022\n\016DEPT_" +
+      "STATUS_OK\020\000\022\026\n\022DEPT_STATUS_DELETE\020\001B\026\n\022c" +
+      "om.bohan.protobufH\003"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -8,8 +8,8 @@ option optimize_for = LITE_RUNTIME;
 //service id  0x0003
 message MsgData{
 	//cmd id:		0x0301
-	required uint32 from_user_id = 1;				//消息发送方
-	required uint32 to_session_id = 2;				//消息接受方
+	required bytes from_user_id = 1;				//消息发送方
+	required bytes to_session_id = 2;				//消息接受方
 	required uint32 msg_id = 3;
 	required uint32 create_time = 4; 
 	required BaseDefine.MsgType msg_type = 5;
@@ -19,24 +19,24 @@ message MsgData{
 
 message MsgDataAck{
 	//cmd id:		0x0302
-	required uint32 user_id = 1;			//发送此信令的用户id
-	required uint32 session_id = 2;				
+	required bytes user_id = 1;			//发送此信令的用户id
+	required bytes session_id = 2;				
 	required uint32 msg_id = 3;
 	required BaseDefine.SessionType session_type = 4;
 }
 
 message MsgDataReadAck{
 	//cmd id:		0x0303
-	required uint32 user_id = 1;			//发送此信令的用户id
-	required uint32 session_id = 2;			
+	required bytes user_id = 1;			//发送此信令的用户id
+	required bytes session_id = 2;			
 	required uint32 msg_id = 3;
 	required BaseDefine.SessionType session_type = 4;
 }
 
 message MsgDataReadNotify{
 	//cmd id:		0x0304
-	required uint32 user_id = 1;			//发送此信令的用户id
-	required uint32 session_id = 2;		
+	required bytes user_id = 1;			//发送此信令的用户id
+	required bytes session_id = 2;		
 	required uint32 msg_id = 3;
 	required BaseDefine.SessionType session_type = 4;
 }
@@ -52,13 +52,13 @@ message ClientTimeRsp{
 
 message UnreadMsgCntReq{
 	//cmd id:		0x0307
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	optional bytes attach_data = 20;	
 }
 
 message UnreadMsgCntRsp{
 	//cmd id:		0x0308
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required uint32 total_cnt = 2;
 	repeated BaseDefine.UnreadInfo unreadinfo_list = 3;
 	optional bytes attach_data = 20;
@@ -66,9 +66,9 @@ message UnreadMsgCntRsp{
 
 message GetMsgListReq{
 	//cmd id:		0x0309
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required BaseDefine.SessionType session_type = 2;
-	required uint32 session_id = 3;
+	required bytes session_id = 3;
 	required uint32 msg_id_begin = 4;
 	required uint32 msg_cnt = 5;
 	optional bytes attach_data = 20;
@@ -79,9 +79,9 @@ message GetMsgListReq{
 //客户端做一个缺失标记，避免下次再次拉取。
 message GetMsgListRsp{
 	//cmd id:		0x030a
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required BaseDefine.SessionType session_type = 2;
-	required uint32 session_id = 3;
+	required bytes session_id = 3;
 	required uint32 msg_id_begin = 4;
 	repeated BaseDefine.MsgInfo msg_list = 5;
 	optional bytes attach_data = 20;
@@ -89,7 +89,7 @@ message GetMsgListRsp{
 
 message GetLatestMsgIdReq{
 	//cmd id: 		0x030b
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required BaseDefine.SessionType session_type = 2;
 	required uint32 session_id = 3;
 	optional bytes attach_data = 20;
@@ -97,7 +97,7 @@ message GetLatestMsgIdReq{
 
 message GetLatestMsgIdRsp{
 	//cmd id:		0x030c
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required BaseDefine.SessionType session_type = 2;
 	required uint32 session_id = 3;
 	required uint32 latest_msg_id = 4;
@@ -106,7 +106,7 @@ message GetLatestMsgIdRsp{
 
 message GetMsgByIdReq{
 	//cmd id: 		0x030d
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required BaseDefine.SessionType session_type = 2;
 	required uint32 session_id = 3; 
 	repeated uint32 msg_id_list = 4;
@@ -115,7 +115,7 @@ message GetMsgByIdReq{
 
 message IMGetMsgByIdRsp{
 	//cmd id:		0x030e
-	required uint32 user_id = 1;
+	required bytes user_id = 1;
 	required BaseDefine.SessionType session_type = 2;
 	required uint32 session_id = 3;
 	repeated BaseDefine.MsgInfo msg_list = 4;

@@ -23,7 +23,7 @@ public final class Group {
      *cmd id:			0x0401
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -32,10 +32,10 @@ public final class Group {
      *cmd id:			0x0401
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>optional bytes attach_data = 20;</code>
@@ -61,6 +61,7 @@ public final class Group {
       super(builder);
     }
     private NormalGroupListReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -91,13 +92,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x0401
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -109,11 +110,11 @@ public final class Group {
      *cmd id:			0x0401
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -155,7 +156,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeBytes(20, attachData_);
@@ -171,7 +172,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -194,8 +195,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasAttachData() != other.hasAttachData()) return false;
       if (hasAttachData()) {
@@ -215,7 +216,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasAttachData()) {
         hash = (37 * hash) + ATTACH_DATA_FIELD_NUMBER;
@@ -349,7 +350,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         attachData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -382,9 +383,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -473,11 +474,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 162: {
                 attachData_ = input.readBytes();
                 bitField0_ |= 0x00000002;
@@ -500,13 +501,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x0401
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -518,11 +519,11 @@ public final class Group {
        *cmd id:			0x0401
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -530,12 +531,15 @@ public final class Group {
        *cmd id:			0x0401
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -545,12 +549,12 @@ public final class Group {
        *cmd id:			0x0401
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -669,7 +673,7 @@ public final class Group {
      *cmd id:			0x0402
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -678,10 +682,10 @@ public final class Group {
      *cmd id:			0x0402
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>repeated .Bohan.BaseDefine.GroupVersionInfo group_version_list = 2;</code>
@@ -731,6 +735,7 @@ public final class Group {
       super(builder);
     }
     private NormalGroupListRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       groupVersionList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -762,13 +767,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x0402
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -780,11 +785,11 @@ public final class Group {
      *cmd id:			0x0402
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -872,7 +877,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       for (int i = 0; i < groupVersionList_.size(); i++) {
         output.writeMessage(2, groupVersionList_.get(i));
@@ -891,7 +896,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       for (int i = 0; i < groupVersionList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -918,8 +923,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getGroupVersionListList()
           .equals(other.getGroupVersionListList())) return false;
@@ -941,7 +946,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (getGroupVersionListCount() > 0) {
         hash = (37 * hash) + GROUP_VERSION_LIST_FIELD_NUMBER;
@@ -1079,7 +1084,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (groupVersionListBuilder_ == null) {
           groupVersionList_ = java.util.Collections.emptyList();
@@ -1119,9 +1124,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (groupVersionListBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             groupVersionList_ = java.util.Collections.unmodifiableList(groupVersionList_);
@@ -1250,11 +1255,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 com.bohan.protobuf.BaseDefine.GroupVersionInfo m =
                     input.readMessage(
@@ -1290,13 +1295,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x0402
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -1308,11 +1313,11 @@ public final class Group {
        *cmd id:			0x0402
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -1320,12 +1325,15 @@ public final class Group {
        *cmd id:			0x0402
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -1335,12 +1343,12 @@ public final class Group {
        *cmd id:			0x0402
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -1699,7 +1707,7 @@ public final class Group {
      *cmd id:			0x0403
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -1708,10 +1716,10 @@ public final class Group {
      *cmd id:			0x0403
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>repeated .Bohan.BaseDefine.GroupVersionInfo group_version_list = 2;</code>
@@ -1761,6 +1769,7 @@ public final class Group {
       super(builder);
     }
     private GroupInfoListReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       groupVersionList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -1792,13 +1801,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x0403
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -1810,11 +1819,11 @@ public final class Group {
      *cmd id:			0x0403
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -1902,7 +1911,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       for (int i = 0; i < groupVersionList_.size(); i++) {
         output.writeMessage(2, groupVersionList_.get(i));
@@ -1921,7 +1930,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       for (int i = 0; i < groupVersionList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -1948,8 +1957,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getGroupVersionListList()
           .equals(other.getGroupVersionListList())) return false;
@@ -1971,7 +1980,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (getGroupVersionListCount() > 0) {
         hash = (37 * hash) + GROUP_VERSION_LIST_FIELD_NUMBER;
@@ -2109,7 +2118,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (groupVersionListBuilder_ == null) {
           groupVersionList_ = java.util.Collections.emptyList();
@@ -2149,9 +2158,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (groupVersionListBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             groupVersionList_ = java.util.Collections.unmodifiableList(groupVersionList_);
@@ -2280,11 +2289,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 com.bohan.protobuf.BaseDefine.GroupVersionInfo m =
                     input.readMessage(
@@ -2320,13 +2329,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x0403
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -2338,11 +2347,11 @@ public final class Group {
        *cmd id:			0x0403
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -2350,12 +2359,15 @@ public final class Group {
        *cmd id:			0x0403
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -2365,12 +2377,12 @@ public final class Group {
        *cmd id:			0x0403
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -2729,7 +2741,7 @@ public final class Group {
      *cmd id:			0x0404
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -2738,10 +2750,10 @@ public final class Group {
      *cmd id:			0x0404
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>repeated .Bohan.BaseDefine.GroupInfo group_info_list = 2;</code>
@@ -2791,6 +2803,7 @@ public final class Group {
       super(builder);
     }
     private GroupInfoListRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       groupInfoList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -2822,13 +2835,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x0404
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -2840,11 +2853,11 @@ public final class Group {
      *cmd id:			0x0404
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -2932,7 +2945,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       for (int i = 0; i < groupInfoList_.size(); i++) {
         output.writeMessage(2, groupInfoList_.get(i));
@@ -2951,7 +2964,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       for (int i = 0; i < groupInfoList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -2978,8 +2991,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (!getGroupInfoListList()
           .equals(other.getGroupInfoListList())) return false;
@@ -3001,7 +3014,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (getGroupInfoListCount() > 0) {
         hash = (37 * hash) + GROUP_INFO_LIST_FIELD_NUMBER;
@@ -3139,7 +3152,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (groupInfoListBuilder_ == null) {
           groupInfoList_ = java.util.Collections.emptyList();
@@ -3179,9 +3192,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (groupInfoListBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             groupInfoList_ = java.util.Collections.unmodifiableList(groupInfoList_);
@@ -3310,11 +3323,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 com.bohan.protobuf.BaseDefine.GroupInfo m =
                     input.readMessage(
@@ -3350,13 +3363,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x0404
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -3368,11 +3381,11 @@ public final class Group {
        *cmd id:			0x0404
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -3380,12 +3393,15 @@ public final class Group {
        *cmd id:			0x0404
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -3395,12 +3411,12 @@ public final class Group {
        *cmd id:			0x0404
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -3759,7 +3775,7 @@ public final class Group {
      *cmd id:			0x0405
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -3768,10 +3784,10 @@ public final class Group {
      *cmd id:			0x0405
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <pre>
@@ -3867,6 +3883,7 @@ public final class Group {
       super(builder);
     }
     private GroupCreateReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       groupType_ = 1;
       groupName_ = "";
       groupAvatar_ = "";
@@ -3901,13 +3918,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x0405
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -3919,11 +3936,11 @@ public final class Group {
      *cmd id:			0x0405
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -4127,7 +4144,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, groupType_);
@@ -4155,7 +4172,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4197,8 +4214,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasGroupType() != other.hasGroupType()) return false;
       if (hasGroupType()) {
@@ -4234,7 +4251,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasGroupType()) {
         hash = (37 * hash) + GROUP_TYPE_FIELD_NUMBER;
@@ -4384,7 +4401,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         groupType_ = 1;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -4425,9 +4442,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -4565,11 +4582,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.GroupType tmpValue =
@@ -4630,13 +4647,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x0405
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -4648,11 +4665,11 @@ public final class Group {
        *cmd id:			0x0405
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -4660,12 +4677,15 @@ public final class Group {
        *cmd id:			0x0405
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -4675,12 +4695,12 @@ public final class Group {
        *cmd id:			0x0405
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -5105,7 +5125,7 @@ public final class Group {
      *cmd id:			0x0406
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -5114,10 +5134,10 @@ public final class Group {
      *cmd id:			0x0406
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 result_code = 2;</code>
@@ -5159,21 +5179,21 @@ public final class Group {
         getGroupNameBytes();
 
     /**
-     * <code>repeated uint32 user_id_list = 5;</code>
+     * <code>repeated bytes user_id_list = 5;</code>
      * @return A list containing the userIdList.
      */
-    java.util.List<java.lang.Integer> getUserIdListList();
+    java.util.List<com.google.protobuf.ByteString> getUserIdListList();
     /**
-     * <code>repeated uint32 user_id_list = 5;</code>
+     * <code>repeated bytes user_id_list = 5;</code>
      * @return The count of userIdList.
      */
     int getUserIdListCount();
     /**
-     * <code>repeated uint32 user_id_list = 5;</code>
+     * <code>repeated bytes user_id_list = 5;</code>
      * @param index The index of the element to return.
      * @return The userIdList at the given index.
      */
-    int getUserIdList(int index);
+    com.google.protobuf.ByteString getUserIdList(int index);
 
     /**
      * <code>optional bytes attach_data = 20;</code>
@@ -5199,8 +5219,9 @@ public final class Group {
       super(builder);
     }
     private GroupCreateRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       groupName_ = "";
-      userIdList_ = emptyIntList();
+      userIdList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -5231,13 +5252,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x0406
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -5249,11 +5270,11 @@ public final class Group {
      *cmd id:			0x0406
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -5344,30 +5365,30 @@ public final class Group {
     }
 
     public static final int USER_ID_LIST_FIELD_NUMBER = 5;
-    private com.google.protobuf.Internal.IntList userIdList_;
+    private java.util.List<com.google.protobuf.ByteString> userIdList_;
     /**
-     * <code>repeated uint32 user_id_list = 5;</code>
+     * <code>repeated bytes user_id_list = 5;</code>
      * @return A list containing the userIdList.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Integer>
+    public java.util.List<com.google.protobuf.ByteString>
         getUserIdListList() {
       return userIdList_;
     }
     /**
-     * <code>repeated uint32 user_id_list = 5;</code>
+     * <code>repeated bytes user_id_list = 5;</code>
      * @return The count of userIdList.
      */
     public int getUserIdListCount() {
       return userIdList_.size();
     }
     /**
-     * <code>repeated uint32 user_id_list = 5;</code>
+     * <code>repeated bytes user_id_list = 5;</code>
      * @param index The index of the element to return.
      * @return The userIdList at the given index.
      */
-    public int getUserIdList(int index) {
-      return userIdList_.getInt(index);
+    public com.google.protobuf.ByteString getUserIdList(int index) {
+      return userIdList_.get(index);
     }
 
     public static final int ATTACH_DATA_FIELD_NUMBER = 20;
@@ -5416,7 +5437,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, resultCode_);
@@ -5428,7 +5449,7 @@ public final class Group {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, groupName_);
       }
       for (int i = 0; i < userIdList_.size(); i++) {
-        output.writeUInt32(5, userIdList_.getInt(i));
+        output.writeBytes(5, userIdList_.get(i));
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         output.writeBytes(20, attachData_);
@@ -5444,7 +5465,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -5461,7 +5482,7 @@ public final class Group {
         int dataSize = 0;
         for (int i = 0; i < userIdList_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(userIdList_.getInt(i));
+            .computeBytesSizeNoTag(userIdList_.get(i));
         }
         size += dataSize;
         size += 1 * getUserIdListList().size();
@@ -5487,8 +5508,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasResultCode() != other.hasResultCode()) return false;
       if (hasResultCode()) {
@@ -5525,7 +5546,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasResultCode()) {
         hash = (37 * hash) + RESULT_CODE_FIELD_NUMBER;
@@ -5675,7 +5696,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         resultCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -5683,7 +5704,7 @@ public final class Group {
         bitField0_ = (bitField0_ & ~0x00000004);
         groupName_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        userIdList_ = emptyIntList();
+        userIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
         attachData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -5716,9 +5737,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.resultCode_ = resultCode_;
           to_bitField0_ |= 0x00000002;
@@ -5732,7 +5753,7 @@ public final class Group {
         }
         result.groupName_ = groupName_;
         if (((bitField0_ & 0x00000010) != 0)) {
-          userIdList_.makeImmutable();
+          userIdList_ = java.util.Collections.unmodifiableList(userIdList_);
           bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.userIdList_ = userIdList_;
@@ -5851,11 +5872,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 resultCode_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -5871,20 +5892,10 @@ public final class Group {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
-              case 40: {
-                int v = input.readUInt32();
-                ensureUserIdListIsMutable();
-                userIdList_.addInt(v);
-                break;
-              } // case 40
               case 42: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
+                com.google.protobuf.ByteString v = input.readBytes();
                 ensureUserIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  userIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
+                userIdList_.add(v);
                 break;
               } // case 42
               case 162: {
@@ -5909,13 +5920,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x0406
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -5927,11 +5938,11 @@ public final class Group {
        *cmd id:			0x0406
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -5939,12 +5950,15 @@ public final class Group {
        *cmd id:			0x0406
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -5954,12 +5968,12 @@ public final class Group {
        *cmd id:			0x0406
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -6126,68 +6140,74 @@ public final class Group {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList userIdList_ = emptyIntList();
+      private java.util.List<com.google.protobuf.ByteString> userIdList_ = java.util.Collections.emptyList();
       private void ensureUserIdListIsMutable() {
         if (!((bitField0_ & 0x00000010) != 0)) {
-          userIdList_ = mutableCopy(userIdList_);
+          userIdList_ = new java.util.ArrayList<com.google.protobuf.ByteString>(userIdList_);
           bitField0_ |= 0x00000010;
          }
       }
       /**
-       * <code>repeated uint32 user_id_list = 5;</code>
+       * <code>repeated bytes user_id_list = 5;</code>
        * @return A list containing the userIdList.
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<com.google.protobuf.ByteString>
           getUserIdListList() {
         return ((bitField0_ & 0x00000010) != 0) ?
                  java.util.Collections.unmodifiableList(userIdList_) : userIdList_;
       }
       /**
-       * <code>repeated uint32 user_id_list = 5;</code>
+       * <code>repeated bytes user_id_list = 5;</code>
        * @return The count of userIdList.
        */
       public int getUserIdListCount() {
         return userIdList_.size();
       }
       /**
-       * <code>repeated uint32 user_id_list = 5;</code>
+       * <code>repeated bytes user_id_list = 5;</code>
        * @param index The index of the element to return.
        * @return The userIdList at the given index.
        */
-      public int getUserIdList(int index) {
-        return userIdList_.getInt(index);
+      public com.google.protobuf.ByteString getUserIdList(int index) {
+        return userIdList_.get(index);
       }
       /**
-       * <code>repeated uint32 user_id_list = 5;</code>
+       * <code>repeated bytes user_id_list = 5;</code>
        * @param index The index to set the value at.
        * @param value The userIdList to set.
        * @return This builder for chaining.
        */
       public Builder setUserIdList(
-          int index, int value) {
-        ensureUserIdListIsMutable();
-        userIdList_.setInt(index, value);
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUserIdListIsMutable();
+        userIdList_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 user_id_list = 5;</code>
+       * <code>repeated bytes user_id_list = 5;</code>
        * @param value The userIdList to add.
        * @return This builder for chaining.
        */
-      public Builder addUserIdList(int value) {
-        ensureUserIdListIsMutable();
-        userIdList_.addInt(value);
+      public Builder addUserIdList(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUserIdListIsMutable();
+        userIdList_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 user_id_list = 5;</code>
+       * <code>repeated bytes user_id_list = 5;</code>
        * @param values The userIdList to add.
        * @return This builder for chaining.
        */
       public Builder addAllUserIdList(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureUserIdListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, userIdList_);
@@ -6195,11 +6215,11 @@ public final class Group {
         return this;
       }
       /**
-       * <code>repeated uint32 user_id_list = 5;</code>
+       * <code>repeated bytes user_id_list = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserIdList() {
-        userIdList_ = emptyIntList();
+        userIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
@@ -6319,7 +6339,7 @@ public final class Group {
      *cmd id:			0x0407
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -6328,10 +6348,10 @@ public final class Group {
      *cmd id:			0x0407
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.GroupModifyType change_type = 2;</code>
@@ -6396,6 +6416,7 @@ public final class Group {
       super(builder);
     }
     private GroupChangeMemberReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       changeType_ = 0;
       memberIdList_ = emptyIntList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
@@ -6428,13 +6449,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x0407
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -6446,11 +6467,11 @@ public final class Group {
      *cmd id:			0x0407
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -6565,7 +6586,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, changeType_);
@@ -6590,7 +6611,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -6630,8 +6651,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasChangeType() != other.hasChangeType()) return false;
       if (hasChangeType()) {
@@ -6662,7 +6683,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasChangeType()) {
         hash = (37 * hash) + CHANGE_TYPE_FIELD_NUMBER;
@@ -6808,7 +6829,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         changeType_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -6847,9 +6868,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -6973,11 +6994,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.GroupModifyType tmpValue =
@@ -7033,13 +7054,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x0407
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -7051,11 +7072,11 @@ public final class Group {
        *cmd id:			0x0407
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -7063,12 +7084,15 @@ public final class Group {
        *cmd id:			0x0407
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -7078,12 +7102,12 @@ public final class Group {
        *cmd id:			0x0407
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -7363,7 +7387,7 @@ public final class Group {
      *cmd id:			0x0408
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -7372,10 +7396,10 @@ public final class Group {
      *cmd id:			0x0408
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.GroupModifyType change_type = 2;</code>
@@ -7415,16 +7439,16 @@ public final class Group {
      *现有的成员id		
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 5;</code>
+     * <code>repeated bytes cur_user_id_list = 5;</code>
      * @return A list containing the curUserIdList.
      */
-    java.util.List<java.lang.Integer> getCurUserIdListList();
+    java.util.List<com.google.protobuf.ByteString> getCurUserIdListList();
     /**
      * <pre>
      *现有的成员id		
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 5;</code>
+     * <code>repeated bytes cur_user_id_list = 5;</code>
      * @return The count of curUserIdList.
      */
     int getCurUserIdListCount();
@@ -7433,27 +7457,27 @@ public final class Group {
      *现有的成员id		
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 5;</code>
+     * <code>repeated bytes cur_user_id_list = 5;</code>
      * @param index The index of the element to return.
      * @return The curUserIdList at the given index.
      */
-    int getCurUserIdList(int index);
+    com.google.protobuf.ByteString getCurUserIdList(int index);
 
     /**
      * <pre>
      *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 6;</code>
+     * <code>repeated bytes chg_user_id_list = 6;</code>
      * @return A list containing the chgUserIdList.
      */
-    java.util.List<java.lang.Integer> getChgUserIdListList();
+    java.util.List<com.google.protobuf.ByteString> getChgUserIdListList();
     /**
      * <pre>
      *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 6;</code>
+     * <code>repeated bytes chg_user_id_list = 6;</code>
      * @return The count of chgUserIdList.
      */
     int getChgUserIdListCount();
@@ -7462,11 +7486,11 @@ public final class Group {
      *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 6;</code>
+     * <code>repeated bytes chg_user_id_list = 6;</code>
      * @param index The index of the element to return.
      * @return The chgUserIdList at the given index.
      */
-    int getChgUserIdList(int index);
+    com.google.protobuf.ByteString getChgUserIdList(int index);
 
     /**
      * <code>optional bytes attach_data = 20;</code>
@@ -7492,9 +7516,10 @@ public final class Group {
       super(builder);
     }
     private GroupChangeMemberRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       changeType_ = 0;
-      curUserIdList_ = emptyIntList();
-      chgUserIdList_ = emptyIntList();
+      curUserIdList_ = java.util.Collections.emptyList();
+      chgUserIdList_ = java.util.Collections.emptyList();
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -7525,13 +7550,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x0408
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -7543,11 +7568,11 @@ public final class Group {
      *cmd id:			0x0408
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -7609,17 +7634,17 @@ public final class Group {
     }
 
     public static final int CUR_USER_ID_LIST_FIELD_NUMBER = 5;
-    private com.google.protobuf.Internal.IntList curUserIdList_;
+    private java.util.List<com.google.protobuf.ByteString> curUserIdList_;
     /**
      * <pre>
      *现有的成员id		
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 5;</code>
+     * <code>repeated bytes cur_user_id_list = 5;</code>
      * @return A list containing the curUserIdList.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Integer>
+    public java.util.List<com.google.protobuf.ByteString>
         getCurUserIdListList() {
       return curUserIdList_;
     }
@@ -7628,7 +7653,7 @@ public final class Group {
      *现有的成员id		
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 5;</code>
+     * <code>repeated bytes cur_user_id_list = 5;</code>
      * @return The count of curUserIdList.
      */
     public int getCurUserIdListCount() {
@@ -7639,26 +7664,26 @@ public final class Group {
      *现有的成员id		
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 5;</code>
+     * <code>repeated bytes cur_user_id_list = 5;</code>
      * @param index The index of the element to return.
      * @return The curUserIdList at the given index.
      */
-    public int getCurUserIdList(int index) {
-      return curUserIdList_.getInt(index);
+    public com.google.protobuf.ByteString getCurUserIdList(int index) {
+      return curUserIdList_.get(index);
     }
 
     public static final int CHG_USER_ID_LIST_FIELD_NUMBER = 6;
-    private com.google.protobuf.Internal.IntList chgUserIdList_;
+    private java.util.List<com.google.protobuf.ByteString> chgUserIdList_;
     /**
      * <pre>
      *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 6;</code>
+     * <code>repeated bytes chg_user_id_list = 6;</code>
      * @return A list containing the chgUserIdList.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Integer>
+    public java.util.List<com.google.protobuf.ByteString>
         getChgUserIdListList() {
       return chgUserIdList_;
     }
@@ -7667,7 +7692,7 @@ public final class Group {
      *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 6;</code>
+     * <code>repeated bytes chg_user_id_list = 6;</code>
      * @return The count of chgUserIdList.
      */
     public int getChgUserIdListCount() {
@@ -7678,12 +7703,12 @@ public final class Group {
      *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 6;</code>
+     * <code>repeated bytes chg_user_id_list = 6;</code>
      * @param index The index of the element to return.
      * @return The chgUserIdList at the given index.
      */
-    public int getChgUserIdList(int index) {
-      return chgUserIdList_.getInt(index);
+    public com.google.protobuf.ByteString getChgUserIdList(int index) {
+      return chgUserIdList_.get(index);
     }
 
     public static final int ATTACH_DATA_FIELD_NUMBER = 20;
@@ -7736,7 +7761,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, changeType_);
@@ -7748,10 +7773,10 @@ public final class Group {
         output.writeUInt32(4, groupId_);
       }
       for (int i = 0; i < curUserIdList_.size(); i++) {
-        output.writeUInt32(5, curUserIdList_.getInt(i));
+        output.writeBytes(5, curUserIdList_.get(i));
       }
       for (int i = 0; i < chgUserIdList_.size(); i++) {
-        output.writeUInt32(6, chgUserIdList_.getInt(i));
+        output.writeBytes(6, chgUserIdList_.get(i));
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         output.writeBytes(20, attachData_);
@@ -7767,7 +7792,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -7785,7 +7810,7 @@ public final class Group {
         int dataSize = 0;
         for (int i = 0; i < curUserIdList_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(curUserIdList_.getInt(i));
+            .computeBytesSizeNoTag(curUserIdList_.get(i));
         }
         size += dataSize;
         size += 1 * getCurUserIdListList().size();
@@ -7794,7 +7819,7 @@ public final class Group {
         int dataSize = 0;
         for (int i = 0; i < chgUserIdList_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(chgUserIdList_.getInt(i));
+            .computeBytesSizeNoTag(chgUserIdList_.get(i));
         }
         size += dataSize;
         size += 1 * getChgUserIdListList().size();
@@ -7820,8 +7845,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasChangeType() != other.hasChangeType()) return false;
       if (hasChangeType()) {
@@ -7859,7 +7884,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasChangeType()) {
         hash = (37 * hash) + CHANGE_TYPE_FIELD_NUMBER;
@@ -8013,7 +8038,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         changeType_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -8021,9 +8046,9 @@ public final class Group {
         bitField0_ = (bitField0_ & ~0x00000004);
         groupId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        curUserIdList_ = emptyIntList();
+        curUserIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
-        chgUserIdList_ = emptyIntList();
+        chgUserIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000020);
         attachData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -8056,9 +8081,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -8072,12 +8097,12 @@ public final class Group {
           to_bitField0_ |= 0x00000008;
         }
         if (((bitField0_ & 0x00000010) != 0)) {
-          curUserIdList_.makeImmutable();
+          curUserIdList_ = java.util.Collections.unmodifiableList(curUserIdList_);
           bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.curUserIdList_ = curUserIdList_;
         if (((bitField0_ & 0x00000020) != 0)) {
-          chgUserIdList_.makeImmutable();
+          chgUserIdList_ = java.util.Collections.unmodifiableList(chgUserIdList_);
           bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.chgUserIdList_ = chgUserIdList_;
@@ -8207,11 +8232,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.GroupModifyType tmpValue =
@@ -8234,36 +8259,16 @@ public final class Group {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 32
-              case 40: {
-                int v = input.readUInt32();
-                ensureCurUserIdListIsMutable();
-                curUserIdList_.addInt(v);
-                break;
-              } // case 40
               case 42: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
+                com.google.protobuf.ByteString v = input.readBytes();
                 ensureCurUserIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  curUserIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
+                curUserIdList_.add(v);
                 break;
               } // case 42
-              case 48: {
-                int v = input.readUInt32();
-                ensureChgUserIdListIsMutable();
-                chgUserIdList_.addInt(v);
-                break;
-              } // case 48
               case 50: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
+                com.google.protobuf.ByteString v = input.readBytes();
                 ensureChgUserIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  chgUserIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
+                chgUserIdList_.add(v);
                 break;
               } // case 50
               case 162: {
@@ -8288,13 +8293,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x0408
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -8306,11 +8311,11 @@ public final class Group {
        *cmd id:			0x0408
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -8318,12 +8323,15 @@ public final class Group {
        *cmd id:			0x0408
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -8333,12 +8341,12 @@ public final class Group {
        *cmd id:			0x0408
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -8464,10 +8472,10 @@ public final class Group {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList curUserIdList_ = emptyIntList();
+      private java.util.List<com.google.protobuf.ByteString> curUserIdList_ = java.util.Collections.emptyList();
       private void ensureCurUserIdListIsMutable() {
         if (!((bitField0_ & 0x00000010) != 0)) {
-          curUserIdList_ = mutableCopy(curUserIdList_);
+          curUserIdList_ = new java.util.ArrayList<com.google.protobuf.ByteString>(curUserIdList_);
           bitField0_ |= 0x00000010;
          }
       }
@@ -8476,10 +8484,10 @@ public final class Group {
        *现有的成员id		
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 5;</code>
+       * <code>repeated bytes cur_user_id_list = 5;</code>
        * @return A list containing the curUserIdList.
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<com.google.protobuf.ByteString>
           getCurUserIdListList() {
         return ((bitField0_ & 0x00000010) != 0) ?
                  java.util.Collections.unmodifiableList(curUserIdList_) : curUserIdList_;
@@ -8489,7 +8497,7 @@ public final class Group {
        *现有的成员id		
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 5;</code>
+       * <code>repeated bytes cur_user_id_list = 5;</code>
        * @return The count of curUserIdList.
        */
       public int getCurUserIdListCount() {
@@ -8500,27 +8508,30 @@ public final class Group {
        *现有的成员id		
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 5;</code>
+       * <code>repeated bytes cur_user_id_list = 5;</code>
        * @param index The index of the element to return.
        * @return The curUserIdList at the given index.
        */
-      public int getCurUserIdList(int index) {
-        return curUserIdList_.getInt(index);
+      public com.google.protobuf.ByteString getCurUserIdList(int index) {
+        return curUserIdList_.get(index);
       }
       /**
        * <pre>
        *现有的成员id		
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 5;</code>
+       * <code>repeated bytes cur_user_id_list = 5;</code>
        * @param index The index to set the value at.
        * @param value The curUserIdList to set.
        * @return This builder for chaining.
        */
       public Builder setCurUserIdList(
-          int index, int value) {
-        ensureCurUserIdListIsMutable();
-        curUserIdList_.setInt(index, value);
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCurUserIdListIsMutable();
+        curUserIdList_.set(index, value);
         onChanged();
         return this;
       }
@@ -8529,13 +8540,16 @@ public final class Group {
        *现有的成员id		
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 5;</code>
+       * <code>repeated bytes cur_user_id_list = 5;</code>
        * @param value The curUserIdList to add.
        * @return This builder for chaining.
        */
-      public Builder addCurUserIdList(int value) {
-        ensureCurUserIdListIsMutable();
-        curUserIdList_.addInt(value);
+      public Builder addCurUserIdList(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCurUserIdListIsMutable();
+        curUserIdList_.add(value);
         onChanged();
         return this;
       }
@@ -8544,12 +8558,12 @@ public final class Group {
        *现有的成员id		
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 5;</code>
+       * <code>repeated bytes cur_user_id_list = 5;</code>
        * @param values The curUserIdList to add.
        * @return This builder for chaining.
        */
       public Builder addAllCurUserIdList(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureCurUserIdListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, curUserIdList_);
@@ -8561,20 +8575,20 @@ public final class Group {
        *现有的成员id		
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 5;</code>
+       * <code>repeated bytes cur_user_id_list = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearCurUserIdList() {
-        curUserIdList_ = emptyIntList();
+        curUserIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList chgUserIdList_ = emptyIntList();
+      private java.util.List<com.google.protobuf.ByteString> chgUserIdList_ = java.util.Collections.emptyList();
       private void ensureChgUserIdListIsMutable() {
         if (!((bitField0_ & 0x00000020) != 0)) {
-          chgUserIdList_ = mutableCopy(chgUserIdList_);
+          chgUserIdList_ = new java.util.ArrayList<com.google.protobuf.ByteString>(chgUserIdList_);
           bitField0_ |= 0x00000020;
          }
       }
@@ -8583,10 +8597,10 @@ public final class Group {
        *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 6;</code>
+       * <code>repeated bytes chg_user_id_list = 6;</code>
        * @return A list containing the chgUserIdList.
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<com.google.protobuf.ByteString>
           getChgUserIdListList() {
         return ((bitField0_ & 0x00000020) != 0) ?
                  java.util.Collections.unmodifiableList(chgUserIdList_) : chgUserIdList_;
@@ -8596,7 +8610,7 @@ public final class Group {
        *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 6;</code>
+       * <code>repeated bytes chg_user_id_list = 6;</code>
        * @return The count of chgUserIdList.
        */
       public int getChgUserIdListCount() {
@@ -8607,27 +8621,30 @@ public final class Group {
        *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 6;</code>
+       * <code>repeated bytes chg_user_id_list = 6;</code>
        * @param index The index of the element to return.
        * @return The chgUserIdList at the given index.
        */
-      public int getChgUserIdList(int index) {
-        return chgUserIdList_.getInt(index);
+      public com.google.protobuf.ByteString getChgUserIdList(int index) {
+        return chgUserIdList_.get(index);
       }
       /**
        * <pre>
        *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 6;</code>
+       * <code>repeated bytes chg_user_id_list = 6;</code>
        * @param index The index to set the value at.
        * @param value The chgUserIdList to set.
        * @return This builder for chaining.
        */
       public Builder setChgUserIdList(
-          int index, int value) {
-        ensureChgUserIdListIsMutable();
-        chgUserIdList_.setInt(index, value);
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureChgUserIdListIsMutable();
+        chgUserIdList_.set(index, value);
         onChanged();
         return this;
       }
@@ -8636,13 +8653,16 @@ public final class Group {
        *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 6;</code>
+       * <code>repeated bytes chg_user_id_list = 6;</code>
        * @param value The chgUserIdList to add.
        * @return This builder for chaining.
        */
-      public Builder addChgUserIdList(int value) {
-        ensureChgUserIdListIsMutable();
-        chgUserIdList_.addInt(value);
+      public Builder addChgUserIdList(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureChgUserIdListIsMutable();
+        chgUserIdList_.add(value);
         onChanged();
         return this;
       }
@@ -8651,12 +8671,12 @@ public final class Group {
        *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 6;</code>
+       * <code>repeated bytes chg_user_id_list = 6;</code>
        * @param values The chgUserIdList to add.
        * @return This builder for chaining.
        */
       public Builder addAllChgUserIdList(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureChgUserIdListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, chgUserIdList_);
@@ -8668,11 +8688,11 @@ public final class Group {
        *变动的成员id,add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 6;</code>
+       * <code>repeated bytes chg_user_id_list = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearChgUserIdList() {
-        chgUserIdList_ = emptyIntList();
+        chgUserIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
@@ -8792,7 +8812,7 @@ public final class Group {
      *cmd id:			0x0409
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -8801,10 +8821,10 @@ public final class Group {
      *cmd id:			0x0409
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 group_id = 2;</code>
@@ -8852,6 +8872,7 @@ public final class Group {
       super(builder);
     }
     private GroupShieldReq() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -8882,13 +8903,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x0409
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -8900,11 +8921,11 @@ public final class Group {
      *cmd id:			0x0409
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -8992,7 +9013,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, groupId_);
@@ -9014,7 +9035,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -9045,8 +9066,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasGroupId() != other.hasGroupId()) return false;
       if (hasGroupId()) {
@@ -9076,7 +9097,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasGroupId()) {
         hash = (37 * hash) + GROUP_ID_FIELD_NUMBER;
@@ -9218,7 +9239,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         groupId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -9255,9 +9276,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.groupId_ = groupId_;
           to_bitField0_ |= 0x00000002;
@@ -9366,11 +9387,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 groupId_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -9403,13 +9424,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x0409
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -9421,11 +9442,11 @@ public final class Group {
        *cmd id:			0x0409
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -9433,12 +9454,15 @@ public final class Group {
        *cmd id:			0x0409
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -9448,12 +9472,12 @@ public final class Group {
        *cmd id:			0x0409
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -9650,7 +9674,7 @@ public final class Group {
      *cmd id:			0x040a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -9659,10 +9683,10 @@ public final class Group {
      *cmd id:			0x040a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required uint32 group_id = 2;</code>
@@ -9718,6 +9742,7 @@ public final class Group {
       super(builder);
     }
     private GroupShieldRsp() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       attachData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -9748,13 +9773,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id:			0x040a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -9766,11 +9791,11 @@ public final class Group {
      *cmd id:			0x040a
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -9866,7 +9891,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeUInt32(2, groupId_);
@@ -9888,7 +9913,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -9919,8 +9944,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasGroupId() != other.hasGroupId()) return false;
       if (hasGroupId()) {
@@ -9950,7 +9975,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasGroupId()) {
         hash = (37 * hash) + GROUP_ID_FIELD_NUMBER;
@@ -10092,7 +10117,7 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         groupId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -10129,9 +10154,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.groupId_ = groupId_;
           to_bitField0_ |= 0x00000002;
@@ -10240,11 +10265,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 groupId_ = input.readUInt32();
                 bitField0_ |= 0x00000002;
@@ -10277,13 +10302,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id:			0x040a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -10295,11 +10320,11 @@ public final class Group {
        *cmd id:			0x040a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -10307,12 +10332,15 @@ public final class Group {
        *cmd id:			0x040a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -10322,12 +10350,12 @@ public final class Group {
        *cmd id:			0x040a
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -10540,7 +10568,7 @@ public final class Group {
      *cmd id: 			0x040b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     boolean hasUserId();
@@ -10549,10 +10577,10 @@ public final class Group {
      *cmd id: 			0x040b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
-    int getUserId();
+    com.google.protobuf.ByteString getUserId();
 
     /**
      * <code>required .Bohan.BaseDefine.GroupModifyType change_type = 2;</code>
@@ -10581,16 +10609,16 @@ public final class Group {
      *现有的成员id
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 4;</code>
+     * <code>repeated bytes cur_user_id_list = 4;</code>
      * @return A list containing the curUserIdList.
      */
-    java.util.List<java.lang.Integer> getCurUserIdListList();
+    java.util.List<com.google.protobuf.ByteString> getCurUserIdListList();
     /**
      * <pre>
      *现有的成员id
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 4;</code>
+     * <code>repeated bytes cur_user_id_list = 4;</code>
      * @return The count of curUserIdList.
      */
     int getCurUserIdListCount();
@@ -10599,27 +10627,27 @@ public final class Group {
      *现有的成员id
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 4;</code>
+     * <code>repeated bytes cur_user_id_list = 4;</code>
      * @param index The index of the element to return.
      * @return The curUserIdList at the given index.
      */
-    int getCurUserIdList(int index);
+    com.google.protobuf.ByteString getCurUserIdList(int index);
 
     /**
      * <pre>
      *add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 5;</code>
+     * <code>repeated bytes chg_user_id_list = 5;</code>
      * @return A list containing the chgUserIdList.
      */
-    java.util.List<java.lang.Integer> getChgUserIdListList();
+    java.util.List<com.google.protobuf.ByteString> getChgUserIdListList();
     /**
      * <pre>
      *add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 5;</code>
+     * <code>repeated bytes chg_user_id_list = 5;</code>
      * @return The count of chgUserIdList.
      */
     int getChgUserIdListCount();
@@ -10628,11 +10656,11 @@ public final class Group {
      *add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 5;</code>
+     * <code>repeated bytes chg_user_id_list = 5;</code>
      * @param index The index of the element to return.
      * @return The chgUserIdList at the given index.
      */
-    int getChgUserIdList(int index);
+    com.google.protobuf.ByteString getChgUserIdList(int index);
   }
   /**
    * Protobuf type {@code Bohan.Group.GroupChangeMemberNotify}
@@ -10647,9 +10675,10 @@ public final class Group {
       super(builder);
     }
     private GroupChangeMemberNotify() {
+      userId_ = com.google.protobuf.ByteString.EMPTY;
       changeType_ = 0;
-      curUserIdList_ = emptyIntList();
-      chgUserIdList_ = emptyIntList();
+      curUserIdList_ = java.util.Collections.emptyList();
+      chgUserIdList_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -10679,13 +10708,13 @@ public final class Group {
 
     private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
-    private int userId_;
+    private com.google.protobuf.ByteString userId_;
     /**
      * <pre>
      *cmd id: 			0x040b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return Whether the userId field is set.
      */
     @java.lang.Override
@@ -10697,11 +10726,11 @@ public final class Group {
      *cmd id: 			0x040b
      * </pre>
      *
-     * <code>required uint32 user_id = 1;</code>
+     * <code>required bytes user_id = 1;</code>
      * @return The userId.
      */
     @java.lang.Override
-    public int getUserId() {
+    public com.google.protobuf.ByteString getUserId() {
       return userId_;
     }
 
@@ -10744,17 +10773,17 @@ public final class Group {
     }
 
     public static final int CUR_USER_ID_LIST_FIELD_NUMBER = 4;
-    private com.google.protobuf.Internal.IntList curUserIdList_;
+    private java.util.List<com.google.protobuf.ByteString> curUserIdList_;
     /**
      * <pre>
      *现有的成员id
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 4;</code>
+     * <code>repeated bytes cur_user_id_list = 4;</code>
      * @return A list containing the curUserIdList.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Integer>
+    public java.util.List<com.google.protobuf.ByteString>
         getCurUserIdListList() {
       return curUserIdList_;
     }
@@ -10763,7 +10792,7 @@ public final class Group {
      *现有的成员id
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 4;</code>
+     * <code>repeated bytes cur_user_id_list = 4;</code>
      * @return The count of curUserIdList.
      */
     public int getCurUserIdListCount() {
@@ -10774,26 +10803,26 @@ public final class Group {
      *现有的成员id
      * </pre>
      *
-     * <code>repeated uint32 cur_user_id_list = 4;</code>
+     * <code>repeated bytes cur_user_id_list = 4;</code>
      * @param index The index of the element to return.
      * @return The curUserIdList at the given index.
      */
-    public int getCurUserIdList(int index) {
-      return curUserIdList_.getInt(index);
+    public com.google.protobuf.ByteString getCurUserIdList(int index) {
+      return curUserIdList_.get(index);
     }
 
     public static final int CHG_USER_ID_LIST_FIELD_NUMBER = 5;
-    private com.google.protobuf.Internal.IntList chgUserIdList_;
+    private java.util.List<com.google.protobuf.ByteString> chgUserIdList_;
     /**
      * <pre>
      *add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 5;</code>
+     * <code>repeated bytes chg_user_id_list = 5;</code>
      * @return A list containing the chgUserIdList.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Integer>
+    public java.util.List<com.google.protobuf.ByteString>
         getChgUserIdListList() {
       return chgUserIdList_;
     }
@@ -10802,7 +10831,7 @@ public final class Group {
      *add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 5;</code>
+     * <code>repeated bytes chg_user_id_list = 5;</code>
      * @return The count of chgUserIdList.
      */
     public int getChgUserIdListCount() {
@@ -10813,12 +10842,12 @@ public final class Group {
      *add: 表示添加成功的id,   del: 表示删除的id
      * </pre>
      *
-     * <code>repeated uint32 chg_user_id_list = 5;</code>
+     * <code>repeated bytes chg_user_id_list = 5;</code>
      * @param index The index of the element to return.
      * @return The chgUserIdList at the given index.
      */
-    public int getChgUserIdList(int index) {
-      return chgUserIdList_.getInt(index);
+    public com.google.protobuf.ByteString getChgUserIdList(int index) {
+      return chgUserIdList_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10848,7 +10877,7 @@ public final class Group {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, userId_);
+        output.writeBytes(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, changeType_);
@@ -10857,10 +10886,10 @@ public final class Group {
         output.writeUInt32(3, groupId_);
       }
       for (int i = 0; i < curUserIdList_.size(); i++) {
-        output.writeUInt32(4, curUserIdList_.getInt(i));
+        output.writeBytes(4, curUserIdList_.get(i));
       }
       for (int i = 0; i < chgUserIdList_.size(); i++) {
-        output.writeUInt32(5, chgUserIdList_.getInt(i));
+        output.writeBytes(5, chgUserIdList_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -10873,7 +10902,7 @@ public final class Group {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userId_);
+          .computeBytesSize(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -10887,7 +10916,7 @@ public final class Group {
         int dataSize = 0;
         for (int i = 0; i < curUserIdList_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(curUserIdList_.getInt(i));
+            .computeBytesSizeNoTag(curUserIdList_.get(i));
         }
         size += dataSize;
         size += 1 * getCurUserIdListList().size();
@@ -10896,7 +10925,7 @@ public final class Group {
         int dataSize = 0;
         for (int i = 0; i < chgUserIdList_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(chgUserIdList_.getInt(i));
+            .computeBytesSizeNoTag(chgUserIdList_.get(i));
         }
         size += dataSize;
         size += 1 * getChgUserIdListList().size();
@@ -10918,8 +10947,8 @@ public final class Group {
 
       if (hasUserId() != other.hasUserId()) return false;
       if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
+        if (!getUserId()
+            .equals(other.getUserId())) return false;
       }
       if (hasChangeType() != other.hasChangeType()) return false;
       if (hasChangeType()) {
@@ -10947,7 +10976,7 @@ public final class Group {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
         hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
+        hash = (53 * hash) + getUserId().hashCode();
       }
       if (hasChangeType()) {
         hash = (37 * hash) + CHANGE_TYPE_FIELD_NUMBER;
@@ -11093,15 +11122,15 @@ public final class Group {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        userId_ = 0;
+        userId_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         changeType_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
         groupId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        curUserIdList_ = emptyIntList();
+        curUserIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000008);
-        chgUserIdList_ = emptyIntList();
+        chgUserIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -11132,9 +11161,9 @@ public final class Group {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.userId_ = userId_;
           to_bitField0_ |= 0x00000001;
         }
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -11144,12 +11173,12 @@ public final class Group {
           to_bitField0_ |= 0x00000004;
         }
         if (((bitField0_ & 0x00000008) != 0)) {
-          curUserIdList_.makeImmutable();
+          curUserIdList_ = java.util.Collections.unmodifiableList(curUserIdList_);
           bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.curUserIdList_ = curUserIdList_;
         if (((bitField0_ & 0x00000010) != 0)) {
-          chgUserIdList_.makeImmutable();
+          chgUserIdList_ = java.util.Collections.unmodifiableList(chgUserIdList_);
           bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.chgUserIdList_ = chgUserIdList_;
@@ -11266,11 +11295,11 @@ public final class Group {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                userId_ = input.readUInt32();
+              case 10: {
+                userId_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 16: {
                 int tmpRaw = input.readEnum();
                 com.bohan.protobuf.BaseDefine.GroupModifyType tmpValue =
@@ -11288,36 +11317,16 @@ public final class Group {
                 bitField0_ |= 0x00000004;
                 break;
               } // case 24
-              case 32: {
-                int v = input.readUInt32();
-                ensureCurUserIdListIsMutable();
-                curUserIdList_.addInt(v);
-                break;
-              } // case 32
               case 34: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
+                com.google.protobuf.ByteString v = input.readBytes();
                 ensureCurUserIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  curUserIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
+                curUserIdList_.add(v);
                 break;
               } // case 34
-              case 40: {
-                int v = input.readUInt32();
-                ensureChgUserIdListIsMutable();
-                chgUserIdList_.addInt(v);
-                break;
-              } // case 40
               case 42: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
+                com.google.protobuf.ByteString v = input.readBytes();
                 ensureChgUserIdListIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  chgUserIdList_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
+                chgUserIdList_.add(v);
                 break;
               } // case 42
               default: {
@@ -11337,13 +11346,13 @@ public final class Group {
       }
       private int bitField0_;
 
-      private int userId_ ;
+      private com.google.protobuf.ByteString userId_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        *cmd id: 			0x040b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return Whether the userId field is set.
        */
       @java.lang.Override
@@ -11355,11 +11364,11 @@ public final class Group {
        *cmd id: 			0x040b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return The userId.
        */
       @java.lang.Override
-      public int getUserId() {
+      public com.google.protobuf.ByteString getUserId() {
         return userId_;
       }
       /**
@@ -11367,12 +11376,15 @@ public final class Group {
        *cmd id: 			0x040b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @param value The userId to set.
        * @return This builder for chaining.
        */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000001;
+      public Builder setUserId(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
@@ -11382,12 +11394,12 @@ public final class Group {
        *cmd id: 			0x040b
        * </pre>
        *
-       * <code>required uint32 user_id = 1;</code>
+       * <code>required bytes user_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
@@ -11474,10 +11486,10 @@ public final class Group {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList curUserIdList_ = emptyIntList();
+      private java.util.List<com.google.protobuf.ByteString> curUserIdList_ = java.util.Collections.emptyList();
       private void ensureCurUserIdListIsMutable() {
         if (!((bitField0_ & 0x00000008) != 0)) {
-          curUserIdList_ = mutableCopy(curUserIdList_);
+          curUserIdList_ = new java.util.ArrayList<com.google.protobuf.ByteString>(curUserIdList_);
           bitField0_ |= 0x00000008;
          }
       }
@@ -11486,10 +11498,10 @@ public final class Group {
        *现有的成员id
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 4;</code>
+       * <code>repeated bytes cur_user_id_list = 4;</code>
        * @return A list containing the curUserIdList.
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<com.google.protobuf.ByteString>
           getCurUserIdListList() {
         return ((bitField0_ & 0x00000008) != 0) ?
                  java.util.Collections.unmodifiableList(curUserIdList_) : curUserIdList_;
@@ -11499,7 +11511,7 @@ public final class Group {
        *现有的成员id
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 4;</code>
+       * <code>repeated bytes cur_user_id_list = 4;</code>
        * @return The count of curUserIdList.
        */
       public int getCurUserIdListCount() {
@@ -11510,27 +11522,30 @@ public final class Group {
        *现有的成员id
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 4;</code>
+       * <code>repeated bytes cur_user_id_list = 4;</code>
        * @param index The index of the element to return.
        * @return The curUserIdList at the given index.
        */
-      public int getCurUserIdList(int index) {
-        return curUserIdList_.getInt(index);
+      public com.google.protobuf.ByteString getCurUserIdList(int index) {
+        return curUserIdList_.get(index);
       }
       /**
        * <pre>
        *现有的成员id
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 4;</code>
+       * <code>repeated bytes cur_user_id_list = 4;</code>
        * @param index The index to set the value at.
        * @param value The curUserIdList to set.
        * @return This builder for chaining.
        */
       public Builder setCurUserIdList(
-          int index, int value) {
-        ensureCurUserIdListIsMutable();
-        curUserIdList_.setInt(index, value);
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCurUserIdListIsMutable();
+        curUserIdList_.set(index, value);
         onChanged();
         return this;
       }
@@ -11539,13 +11554,16 @@ public final class Group {
        *现有的成员id
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 4;</code>
+       * <code>repeated bytes cur_user_id_list = 4;</code>
        * @param value The curUserIdList to add.
        * @return This builder for chaining.
        */
-      public Builder addCurUserIdList(int value) {
-        ensureCurUserIdListIsMutable();
-        curUserIdList_.addInt(value);
+      public Builder addCurUserIdList(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCurUserIdListIsMutable();
+        curUserIdList_.add(value);
         onChanged();
         return this;
       }
@@ -11554,12 +11572,12 @@ public final class Group {
        *现有的成员id
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 4;</code>
+       * <code>repeated bytes cur_user_id_list = 4;</code>
        * @param values The curUserIdList to add.
        * @return This builder for chaining.
        */
       public Builder addAllCurUserIdList(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureCurUserIdListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, curUserIdList_);
@@ -11571,20 +11589,20 @@ public final class Group {
        *现有的成员id
        * </pre>
        *
-       * <code>repeated uint32 cur_user_id_list = 4;</code>
+       * <code>repeated bytes cur_user_id_list = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearCurUserIdList() {
-        curUserIdList_ = emptyIntList();
+        curUserIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList chgUserIdList_ = emptyIntList();
+      private java.util.List<com.google.protobuf.ByteString> chgUserIdList_ = java.util.Collections.emptyList();
       private void ensureChgUserIdListIsMutable() {
         if (!((bitField0_ & 0x00000010) != 0)) {
-          chgUserIdList_ = mutableCopy(chgUserIdList_);
+          chgUserIdList_ = new java.util.ArrayList<com.google.protobuf.ByteString>(chgUserIdList_);
           bitField0_ |= 0x00000010;
          }
       }
@@ -11593,10 +11611,10 @@ public final class Group {
        *add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 5;</code>
+       * <code>repeated bytes chg_user_id_list = 5;</code>
        * @return A list containing the chgUserIdList.
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<com.google.protobuf.ByteString>
           getChgUserIdListList() {
         return ((bitField0_ & 0x00000010) != 0) ?
                  java.util.Collections.unmodifiableList(chgUserIdList_) : chgUserIdList_;
@@ -11606,7 +11624,7 @@ public final class Group {
        *add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 5;</code>
+       * <code>repeated bytes chg_user_id_list = 5;</code>
        * @return The count of chgUserIdList.
        */
       public int getChgUserIdListCount() {
@@ -11617,27 +11635,30 @@ public final class Group {
        *add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 5;</code>
+       * <code>repeated bytes chg_user_id_list = 5;</code>
        * @param index The index of the element to return.
        * @return The chgUserIdList at the given index.
        */
-      public int getChgUserIdList(int index) {
-        return chgUserIdList_.getInt(index);
+      public com.google.protobuf.ByteString getChgUserIdList(int index) {
+        return chgUserIdList_.get(index);
       }
       /**
        * <pre>
        *add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 5;</code>
+       * <code>repeated bytes chg_user_id_list = 5;</code>
        * @param index The index to set the value at.
        * @param value The chgUserIdList to set.
        * @return This builder for chaining.
        */
       public Builder setChgUserIdList(
-          int index, int value) {
-        ensureChgUserIdListIsMutable();
-        chgUserIdList_.setInt(index, value);
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureChgUserIdListIsMutable();
+        chgUserIdList_.set(index, value);
         onChanged();
         return this;
       }
@@ -11646,13 +11667,16 @@ public final class Group {
        *add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 5;</code>
+       * <code>repeated bytes chg_user_id_list = 5;</code>
        * @param value The chgUserIdList to add.
        * @return This builder for chaining.
        */
-      public Builder addChgUserIdList(int value) {
-        ensureChgUserIdListIsMutable();
-        chgUserIdList_.addInt(value);
+      public Builder addChgUserIdList(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureChgUserIdListIsMutable();
+        chgUserIdList_.add(value);
         onChanged();
         return this;
       }
@@ -11661,12 +11685,12 @@ public final class Group {
        *add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 5;</code>
+       * <code>repeated bytes chg_user_id_list = 5;</code>
        * @param values The chgUserIdList to add.
        * @return This builder for chaining.
        */
       public Builder addAllChgUserIdList(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureChgUserIdListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, chgUserIdList_);
@@ -11678,11 +11702,11 @@ public final class Group {
        *add: 表示添加成功的id,   del: 表示删除的id
        * </pre>
        *
-       * <code>repeated uint32 chg_user_id_list = 5;</code>
+       * <code>repeated bytes chg_user_id_list = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearChgUserIdList() {
-        chgUserIdList_ = emptyIntList();
+        chgUserIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
@@ -11817,43 +11841,43 @@ public final class Group {
     java.lang.String[] descriptorData = {
       "\n\013Group.proto\022\013Bohan.Group\032\020BaseDefine.p" +
       "roto\":\n\022NormalGroupListReq\022\017\n\007user_id\030\001 " +
-      "\002(\r\022\023\n\013attach_data\030\024 \001(\014\"z\n\022NormalGroupL" +
-      "istRsp\022\017\n\007user_id\030\001 \002(\r\022>\n\022group_version" +
+      "\002(\014\022\023\n\013attach_data\030\024 \001(\014\"z\n\022NormalGroupL" +
+      "istRsp\022\017\n\007user_id\030\001 \002(\014\022>\n\022group_version" +
       "_list\030\002 \003(\0132\".Bohan.BaseDefine.GroupVers" +
       "ionInfo\022\023\n\013attach_data\030\024 \001(\014\"x\n\020GroupInf" +
-      "oListReq\022\017\n\007user_id\030\001 \002(\r\022>\n\022group_versi" +
+      "oListReq\022\017\n\007user_id\030\001 \002(\014\022>\n\022group_versi" +
       "on_list\030\002 \003(\0132\".Bohan.BaseDefine.GroupVe" +
       "rsionInfo\022\023\n\013attach_data\030\024 \001(\014\"n\n\020GroupI" +
-      "nfoListRsp\022\017\n\007user_id\030\001 \002(\r\0224\n\017group_inf" +
+      "nfoListRsp\022\017\n\007user_id\030\001 \002(\014\0224\n\017group_inf" +
       "o_list\030\002 \003(\0132\033.Bohan.BaseDefine.GroupInf" +
       "o\022\023\n\013attach_data\030\024 \001(\014\"\271\001\n\016GroupCreateRe" +
-      "q\022\017\n\007user_id\030\001 \002(\r\022?\n\ngroup_type\030\002 \002(\0162\033" +
+      "q\022\017\n\007user_id\030\001 \002(\014\022?\n\ngroup_type\030\002 \002(\0162\033" +
       ".Bohan.BaseDefine.GroupType:\016GROUP_TYPE_" +
       "TMP\022\022\n\ngroup_name\030\003 \002(\t\022\024\n\014group_avatar\030" +
       "\004 \002(\t\022\026\n\016member_id_list\030\005 \003(\r\022\023\n\013attach_" +
       "data\030\024 \001(\014\"\207\001\n\016GroupCreateRsp\022\017\n\007user_id" +
-      "\030\001 \002(\r\022\023\n\013result_code\030\002 \002(\r\022\020\n\010group_id\030" +
+      "\030\001 \002(\014\022\023\n\013result_code\030\002 \002(\r\022\020\n\010group_id\030" +
       "\003 \001(\r\022\022\n\ngroup_name\030\004 \002(\t\022\024\n\014user_id_lis" +
-      "t\030\005 \003(\r\022\023\n\013attach_data\030\024 \001(\014\"\236\001\n\024GroupCh" +
-      "angeMemberReq\022\017\n\007user_id\030\001 \002(\r\0226\n\013change" +
+      "t\030\005 \003(\014\022\023\n\013attach_data\030\024 \001(\014\"\236\001\n\024GroupCh" +
+      "angeMemberReq\022\017\n\007user_id\030\001 \002(\014\0226\n\013change" +
       "_type\030\002 \002(\0162!.Bohan.BaseDefine.GroupModi" +
       "fyType\022\020\n\010group_id\030\003 \002(\r\022\026\n\016member_id_li" +
       "st\030\004 \003(\r\022\023\n\013attach_data\030\024 \001(\014\"\317\001\n\024GroupC" +
-      "hangeMemberRsp\022\017\n\007user_id\030\001 \002(\r\0226\n\013chang" +
+      "hangeMemberRsp\022\017\n\007user_id\030\001 \002(\014\0226\n\013chang" +
       "e_type\030\002 \002(\0162!.Bohan.BaseDefine.GroupMod" +
       "ifyType\022\023\n\013result_code\030\003 \002(\r\022\020\n\010group_id" +
-      "\030\004 \002(\r\022\030\n\020cur_user_id_list\030\005 \003(\r\022\030\n\020chg_" +
-      "user_id_list\030\006 \003(\r\022\023\n\013attach_data\030\024 \001(\014\"" +
-      "_\n\016GroupShieldReq\022\017\n\007user_id\030\001 \002(\r\022\020\n\010gr" +
+      "\030\004 \002(\r\022\030\n\020cur_user_id_list\030\005 \003(\014\022\030\n\020chg_" +
+      "user_id_list\030\006 \003(\014\022\023\n\013attach_data\030\024 \001(\014\"" +
+      "_\n\016GroupShieldReq\022\017\n\007user_id\030\001 \002(\014\022\020\n\010gr" +
       "oup_id\030\002 \002(\r\022\025\n\rshield_status\030\003 \002(\r\022\023\n\013a" +
       "ttach_data\030\024 \001(\014\"]\n\016GroupShieldRsp\022\017\n\007us" +
-      "er_id\030\001 \002(\r\022\020\n\010group_id\030\002 \002(\r\022\023\n\013result_" +
+      "er_id\030\001 \002(\014\022\020\n\010group_id\030\002 \002(\r\022\023\n\013result_" +
       "code\030\003 \002(\r\022\023\n\013attach_data\030\024 \001(\014\"\250\001\n\027Grou" +
-      "pChangeMemberNotify\022\017\n\007user_id\030\001 \002(\r\0226\n\013" +
+      "pChangeMemberNotify\022\017\n\007user_id\030\001 \002(\014\0226\n\013" +
       "change_type\030\002 \002(\0162!.Bohan.BaseDefine.Gro" +
       "upModifyType\022\020\n\010group_id\030\003 \002(\r\022\030\n\020cur_us" +
-      "er_id_list\030\004 \003(\r\022\030\n\020chg_user_id_list\030\005 \003" +
-      "(\rB\026\n\022com.bohan.protobufH\003"
+      "er_id_list\030\004 \003(\014\022\030\n\020chg_user_id_list\030\005 \003" +
+      "(\014B\026\n\022com.bohan.protobufH\003"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

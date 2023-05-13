@@ -38,13 +38,13 @@ PROTOBUF_CONSTEXPR UserInfo::UserInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.nick_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.avatar_url_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.email_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.user_real_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.user_tel_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.user_domain_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.user_id_)*/0u
   , /*decltype(_impl_.gender_)*/0u
   , /*decltype(_impl_.department_id_)*/0u
   , /*decltype(_impl_.status_)*/0u} {}
@@ -61,12 +61,12 @@ PROTOBUF_CONSTEXPR ContactSessionInfo::ContactSessionInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.session_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.latest_msg_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.session_id_)*/0u
+  , /*decltype(_impl_.latest_msg_from_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.session_status_)*/0
   , /*decltype(_impl_.updated_time_)*/0u
   , /*decltype(_impl_.latest_msg_id_)*/0u
-  , /*decltype(_impl_.latest_msg_from_user_id_)*/0u
   , /*decltype(_impl_.session_type_)*/1
   , /*decltype(_impl_.latest_msg_type_)*/1} {}
 struct ContactSessionInfoDefaultTypeInternal {
@@ -82,7 +82,7 @@ PROTOBUF_CONSTEXPR UserStat::UserStat(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.user_id_)*/0u
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.status_)*/1} {}
 struct UserStatDefaultTypeInternal {
   PROTOBUF_CONSTEXPR UserStatDefaultTypeInternal()
@@ -97,7 +97,7 @@ PROTOBUF_CONSTEXPR ServerUserStat::ServerUserStat(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.user_id_)*/0u
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.status_)*/1
   , /*decltype(_impl_.client_type_)*/1} {}
 struct ServerUserStatDefaultTypeInternal {
@@ -114,10 +114,10 @@ PROTOBUF_CONSTEXPR UnreadInfo::UnreadInfo(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.latest_msg_data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.latest_msg_from_user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.session_id_)*/0u
   , /*decltype(_impl_.unread_cnt_)*/0u
   , /*decltype(_impl_.latest_msg_id_)*/0u
-  , /*decltype(_impl_.latest_msg_from_user_id_)*/0u
   , /*decltype(_impl_.session_type_)*/1
   , /*decltype(_impl_.latest_msg_type_)*/1} {}
 struct UnreadInfoDefaultTypeInternal {
@@ -187,8 +187,8 @@ PROTOBUF_CONSTEXPR UserTokenInfo::UserTokenInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.user_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.token_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.user_id_)*/0u
   , /*decltype(_impl_.push_count_)*/0u
   , /*decltype(_impl_.push_type_)*/0u
   , /*decltype(_impl_.user_type_)*/1} {}
@@ -1329,6 +1329,61 @@ bool MsgType_Parse(
   }
   return success;
 }
+bool RoleType_IsValid(int value) {
+  switch (value) {
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+static ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<std::string> RoleType_strings[3] = {};
+
+static const char RoleType_names[] =
+  "ROLE_ADMIN_TYPE"
+  "ROLE_CREATER_TYPE"
+  "ROLE_NORMAL_TYPE";
+
+static const ::PROTOBUF_NAMESPACE_ID::internal::EnumEntry RoleType_entries[] = {
+  { {RoleType_names + 0, 15}, 2 },
+  { {RoleType_names + 15, 17}, 1 },
+  { {RoleType_names + 32, 16}, 3 },
+};
+
+static const int RoleType_entries_by_number[] = {
+  1, // 1 -> ROLE_CREATER_TYPE
+  0, // 2 -> ROLE_ADMIN_TYPE
+  2, // 3 -> ROLE_NORMAL_TYPE
+};
+
+const std::string& RoleType_Name(
+    RoleType value) {
+  static const bool dummy =
+      ::PROTOBUF_NAMESPACE_ID::internal::InitializeEnumStrings(
+          RoleType_entries,
+          RoleType_entries_by_number,
+          3, RoleType_strings);
+  (void) dummy;
+  int idx = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumName(
+      RoleType_entries,
+      RoleType_entries_by_number,
+      3, value);
+  return idx == -1 ? ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString() :
+                     RoleType_strings[idx].get();
+}
+bool RoleType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, RoleType* value) {
+  int int_value;
+  bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
+      RoleType_entries, 3, name, &int_value);
+  if (success) {
+    *value = static_cast<RoleType>(int_value);
+  }
+  return success;
+}
 bool ClientType_IsValid(int value) {
   switch (value) {
     case 1:
@@ -2134,31 +2189,31 @@ class UserInfo::_Internal {
  public:
   using HasBits = decltype(std::declval<UserInfo>()._impl_._has_bits_);
   static void set_has_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_gender(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
   static void set_has_nick_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_avatar_url(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_department_id(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
   }
   static void set_has_email(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_user_real_name(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_user_tel(HasBits* has_bits) {
+  static void set_has_user_real_name(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
-  static void set_has_user_domain(HasBits* has_bits) {
+  static void set_has_user_tel(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
+  }
+  static void set_has_user_domain(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
   }
   static void set_has_status(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
@@ -2180,18 +2235,26 @@ UserInfo::UserInfo(const UserInfo& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.nick_name_){}
     , decltype(_impl_.avatar_url_){}
     , decltype(_impl_.email_){}
     , decltype(_impl_.user_real_name_){}
     , decltype(_impl_.user_tel_){}
     , decltype(_impl_.user_domain_){}
-    , decltype(_impl_.user_id_){}
     , decltype(_impl_.gender_){}
     , decltype(_impl_.department_id_){}
     , decltype(_impl_.status_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.nick_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.nick_name_.Set("", GetArenaForAllocation());
@@ -2240,9 +2303,9 @@ UserInfo::UserInfo(const UserInfo& from)
     _this->_impl_.user_domain_.Set(from._internal_user_domain(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.user_id_, &from._impl_.user_id_,
+  ::memcpy(&_impl_.gender_, &from._impl_.gender_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.status_) -
-    reinterpret_cast<char*>(&_impl_.user_id_)) + sizeof(_impl_.status_));
+    reinterpret_cast<char*>(&_impl_.gender_)) + sizeof(_impl_.status_));
   // @@protoc_insertion_point(copy_constructor:Bohan.BaseDefine.UserInfo)
 }
 
@@ -2253,17 +2316,21 @@ inline void UserInfo::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.nick_name_){}
     , decltype(_impl_.avatar_url_){}
     , decltype(_impl_.email_){}
     , decltype(_impl_.user_real_name_){}
     , decltype(_impl_.user_tel_){}
     , decltype(_impl_.user_domain_){}
-    , decltype(_impl_.user_id_){0u}
     , decltype(_impl_.gender_){0u}
     , decltype(_impl_.department_id_){0u}
     , decltype(_impl_.status_){0u}
   };
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.nick_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.nick_name_.Set("", GetArenaForAllocation());
@@ -2301,6 +2368,7 @@ UserInfo::~UserInfo() {
 
 inline void UserInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.user_id_.Destroy();
   _impl_.nick_name_.Destroy();
   _impl_.avatar_url_.Destroy();
   _impl_.email_.Destroy();
@@ -2320,31 +2388,30 @@ void UserInfo::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
-      _impl_.nick_name_.ClearNonDefaultToEmpty();
+      _impl_.user_id_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000002u) {
-      _impl_.avatar_url_.ClearNonDefaultToEmpty();
+      _impl_.nick_name_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000004u) {
-      _impl_.email_.ClearNonDefaultToEmpty();
+      _impl_.avatar_url_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000008u) {
-      _impl_.user_real_name_.ClearNonDefaultToEmpty();
+      _impl_.email_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000010u) {
-      _impl_.user_tel_.ClearNonDefaultToEmpty();
+      _impl_.user_real_name_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000020u) {
+      _impl_.user_tel_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000040u) {
       _impl_.user_domain_.ClearNonDefaultToEmpty();
     }
   }
-  if (cached_has_bits & 0x000000c0u) {
-    ::memset(&_impl_.user_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.gender_) -
-        reinterpret_cast<char*>(&_impl_.user_id_)) + sizeof(_impl_.gender_));
-  }
+  _impl_.gender_ = 0u;
   if (cached_has_bits & 0x00000300u) {
     ::memset(&_impl_.department_id_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.status_) -
@@ -2361,11 +2428,11 @@ const char* UserInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 user_id = 1;
+      // required bytes user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2482,10 +2549,10 @@ uint8_t* UserInfo::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 user_id = 1;
-  if (cached_has_bits & 0x00000040u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_user_id(), target);
+  // required bytes user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_user_id(), target);
   }
 
   // required uint32 gender = 2;
@@ -2495,13 +2562,13 @@ uint8_t* UserInfo::_InternalSerialize(
   }
 
   // required string nick_name = 3;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_nick_name(), target);
   }
 
   // required string avatar_url = 4;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->WriteStringMaybeAliased(
         4, this->_internal_avatar_url(), target);
   }
@@ -2513,25 +2580,25 @@ uint8_t* UserInfo::_InternalSerialize(
   }
 
   // required string email = 6;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->WriteStringMaybeAliased(
         6, this->_internal_email(), target);
   }
 
   // required string user_real_name = 7;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->WriteStringMaybeAliased(
         7, this->_internal_user_real_name(), target);
   }
 
   // required string user_tel = 8;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->WriteStringMaybeAliased(
         8, this->_internal_user_tel(), target);
   }
 
   // required string user_domain = 9;
-  if (cached_has_bits & 0x00000020u) {
+  if (cached_has_bits & 0x00000040u) {
     target = stream->WriteStringMaybeAliased(
         9, this->_internal_user_domain(), target);
   }
@@ -2553,6 +2620,13 @@ uint8_t* UserInfo::_InternalSerialize(
 size_t UserInfo::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:Bohan.BaseDefine.UserInfo)
   size_t total_size = 0;
+
+  if (_internal_has_user_id()) {
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+  }
 
   if (_internal_has_nick_name()) {
     // required string nick_name = 3;
@@ -2596,11 +2670,6 @@ size_t UserInfo::RequiredFieldsByteSizeFallback() const {
         this->_internal_user_domain());
   }
 
-  if (_internal_has_user_id()) {
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
-  }
-
   if (_internal_has_gender()) {
     // required uint32 gender = 2;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_gender());
@@ -2623,6 +2692,11 @@ size_t UserInfo::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x000003ff) ^ 0x000003ff) == 0) {  // All required fields are present.
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+
     // required string nick_name = 3;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -2652,9 +2726,6 @@ size_t UserInfo::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_user_domain());
-
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
 
     // required uint32 gender = 2;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_gender());
@@ -2696,25 +2767,25 @@ void UserInfo::MergeFrom(const UserInfo& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_nick_name(from._internal_nick_name());
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_avatar_url(from._internal_avatar_url());
+      _this->_internal_set_nick_name(from._internal_nick_name());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_internal_set_email(from._internal_email());
+      _this->_internal_set_avatar_url(from._internal_avatar_url());
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_internal_set_user_real_name(from._internal_user_real_name());
+      _this->_internal_set_email(from._internal_email());
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_internal_set_user_tel(from._internal_user_tel());
+      _this->_internal_set_user_real_name(from._internal_user_real_name());
     }
     if (cached_has_bits & 0x00000020u) {
-      _this->_internal_set_user_domain(from._internal_user_domain());
+      _this->_internal_set_user_tel(from._internal_user_tel());
     }
     if (cached_has_bits & 0x00000040u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_internal_set_user_domain(from._internal_user_domain());
     }
     if (cached_has_bits & 0x00000080u) {
       _this->_impl_.gender_ = from._impl_.gender_;
@@ -2752,6 +2823,10 @@ void UserInfo::InternalSwap(UserInfo* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.nick_name_, lhs_arena,
       &other->_impl_.nick_name_, rhs_arena
   );
@@ -2778,9 +2853,9 @@ void UserInfo::InternalSwap(UserInfo* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(UserInfo, _impl_.status_)
       + sizeof(UserInfo::_impl_.status_)
-      - PROTOBUF_FIELD_OFFSET(UserInfo, _impl_.user_id_)>(
-          reinterpret_cast<char*>(&_impl_.user_id_),
-          reinterpret_cast<char*>(&other->_impl_.user_id_));
+      - PROTOBUF_FIELD_OFFSET(UserInfo, _impl_.gender_)>(
+          reinterpret_cast<char*>(&_impl_.gender_),
+          reinterpret_cast<char*>(&other->_impl_.gender_));
 }
 
 std::string UserInfo::GetTypeName() const {
@@ -2794,28 +2869,28 @@ class ContactSessionInfo::_Internal {
  public:
   using HasBits = decltype(std::declval<ContactSessionInfo>()._impl_._has_bits_);
   static void set_has_session_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_session_type(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
   static void set_has_session_status(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_updated_time(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_latest_msg_id(HasBits* has_bits) {
+  static void set_has_updated_time(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
+  static void set_has_latest_msg_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
   static void set_has_latest_msg_data(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_latest_msg_type(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
   static void set_has_latest_msg_from_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
+    (*has_bits)[0] |= 4u;
   }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x000000ff) ^ 0x000000ff) != 0;
@@ -2834,16 +2909,24 @@ ContactSessionInfo::ContactSessionInfo(const ContactSessionInfo& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.latest_msg_data_){}
     , decltype(_impl_.session_id_){}
+    , decltype(_impl_.latest_msg_data_){}
+    , decltype(_impl_.latest_msg_from_user_id_){}
     , decltype(_impl_.session_status_){}
     , decltype(_impl_.updated_time_){}
     , decltype(_impl_.latest_msg_id_){}
-    , decltype(_impl_.latest_msg_from_user_id_){}
     , decltype(_impl_.session_type_){}
     , decltype(_impl_.latest_msg_type_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.session_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.session_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_session_id()) {
+    _this->_impl_.session_id_.Set(from._internal_session_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.latest_msg_data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.latest_msg_data_.Set("", GetArenaForAllocation());
@@ -2852,9 +2935,17 @@ ContactSessionInfo::ContactSessionInfo(const ContactSessionInfo& from)
     _this->_impl_.latest_msg_data_.Set(from._internal_latest_msg_data(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.session_id_, &from._impl_.session_id_,
+  _impl_.latest_msg_from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.latest_msg_from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_latest_msg_from_user_id()) {
+    _this->_impl_.latest_msg_from_user_id_.Set(from._internal_latest_msg_from_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.session_status_, &from._impl_.session_status_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.latest_msg_type_) -
-    reinterpret_cast<char*>(&_impl_.session_id_)) + sizeof(_impl_.latest_msg_type_));
+    reinterpret_cast<char*>(&_impl_.session_status_)) + sizeof(_impl_.latest_msg_type_));
   // @@protoc_insertion_point(copy_constructor:Bohan.BaseDefine.ContactSessionInfo)
 }
 
@@ -2865,18 +2956,26 @@ inline void ContactSessionInfo::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.session_id_){}
     , decltype(_impl_.latest_msg_data_){}
-    , decltype(_impl_.session_id_){0u}
+    , decltype(_impl_.latest_msg_from_user_id_){}
     , decltype(_impl_.session_status_){0}
     , decltype(_impl_.updated_time_){0u}
     , decltype(_impl_.latest_msg_id_){0u}
-    , decltype(_impl_.latest_msg_from_user_id_){0u}
     , decltype(_impl_.session_type_){1}
     , decltype(_impl_.latest_msg_type_){1}
   };
+  _impl_.session_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.session_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.latest_msg_data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.latest_msg_data_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.latest_msg_from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.latest_msg_from_user_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -2891,7 +2990,9 @@ ContactSessionInfo::~ContactSessionInfo() {
 
 inline void ContactSessionInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.session_id_.Destroy();
   _impl_.latest_msg_data_.Destroy();
+  _impl_.latest_msg_from_user_id_.Destroy();
 }
 
 void ContactSessionInfo::SetCachedSize(int size) const {
@@ -2905,13 +3006,21 @@ void ContactSessionInfo::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.latest_msg_data_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.session_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.latest_msg_data_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _impl_.latest_msg_from_user_id_.ClearNonDefaultToEmpty();
+    }
   }
-  if (cached_has_bits & 0x000000feu) {
-    ::memset(&_impl_.session_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.latest_msg_from_user_id_) -
-        reinterpret_cast<char*>(&_impl_.session_id_)) + sizeof(_impl_.latest_msg_from_user_id_));
+  if (cached_has_bits & 0x000000f8u) {
+    ::memset(&_impl_.session_status_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.latest_msg_id_) -
+        reinterpret_cast<char*>(&_impl_.session_status_)) + sizeof(_impl_.latest_msg_id_));
     _impl_.session_type_ = 1;
     _impl_.latest_msg_type_ = 1;
   }
@@ -2926,11 +3035,11 @@ const char* ContactSessionInfo::_InternalParse(const char* ptr, ::_pbi::ParseCon
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 session_id = 1;
+      // required bytes session_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_session_id(&has_bits);
-          _impl_.session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_session_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3001,11 +3110,11 @@ const char* ContactSessionInfo::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
-      // required uint32 latest_msg_from_user_id = 8;
+      // required bytes latest_msg_from_user_id = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
-          _Internal::set_has_latest_msg_from_user_id(&has_bits);
-          _impl_.latest_msg_from_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          auto str = _internal_mutable_latest_msg_from_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3041,10 +3150,10 @@ uint8_t* ContactSessionInfo::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 session_id = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_session_id(), target);
+  // required bytes session_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_session_id(), target);
   }
 
   // required .Bohan.BaseDefine.SessionType session_type = 2;
@@ -3055,26 +3164,26 @@ uint8_t* ContactSessionInfo::_InternalSerialize(
   }
 
   // required .Bohan.BaseDefine.SessionStatusType session_status = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       3, this->_internal_session_status(), target);
   }
 
   // required uint32 updated_time = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_updated_time(), target);
   }
 
   // required uint32 latest_msg_id = 5;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_latest_msg_id(), target);
   }
 
   // required bytes latest_msg_data = 6;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->WriteBytesMaybeAliased(
         6, this->_internal_latest_msg_data(), target);
   }
@@ -3086,10 +3195,10 @@ uint8_t* ContactSessionInfo::_InternalSerialize(
       7, this->_internal_latest_msg_type(), target);
   }
 
-  // required uint32 latest_msg_from_user_id = 8;
-  if (cached_has_bits & 0x00000020u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_latest_msg_from_user_id(), target);
+  // required bytes latest_msg_from_user_id = 8;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->WriteBytesMaybeAliased(
+        8, this->_internal_latest_msg_from_user_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3104,6 +3213,13 @@ size_t ContactSessionInfo::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:Bohan.BaseDefine.ContactSessionInfo)
   size_t total_size = 0;
 
+  if (_internal_has_session_id()) {
+    // required bytes session_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_session_id());
+  }
+
   if (_internal_has_latest_msg_data()) {
     // required bytes latest_msg_data = 6;
     total_size += 1 +
@@ -3111,9 +3227,11 @@ size_t ContactSessionInfo::RequiredFieldsByteSizeFallback() const {
         this->_internal_latest_msg_data());
   }
 
-  if (_internal_has_session_id()) {
-    // required uint32 session_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_session_id());
+  if (_internal_has_latest_msg_from_user_id()) {
+    // required bytes latest_msg_from_user_id = 8;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_latest_msg_from_user_id());
   }
 
   if (_internal_has_session_status()) {
@@ -3130,11 +3248,6 @@ size_t ContactSessionInfo::RequiredFieldsByteSizeFallback() const {
   if (_internal_has_latest_msg_id()) {
     // required uint32 latest_msg_id = 5;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_latest_msg_id());
-  }
-
-  if (_internal_has_latest_msg_from_user_id()) {
-    // required uint32 latest_msg_from_user_id = 8;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_latest_msg_from_user_id());
   }
 
   if (_internal_has_session_type()) {
@@ -3156,13 +3269,20 @@ size_t ContactSessionInfo::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x000000ff) ^ 0x000000ff) == 0) {  // All required fields are present.
+    // required bytes session_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_session_id());
+
     // required bytes latest_msg_data = 6;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_latest_msg_data());
 
-    // required uint32 session_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_session_id());
+    // required bytes latest_msg_from_user_id = 8;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_latest_msg_from_user_id());
 
     // required .Bohan.BaseDefine.SessionStatusType session_status = 3;
     total_size += 1 +
@@ -3173,9 +3293,6 @@ size_t ContactSessionInfo::ByteSizeLong() const {
 
     // required uint32 latest_msg_id = 5;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_latest_msg_id());
-
-    // required uint32 latest_msg_from_user_id = 8;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_latest_msg_from_user_id());
 
     // required .Bohan.BaseDefine.SessionType session_type = 2;
     total_size += 1 +
@@ -3216,22 +3333,22 @@ void ContactSessionInfo::MergeFrom(const ContactSessionInfo& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_latest_msg_data(from._internal_latest_msg_data());
+      _this->_internal_set_session_id(from._internal_session_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.session_id_ = from._impl_.session_id_;
+      _this->_internal_set_latest_msg_data(from._internal_latest_msg_data());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.session_status_ = from._impl_.session_status_;
+      _this->_internal_set_latest_msg_from_user_id(from._internal_latest_msg_from_user_id());
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.updated_time_ = from._impl_.updated_time_;
+      _this->_impl_.session_status_ = from._impl_.session_status_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.latest_msg_id_ = from._impl_.latest_msg_id_;
+      _this->_impl_.updated_time_ = from._impl_.updated_time_;
     }
     if (cached_has_bits & 0x00000020u) {
-      _this->_impl_.latest_msg_from_user_id_ = from._impl_.latest_msg_from_user_id_;
+      _this->_impl_.latest_msg_id_ = from._impl_.latest_msg_id_;
     }
     if (cached_has_bits & 0x00000040u) {
       _this->_impl_.session_type_ = from._impl_.session_type_;
@@ -3263,15 +3380,23 @@ void ContactSessionInfo::InternalSwap(ContactSessionInfo* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.session_id_, lhs_arena,
+      &other->_impl_.session_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.latest_msg_data_, lhs_arena,
       &other->_impl_.latest_msg_data_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.latest_msg_from_user_id_, lhs_arena,
+      &other->_impl_.latest_msg_from_user_id_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ContactSessionInfo, _impl_.latest_msg_from_user_id_)
-      + sizeof(ContactSessionInfo::_impl_.latest_msg_from_user_id_)
-      - PROTOBUF_FIELD_OFFSET(ContactSessionInfo, _impl_.session_id_)>(
-          reinterpret_cast<char*>(&_impl_.session_id_),
-          reinterpret_cast<char*>(&other->_impl_.session_id_));
+      PROTOBUF_FIELD_OFFSET(ContactSessionInfo, _impl_.latest_msg_id_)
+      + sizeof(ContactSessionInfo::_impl_.latest_msg_id_)
+      - PROTOBUF_FIELD_OFFSET(ContactSessionInfo, _impl_.session_status_)>(
+          reinterpret_cast<char*>(&_impl_.session_status_),
+          reinterpret_cast<char*>(&other->_impl_.session_status_));
   swap(_impl_.session_type_, other->_impl_.session_type_);
   swap(_impl_.latest_msg_type_, other->_impl_.latest_msg_type_);
 }
@@ -3313,9 +3438,15 @@ UserStat::UserStat(const UserStat& from)
     , decltype(_impl_.status_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::memcpy(&_impl_.user_id_, &from._impl_.user_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.status_) -
-    reinterpret_cast<char*>(&_impl_.user_id_)) + sizeof(_impl_.status_));
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.status_ = from._impl_.status_;
   // @@protoc_insertion_point(copy_constructor:Bohan.BaseDefine.UserStat)
 }
 
@@ -3326,9 +3457,13 @@ inline void UserStat::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.user_id_){0u}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.status_){1}
   };
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 UserStat::~UserStat() {
@@ -3342,6 +3477,7 @@ UserStat::~UserStat() {
 
 inline void UserStat::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.user_id_.Destroy();
 }
 
 void UserStat::SetCachedSize(int size) const {
@@ -3356,7 +3492,9 @@ void UserStat::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    _impl_.user_id_ = 0u;
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.user_id_.ClearNonDefaultToEmpty();
+    }
     _impl_.status_ = 1;
   }
   _impl_._has_bits_.Clear();
@@ -3370,11 +3508,11 @@ const char* UserStat::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 user_id = 1;
+      // required bytes user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3423,10 +3561,10 @@ uint8_t* UserStat::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_user_id(), target);
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_user_id(), target);
   }
 
   // required .Bohan.BaseDefine.UserStatType status = 2;
@@ -3449,8 +3587,10 @@ size_t UserStat::RequiredFieldsByteSizeFallback() const {
   size_t total_size = 0;
 
   if (_internal_has_user_id()) {
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
   }
 
   if (_internal_has_status()) {
@@ -3466,8 +3606,10 @@ size_t UserStat::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
 
     // required .Bohan.BaseDefine.UserStatType status = 2;
     total_size += 1 +
@@ -3504,7 +3646,7 @@ void UserStat::MergeFrom(const UserStat& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
       _this->_impl_.status_ = from._impl_.status_;
@@ -3528,9 +3670,14 @@ bool UserStat::IsInitialized() const {
 
 void UserStat::InternalSwap(UserStat* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  swap(_impl_.user_id_, other->_impl_.user_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
   swap(_impl_.status_, other->_impl_.status_);
 }
 
@@ -3575,9 +3722,17 @@ ServerUserStat::ServerUserStat(const ServerUserStat& from)
     , decltype(_impl_.client_type_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::memcpy(&_impl_.user_id_, &from._impl_.user_id_,
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.status_, &from._impl_.status_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.client_type_) -
-    reinterpret_cast<char*>(&_impl_.user_id_)) + sizeof(_impl_.client_type_));
+    reinterpret_cast<char*>(&_impl_.status_)) + sizeof(_impl_.client_type_));
   // @@protoc_insertion_point(copy_constructor:Bohan.BaseDefine.ServerUserStat)
 }
 
@@ -3588,10 +3743,14 @@ inline void ServerUserStat::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.user_id_){0u}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.status_){1}
     , decltype(_impl_.client_type_){1}
   };
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ServerUserStat::~ServerUserStat() {
@@ -3605,6 +3764,7 @@ ServerUserStat::~ServerUserStat() {
 
 inline void ServerUserStat::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.user_id_.Destroy();
 }
 
 void ServerUserStat::SetCachedSize(int size) const {
@@ -3619,7 +3779,9 @@ void ServerUserStat::Clear() {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    _impl_.user_id_ = 0u;
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.user_id_.ClearNonDefaultToEmpty();
+    }
     _impl_.status_ = 1;
     _impl_.client_type_ = 1;
   }
@@ -3634,11 +3796,11 @@ const char* ServerUserStat::_InternalParse(const char* ptr, ::_pbi::ParseContext
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 user_id = 1;
+      // required bytes user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3700,10 +3862,10 @@ uint8_t* ServerUserStat::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 user_id = 1;
+  // required bytes user_id = 1;
   if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_user_id(), target);
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_user_id(), target);
   }
 
   // required .Bohan.BaseDefine.UserStatType status = 2;
@@ -3733,8 +3895,10 @@ size_t ServerUserStat::RequiredFieldsByteSizeFallback() const {
   size_t total_size = 0;
 
   if (_internal_has_user_id()) {
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
   }
 
   if (_internal_has_status()) {
@@ -3756,8 +3920,10 @@ size_t ServerUserStat::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
 
     // required .Bohan.BaseDefine.UserStatType status = 2;
     total_size += 1 +
@@ -3798,7 +3964,7 @@ void ServerUserStat::MergeFrom(const ServerUserStat& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
       _this->_impl_.status_ = from._impl_.status_;
@@ -3825,9 +3991,14 @@ bool ServerUserStat::IsInitialized() const {
 
 void ServerUserStat::InternalSwap(ServerUserStat* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  swap(_impl_.user_id_, other->_impl_.user_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
   swap(_impl_.status_, other->_impl_.status_);
   swap(_impl_.client_type_, other->_impl_.client_type_);
 }
@@ -3843,16 +4014,16 @@ class UnreadInfo::_Internal {
  public:
   using HasBits = decltype(std::declval<UnreadInfo>()._impl_._has_bits_);
   static void set_has_session_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_session_type(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
   static void set_has_unread_cnt(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_latest_msg_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 16u;
   }
   static void set_has_latest_msg_data(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -3861,7 +4032,7 @@ class UnreadInfo::_Internal {
     (*has_bits)[0] |= 64u;
   }
   static void set_has_latest_msg_from_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 2u;
   }
   static bool MissingRequiredFields(const HasBits& has_bits) {
     return ((has_bits[0] & 0x0000007f) ^ 0x0000007f) != 0;
@@ -3881,10 +4052,10 @@ UnreadInfo::UnreadInfo(const UnreadInfo& from)
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.latest_msg_data_){}
+    , decltype(_impl_.latest_msg_from_user_id_){}
     , decltype(_impl_.session_id_){}
     , decltype(_impl_.unread_cnt_){}
     , decltype(_impl_.latest_msg_id_){}
-    , decltype(_impl_.latest_msg_from_user_id_){}
     , decltype(_impl_.session_type_){}
     , decltype(_impl_.latest_msg_type_){}};
 
@@ -3895,6 +4066,14 @@ UnreadInfo::UnreadInfo(const UnreadInfo& from)
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (from._internal_has_latest_msg_data()) {
     _this->_impl_.latest_msg_data_.Set(from._internal_latest_msg_data(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.latest_msg_from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.latest_msg_from_user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_latest_msg_from_user_id()) {
+    _this->_impl_.latest_msg_from_user_id_.Set(from._internal_latest_msg_from_user_id(), 
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.session_id_, &from._impl_.session_id_,
@@ -3911,16 +4090,20 @@ inline void UnreadInfo::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.latest_msg_data_){}
+    , decltype(_impl_.latest_msg_from_user_id_){}
     , decltype(_impl_.session_id_){0u}
     , decltype(_impl_.unread_cnt_){0u}
     , decltype(_impl_.latest_msg_id_){0u}
-    , decltype(_impl_.latest_msg_from_user_id_){0u}
     , decltype(_impl_.session_type_){1}
     , decltype(_impl_.latest_msg_type_){1}
   };
   _impl_.latest_msg_data_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.latest_msg_data_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.latest_msg_from_user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.latest_msg_from_user_id_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -3936,6 +4119,7 @@ UnreadInfo::~UnreadInfo() {
 inline void UnreadInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.latest_msg_data_.Destroy();
+  _impl_.latest_msg_from_user_id_.Destroy();
 }
 
 void UnreadInfo::SetCachedSize(int size) const {
@@ -3949,13 +4133,18 @@ void UnreadInfo::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.latest_msg_data_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.latest_msg_data_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.latest_msg_from_user_id_.ClearNonDefaultToEmpty();
+    }
   }
-  if (cached_has_bits & 0x0000007eu) {
+  if (cached_has_bits & 0x0000007cu) {
     ::memset(&_impl_.session_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.latest_msg_from_user_id_) -
-        reinterpret_cast<char*>(&_impl_.session_id_)) + sizeof(_impl_.latest_msg_from_user_id_));
+        reinterpret_cast<char*>(&_impl_.latest_msg_id_) -
+        reinterpret_cast<char*>(&_impl_.session_id_)) + sizeof(_impl_.latest_msg_id_));
     _impl_.session_type_ = 1;
     _impl_.latest_msg_type_ = 1;
   }
@@ -4032,11 +4221,11 @@ const char* UnreadInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
         } else
           goto handle_unusual;
         continue;
-      // required uint32 latest_msg_from_user_id = 7;
+      // required bytes latest_msg_from_user_id = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
-          _Internal::set_has_latest_msg_from_user_id(&has_bits);
-          _impl_.latest_msg_from_user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          auto str = _internal_mutable_latest_msg_from_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4073,7 +4262,7 @@ uint8_t* UnreadInfo::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // required uint32 session_id = 1;
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_session_id(), target);
   }
@@ -4086,13 +4275,13 @@ uint8_t* UnreadInfo::_InternalSerialize(
   }
 
   // required uint32 unread_cnt = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_unread_cnt(), target);
   }
 
   // required uint32 latest_msg_id = 4;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_latest_msg_id(), target);
   }
@@ -4110,10 +4299,10 @@ uint8_t* UnreadInfo::_InternalSerialize(
       6, this->_internal_latest_msg_type(), target);
   }
 
-  // required uint32 latest_msg_from_user_id = 7;
-  if (cached_has_bits & 0x00000010u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_latest_msg_from_user_id(), target);
+  // required bytes latest_msg_from_user_id = 7;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->WriteBytesMaybeAliased(
+        7, this->_internal_latest_msg_from_user_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4135,6 +4324,13 @@ size_t UnreadInfo::RequiredFieldsByteSizeFallback() const {
         this->_internal_latest_msg_data());
   }
 
+  if (_internal_has_latest_msg_from_user_id()) {
+    // required bytes latest_msg_from_user_id = 7;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_latest_msg_from_user_id());
+  }
+
   if (_internal_has_session_id()) {
     // required uint32 session_id = 1;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_session_id());
@@ -4148,11 +4344,6 @@ size_t UnreadInfo::RequiredFieldsByteSizeFallback() const {
   if (_internal_has_latest_msg_id()) {
     // required uint32 latest_msg_id = 4;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_latest_msg_id());
-  }
-
-  if (_internal_has_latest_msg_from_user_id()) {
-    // required uint32 latest_msg_from_user_id = 7;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_latest_msg_from_user_id());
   }
 
   if (_internal_has_session_type()) {
@@ -4179,6 +4370,11 @@ size_t UnreadInfo::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_latest_msg_data());
 
+    // required bytes latest_msg_from_user_id = 7;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_latest_msg_from_user_id());
+
     // required uint32 session_id = 1;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_session_id());
 
@@ -4187,9 +4383,6 @@ size_t UnreadInfo::ByteSizeLong() const {
 
     // required uint32 latest_msg_id = 4;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_latest_msg_id());
-
-    // required uint32 latest_msg_from_user_id = 7;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_latest_msg_from_user_id());
 
     // required .Bohan.BaseDefine.SessionType session_type = 2;
     total_size += 1 +
@@ -4233,16 +4426,16 @@ void UnreadInfo::MergeFrom(const UnreadInfo& from) {
       _this->_internal_set_latest_msg_data(from._internal_latest_msg_data());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.session_id_ = from._impl_.session_id_;
+      _this->_internal_set_latest_msg_from_user_id(from._internal_latest_msg_from_user_id());
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.unread_cnt_ = from._impl_.unread_cnt_;
+      _this->_impl_.session_id_ = from._impl_.session_id_;
     }
     if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.latest_msg_id_ = from._impl_.latest_msg_id_;
+      _this->_impl_.unread_cnt_ = from._impl_.unread_cnt_;
     }
     if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.latest_msg_from_user_id_ = from._impl_.latest_msg_from_user_id_;
+      _this->_impl_.latest_msg_id_ = from._impl_.latest_msg_id_;
     }
     if (cached_has_bits & 0x00000020u) {
       _this->_impl_.session_type_ = from._impl_.session_type_;
@@ -4277,9 +4470,13 @@ void UnreadInfo::InternalSwap(UnreadInfo* other) {
       &_impl_.latest_msg_data_, lhs_arena,
       &other->_impl_.latest_msg_data_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.latest_msg_from_user_id_, lhs_arena,
+      &other->_impl_.latest_msg_from_user_id_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(UnreadInfo, _impl_.latest_msg_from_user_id_)
-      + sizeof(UnreadInfo::_impl_.latest_msg_from_user_id_)
+      PROTOBUF_FIELD_OFFSET(UnreadInfo, _impl_.latest_msg_id_)
+      + sizeof(UnreadInfo::_impl_.latest_msg_id_)
       - PROTOBUF_FIELD_OFFSET(UnreadInfo, _impl_.session_id_)>(
           reinterpret_cast<char*>(&_impl_.session_id_),
           reinterpret_cast<char*>(&other->_impl_.session_id_));
@@ -5445,13 +5642,13 @@ class UserTokenInfo::_Internal {
  public:
   using HasBits = decltype(std::declval<UserTokenInfo>()._impl_._has_bits_);
   static void set_has_user_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
+    (*has_bits)[0] |= 1u;
   }
   static void set_has_user_type(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_token(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
   static void set_has_push_count(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
@@ -5476,13 +5673,21 @@ UserTokenInfo::UserTokenInfo(const UserTokenInfo& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.token_){}
     , decltype(_impl_.user_id_){}
+    , decltype(_impl_.token_){}
     , decltype(_impl_.push_count_){}
     , decltype(_impl_.push_type_){}
     , decltype(_impl_.user_type_){}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_user_id()) {
+    _this->_impl_.user_id_.Set(from._internal_user_id(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.token_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.token_.Set("", GetArenaForAllocation());
@@ -5491,9 +5696,9 @@ UserTokenInfo::UserTokenInfo(const UserTokenInfo& from)
     _this->_impl_.token_.Set(from._internal_token(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.user_id_, &from._impl_.user_id_,
+  ::memcpy(&_impl_.push_count_, &from._impl_.push_count_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.user_type_) -
-    reinterpret_cast<char*>(&_impl_.user_id_)) + sizeof(_impl_.user_type_));
+    reinterpret_cast<char*>(&_impl_.push_count_)) + sizeof(_impl_.user_type_));
   // @@protoc_insertion_point(copy_constructor:Bohan.BaseDefine.UserTokenInfo)
 }
 
@@ -5504,12 +5709,16 @@ inline void UserTokenInfo::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.user_id_){}
     , decltype(_impl_.token_){}
-    , decltype(_impl_.user_id_){0u}
     , decltype(_impl_.push_count_){0u}
     , decltype(_impl_.push_type_){0u}
     , decltype(_impl_.user_type_){1}
   };
+  _impl_.user_id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.user_id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.token_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.token_.Set("", GetArenaForAllocation());
@@ -5527,6 +5736,7 @@ UserTokenInfo::~UserTokenInfo() {
 
 inline void UserTokenInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.user_id_.Destroy();
   _impl_.token_.Destroy();
 }
 
@@ -5541,13 +5751,18 @@ void UserTokenInfo::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.token_.ClearNonDefaultToEmpty();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.user_id_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.token_.ClearNonDefaultToEmpty();
+    }
   }
-  if (cached_has_bits & 0x0000001eu) {
-    ::memset(&_impl_.user_id_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x0000001cu) {
+    ::memset(&_impl_.push_count_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.push_type_) -
-        reinterpret_cast<char*>(&_impl_.user_id_)) + sizeof(_impl_.push_type_));
+        reinterpret_cast<char*>(&_impl_.push_count_)) + sizeof(_impl_.push_type_));
     _impl_.user_type_ = 1;
   }
   _impl_._has_bits_.Clear();
@@ -5561,11 +5776,11 @@ const char* UserTokenInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext*
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 user_id = 1;
+      // required bytes user_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_user_id(&has_bits);
-          _impl_.user_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_user_id();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5641,10 +5856,10 @@ uint8_t* UserTokenInfo::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 user_id = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_user_id(), target);
+  // required bytes user_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_user_id(), target);
   }
 
   // required .Bohan.BaseDefine.ClientType user_type = 2;
@@ -5655,7 +5870,7 @@ uint8_t* UserTokenInfo::_InternalSerialize(
   }
 
   // required string token = 3;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_token(), target);
   }
@@ -5684,16 +5899,18 @@ size_t UserTokenInfo::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:Bohan.BaseDefine.UserTokenInfo)
   size_t total_size = 0;
 
+  if (_internal_has_user_id()) {
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+  }
+
   if (_internal_has_token()) {
     // required string token = 3;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_token());
-  }
-
-  if (_internal_has_user_id()) {
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
   }
 
   if (_internal_has_push_count()) {
@@ -5719,13 +5936,15 @@ size_t UserTokenInfo::ByteSizeLong() const {
   size_t total_size = 0;
 
   if (((_impl_._has_bits_[0] & 0x0000001f) ^ 0x0000001f) == 0) {  // All required fields are present.
+    // required bytes user_id = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_user_id());
+
     // required string token = 3;
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_token());
-
-    // required uint32 user_id = 1;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_user_id());
 
     // required uint32 push_count = 4;
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_push_count());
@@ -5768,10 +5987,10 @@ void UserTokenInfo::MergeFrom(const UserTokenInfo& from) {
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_token(from._internal_token());
+      _this->_internal_set_user_id(from._internal_user_id());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.user_id_ = from._impl_.user_id_;
+      _this->_internal_set_token(from._internal_token());
     }
     if (cached_has_bits & 0x00000004u) {
       _this->_impl_.push_count_ = from._impl_.push_count_;
@@ -5806,15 +6025,19 @@ void UserTokenInfo::InternalSwap(UserTokenInfo* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.user_id_, lhs_arena,
+      &other->_impl_.user_id_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.token_, lhs_arena,
       &other->_impl_.token_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(UserTokenInfo, _impl_.push_type_)
       + sizeof(UserTokenInfo::_impl_.push_type_)
-      - PROTOBUF_FIELD_OFFSET(UserTokenInfo, _impl_.user_id_)>(
-          reinterpret_cast<char*>(&_impl_.user_id_),
-          reinterpret_cast<char*>(&other->_impl_.user_id_));
+      - PROTOBUF_FIELD_OFFSET(UserTokenInfo, _impl_.push_count_)>(
+          reinterpret_cast<char*>(&_impl_.push_count_),
+          reinterpret_cast<char*>(&other->_impl_.push_count_));
   swap(_impl_.user_type_, other->_impl_.user_type_);
 }
 
